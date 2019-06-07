@@ -1,0 +1,82 @@
+﻿@using bobbySaxyKennel.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+@using Microsoft.AspNet.Identity
+<h2>@ViewBag.Title.</h2>
+
+<div class="row">
+    <div class="col-md-12">
+
+
+    <div class="myForm">
+        <div class="form-center">
+            <div class="title">
+                <h4>Sign In</h4>
+            </div>
+            <div class="form-content">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="text-center"> <h3>
+                         Your Are Logged in already
+                         </h3>
+                        <a href="@Url.Action("SignOut", "Account")" class="btn btn-primary" title="Sign Outs"><i class="glyphicon glyphicon-log-out"> </i> &nbsp; Sign Out</a>
+
+                </div>
+                }
+                else
+                {
+                    using (Html.BeginForm("Login", "Account"))
+                {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "ontrol-label" })
+
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-hash">
+                                Log in
+                            </button>
+
+                        </div>
+                        <p>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </p>
+                    }
+
+                }
+            
+                
+            </div>
+            </div>
+    </div>
+  
+  
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

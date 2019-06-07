@@ -1,0 +1,84 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.QuotaMessage>
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Messages</h2>
+
+<div class="scroll">
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuotaID)
+                </th>
+                <th>
+                    Customer Email /Id<br />
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SellerID)
+                </th>
+
+                <th>
+                    Date Sent
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuotaID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerEmail) / @Html.DisplayFor(modelItem => item.CustomerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+                    </td>
+                    <td>
+                        <textarea class="form-control">
+                     @Html.DisplayFor(modelItem => item.Message)
+        </textarea>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SellerID)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Reply", "ReplyQuota", new { id = item.QuotaID }, htmlAttributes: new { @class = "btn btn-default btn-xs" }) |
+                        @Html.ActionLink( "Open", "QuotaMessage", new {  id=item.QuotaID}) |
+                        @Html.ActionLink( "Delete", "DeleteQuotaMessage", new { id = item.QuotaID }, htmlAttributes: new { @class = "btn btn-default btn-xs" })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7"> No Messages </td>
+            </tr>
+        }
+
+
+    </table>
+
+</div>

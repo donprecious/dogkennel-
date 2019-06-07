@@ -1,0 +1,90 @@
+﻿@model  IEnumerable<bobbySaxyKennel.Models.Pet>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Pets";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var userid = User.Identity.GetUserId();
+    var sellerId = new bobbySaxyKennel.Models.ClassModel.Sellers().GetSellerID(userid);
+    if(sellerId == null)
+    {
+        sellerId = 0;
+    }
+}
+<h2>Pets List</h2>
+<a class="btn btn-primary" href="@Url.Action("AddPet", "Admin", new { sellerID = sellerId})">Add Pet</a>
+<div class="scroll">
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Owner
+                </th>
+                <th>
+                   Name
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Date Created
+                </th>
+                <th>
+
+                </th>
+            </tr>
+
+
+        </thead>
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="8">
+                        <h3>No Items  </h3>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var i in Model)
+                {
+                    <tr>
+                        @{ var petNo = new bobbySaxyKennel.Models.ClassModel.Pets().GetSellerspetNo(i.SellerID);
+                        }
+                        <td>@i.PetID</td>
+                        <td>@i.Seller.User.Email</td>
+                        <td>@i.Name</td>
+                        <td>@i.PetCategory.Name</td>
+                        <td>@i.Description</td>
+                        <td>
+                            <span> @string.Format("{0:N2}", decimal.Floor(i.Amount), 2) </span>
+                        </td>
+                        <td>
+                            <img width="100" height="100" class="img-thumbnail img-responsive"  src="@i.ImgLocation"/>
+                        </td>
+                        <td>@i.Datetime</td>
+                     
+                        <td><a class="btn btn-xs btn-default" href="@Url.Action("EditPet","Admin",new { petId = i.PetID, sellerId=i.SellerID})">Edit</a> | <a class="btn btn-xs btn-default" href="@Url.Action("DeletePet","Admin", new {petid=i.PetID, returnUrl = @Url.Action("SellerPets", "admin", new { id=sellerId })})">Delete</a>  </td>
+                    </tr>
+                                }
+
+                            }
+
+        </tbody>
+    </table>
+
+</div>
+
+

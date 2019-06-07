@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+  
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+ 
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    @RenderSection("css", required:false)
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+@using Microsoft.AspNet.Identity
+@{ 
+    bool logged = User.Identity.IsAuthenticated;
+    string userId = User.Identity.GetUserId();
+    int? sellerID = 0;
+    if (logged)
+    {
+        sellerID = new bobbySaxyKennel.Models.ClassModel.Sellers().GetSellerID(userId);
+        sellerID = (sellerID != null) ? sellerID : 0;
+    }
+    var orders = new bobbySaxyKennel.Models.ClassModel.QuoteMessages().List().Where(a => a.Archieved == false).Count();
+    // int sellerID = 100;
+    var userName = new bobbySaxyKennel.Models.ClassModel.Users().GetUserName(userId);
+
+}
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">BobbySaxxy Admin</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="badge bg-primary">@orders</span> <b class="caret"></b></a>
+                 @Html.Action("shortMessage")
+                </li>
+             
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @userName <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      
+                       
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("SignOut", "Account")"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="@Url.Action("index", "admin")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-folder-o"></i> Pets<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="@Url.Action("AddPet", "admin", new { sellerID=sellerID })"><i class="fa fa-fw fa-plus"></i> Add Pet</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("SellerPets", "admin", new { id=sellerID })"><i class="fa fa-fw fa-list"></i> My Pets</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Pets", "admin")"><i class="fa fa-fw fa-bar-chart-o"></i><i class="fa fa-fw fa-list-ol"></i> All Pets</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                  
+                  
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-inbox"></i> My Messages <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            <li>
+                                <a href="@Url.Action("MyUnreadMessages", "admin", new { id=sellerID })">Unread</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MyReadMessages", "admin", new { id=sellerID })">Read</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Messages", "admin")"><i class="fa fa-fw fa-folder-open"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("CustomerList", "admin")"><i class="fa fa-fw fa-user"></i> Customers</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("SellersList", "admin")"><i class="fa fa-fw fa-md"></i> Sellers</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Users", "admin")"><i class="fa fa-fw fa-user"></i> Users</a>
+                    </li>
+                  
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required:false)
+</body>
+</html>

@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bobsaxydogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Achieved" Type="Boolean" Nullable="false" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Customer_Users" FromRole="Customer" ToRole="Users" />
+    <NavigationProperty Name="QuotaMessages" Relationship="Self.FK_QuotaMessage_Customer" FromRole="Customer" ToRole="QuotaMessage" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_Logins_dbo_Users_UserId" FromRole="Logins" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="PetCategory">
+    <Key>
+      <PropertyRef Name="PetCategoyID" />
+    </Key>
+    <Property Name="PetCategoyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pets" Relationship="Self.FK_Pets_PetCategory" FromRole="PetCategory" ToRole="Pets" />
+  </EntityType>
+  <EntityType Name="Pet">
+    <Key>
+      <PropertyRef Name="PetID" />
+    </Key>
+    <Property Name="PetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SellerID" Type="Int32" Nullable="false" />
+    <Property Name="ImgLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PetCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Datetime" Type="DateTime" Precision="3" />
+    <Property Name="ImgName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PetCategory" Relationship="Self.FK_Pets_PetCategory" FromRole="Pets" ToRole="PetCategory" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK_Pets_Seller" FromRole="Pets" ToRole="Seller" />
+    <NavigationProperty Name="PetView" Relationship="Self.FK_PetViews_Pets" FromRole="Pets" ToRole="PetViews" />
+  </EntityType>
+  <EntityType Name="PetView">
+    <Key>
+      <PropertyRef Name="PetID" />
+    </Key>
+    <Property Name="PetID" Type="Int32" Nullable="false" />
+    <Property Name="NoOfViews" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pet" Relationship="Self.FK_PetViews_Pets" FromRole="PetViews" ToRole="Pets" />
+  </EntityType>
+  <EntityType Name="QuotaMessage">
+    <Key>
+      <PropertyRef Name="QuotaID" />
+    </Key>
+    <Property Name="QuotaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SellerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Archieved" Type="Boolean" Nullable="false" />
+    <Property Name="petId" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_QuotaMessage_Customer" FromRole="QuotaMessage" ToRole="Customer" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK_QuotaMessage_Seller" FromRole="QuotaMessage" ToRole="Seller" />
+    <NavigationProperty Name="QuotaReplies" Relationship="Self.FK_QuotaReply_QuotaMessage" FromRole="QuotaMessage" ToRole="QuotaReply" />
+  </EntityType>
+  <EntityType Name="QuotaReply">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QuotaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QuotaMessage" Relationship="Self.FK_QuotaReply_QuotaMessage" FromRole="QuotaReply" ToRole="QuotaMessage" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.UserRoles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerID" />
+    </Key>
+    <Property Name="SellerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShowEmail" Type="Boolean" Nullable="false" />
+    <Property Name="AddressableEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pets" Relationship="Self.FK_Pets_Seller" FromRole="Seller" ToRole="Pets" />
+    <NavigationProperty Name="QuotaMessages" Relationship="Self.FK_QuotaMessage_Seller" FromRole="Seller" ToRole="QuotaMessage" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Seller_Users" FromRole="Seller" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="UserClaims" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Users" FromRole="Users" ToRole="Customer" />
+    <NavigationProperty Name="Logins" Relationship="Self.FK_dbo_Logins_dbo_Users_UserId" FromRole="Users" ToRole="Logins" />
+    <NavigationProperty Name="Sellers" Relationship="Self.FK_Seller_Users" FromRole="Users" ToRole="Seller" />
+    <NavigationProperty Name="UserClaims" Relationship="Self.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="Users" ToRole="UserClaims" />
+    <NavigationProperty Name="Roles" Relationship="Self.UserRoles" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK_Customer_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaMessage_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="QuotaMessage" Type="Self.QuotaMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="QuotaMessage">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Logins_dbo_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Logins" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Logins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pets_PetCategory">
+    <End Role="PetCategory" Type="Self.PetCategory" Multiplicity="1" />
+    <End Role="Pets" Type="Self.Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetCategory">
+        <PropertyRef Name="PetCategoyID" />
+      </Principal>
+      <Dependent Role="Pets">
+        <PropertyRef Name="PetCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pets_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pets" Type="Self.Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="Pets">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetViews_Pets">
+    <End Role="Pets" Type="Self.Pet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PetViews" Type="Self.PetView" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pets">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="PetViews">
+        <PropertyRef Name="PetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaMessage_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+    <End Role="QuotaMessage" Type="Self.QuotaMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="QuotaMessage">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaReply_QuotaMessage">
+    <End Role="QuotaMessage" Type="Self.QuotaMessage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="QuotaReply" Type="Self.QuotaReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuotaMessage">
+        <PropertyRef Name="QuotaID" />
+      </Principal>
+      <Dependent Role="QuotaReply">
+        <PropertyRef Name="QuotaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seller_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Seller" Type="Self.Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserClaims_dbo_Users_UserId">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserClaims" Type="Self.UserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BobSaxyDogsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="PetCategories" EntityType="Self.PetCategory" />
+    <EntitySet Name="Pets" EntityType="Self.Pet" />
+    <EntitySet Name="PetViews" EntityType="Self.PetView" />
+    <EntitySet Name="QuotaMessages" EntityType="Self.QuotaMessage" />
+    <EntitySet Name="QuotaReplies" EntityType="Self.QuotaReply" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Sellers" EntityType="Self.Seller" />
+    <EntitySet Name="UserClaims" EntityType="Self.UserClaim" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Customer_Users" Association="Self.FK_Customer_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaMessage_Customer" Association="Self.FK_QuotaMessage_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Logins_dbo_Users_UserId" Association="Self.FK_dbo_Logins_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Logins" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pets_PetCategory" Association="Self.FK_Pets_PetCategory">
+      <End Role="PetCategory" EntitySet="PetCategories" />
+      <End Role="Pets" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pets_Seller" Association="Self.FK_Pets_Seller">
+      <End Role="Seller" EntitySet="Sellers" />
+      <End Role="Pets" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetViews_Pets" Association="Self.FK_PetViews_Pets">
+      <End Role="Pets" EntitySet="Pets" />
+      <End Role="PetViews" EntitySet="PetViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaMessage_Seller" Association="Self.FK_QuotaMessage_Seller">
+      <End Role="Seller" EntitySet="Sellers" />
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaReply_QuotaMessage" Association="Self.FK_QuotaReply_QuotaMessage">
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+      <End Role="QuotaReply" EntitySet="QuotaReplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seller_Users" Association="Self.FK_Seller_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Seller" EntitySet="Sellers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserClaims_dbo_Users_UserId" Association="Self.FK_dbo_UserClaims_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserClaims" EntitySet="UserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoles" Association="Self.UserRoles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

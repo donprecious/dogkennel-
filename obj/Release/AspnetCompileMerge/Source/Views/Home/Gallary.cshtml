@@ -1,0 +1,54 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.Pet>
+
+@{
+    ViewBag.Title = "Dog Gallary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="top-margin">
+                <h3><span class="span-heading">Gallary</span></h3>
+                <div>
+                    @if (Model.Count() != 0)
+                    {
+                        <div class="row">
+                            @foreach (var i in Model)
+                            {
+                                <div class="col-md-3">
+                                  @{ 
+                                      var des = new reuseables.StringManipulation().shortString(i.Description);
+                                   }
+                                    <div class="pet-div">
+                                        <a href="@Url.Action("Pet", "Home", new { id=i.PetID})">
+                                            <img class="img-responsive" src="@i.ImgLocation" />
+                                        </a>
+                                        <div class="pet-content-div">
+                                            <h5 class="pet-name text-fancy">@i.Name</h5>
+                                            <p class="pet-des">
+                                            
+                                            @des
+                                            
+                                            </p>
+                                            <p class="pet-amount">&#8358 @string.Format("{0:N2}", decimal.Floor(i.Amount), 2) </p>
+                                            <a href="@Url.Action("Pet", "Home", new { id=i.PetID})" class="btn btn-success">Order</a>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            }
+                         
+                        </div>
+                    }
+                    else
+                    {
+   
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

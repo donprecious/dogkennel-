@@ -1,0 +1,154 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>@ViewBag.Title - Bobby And Saxy Dog Kennel</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @*<link href="css/bootstrap.min.css" rel="stylesheet">*@
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic,900italic" rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" /><![endif]-->
+   
+</head>
+<body class="homepage">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1>
+                    <a class="navbar-brand"  href="@Url.Action("Index", "Home")" >
+                        <strong>Bobby</strong>Saxy<br />
+                        <span data-hover="Kennels">Kennels</span>
+                    </a>
+                </h1>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="@Url.Action("Index", "Home")" title="Home"><span data-hover="Home">Home</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Gallary", "Home")" title="Dog Gallery"><span data-hover="Dog Gallery">Gallary</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("About", "Home")" title="About us"><span data-hover="About us">About us</span></a>
+                    </li>
+                 
+                    <li>
+                        <a href="@Url.Action("Contact", "Home")" title="Contact us"><span data-hover="Contact us">Contact us</span></a>
+                    </li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a href="@Url.Action("Login","Account")" title="Sign in"><span data-hover="Sign in">Sign In</span></a>
+                            </li>
+                        }
+              
+                    <li class="purchase-btn">
+                        
+                            <button type="submit" id="btnOrder" class="btn btn-default">Send an Order</button>
+                        
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="services.html" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="Services"></span> <span class="user-icon"><i class="glyphicon glyphicon-user"></i></span> </a>
+                            <ul class="dropdown-menu">
+                              @{ 
+                             //     string userId = User.Identity.GetUserId();
+                             //    var customerid = new Models.ClassModel.Customers().GetCustomerID(userId);
+                                
+                              }
+                                @*<li>
+                                    <a href="@Url.Action("Messages", "Home", new {id =userId})" title="Message"><i class="glyphicon glyphicon-inbox"> </i> &nbsp; Message</a>
+                                </li>*@
+                                <li>
+                                    <a href="@Url.Action("SignOut", "Account")" title="Sign Outs"><i class="glyphicon glyphicon-log-out"> </i> &nbsp; Sign Out</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                       
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    @RenderBody()
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h6>A little about us</h6>
+                    <p><strong>When it comes to dog we are no 1, in nigeria we supply foreigen dogs to different Locations, provide care services, and also we train dogs</strong></p>
+                    <p>Different Breads of Dogs are available, if we dont have it then we can import it for you. </p>
+                </div>
+              
+                <div class="col-md-3">
+                    <h6>You may need this</h6>
+                    <ul>
+                        <li><a href="#" title="">Home</a></li>
+                        <li><a href="#" title="">Contact us</a></li>
+                        <li><a href="#" title="">FAQ</a></li>
+                        <li><a href="#" title="">Terms &amp; conditions</a></li>
+                        <li><a href="#" title="">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 contact-info">
+                    <h6>Keep in touch</h6>
+                    <p>Here our social page please like us and visit us too</p>
+                    <p class="social">
+                        <a href="#" class="facebook"></a> <a href="#" class="pinterest"></a> <a href="#" class="twitter"></a>
+                    </p>
+                    <p class="c-details">
+                        <span>Mail</span> <a href="#" title=""> Bobbysega2003@gmail.com </a><br>
+                        <span>Tel</span> +2348155560515
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <p>&copy; Copyright 2017. All rights reserved. <a href="#" title="PetCare wordpress theme">BobbySaxy Kennels</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+  
+  @*  <script src="js/bootstrap.min.js"></script>*@
+    <script src="~/js/carouFredSel.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/ekkoLightbox.js"></script>
+    <script src="~/js/custom.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+        $("#signOut").click(function () {
+            window.location.href = "@Url.Action("SignOut", "Account")";
+        });
+        $("#btnOrder").click(function (event) {
+            window.location.href = "@Url.Action("Gallary", "Home")";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<bobbySaxyKennel.Models.Pet>
+
+@{ 
+
+}
+@foreach (var i in Model)
+{
+    if (Model.Count() != 0)
+    {
+        <div class="col-md-4">
+            <a href="@Url.Action("Pet", "Home", new { id=i.PetID})" title="">
+                <img src="@i.ImgLocation" alt="@i.ImgName" />
+            </a>
+            <div class="title">
+                <h5>
+                    <span data-hover="Saint Bernard">@i.Name</span>
+                    <br />
+                </h5>
+
+            </div>
+            <a href="@Url.Action("Pet", "Home", new { id=i.PetID})" class="btn btn-primary btn-block">  Send Order</a>
+        </div>
+    }
+}

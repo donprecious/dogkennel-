@@ -1,0 +1,28 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.QuotaMessage>
+
+<ul class="dropdown-menu message-dropdown">
+    @foreach (var i in Model)
+    {
+        <li class="message-preview">
+            <a href="#">
+                <div class="media">
+                    <span class="pull-left">
+                        <img class="media-object" src="~/images/dog-1.png" width="20" height="20" alt="">
+                    </span>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <strong>@i.Customer.User.FirstName</strong>
+                        </h5>
+                        <p class="small text-muted"><i class="fa fa-clock-o"></i> @i.DateTime</p>
+                        <p>@i.Message</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    }
+
+
+    <li class="message-footer">
+        <a href="@Url.Action("Messages", "Admin")">Read All New Messages</a>
+    </li>
+</ul>

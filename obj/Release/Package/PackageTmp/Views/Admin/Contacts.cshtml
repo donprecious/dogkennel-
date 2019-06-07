@@ -1,0 +1,37 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.Contact>
+
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Contactus Messages</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+        <a href="@Url.Action("DeleteMessage", "Admin", new {id=item.ID })" class="btn btn-xs btn-default">Delete</a>
+          
+        </td>
+    </tr>
+}
+
+</table>

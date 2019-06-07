@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dabd78792432478a876c17311a0da307" Name="Diagram1">
+        <EntityTypeShape EntityType="bobsaxydogsModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Customer" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Login" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.PetCategory" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Pet" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.PetView" Width="1.5" PointX="9.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaMessage" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaReply" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Role" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Seller" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.UserClaim" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.User" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_Customer_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_QuotaMessage_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_dbo_Logins_dbo_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_Pets_PetCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_Pets_Seller" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_PetViews_Pets" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_QuotaMessage_Seller" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_QuotaReply_QuotaMessage" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_Seller_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.FK_dbo_UserClaims_dbo_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="bobsaxydogsModel.UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

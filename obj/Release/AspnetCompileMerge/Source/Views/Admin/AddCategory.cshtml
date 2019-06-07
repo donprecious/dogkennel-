@@ -1,0 +1,72 @@
+﻿@model bobbySaxyKennel.Models.ViewModels.PetVm
+
+@{
+    ViewBag.Title = "Add Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+} 
+<div class="row">
+    <div class="col-sm-6">
+        <div class="myForm">
+            <div class="form-default">
+                <div class="title">
+                    <h2>Add  pet category</h2>
+                </div>
+                <div class="form-content">
+                    @using (Html.BeginForm("AddCategory", "Admin"))
+            {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                       
+                     
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Category Name" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                            @Html.TextAreaFor(model => model.Description, new{ @class = "form-control", placeholder = "Describtion" } )
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Create <img src="~/images/AjaxLoader/ringLoading1.gif" id="imgLoad" class="hide-loder" width="20" height="20" /> </button>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        @Html.Action("CategoryList")
+
+
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "SellerList", "Admin")
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal-label">Notification</h4>
+            </div>
+            <div class="modal-body">
+                <p id="txtMsg"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

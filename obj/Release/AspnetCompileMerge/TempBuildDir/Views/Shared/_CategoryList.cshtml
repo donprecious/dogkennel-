@@ -1,0 +1,39 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.PetCategory>
+
+<div class="scroll">
+    <table class="table table-bordered table-responsive" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model == null)
+            {
+                <tr>
+                    <td colspan="3"><h3>No item</h3></td>
+                </tr>
+            }
+            else{ 
+            foreach (var i in Model)
+            {
+                <tr>
+                    <td >@i.PetCategoyID</td>
+                    <td>@i.Name</td>
+                    <td>@i.Description</td>
+                    <td>
+                       
+                       
+                            <a href="@Url.Action("DeleteCategory","Admin",new { id= i.PetCategoyID })" class="btn btn-xs btn-default"> Delete  </a>
+                        <a href="@Url.Action("EditCategory","Admin",new { id= i.PetCategoyID })" class="btn btn-xs btn-default"> Edit </a>
+                     
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+</div>

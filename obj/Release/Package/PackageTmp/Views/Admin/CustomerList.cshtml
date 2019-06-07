@@ -1,0 +1,48 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.Customer>
+
+@{
+    ViewBag.Title = "CustomerList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Customer List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> ID</th>
+            <th> Email</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th></th>
+        </tr>
+    </thead>
+ <tbody>
+     @if (Model!= null)
+     {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.User.Email</td>
+                <td>@item.User.FirstName  @item.User.LastName</td>
+                <td>@item.User.PhoneNumber</td>
+              
+                <td>
+                  
+                    @Html.ActionLink("Delete","DeleteCustomer", new { id=item.CustomerID })
+                </td>
+            </tr>
+         }
+     }
+     else
+     {
+         <tr>
+             <td><h3>No Data</h3></td>
+         </tr>
+     }
+ </tbody>
+
+
+
+</table>
