@@ -1,0 +1,163 @@
+﻿@model bobbySaxyKennel.Models.ViewModels.OrderVm
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
+    <div id="RegisterSelect" class="columns">
+        <br>
+        <section>
+            <div class="title-top">Check out  </div>
+            <div class="wPanel" style="border-radius: 0px 0px 5px 5px; display: inline-block">
+                @if (!Request.IsAuthenticated)
+                {
+                    <div class="newReg medium-50 columns" >
+                        <h3>NEW TO Khaleej tacos?</h3>
+                        <p>Begin by clicking the Register button below.</p>
+                        <div class="row" style="text-align: left; margin-bottom: 10px;">
+                            <div class="large-37 med-large-39 medium-100 small-100 column">
+                                <input id="btnNewcustomer"
+                                       class="button primaryAddButton" type="button" style="font-size: 16px;" value="Register">
+                            </div>
+                            <div class="large-60 med-large-60 medium-100 small-100 column">
+                                <input id="btnFacebookRegister"
+                                       class="button primaryAddButton fbButton" type="button" style="font-size: 16px;"
+                                       value="Register Using Facebook">
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <h3>Welcome @Model.Customer.User.FirstName @Model.Customer.User.LastName</h3>
+                    <p>@Model.Customer.User.Email</p>
+                }
+                <div class="newReg medium-50 columns">
+                    <h3>NEW TO Khaleej tacos?</h3>
+                    <p>Begin by clicking the Register button below.</p>
+                    <div class="row" style="text-align: left; margin-bottom: 10px;">
+                        <div class="large-37 med-large-39 medium-100 small-100 column">
+                            <input id="btnNewcustomer"
+                                   class="button primaryAddButton" type="button" style="font-size: 16px;" value="Register">
+                        </div>
+                        <div class="large-60 med-large-60 medium-100 small-100 column">
+                            <input id="btnFacebookRegister"
+                                   class="button primaryAddButton fbButton" type="button" style="font-size: 16px;"
+                                   value="Register Using Facebook">
+                        </div>
+                    </div>
+                </div>
+                <div class="qckAct medium-50 columns">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <p> <b>Pizza: </b> @Model.Product.Name  <br/>
+                            <b>Description:</b> @Model.Product.Description <br/>
+                            <b>Total: </b> AED @Model.TotalPrice.ToString("N") <br/>
+                            <b>Quantity</b> @Model.Quantity 
+                         </p>
+                
+                        <p>@Model.DeliveryAddress</p>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(a => a.CustomerId)
+
+                        @Html.HiddenFor(a => a.PetId)
+
+                        @Html.HiddenFor(a => a.TotalPrice)
+                        @Html.HiddenFor(a => a.Quantity)
+
+                        <label>Full Name</label>
+                        <input type="text" size="32" placeholder="Full Name" disabled="disabled" value="@Model.Customer.User.FirstName  @Model.Customer.User.LastName" maxlength="50" style="max-width: 350px">
+                        <label>Email</label>
+                        <input type="text" size="32" placeholder="Email Address" disabled="disabled" value="@Model.Customer.User.Email" maxlength="50" style="max-width: 350px">
+                        <label>Phone Number</label>
+                        <input type="text" size="32" name="@Html.NameFor(a => a.AddtionalPhoneNo)" placeholder="Phone Number" maxlength="50" value="@Model.Customer.User.PhoneNumber" style="max-width: 350px">
+                        <label>Delivery Address</label>
+                        <textarea size="32" placeholder="Delivery Address" name="@Html.NameFor(a => a.DeliveryAddress)" maxlength="50" style="max-width: 350px"></textarea>
+                        <label>Additional Note</label>
+                        <textarea size="32" placeholder="Delivery Address" name="@Html.NameFor(a => a.AdditionalNote)" maxlength="50" style="max-width: 350px"></textarea>
+
+                        <div style="text-align: left; margin-bottom: 10px;">
+                            <input id="btnExistingcustomer"
+                                   class="button primaryAddButton" type="submit" style="font-size: 16px;"
+                                   value="Order Now">
+                        </div>
+                        @*<div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DeliveryAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DeliveryAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DeliveryAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AddtionalPhoneNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AddtionalPhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AddtionalPhoneNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PetId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PetId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PetId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TotalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>*@
+                    }
+
+                </div>
+            </div> <br> <br>
+        </section>
+    </div>
+</div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+

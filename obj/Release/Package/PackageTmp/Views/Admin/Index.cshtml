@@ -3,7 +3,7 @@
     
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    var orders = new bobbySaxyKennel.Models.ClassModel.QuoteMessages().List().Where(a => a.Archieved == false).Count();
+    var orders = new bobbySaxyKennel.Models.ClassModel.Orders().List().Where(a => a.Status.ToLower()== "pending").Count();
     var contactMsg = new bobbySaxyKennel.Models.ClassModel.Contacts().List().Count();
     var petNo = new bobbySaxyKennel.Models.ClassModel.Pets().List().Count();
 
@@ -38,11 +38,11 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">@orders </div>
-                                <div>New Orders / Quota!</div>
+                                <div>New Orders </div>
                             </div>
                         </div>
                     </div>
-                    <a href="@Url.Action("Messages","Admin")">
+                    <a href="@Url.Action("Orders","Admin")">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">@petNo</div>
-                                <div>My Pets(Dogs)</div>
+                                <div>Items</div>
                             </div>
                         </div>
                     </div>

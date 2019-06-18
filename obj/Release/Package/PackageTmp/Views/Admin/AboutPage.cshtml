@@ -1,0 +1,47 @@
+﻿@model bobbySaxyKennel.Models.ViewModels.AboutVm
+
+
+
+@{
+    ViewBag.Title = "Faq";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4> Edit Faq</h4>
+        <hr /> 
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(a=>a.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.About1, htmlAttributes: new { @class = "control-label" })
+          
+            @Html.TextAreaFor(model => model.About1, new { @class = "form-control", id= "txt" } )
+            @Html.ValidationMessageFor(model => model.About1, "", new { @class = "text-danger" })
+      
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section css
+{
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script>
+        $('#txt').summernote({ height: 300 });
+    </script>
+}

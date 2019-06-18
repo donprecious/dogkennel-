@@ -10,7 +10,7 @@
         sellerId = 0;
     }
 }
-<h2>Pets List</h2>
+<h2>Items</h2>
 <a class="btn btn-primary" href="@Url.Action("AddPet", "Admin", new { sellerID = sellerId})">Add Pet</a>
 <div class="scroll">
     <table class="table table-bordered table-responsive">
@@ -19,9 +19,7 @@
                 <th>
                     ID
                 </th>
-                <th>
-                    Owner
-                </th>
+               
                 <th>
                    Name
                 </th>
@@ -64,19 +62,20 @@
                         @{ var petNo = new bobbySaxyKennel.Models.ClassModel.Pets().GetSellerspetNo(i.SellerID);
                         }
                         <td>@i.PetID</td>
-                        <td>@i.Seller.User.Email</td>
+                       
                         <td>@i.Name</td>
                         <td>  @i.PetCategory.Name</td>
                         <td>@i.Description</td>
                         <td>
-                        <span> @string.Format("{0:N2}", decimal.Floor(i.Amount), 2) </span>
+                        <span> AED @string.Format("{0:N2}", decimal.Floor(i.Amount), 2) </span>
                       
                         <td>
                             <img width="100" height="100" class="img-thumbnail img-responsive"  src="@i.ImgLocation"/>
                         </td>
                         <td>@i.Datetime</td>
                      
-                        <td><a class="btn btn-xs btn-default" href="@Url.Action("EditPet","Admin",new { petId = i.PetID, sellerId=i.SellerID})">Edit</a> | <a class="btn btn-xs btn-default" href="@Url.Action("DeletePet","Admin", new {petid=i.PetID, returnUrl = "/Admin/Pets"})">Delete</a>  </td>
+                        <td><a class="btn btn-xs btn-default" href="@Url.Action("EditPet","Admin",new { petId = i.PetID, sellerId=i.SellerID})">Edit</a> 
+                        | <a class="btn btn-xs btn-default" href="@Url.Action("DeletePet","Admin", new {petid=i.PetID})">Delete</a>  </td>
                     </tr>
                                 }
 

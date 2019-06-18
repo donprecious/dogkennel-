@@ -31,8 +31,8 @@
     int? sellerID = 0;
     if (logged)
     {
-        sellerID = new bobbySaxyKennel.Models.ClassModel.Sellers().GetSellerID(userId);
-        sellerID = (sellerID != null) ? sellerID : 0;
+        sellerID = new bobbySaxyKennel.Models.ClassModel.Sellers().GetSellerIdFromUserId(userId);
+ 
     }
     var orders = new bobbySaxyKennel.Models.ClassModel.QuoteMessages().List().Where(a => a.Archieved == false).Count();
     // int sellerID = 100;
@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">BobbySaxxy Admin</a>
+                <a class="navbar-brand" href="@Url.Action("Index","Admin")">Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -79,46 +79,75 @@
                         <a href="@Url.Action("index", "admin")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-folder-o"></i> Pets<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-folder-o"></i> Items<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="@Url.Action("AddPet", "admin", new { sellerID=sellerID })"><i class="fa fa-fw fa-plus"></i> Add Pet</a>
+                                <a href="@Url.Action("AddPet", "admin", new { sellerID=sellerID })"><i class="fa fa-fw fa-plus"></i> Add Item</a>
                             </li>
+                       
                             <li>
-                                <a href="@Url.Action("SellerPets", "admin", new { id=sellerID })"><i class="fa fa-fw fa-list"></i> My Pets</a>
+                                <a href="@Url.Action("Pets", "admin")"><i class="fa fa-fw fa-bar-chart-o"></i><i class="fa fa-fw fa-list-ol"></i> All Items</a>
                             </li>
-                            <li>
-                                <a href="@Url.Action("Pets", "admin")"><i class="fa fa-fw fa-bar-chart-o"></i><i class="fa fa-fw fa-list-ol"></i> All Pets</a>
-                            </li>
-                        
-                        </ul>
-                    </li>
-                  
-                  
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-inbox"></i> My Messages <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo2" class="collapse">
-                            <li>
-                                <a href="@Url.Action("MyUnreadMessages", "admin", new { id=sellerID })">Unread</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("MyReadMessages", "admin", new { id=sellerID })">Read</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
-                        <a href="@Url.Action("Messages", "admin")"><i class="fa fa-fw fa-folder-open"></i> Messages</a>
+                        <a href="@Url.Action("AddCategory", "admin")"><i class="fa fa-fw fa-plus"></i> Add Category</a>
+                      
                     </li>
+                    <li>
+                        <a href="@Url.Action("AddSubCategory", "admin")"><i class="fa fa-fw fa-plus"></i> Add Sub Category</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Orders", "admin")"><i class="fa fa-fw fa-map-marker"></i> Orders</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("AddLocation", "admin")"><i class="fa fa-fw fa-map-marker"></i> Toppings</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contacts", "admin")"><i class="fa fa-fw fa-map-marker"></i> Messages From Contact Us</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("AboutPage", "admin")"><i class="fa fa-fw fa-map-marker"></i> Edit About</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Faq", "admin")"><i class="fa fa-fw fa-map-marker"></i> Edit Faq</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("PolicyPage", "admin")"><i class="fa fa-fw fa-map-marker"></i>Edit Policy </a>
+
+                    </li>
+
+                    @*<li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-inbox"></i> My Messages <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo2" class="collapse">
+                <li>
+                    <a href="@Url.Action("MyUnreadMessages", "admin", new { id=sellerID })">Unread</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyReadMessages", "admin", new { id=sellerID })">Read</a>
+                </li>
+            </ul>
+        </li>*@
+                    @*<li>
+            <a href="@Url.Action("Messages", "admin")"><i class="fa fa-fw fa-folder-open"></i> Messages</a>
+        </li>*@
                     <li>
                         <a href="@Url.Action("CustomerList", "admin")"><i class="fa fa-fw fa-user"></i> Customers</a>
                     </li>
-                    <li>
-                        <a href="@Url.Action("SellersList", "admin")"><i class="fa fa-fw fa-md"></i> Sellers</a>
-                    </li>
+                    @*<li>
+            <a href="@Url.Action("SellersList", "admin")"><i class="fa fa-fw fa-md"></i> Sellers</a>
+        </li>*@
+
                     <li>
                         <a href="@Url.Action("Users", "admin")"><i class="fa fa-fw fa-user"></i> Users</a>
                     </li>
-                  
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

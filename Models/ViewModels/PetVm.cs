@@ -32,5 +32,9 @@ namespace bobbySaxyKennel.Models.ViewModels
         [Display(Name= "Select Category")]
         public int CategoryID { get; set; }
 
+        public int SubCategoryId { get; set; }
+ 
+
+
     }
 }

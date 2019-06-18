@@ -14,6 +14,12 @@ namespace bobbySaxyKennel.Models
     
     public partial class Pet
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pet()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int PetID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -21,11 +27,15 @@ namespace bobbySaxyKennel.Models
         public int SellerID { get; set; }
         public string ImgLocation { get; set; }
         public int PetCategoryID { get; set; }
+        public Nullable<int> SubCategoryId { get; set; }
         public Nullable<System.DateTime> Datetime { get; set; }
         public string ImgName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
         public virtual PetCategory PetCategory { get; set; }
         public virtual Seller Seller { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
         public virtual PetView PetView { get; set; }
     }
 }

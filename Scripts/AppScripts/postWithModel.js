@@ -42,7 +42,7 @@ $(function () {
                     });
                     //   $(".validation-summary-errors ul li").append("<li> $response.errors. <li>`)
 
-                    $(".validation-summary-errors ul li").show()
+                    $(".validation-summary-errors ul li").show();
                     $("#errorSummary").show();
                 }
                 console.log(response);

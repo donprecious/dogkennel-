@@ -25,17 +25,24 @@ namespace bobbySaxyKennel.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Faq> Faqs { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PetCategory> PetCategories { get; set; }
         public virtual DbSet<Pet> Pets { get; set; }
         public virtual DbSet<PetView> PetViews { get; set; }
+        public virtual DbSet<Policy> Policies { get; set; }
         public virtual DbSet<QuotaMessage> QuotaMessages { get; set; }
         public virtual DbSet<QuotaReply> QuotaReplies { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
+        public virtual DbSet<SubCategory> SubCategories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Topping> Toppings { get; set; }
         public virtual DbSet<UserClaim> UserClaims { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

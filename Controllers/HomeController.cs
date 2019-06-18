@@ -18,9 +18,8 @@ namespace bobbySaxyKennel.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var page = new Models.ClassModel.About().Find();
+            return View(page);
         }
 
         public ActionResult Contact()
@@ -29,6 +28,7 @@ namespace bobbySaxyKennel.Controllers
 
             return View();
         }
+
 
  
         public ActionResult ContactUs()
@@ -51,6 +51,22 @@ namespace bobbySaxyKennel.Controllers
            
             return Json(new { status = 0, message = "Failed to send", errors = ModelErrors() });
             
+        }
+
+        public ActionResult Faq()
+        {
+            var page = new Models.ClassModel.Faq().Find();
+            return View(page);
+        }
+
+        public ActionResult Privacy()
+        {
+            var page = new Models.ClassModel.Policy().Find();
+            return View(page);
+        }
+        public ActionResult Terms()
+        {
+            return View();
         }
 
         public ActionResult Pet(int id)

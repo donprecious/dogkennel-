@@ -156,7 +156,7 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DateStamp = DateTime.UtcNow, PhoneNumber=model.PhoneNumber };
+                var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, DateStamp = DateTime.UtcNow, PhoneNumber=model.PhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

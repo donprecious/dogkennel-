@@ -12,4 +12,14 @@ namespace bobbySaxyKennel.Models.ViewModels
 
         public string Description { get; set; }
     }
+
+    public class SubCategoryVm
+    {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
+    }
 }

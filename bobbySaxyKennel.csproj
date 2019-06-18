@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -196,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,7 +215,12 @@
       <DependentUpon>201809271418353_AddressProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\About.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ClassModel\Categories.cs" />
+    <Compile Include="Models\ClassModel\Orders.cs" />
+    <Compile Include="Models\ClassModel\Policy.cs" />
     <Compile Include="Models\ClassModel\Users.cs" />
     <Compile Include="Models\Contact.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -222,6 +229,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Faq.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs">
@@ -242,6 +252,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pet.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -249,6 +262,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetView.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Policy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuotaMessage.cs">
@@ -261,6 +277,15 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Seller.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Topping.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -279,9 +304,12 @@
     <Compile Include="Models\ViewModels\ContactVm.cs" />
     <Compile Include="Models\ViewModels\CustomerVm.cs" />
     <Compile Include="Models\ViewModels\IdentityModels.cs" />
+    <Compile Include="Models\ViewModels\LocationVm.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\MessageVm.cs" />
+    <Compile Include="Models\ViewModels\OrderVm.cs" />
     <Compile Include="Models\ViewModels\PetVm.cs" />
+    <Compile Include="Models\ViewModels\PolicyVm.cs" />
     <Compile Include="Models\ViewModels\QuotaVm.cs" />
     <Compile Include="Models\ViewModels\SellerVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -292,6 +320,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\croppie.css" />
+    <Content Include="css\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -348,6 +377,132 @@
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.bxslider.min.js" />
     <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="Models\Model1.edmx.sql" />
+    <Content Include="Pizza\about.html" />
+    <Content Include="Pizza\checkout.html" />
+    <Content Include="Pizza\contactus.html" />
+    <Content Include="Pizza\customise.html" />
+    <Content Include="Pizza\empty.html" />
+    <Content Include="Pizza\faq.html" />
+    <Content Include="Pizza\images\icon-menu.html" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000164.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000165.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000166.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000167.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000168.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000169.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000170.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000171.jpg" />
+    <Content Include="Pizza\images\loader.gif" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000052-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000052-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000063-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000063-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000020-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000020-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000044-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000044-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000046-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000046-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000059-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000059-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000061-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000061-un.jpg" />
+    <Content Include="Pizza\images\SharedImages\add_to_cart_btn.png" />
+    <Content Include="Pizza\images\SharedImages\spin-down-w.png" />
+    <Content Include="Pizza\images\SharedImages\spin-up-w.png" />
+    <Content Include="Pizza\Image\big-pizza.html" />
+    <Content Include="Pizza\index.html" />
+    <Content Include="Pizza\login.html" />
+    <Content Include="Pizza\MinifiedScripts\Scripts5894.js" />
+    <Content Include="Pizza\MinifiedScripts\Scripts9839.js" />
+    <Content Include="Pizza\MinifiedScripts\ThirdParty4dfa.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts5894.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts9839.js" />
+    <Content Include="Pizza\pizzas.html" />
+    <Content Include="Pizza\privacy.html" />
+    <Content Include="Pizza\register.html" />
+    <Content Include="Pizza\register2.html" />
+    <Content Include="Pizza\terms.html" />
+    <Content Include="Pizza\Themes\jquery-2.2.3.min.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\CssFile.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\combobtn.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\combobtnhot.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-anim_basic_16x16.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_flat_0_aaaaaa_40x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_flat_75_ffffff_40x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_55_fbf9ee_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_65_ffffff_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_75_dadada_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_75_e6e6e6_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_95_fef1ec_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_highlight-soft_75_cccccc_1x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_222222_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_2e83ff_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_454545_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_888888_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_cd0a0a_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\lang_en.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\lang_un.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.svg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\font_en.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\font_un.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\404-error-page.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_full_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_left_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_no_full_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_right_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\appDownload.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\arrows_strloc_cornernav.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\background-new.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\bottom-bar-bg-hover.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\bottom-bar-bg.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-add-un.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-add.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow-disabled.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow3.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-bg.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-disabled.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\call-us-blk.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\call_button3.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\check.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\combobtn.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-bg.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-bg2.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-down.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-up.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\down_arrow.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\dropdown-arrow.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\faq-arrow-1.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\faq-arrow-2.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\fbbutton.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\filter_button.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\footer.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\img_trans.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\included-sash.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_blocks.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_thumbs.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_thumbs_active.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\logo.PNG" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\mCSB_buttons.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\nomodcode.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pagination.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizza-hut.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizzahut.PNG" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizza_Ar.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\radio-check.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\sliderArrow.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\small-button-repeat-black.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\SocialButtons.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\sprites.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\GESPromotionbea6.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\ItemsAvailabilityValidationf15d.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\OrderTrackingOverride1bce.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\OrderTrackingOverridebea6.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\PizzaDiscount5059.js" />
     <Content Include="Scripts\AppScripts\CroppieModalCrop.js" />
     <Content Include="Scripts\AppScripts\fileUpload.js" />
     <Content Include="Scripts\AppScripts\PostForm.js" />
@@ -374,9 +529,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <None Include="Properties\PublishProfiles\bobbysaxy - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\bobbysaxy - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.eot" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.ttf" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.woff" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfontd41d.eot" />
+    <Content Include="pizzaDb,bak" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\croppie.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -494,6 +653,25 @@
     <Content Include="Views\Admin\Contacts.cshtml" />
     <Content Include="Views\Admin\QuotaMessage.cshtml" />
     <Content Include="Views\Shared\_ShortPets.cshtml" />
+    <Content Include="Views\Admin\SubCategoryList.cshtml" />
+    <Content Include="Views\Admin\AddSubCategory.cshtml" />
+    <Content Include="Views\Admin\EditSubCategory.cshtml" />
+    <Content Include="Views\Shared\_SubCategoryList.cshtml" />
+    <Content Include="Views\Shared\_home.cshtml" />
+    <Content Include="Views\Admin\EditLocation.cshtml" />
+    <Content Include="Views\Admin\AddLocation.cshtml" />
+    <Content Include="Views\Admin\_LocationList.cshtml" />
+    <Content Include="Views\Item\_Item.cshtml" />
+    <Content Include="Views\Item\CheckOut.cshtml" />
+    <Content Include="Views\Item\OrderComplete.cshtml" />
+    <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Home\Faq.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Admin\Faq.cshtml" />
+    <Content Include="Views\Admin\AboutPage.cshtml" />
+    <Content Include="Views\Admin\PolicyPage.cshtml" />
+    <Content Include="Views\Item\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,6 +18,7 @@ namespace bobbySaxyKennel.Models
         public PetCategory()
         {
             this.Pets = new HashSet<Pet>();
+            this.SubCategories = new HashSet<SubCategory>();
         }
     
         public int PetCategoyID { get; set; }
@@ -26,5 +27,7 @@ namespace bobbySaxyKennel.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pet> Pets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubCategory> SubCategories { get; set; }
     }
 }

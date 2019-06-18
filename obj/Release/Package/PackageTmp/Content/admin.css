@@ -112,6 +112,19 @@ input:hover, input:focus, .form-control:hover, .form-control:focus {
        background-size:contain;
        background-position:center;
     }
+.note-editor.note-frame.panel  {
+    color: black;
+}
+.note-editor.note-frame.panel p {
+    color: black;
+}
+
+    .note-editor.note-frame.panel h1, .note-editor.note-frame.panel h2, .note-editor.note-frame.panel h3,
+    .note-editor.note-frame.panel h4, .note-editor.note-frame.panel h5, .note-editor.note-frame.panel h6,
+    .note-editor.note-frame.panel p {
+        color: black;
+    }
+
 @media screen and (max-width: 500px) {
     .form-center {
         width: 90%;

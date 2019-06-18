@@ -1,26 +1,31 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-<div class="container top-margin">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <address>
-                One Microsoft Way<br />
-                Redmond, WA 98052-6399<br />
-                <abbr title="Phone">P:</abbr>
-                425.555.0100
-            </address>
-            <address>
-                <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-                <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-            </address>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          @Html.Action("ContactUs")
-        </div>
+
+<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
+    <div class="columns">
+        <h1 class="background_page_title">Contact us</h1>
+        <form id="" style="margin-top: 20px">
+            <div class="small-12 small-land-12 medium-port-8 large-9 columns">
+                <div id="constrainInputWidth" class="section-container accordion" data-section="accordion" style="">
+                    <div class="title-top title text-left">
+                        Email us your feedback
+                        <span class="required">* required</span>
+                    </div>
+                    <div class="wPanel contactBorder" data-section-content="">
+                        <div class="row" style="padding: 20px;">
+                            @Html.Action("ContactUs")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+   
     </div>
 </div>
 
+@section Scripts
+{
 
+    <script src="~/Scripts/AppScripts/postWithModel.js"></script>
+}

@@ -46,8 +46,26 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         }
 
-       
 
+        public bool CheckIfUserIsASeller(string userID)
+        {
+            try
+            {
+                using (db = new BobSaxyDogsEntities())
+                {
+
+                    return db.Sellers.Any(a => a.UserID == userID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                returnMessage = ex.Message;
+                return false;
+            }
+
+        }
         public bool Find(int sellerId)
         {
             try
@@ -66,6 +84,31 @@ namespace bobbySaxyKennel.Models.ClassModel
 
                 returnMessage = ex.Message;
                 return false;
+            }
+
+        }
+
+        public int GetSellerIdFromUserId(string userId)
+        {
+            try
+            {
+                using (db = new BobSaxyDogsEntities())
+                {
+                    var da = db.Sellers.FirstOrDefault(a => a.UserID == userId);
+                    if (da != null)
+                    {
+                        return da.SellerID;
+                    }
+
+                    return 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                returnMessage = ex.Message;
+                return 0;
             }
 
         }

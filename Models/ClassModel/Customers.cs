@@ -104,7 +104,6 @@ namespace Models.ClassModel
                     var r = db.Customers.Include(a=>a.User).Include(a=>a.QuotaMessages).Where(a=>a.CustomerID == customerId).SingleOrDefault();
                     if (r != null)
                     {
-                     
                         return r;
                     }
                     return null;

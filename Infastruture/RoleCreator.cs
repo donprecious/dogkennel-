@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using bobbySaxyKennel.Models.ClassModel;
+using Models.ClassModel;
 
 namespace Reusable
 {
@@ -45,10 +47,12 @@ namespace Reusable
             //Here we create a Admin super user who will maintain the website                  
 
             var user = new ApplicationUser();
-            user.UserName = "Iyeritufu@gmail.com";
-            user.Email = "Iyeritufu@gmail.com";
+            user.UserName = "don0@gmail.com";
+            user.Email = "don0@gmail.com";
+            user.FirstName = "Admin";
+            user.LastName = "Admin";
             user.DateStamp = DateTime.UtcNow;
-            string password = "precious0don";
+            string password = "don0@gmail.com";
 
             //find user{
             var findUser = UserManager.FindByEmail(user.Email);
@@ -61,6 +65,22 @@ namespace Reusable
                 {
                     var result1 = UserManager.AddToRole(user.Id, superRole);
                     result1 = UserManager.AddToRole(user.Id, regRole);
+
+                    // Add User as Default Seller - specific for this type of application only
+                    var seller = new Sellers();
+                    //check for seller 
+                    if (seller.CheckIfUserIsASeller(user.Id) == false)
+                    {
+                        //add user
+                        seller.Add(user.Id, user.Email);
+                    }
+                    
+                    var customer = new Customers();
+                    if (customer.GetCustomerID(user.Id) == null)
+                    {
+                        customer.Add(user.Id);
+                    }
+                        
                 }
             }
             else

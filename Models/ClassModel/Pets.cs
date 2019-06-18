@@ -25,7 +25,7 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         //}
 
-        public bool Add(string name, string description, decimal amount, int sellerid, string imgLocation, string imgName, int petCategory)
+        public bool Add(string name, string description, decimal amount, int sellerid, string imgLocation, string imgName, int petCategory, int subCategory)
         {
             try
             {
@@ -39,6 +39,7 @@ namespace bobbySaxyKennel.Models.ClassModel
                         SellerID = sellerid,
                         ImgLocation = imgLocation,
                         PetCategoryID = petCategory,
+                        SubCategoryId = subCategory,
                         Datetime = DateTime.UtcNow,
                         ImgName = imgName
                     };
@@ -206,7 +207,12 @@ namespace bobbySaxyKennel.Models.ClassModel
         {
             using (db = new BobSaxyDogsEntities())
             {
-                return db.Pets.Include(a => a.PetCategory).Include(a => a.Seller.User).ToList<Pet>();
+                return db.Pets.Include(a => a.PetCategory).
+                    Include(a=>a.PetCategory)
+                    .Include(a => a.Seller)
+                    .Include(a=>a.SubCategory)
+                    .Include(a=>a.PetCategory.SubCategories)
+                    .ToList<Pet>();
             }
         } 
 

@@ -3,16 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using bobbySaxyKennel.Models;
 using bobbySaxyKennel.Models.ClassModel;
+using bobbySaxyKennel.Models.ViewModels;
 using Models.ClassModel;
 using Infrastructure;
+using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity;
+using About = bobbySaxyKennel.Models.About;
+using Faq = bobbySaxyKennel.Models.ClassModel.Faq;
+using Policy = bobbySaxyKennel.Models.ClassModel.Policy;
+
+
 namespace bobbySaxyKennel.Controllers
 {
     [Authorize (Roles ="Admin, SuperAdmin")]
     public class AdminController : Controller
     {
         // GET: Admin
+        
+
+        private string UserId()
+        {
+            return User.Identity.GetUserId();
+
+        }
+
+        private int SellerId()
+        {
+          
+            return new Sellers().GetSellerIdFromUserId(UserId()) ;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -39,7 +61,7 @@ namespace bobbySaxyKennel.Controllers
             return View(m);
         }
 
-        
+       
         public ActionResult DeleteSeller(int id)
         {
             if (new Sellers().Delete(id))
@@ -64,8 +86,8 @@ namespace bobbySaxyKennel.Controllers
                 m.PhoneNumber = list.User.PhoneNumber;
                 m.Address = list.User.Address;
                 m.AddressableEmail = list.AddressableEmail;
-                m.Password = "xxxxxx0";
-                m.ConfirmPassword = "xxxxxx0";
+                m.Password = "xxxxxx";
+                m.ConfirmPassword = "xxxxxx";
             }
             return View(m);
         }
@@ -81,6 +103,7 @@ namespace bobbySaxyKennel.Controllers
             return RedirectToAction("Contacts","Admin");
 
         }
+
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult EditSeller(Models.ViewModels.SellerVm m)
         {
@@ -156,10 +179,10 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                var add = new Pets().Add(m.Name, m.Description, m.Amount, m.SellerId, m.ImgLoc, m.ImgName, m.CategoryID);
+                var add = new Pets().Add(m.Name, m.Description, m.Amount, m.SellerId, m.ImgLoc, m.ImgName, m.CategoryID, m.SubCategoryId);
                 if (add)
                 {
-                    return Json(new { status = 200, message = "Pet Added Successfully" });
+                    return Json(new { status = 200, message = "Item Added Successfully" });
                 }
                 else
                 {
@@ -172,7 +195,7 @@ namespace bobbySaxyKennel.Controllers
         }
 
        
-        public ActionResult DeletePet(int petid, string returnUrl)
+        public ActionResult DeletePet(int petid)
         {
             var petName = new Pets().Getpet(petid).ImgName;
             var delete =new Pets().Delete(petid);
@@ -180,10 +203,67 @@ namespace bobbySaxyKennel.Controllers
             if (new Pets().Delete(petid))
             {
                 var delRes = Infrastructure.FileUpload.DeleteFromCloud(petName);
-                return Redirect(returnUrl);
+                return RedirectToAction("Pets");
             }
-            return Redirect(returnUrl);
+            return RedirectToAction("Pets");
         }
+
+        public ActionResult AddLocation()
+        {
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+
+        public ActionResult AddLocation(LocationVm m)
+        {
+           
+            var loc = new ToppingService().Add(m.Name, m.Description);
+            
+            return RedirectToAction("AddLocation");
+        }
+
+
+        public ActionResult EditLocation(int Id)
+        {
+            var loc = new ToppingService().GetTopping(Id);
+            var m = new LocationVm()
+            {
+                Id = loc.Id,
+                Name = loc.Name,
+                Description = loc.Description
+            };
+            return View(m);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult EditLocation(LocationVm m)
+        {
+            var loc = new ToppingService().Edit(m.Id,m.Name, m.Description);
+
+            return RedirectToAction("AddLocation");
+        }
+
+        public ActionResult DeleteLocation(int Id)
+        {
+            var del = new ToppingService().Delete(Id);
+            return RedirectToAction("AddLocation");
+
+        }
+
+        public ActionResult LocationList()
+        {
+            var list = new ToppingService().List();
+            return PartialView("_LocationList",list);
+        }
+
+        public ActionResult JsonLocationList()
+        {
+            var list = new ToppingService().List();
+            return Json( list, JsonRequestBehavior.AllowGet);
+        }
+
+
 
         public ActionResult EditPet(int petId, int sellerId)
         {
@@ -241,6 +321,84 @@ namespace bobbySaxyKennel.Controllers
             return Json(new { status = 0, message = "Failed" }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult AddSubCategory()
+        {
+            return View();
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult AddSubCategory(Models.ViewModels.SubCategoryVm m)
+        {
+            if (ModelState.IsValid)
+            {
+                if(new Models.ClassModel.SubCategories().Add(m.Name,m.CategoryId,m.Description))
+                {
+                    return RedirectToAction("AddSubCategory");
+                    //   return Json(new { status = 200, message = "Category Added Successfully " });
+                }
+            }
+            return View(m);
+        }
+
+        [HttpGet]
+        public ActionResult DeleteSubCategory(int id)
+        {
+            if (new SubCategories().Delete(id))
+            {
+                //return Json(new { status = 200, message = "Delete Successfully" });
+                return RedirectToAction("AddSubCategory");
+            }
+            return RedirectToAction("AddSubCategory");
+         //   return Json(new { staus = 0, message = "Failed to Delete" });
+        }
+
+        public ActionResult EditSubCategory(int id)
+        {
+            var m = new Models.ViewModels.SubCategoryVm();
+            var ds = new SubCategories().GetSubCategory(id);
+           if(ds != null)
+            {
+                m.Description = ds.Description;
+                m.Name = ds.Name;
+
+                m.CategoryId = Convert.ToInt32(ds.CategoryId);
+            }
+            return View(m);
+
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult EditSubCategory(Models.ViewModels.SubCategoryVm m)
+        {
+            if(new SubCategories().Edit(m.Id, m.CategoryId, m.Name, m.Description))
+            {
+                return Json(new { status = 200, message = "Edit Successful" });
+            }
+            return Json(new { status = 0, message = "Edit Failed" });
+        }
+        public ActionResult SubCategoryList(int id)
+        {
+            var lst = new SubCategories().List(id);
+            return PartialView("_SubCategoryList", lst);
+        }
+        public ActionResult JsonCategoryList(int id)
+        {
+            var lst = new SubCategories().List(id);
+           
+            var lst1 =  new List<SubCategoryVm>();
+            lst.ForEach((a) =>
+            {
+                lst1.Add(new SubCategoryVm
+                {
+                    Id = a.Id,
+                    CategoryId = Convert.ToInt32(a.CategoryId),
+                 Name = a.Name
+
+            });
+          
+            });
+            return Json(lst1,JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult AddCategory()
         {
             return View();
@@ -250,7 +408,7 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(new Models.ClassModel.Categories().Add(m.Name, m.Description))
+                if (new Models.ClassModel.Categories().Add(m.Name, m.Description))
                 {
                     return RedirectToAction("AddCategory");
                     //   return Json(new { status = 200, message = "Category Added Successfully " });
@@ -268,14 +426,14 @@ namespace bobbySaxyKennel.Controllers
                 return RedirectToAction("AddCategory");
             }
             return RedirectToAction("AddCategory");
-         //   return Json(new { staus = 0, message = "Failed to Delete" });
+            //   return Json(new { staus = 0, message = "Failed to Delete" });
         }
 
         public ActionResult EditCategory(int id)
         {
             var m = new Models.ViewModels.CategoryVm();
             var ds = new Categories().GetCategory(id);
-           if(ds != null)
+            if (ds != null)
             {
                 m.Description = ds.Description;
                 m.Name = ds.Name;
@@ -285,10 +443,10 @@ namespace bobbySaxyKennel.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken ]
         public ActionResult EditCategory(Models.ViewModels.CategoryVm m)
         {
-            if(new Categories().Edit(m.CategoryID, m.Name, m.Description))
+            if (new Categories().Edit(m.CategoryID, m.Name, m.Description))
             {
                 return Json(new { status = 200, message = "Edit Successful" });
             }
@@ -333,6 +491,17 @@ namespace bobbySaxyKennel.Controllers
             return View(list.Where(a => a.Archieved == true).ToList());
         }
 
+        public ActionResult Orders()
+        {
+            var list = new Orders().List();
+            return View(list);
+        }
+
+        public ActionResult SetOrderStatus(int id, string status)
+        {
+            var set = new Orders().SetOrderStatus(id, status);
+            return RedirectToAction("Orders");
+        }
 
         public ActionResult ReplyQuota(int id)
         {
@@ -401,6 +570,64 @@ namespace bobbySaxyKennel.Controllers
           return  RedirectToAction("Super");
         }
 
-      
+
+        public ActionResult PolicyPage()
+        { 
+          
+            var find = new Policy().Find();
+            var m = new PolicyVm
+            {
+                Id = find.Id,
+                Policy1 = find.Policy1
+
+            };
+            return View(m);
+        }
+
+        [HttpPost,ValidateAntiForgeryToken]
+        public ActionResult PolicyPage( PolicyVm m)
+        {
+            var edit = new Policy().Edit(m);
+            return RedirectToAction("PolicyPage");
+        }
+
+        public ActionResult Faq()
+        {
+            var find = new Faq().Find();
+            var m = new FaqVm
+            {
+                Id = find.Id,
+               Faq1 = find.Faq1
+
+            };
+            return View(m);
+
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Faq(FaqVm m)
+        {
+            var edit = new Faq().Edit(m);
+            return RedirectToAction("Faq");
+        }
+
+        public ActionResult AboutPage()
+        {
+            var find = new Models.ClassModel.About().Find();
+            var m = new AboutVm()
+            {
+                Id = find.Id,
+                About1 = find.About1
+
+            };
+            return View(m);
+
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult AboutPage(AboutVm m)
+        {
+            var edit = new Models.ClassModel.About().Edit(m);
+            return RedirectToAction("AboutPage");
+        }
     }
 }

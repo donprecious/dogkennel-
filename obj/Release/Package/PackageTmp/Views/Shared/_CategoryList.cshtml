@@ -26,7 +26,8 @@
                     <td>@i.Description</td>
                     <td>
                        
-                       
+                        <a onclick="displaySubCategory(@i.PetCategoyID)" class="btn btn-xs btn-default"> View SubCategory</a>
+
                             <a href="@Url.Action("DeleteCategory","Admin",new { id= i.PetCategoyID })" class="btn btn-xs btn-default"> Delete  </a>
                         <a href="@Url.Action("EditCategory","Admin",new { id= i.PetCategoyID })" class="btn btn-xs btn-default"> Edit </a>
                      

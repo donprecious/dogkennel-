@@ -1,23 +1,23 @@
-﻿@model bobbySaxyKennel.Models.ViewModels.PetVm
+﻿@model bobbySaxyKennel.Models.ViewModels.CategoryVm
 
 @{
     ViewBag.Title = "Add Category";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-} 
+}
 <div class="row">
     <div class="col-sm-6">
         <div class="myForm">
             <div class="form-default">
                 <div class="title">
-                    <h2>Add  pet category</h2>
+                    <h2>Add  category</h2>
                 </div>
                 <div class="form-content">
                     @using (Html.BeginForm("AddCategory", "Admin"))
-            {
+                    {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                       
-                     
+
+
                         <div class="form-group">
                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
                             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Category Name" } })
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
-                            @Html.TextAreaFor(model => model.Description, new{ @class = "form-control", placeholder = "Describtion" } )
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Describtion" })
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
 
                         </div>
@@ -43,15 +43,19 @@
 
     </div>
     <div class="col-sm-6">
+        <div id="subcategoryDiv">
+
+        </div>
+
         @Html.Action("CategoryList")
 
 
     </div>
 </div>
 
-<div>
-    @Html.ActionLink("Back to List", "SellerList", "Admin")
-</div>
+@*<div>
+        @Html.ActionLink("Back to List", "SellerList", "Admin")
+    </div>*@
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
     <div class="modal-dialog" role="document">
@@ -70,3 +74,24 @@
     </div>
 </div>
 
+
+@section Scripts{
+    @*<script src="~/Scripts/AppScripts/postWithModel.js"></script>*@ 
+    <script>
+
+        function displaySubCategory(id) {
+            $.ajax("/Admin/SubCategoryList/"+id,
+                {
+                    type: "Get",
+                    success: function(response) {
+                        $("#subcategoryDiv").html(response);
+                        console.log(response);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+
+        }
+    </script>
+}

@@ -1,0 +1,69 @@
+﻿/*
+	@font-face {
+	  font-family: 'JWCaps';
+	  src: url('JWCaps.eot');
+	  src: url('JWCaps.woff') format("woff");
+	}
+	
+		
+	@font-face {
+	  font-family: 'Helvetica';
+	  src: url('Helvethaica.eot');
+	  src: url("Helvethaica.woff") format("woff");
+	}
+	
+
+	@font-face {
+	  font-family: 'Helvethaica';
+	  src: url('Helvethaica.eot');
+	  src: url("Helvethaica.woff") format("woff");
+	}
+	
+	
+
+	
+	@font-face {
+	  font-family: 'HelvethaicaBC';
+	  src: url('HelvethaicaBC.eot');
+	  src: url("HelvethaicaBC.woff") format("woff");
+	}
+*/
+
+
+
+    @font-face {
+      font-family: 'JWCaps';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Bitter-Regular'), url(https://themes.googleusercontent.com/static/fonts/bitter/v4/SHIcXhdd5RknatSgOzyEkA.woff) format('woff');
+    }
+    
+    @font-face {
+      font-family: 'JWCaps';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Bitter-Bold'), url(https://themes.googleusercontent.com/static/fonts/bitter/v4/evC1haE-MsorTl_A7_uSGT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+    }
+
+		
+	@font-face 
+	{	    
+	  font-family: 'Helvetica';
+	  src: local('Tahoma');
+	  
+	}
+	
+
+	@font-face {
+	  font-family: 'Helvethaica';
+	  src: local('Tahoma');
+	}
+	
+	
+
+	
+	@font-face {
+	  font-family: 'HelvethaicaBC';
+	  src: local('Tahoma-Bold'),local('Tahoma Bold');
+	  font-weight:bold;
+	}

@@ -1,0 +1,173 @@
+﻿@using bobbySaxyKennel.Models.ClassModel
+@model System.Collections.Generic.List<bobbySaxyKennel.Models.Pet>
+  @{
+      var catgory = new Categories().List();
+      var loca = new ToppingService().List();
+  }
+    <div id="content" class="row pad15" style="text-align: center; display: block;">
+        <div>
+            <div class="background_page_outer_wrapper">
+                <div class="background_page_inner_wrapper">
+                    <h1 class="background_page_title">Pizza</h1>
+                    <div class="background_page_content_wrapper">
+                        <div class="background_page_filters_wrapper">
+                            <div class="background_page_filters_buttons" id="deb5f296-d270-43c0-9aea-02c730373428">
+                                @* sub categories *@
+                                <input id="FLTR_2_all" value="ALL" onclick="showAll()"
+                                       class="background_page_filter_button background_page_filter_button_Active"
+                                       type="button">
+                                @foreach (var i in Model)
+                                {
+                                    foreach (var a in i.PetCategory.SubCategories)
+                                    {
+                                        <input id="sub_@a.Id" value="@a.Name"
+                                               class="background_page_filter_button" onclick="showSubList(@i.PetCategoryID, @a.Id)" type="button">
+                                    }
+                                }
+                                <div class="c">
+
+                                </div>
+                            </div>
+                        </div>
+                   
+                        <div class="background_page_content_thumbs VScrollable" style="top: 15px;">
+                            <div class="row" id="Deals">
+                                <div class="large-12 columns">
+                                    <div class="section-container row" style="border: 0;">
+                                        <div class="linneyAccordion">
+                                            <div id="94e2d17d-e1e8-4bf3-ae35-60d05d751bc7"
+                                                 class="large-12 large-centered small-land-12 medium-port-12 columns submnu2" style="position: relative; height: 1627.8px;">
+
+                                                @foreach (var i in Model)
+                                                {
+                                                    <div id="@i.PetID"
+                                                         class="SubMenuItem canAdd canCustomize selector1 selector2">
+                                                        <div class="SubMenuItemInnerContainer">
+                                                            <div class="ItemFront DivFront" style="display: block;">
+                                                                <div class="ItemTextWrapper">
+                                                                    <span class="ItemTitle">@i.Name</span>
+                                                                </div>
+                                                                <div class="ItemImgWrapper">
+                                                                    <img src="@i.ImgLocation" orgimg="@i.ImgLocation">
+                                                                </div>
+                                                            </div>
+                                                            <div class="ItemBack DivBack" style="display: none;">
+                                                                <div class="ItemTextWrapper">
+                                                                    <span class="ItemTitle">@i.Name</span>
+                                                                    <p>
+                                                                     @i.Description
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ItemCustomizeSection" style="display: none;">
+                                                                <div class="SelectorsSection">
+                                                                    @*<div class="Item_Selector3 fake_combobox_wrapper SelectorCenterWrapper"
+                                                                         style="margin-bottom: 3px!important;">
+                                                                        <a href="#" class="fake_combobox_button"
+                                                                           id="selectSize_@i.PetID"
+                                                                           data-dropdown="SEL3CTRL_-9026004_2"></a>
+                                                                        <ul id="SEL3CTRL_-9026004_2"
+                                                                            class="fake_combobox_dropdown"
+                                                                            data-dropdown-content=""></ul>
+                                                                    </div>*@
+                                                                    <div class="Item_Selector1 fake_combobox_wrapper SelectorLeftWrapper dropdown">
+                                                                        <a href="#" class="drop-down-button dropdown-toggle select-size"
+                                                                           id="selectDrop_@i.PetID"
+                                                                           data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" aria-expanded="false">Medium</a>
+                                                                        <ul 
+                                                                            class="selector-ul dropdown-menu"
+                                                                            data-dropdown-content="" aria-labelledby="selectDrop_@i.PetID">
+                                                                            <li data-size ="Small">
+                                                                                <a href="#" class="item_size" data-id="@i.PetID" data-size="Small">
+                                                                                    <h5>Small</h5>
+                                                                                    <p></p>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li data-size="Medium">
+                                                                                <a data-size="Medium" class="item_size" data-id="@i.PetID" >
+                                                                                    <h5>Medium</h5>
+                                                                                    <p></p>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li data-size="Large" >
+                                                                                <a data-size="Large" class="item_size" data-id="@i.PetID" >
+                                                                                    <h5>Large</h5>
+                                                                                    <p></p>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="Item_Selector2 fake_combobox_wrapper SelectorRightWrapper dropdown">
+                                                                        <a href="#" class="drop-down-button dropdown-toggle select-topping"
+                                                                           id="selectDrop2_@i.PetID" data-toggle="dropdown"
+                                                                           data-topping-id ="@loca.First().Id"
+                                                                           data-dropdown="SEL2CTRL_-9026004_2">
+                                                                            @loca.First().Name
+                                                                        </a>
+                                                                        <ul 
+                                                                            class="selector-ul dropdown-menu locationDropDown"
+                                                                            data-dropdown-content="">
+                                                                            @foreach (var l in loca)
+                                                                            {
+                                                                                <li id="@l.Id">
+                                                                                    <a data-loc ="@l.Name" class="item_topping" data-id="@i.PetID" data-locId="@l.Id">
+                                                                                        <h5>@l.Name</h5>
+                                                                                        <p>
+                                                                                           @l.Description
+                                                                                        </p>
+                                                                                    </a>
+                                                                                </li>
+                                                                            }
+                                                                         
+                                                                        
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="Item_ModGroup fake_combobox_wrapper SelectorCenterWrapper">
+                                                                        <a href="#" class="fake_combobox_button"
+                                                                           id="CUST_MODGROUP_CTRLTITLE_-9026004_2"
+                                                                           data-dropdown="CUST_MODGROUP_CTRL_-9026004_2"></a>
+                                                                        <ul id="CUST_MODGROUP_CTRL_-9026004_2"
+                                                                            class="fake_combobox_dropdown"
+                                                                            data-dropdown-content=""></ul>
+                                                                    </div>
+                                                                    <div class="clear"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="WebItemButton AddToCartBtn">
+                                                                        <div class="WebItemBtnCounter divQty"
+                                                                             id="QTY_@i.PetID">1</div>
+                                                                        <div class="WebItemBtnCounter_BtnsWrp">
+                                                                            <a class="CounterUp" data-id="@i.PetID"
+                                                                               ></a>
+                                                                            <a class="CounterDown" data-id="@i.PetID"
+                                                                               ></a>
+                                                                        </div>
+                                                                        <a class="WebItemBtnTitle btnMakeOrder" data-pId ="@i.PetID"
+                                                                           href="javascript:document._cr_act(264);">
+                                                                            <span id="PRICE_-9026004_2">
+                                                                                AED   <span class="currencySymbol" data-price="@i.Amount.ToString("##.###")" id="price_@i.PetID">  @i.Amount.ToString("##.###") </span>  (Order)
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                   
+                                                                    <a href="javascript:document._cr_act(265);"
+                                                                       class="WebItemCustomizeLink">Customize</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </div>
+
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

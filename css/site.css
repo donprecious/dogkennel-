@@ -1,0 +1,105 @@
+
+.page-loader {
+     position: fixed;
+     display: none;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: rgba(0,0,0,0.5);
+     z-index: 2;
+     cursor: pointer;
+ }
+.page-loader-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.WebItemButton .WebItemBtnTitle {
+    text-decoration: none;
+    font-size: 1.3rem;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.65);
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 70px;
+    bottom: 0px;
+    /* right: 25px; */
+    right: 0px;
+    padding-right: 25px;
+}
+
+.drop-down-button {
+    height: 30px;
+    line-height: 25px;
+    font-size: 14px;
+    padding: 0px;
+    padding-left: 3px;
+    background: url(../Image/dropdown-arrow.gif) no-repeat scroll 100% 50% #FFFFFF;
+    border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    display: block;
+    color: #222222 !important;
+    font-size: 17px;
+    font-weight: 700;
+    /* border-radius: 0.5rem; */
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+    height: 35px;
+    cursor: pointer;
+}
+.left-selector {
+    width: 37% !important;
+    float: left !important;
+    margin: 0px 0px 0px 0px !important;
+}
+.selector-ul {
+    /*position: absolute;
+    top: 40px;
+    left: -99999px;*/
+    -moz-box-sizing: border-box;
+    box-shadow: none;
+    cursor: pointer;
+    list-style: none outside none;
+    margin: 0 !important;
+    min-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0px !important;
+    text-align: left;
+    z-index: 1000;
+    background: none repeat scroll 0 0 #1E1E1E;
+    box-shadow: 0 0 4px #111111;
+    max-width: 223px
+}
+ 
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #333;
+}
+
+
+.note-editor.note-frame.panel  {
+    color: black;
+}
+.note-editor.note-frame.panel p {
+    color: black;
+}
+
+.note-editor.note-frame.panel h1, .note-editor.note-frame.panel h2, .note-editor.note-frame.panel h3,
+.note-editor.note-frame.panel h4, .note-editor.note-frame.panel h5, .note-editor.note-frame.panel h6,
+.note-editor.note-frame.panel p {
+    color: black;
+}

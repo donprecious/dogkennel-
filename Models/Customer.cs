@@ -17,6 +17,7 @@ namespace bobbySaxyKennel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
+            this.Orders = new HashSet<Order>();
             this.QuotaMessages = new HashSet<QuotaMessage>();
         }
     
@@ -24,6 +25,8 @@ namespace bobbySaxyKennel.Models
         public string UserID { get; set; }
     
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuotaMessage> QuotaMessages { get; set; }
     }
