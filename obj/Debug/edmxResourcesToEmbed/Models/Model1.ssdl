@@ -67,6 +67,7 @@
     <Property Name="SIze" Type="varchar" MaxLength="50" />
     <Property Name="ToppingId" Type="int" />
     <Property Name="AdditionalNote" Type="varchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PetCategories">
     <Key>
@@ -83,13 +84,17 @@
     <Property Name="PetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="Amount" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="19" Scale="2" Nullable="false" />
     <Property Name="SellerID" Type="int" Nullable="false" />
     <Property Name="ImgLocation" Type="varchar(max)" Nullable="false" />
     <Property Name="PetCategoryID" Type="int" Nullable="false" />
     <Property Name="SubCategoryId" Type="int" />
     <Property Name="Datetime" Type="datetime" />
     <Property Name="ImgName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="SmallPrize" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="MediumPrize" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="LargePrize" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="DateCreated" Type="datetime" />
   </EntityType>
   <EntityType Name="PetViews">
     <Key>
@@ -266,7 +271,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Pets">
-    <End Role="Pets" Type="Self.Pets" Multiplicity="0..1" />
+    <End Role="Pets" Type="Self.Pets" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pets">

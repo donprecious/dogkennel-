@@ -25,7 +25,7 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         //}
 
-        public bool Add(string name, string description, decimal amount, int sellerid, string imgLocation, string imgName, int petCategory, int subCategory)
+        public bool Add(string name, string description, decimal amount, int sellerid, string imgLocation, string imgName, int petCategory, int subCategory, double smallPrize, double mediumPrize, double largePrize)
         {
             try
             {
@@ -41,7 +41,11 @@ namespace bobbySaxyKennel.Models.ClassModel
                         PetCategoryID = petCategory,
                         SubCategoryId = subCategory,
                         Datetime = DateTime.UtcNow,
-                        ImgName = imgName
+                        ImgName = imgName,
+                        SmallPrize = Convert.ToDecimal(smallPrize),
+                        MediumPrize = Convert.ToDecimal(mediumPrize),
+                        LargePrize = Convert.ToDecimal(largePrize)
+                        
                     };
                     db.Pets.Add(pet);
                     db.SaveChanges();

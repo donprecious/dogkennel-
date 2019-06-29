@@ -1,31 +1,50 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
+﻿
 
-<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
-    <div class="columns">
-        <h1 class="background_page_title">Contact us</h1>
-        <form id="" style="margin-top: 20px">
-            <div class="small-12 small-land-12 medium-port-8 large-9 columns">
-                <div id="constrainInputWidth" class="section-container accordion" data-section="accordion" style="">
-                    <div class="title-top title text-left">
-                        Email us your feedback
-                        <span class="required">* required</span>
-                    </div>
-                    <div class="wPanel contactBorder" data-section-content="">
-                        <div class="row" style="padding: 20px;">
-                            @Html.Action("ContactUs")
+    @{
+        ViewBag.Title = "Contact us";
+    }
+
+    <div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
+        <div class="columns">
+            <h1 class="background_page_title">Contact us</h1>
+            <h4>Call us +971 4 379 1999</h4>
+            <div id="" style="margin-top: 20px">
+                <div class="small-12 small-land-12 medium-port-8 large-9 columns">
+                    <div id="constrainInputWidth" class="section-container accordion" data-section="accordion" style="">
+                        <div class="title-top title text-left">
+                            Email us your feedback
+                            <span class="required">* required</span>
+                        </div>
+                        <div class="wPanel contactBorder" data-section-content="">
+                            <div class="row" style="padding: 20px;">
+                                @Html.Action("ContactUs")
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-   
-    </div>
-</div>
 
-@section Scripts
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModal-label" style="color: black">Notification</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="txtMsg" style="color: black"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts
 {
 
-    <script src="~/Scripts/AppScripts/postWithModel.js"></script>
-}
+
+    }

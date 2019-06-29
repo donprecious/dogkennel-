@@ -52,7 +52,9 @@
             @item.Id
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.User.Email)
+            @Html.DisplayFor(modelItem => item.Customer.User.Email) 
+            <br/>
+            Date Ordered: @item.DateTime 
         </td>
         <td>
             @item.Customer.User.FirstName @item.Customer.User.LastName

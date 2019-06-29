@@ -29,7 +29,8 @@ namespace bobbySaxyKennel.Models.ClassModel
                         Status = "Pending",
                         SIze = size,
                         ToppingId =  toppingId,
-                       AdditionalNote = note
+                       AdditionalNote = note,
+                       DateTime = DateTime.UtcNow
                     };
                     db.Orders.Add(order);
                     db.SaveChanges();

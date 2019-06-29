@@ -5508,7 +5508,7 @@ button.close {
     overflow: auto;
     overflow-y: scroll;
     position: fixed;
-    margin-top: 20%;
+   
     top: 0;
     right: 0;
     bottom: 0;

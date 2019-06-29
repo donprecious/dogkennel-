@@ -69,28 +69,48 @@
                                                                         <ul id="SEL3CTRL_-9026004_2"
                                                                             class="fake_combobox_dropdown"
                                                                             data-dropdown-content=""></ul>
-                                                                    </div>*@
+                                                                    </div>*@ 
+                                                                    
+                                                                    @{
+                                                                        double smallPrice=0.0, mediumPrice=0.0, largePrice = 0.0;
+                                                                        if (i.SmallPrize != null)
+                                                                        {
+                                                                            smallPrice = Convert.ToDouble( i.SmallPrize);
+                                                                        }
+
+                                                                        if (i.MediumPrize != null)
+                                                                        {
+                                                                            smallPrice = Convert.ToDouble( i.MediumPrize);
+                                                                        }
+
+                                                                        if (i.LargePrize != null)
+                                                                        {
+                                                                            largePrice = Convert.ToDouble( i.LargePrize);
+                                                                        }
+
+                                                                    }
                                                                     <div class="Item_Selector1 fake_combobox_wrapper SelectorLeftWrapper dropdown">
                                                                         <a href="#" class="drop-down-button dropdown-toggle select-size"
                                                                            id="selectDrop_@i.PetID"
-                                                                           data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" aria-expanded="false">Medium</a>
+                                                                           data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" data-size-price="@mediumPrice" aria-expanded="false">Medium</a>
                                                                         <ul 
+                                                                            
                                                                             class="selector-ul dropdown-menu"
                                                                             data-dropdown-content="" aria-labelledby="selectDrop_@i.PetID">
                                                                             <li data-size ="Small">
-                                                                                <a href="#" class="item_size" data-id="@i.PetID" data-size="Small">
+                                                                                <a href="#" class="item_size"  data-id="@i.PetID" data-size-price="@smallPrice" data-size="Small">
                                                                                     <h5>Small</h5>
                                                                                     <p></p>
                                                                                 </a>
                                                                             </li>
                                                                             <li data-size="Medium">
-                                                                                <a data-size="Medium" class="item_size" data-id="@i.PetID" >
+                                                                                <a data-size="Medium" class="item_size" data-size-price="@mediumPrice" data-id="@i.PetID" >
                                                                                     <h5>Medium</h5>
                                                                                     <p></p>
                                                                                 </a>
                                                                             </li>
                                                                             <li data-size="Large" >
-                                                                                <a data-size="Large" class="item_size" data-id="@i.PetID" >
+                                                                                <a data-size="Large" class="item_size" data-size-price="@largePrice" data-id="@i.PetID" >
                                                                                     <h5>Large</h5>
                                                                                     <p></p>
                                                                                 </a>
@@ -145,7 +165,12 @@
                                                                         <a class="WebItemBtnTitle btnMakeOrder" data-pId ="@i.PetID"
                                                                            href="javascript:document._cr_act(264);">
                                                                             <span id="PRICE_-9026004_2">
-                                                                                AED   <span class="currencySymbol" data-price="@i.Amount.ToString("##.###")" id="price_@i.PetID">  @i.Amount.ToString("##.###") </span>  (Order)
+                                                                                @{
+                                                                                    //get Medium Price 
+                                                                                    
+                                                                                    var total = mediumPrice + Convert.ToDouble(i.Amount);
+                                                                                }
+                                                                                AED <span class="currencySymbol" data-price="@total.ToString("##.###")" id="price_@i.PetID"> @total.ToString("##.###") </span> (Order)
                                                                             </span>
                                                                         </a>
                                                                     </div>

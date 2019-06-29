@@ -156,10 +156,11 @@
     <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="SIze" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ToppingId" Type="Int32" />
+    <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Customer" Relationship="bobsaxydogsModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
     <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Order" ToRole="Pet" />
     <NavigationProperty Name="Topping" Relationship="bobsaxydogsModel.FK_Orders_Toppings" FromRole="Order" ToRole="Topping" />
-    <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="PetCategory">
     <Key>
@@ -178,13 +179,17 @@
     <Property Name="PetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
     <Property Name="SellerID" Type="Int32" Nullable="false" />
     <Property Name="ImgLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PetCategoryID" Type="Int32" Nullable="false" />
     <Property Name="SubCategoryId" Type="Int32" />
     <Property Name="Datetime" Type="DateTime" Precision="3" />
     <Property Name="ImgName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SmallPrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="MediumPrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="LargePrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Orders" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Pet" ToRole="Order" />
     <NavigationProperty Name="PetCategory" Relationship="bobsaxydogsModel.FK_Pets_PetCategory" FromRole="Pet" ToRole="PetCategory" />
     <NavigationProperty Name="Seller" Relationship="bobsaxydogsModel.FK_Pets_Seller" FromRole="Pet" ToRole="Seller" />
@@ -376,7 +381,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Pets">
-    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1" />
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="bobsaxydogsModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pet">

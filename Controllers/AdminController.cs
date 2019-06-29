@@ -179,7 +179,7 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                var add = new Pets().Add(m.Name, m.Description, m.Amount, m.SellerId, m.ImgLoc, m.ImgName, m.CategoryID, m.SubCategoryId);
+                var add = new Pets().Add(m.Name, m.Description, m.Amount, m.SellerId, m.ImgLoc, m.ImgName, m.CategoryID, m.SubCategoryId,m.SmallPrize, m.MediumPrize,m.LargePrize  );
                 if (add)
                 {
                     return Json(new { status = 200, message = "Item Added Successfully" });

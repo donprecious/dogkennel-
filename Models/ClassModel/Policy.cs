@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using bobbySaxyKennel.Models.ViewModels;
@@ -13,8 +14,10 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         public Policy()
         {
-            db = new BobSaxyDogsEntities();
-            if (!FindAny())
+           
+            using (db = new BobSaxyDogsEntities())
+            {
+    if (!FindAny())
             {
                 //create new 
                 db.Policies.Add(new Models.Policy()
@@ -24,16 +27,24 @@ namespace bobbySaxyKennel.Models.ClassModel
                 db.SaveChanges();
 
             }
+            }
+        
         }
 
         public bool Edit(PolicyVm m)
         {
             try
             {
-                var p = db.Policies.Find(m.Id);
-                m.Policy1 = m.Policy1;
+                using (db = new BobSaxyDogsEntities())
+                {
+                                    var p = db.Policies.Find(m.Id);
+                p.Policy1 = m.Policy1;
+                db.Entry(p).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
+                }
+               ;
+
             }
             catch (Exception e)
             {
@@ -46,10 +57,14 @@ namespace bobbySaxyKennel.Models.ClassModel
         {
             try
             {
-                if (db.Policies.FirstOrDefault() != null)
+                using (db = new BobSaxyDogsEntities())
+                {
+ if (db.Policies.FirstOrDefault() != null)
                 {
                     return true;
                 }
+                }
+                   
             }
             catch (Exception e)
             {
@@ -61,8 +76,12 @@ namespace bobbySaxyKennel.Models.ClassModel
         }
 
         public Models.Policy Find()
-        { 
-            return db.Policies.FirstOrDefault();
+        {
+            using (db = new BobSaxyDogsEntities())
+            {
+  return db.Policies.FirstOrDefault();
+            }
+          
         }
     }
 
@@ -73,7 +92,8 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         public About()
         {
-            db = new BobSaxyDogsEntities();
+            using (db = new BobSaxyDogsEntities())
+            {
             if (!FindAny())
             {
                 //create new 
@@ -84,16 +104,24 @@ namespace bobbySaxyKennel.Models.ClassModel
                 db.SaveChanges();
 
             }
+            }
+         
         }
 
         public bool Edit(AboutVm m)
         {
             try
             {
-                var p = db.Abouts.Find(m.Id);
-                m.About1 = m.About1;
-                db.SaveChanges();
-                return true;
+                using (db = new BobSaxyDogsEntities())
+                {
+                   
+                    var p = db.Abouts.Find(m.Id);
+                    p.About1 = m.About1;
+                    db.Entry(p).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+             
             }
             catch (Exception e)
             {
@@ -104,16 +132,26 @@ namespace bobbySaxyKennel.Models.ClassModel
         }
         public bool FindAny()
         {
+            using (db = new BobSaxyDogsEntities())
+            {
+                  ;
             if (db.Abouts.FirstOrDefault() != null)
             {
                 return true;
+            } 
             }
+         
             return false;
         }
 
         public Models.About Find()
         {
+            using (db = new BobSaxyDogsEntities())
+            {
+                ;
             return db.Abouts.FirstOrDefault();
+            }
+           
         }
     }
 
@@ -124,8 +162,9 @@ namespace bobbySaxyKennel.Models.ClassModel
 
         public Faq()
         {
-            db = new BobSaxyDogsEntities();
-            if (!FindAny())
+            using (db = new BobSaxyDogsEntities())
+            {
+             if (!FindAny())
             {
                 //create new 
                 db.Faqs.Add(new Models.Faq()
@@ -135,16 +174,25 @@ namespace bobbySaxyKennel.Models.ClassModel
                 db.SaveChanges();
 
             }
+            }
+        
+           
         }
 
         public bool Edit(FaqVm m)
         {
             try
             {
-                var p = db.Abouts.Find(m.Id);
-                m.Faq1 = m.Faq1;
+           
+                using (db = new BobSaxyDogsEntities())
+                {
+     var p = db.Faqs.Find(m.Id);
+                p.Faq1 = m.Faq1;
+                db.Entry(p).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
+                }
+           
             }
             catch (Exception e)
             {
@@ -155,16 +203,24 @@ namespace bobbySaxyKennel.Models.ClassModel
         }
         public bool FindAny()
         {
-            if (db.Faqs.FirstOrDefault() != null)
+          
+            using (db = new BobSaxyDogsEntities())
             {
-                return true;
+                if (db.Faqs.FirstOrDefault() != null)
+                {
+                    return true;
+                }
             }
             return false;
         }
 
         public Models.Faq Find()
         {
-            return db.Faqs.FirstOrDefault();
+            using (db = new BobSaxyDogsEntities())
+            {
+                return db.Faqs.FirstOrDefault();
+            }
+        
         }
     }
 }

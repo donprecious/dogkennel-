@@ -59,6 +59,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
           <ScalarProperty Name="AdditionalNote" ColumnName="AdditionalNote" />
           <ScalarProperty Name="ToppingId" ColumnName="ToppingId" />
           <ScalarProperty Name="SIze" ColumnName="SIze" />
@@ -85,6 +86,10 @@
     <EntitySetMapping Name="Pets">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Pet">
         <MappingFragment StoreEntitySet="Pets">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LargePrize" ColumnName="LargePrize" />
+          <ScalarProperty Name="MediumPrize" ColumnName="MediumPrize" />
+          <ScalarProperty Name="SmallPrize" ColumnName="SmallPrize" />
           <ScalarProperty Name="ImgName" ColumnName="ImgName" />
           <ScalarProperty Name="Datetime" ColumnName="Datetime" />
           <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />

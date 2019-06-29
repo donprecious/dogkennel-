@@ -8,23 +8,23 @@
         <EntityTypeShape EntityType="bobsaxydogsModel.About" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="bobsaxydogsModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="bobsaxydogsModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Customer" Width="1.5" PointX="5.25" PointY="8" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Faq" Width="1.5" PointX="7.75" PointY="3.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Login" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Order" Width="1.5" PointX="7.5" PointY="7.25" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.PetCategory" Width="1.5" PointX="8.25" PointY="17" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Pet" Width="1.5" PointX="10.5" PointY="12.5" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.PetView" Width="1.5" PointX="12.75" PointY="13.625" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Policy" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaMessage" Width="1.5" PointX="7.5" PointY="12.125" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaReply" Width="1.5" PointX="9.75" PointY="8.875" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Role" Width="1.5" PointX="0.75" PointY="9.625" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Seller" Width="1.5" PointX="5.25" PointY="13.25" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.SubCategory" Width="1.5" PointX="8.25" PointY="19.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.sysdiagram" Width="1.5" PointX="9.75" PointY="3.75" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.Topping" Width="1.5" PointX="5.25" PointY="2.25" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.UserClaim" Width="1.5" PointX="5.25" PointY="5.25" />
-        <EntityTypeShape EntityType="bobsaxydogsModel.User" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Customer" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Faq" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Login" Width="1.5" PointX="5.25" PointY="8.625" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Order" Width="1.5" PointX="7.5" PointY="5" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.PetCategory" Width="1.5" PointX="8.25" PointY="14.875" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Pet" Width="1.5" PointX="10.5" PointY="10" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.PetView" Width="1.5" PointX="12.75" PointY="11.625" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Policy" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaMessage" Width="1.5" PointX="7.5" PointY="10.125" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.QuotaReply" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Role" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Seller" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.SubCategory" Width="1.5" PointX="8.25" PointY="17.625" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.Topping" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.UserClaim" Width="1.5" PointX="5.25" PointY="14.25" />
+        <EntityTypeShape EntityType="bobsaxydogsModel.User" Width="1.5" PointX="3" PointY="8.625" />
         <AssociationConnector Association="bobsaxydogsModel.FK_Customer_Users" />
         <AssociationConnector Association="bobsaxydogsModel.FK_Orders_Customers" />
         <AssociationConnector Association="bobsaxydogsModel.FK_QuotaMessage_Customer" />

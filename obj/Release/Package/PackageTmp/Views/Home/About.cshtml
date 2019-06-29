@@ -1,7 +1,22 @@
-﻿@{
+﻿@model bobbySaxyKennel.Models.Faq
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
+    <div class="columns">
+        <h1 class="background_page_title">Privacy Policy</h1>
+        @Html.Raw(Model.Faq1)
+        <div class="large-3 medium-port-4 columns show-for-medium-port-up spcialPadding">
+            <div class="panel">
+                <h4>Other ways to contact us</h4>
+                <p>
+                    Sometimes you just need to speak to a real person. Give us a call.
+                    <br>
+                    <br>
+                </p>
+                <h4>Hotline</h4>
+                <h4>+971 4 379 1999</h4> <!-- <br /> <br /> <div> <input id="findStore" class='button primaryAddButton' type='button' value='Call your local store' style="font-size: 16px;" /> </div>-->
+            </div>
+        </div>
+    </div>
+</div>

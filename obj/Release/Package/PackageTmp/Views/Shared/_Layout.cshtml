@@ -97,18 +97,18 @@
                     </ul>
                     <div id="welcomeMsg" class="" style=" margin-bottom: 10px; margin-top: 0px;">
                         <!--<h3 id='homeWelcomeMessage' style='margin-bottom: 0;'>Welcome</h3>--> <br />
-                        <div class="notLog">
+                        @*<div class="notLog">
                             <p style="margin-bottom: 10px;">
                                 <a href="@Url.Action("Login","Account")">Sign in</a>, <a href="@Url.Action("Register","Account")">Create an Account</a> <span>or order your favorites as a Guest</span>
                             </p>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div class="large-33 medium-33 show-for-medium-port-up columns text-right" style="z-index: 4;">
                     <div class="right" style="width: 200px;">
 
 
-                        <div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/mypizzahut" data-width="82"
+                        @*<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/mypizzahut" data-width="82"
                              data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"
                              fb-xfbml-state="rendered"
                              fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=200&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmypizzahut&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;width=82">
@@ -120,14 +120,14 @@
                                         style="border: none; visibility: visible; width: 76px; height: 20px;" __idm_frm__="1493"
                                         class=""></iframe>
                             </span>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
                 <div class="large-100 medium-100 small-100 smallest-100 columns left">
 
                     <span id="web-icon" class="hotline">
                         <a href="tel:600569999" style="color: #ffffff!important">
-                            <img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call_button3.png" class="img_reset" /><span class="callpad"><span>Call Us</span>-</span>600569999
+                            <img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call_button3.png" class="img_reset" /><span class="callpad"><span>Call Us</span>-</span>+971 4 379 1999
                         </a>
                     </span>
                     <span id="mobile-icon" class="hotline">
@@ -312,11 +312,11 @@
                 <div class="large-4 medium-port-12 small-land-12 small-12 columns">
                     <h6>Connect with Khaleej tacos</h6>
                     <div class="row" id="socialBlock">
-                        <a class="socialBtn large-6c column med-large-47 small-48 smallest-45" id="socialFB"
+                        @*<a class="socialBtn large-6c column med-large-47 small-48 smallest-45" id="socialFB"
                            href="https://www.facebook.com/mypizzahut">
                             <i class="social social-Icons foundicon-facebook"></i>
                             <p>Like us on facebook</p>
-                        </a>
+                        </a>*@
                         <!-- <a class="socialBtn large-6c column med-large-47 small-48 smallest-45" id="socialTwitter" href="https://twitter.com/PizzaHutME">
                             <i class="social social-Icons foundicon-twitter"></i>
                             <p>Follow us on Twitter</p>
@@ -462,11 +462,15 @@
     <script type="text/javascript" src='Handlers/ItemsInfo52cf.ashx?l=en&amp;isFullData=0&amp;ts=201905261243'></script>
     <script type="text/javascript" src='Handlers/SessionData.ashx'></script> -->
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("UpperScripts", required: false)
+    @RenderSection("UpperScripts", required: false) 
     <script>
 
 
         $(function () {
+
+           
+
+
             $(document.body).on('click',
                 '.DivFront',
                 function () {
@@ -503,9 +507,13 @@
                 function () {
                     var id = $(this).attr("data-id");
                     var size = $(this).attr("data-size");
+                    var price = $(this).attr("data-size-price");
                     $("#selectDrop_" + id).text(size);
                     $("#selectDrop_" + id).attr("data-pizza-size", size);
+                    $("#selectDrop_" + id).attr("data-pizza-price", price); 
 
+                    //get current price 
+                
                     console.log(size);
                 });
             $(document.body).on('click',
@@ -518,9 +526,11 @@
                     var curValue = Number($("#QTY_" + id).text());
                     curValue += 1;
                     $("#QTY_" + id).text(curValue);
-                    
+                    var sizePrice = Number($("#selectDrop_" + id).attr("data-size-price"));
+
                     var price = Number($("#price_" + id).attr("data-price"));
-                    var total = price * curValue;
+                    var cumPrice = sizePrice + price; 
+                    var total = cumPrice * curValue;
                     $("#price_" + id).text(total);
                     console.log("current value", curValue, "id", id);
                 });
@@ -538,8 +548,11 @@
                         $("#QTY_" + id).text(curValue);
                     
                     }
+                    var sizePrice = Number($("#selectDrop_" + id).attr("data-size-price"));
+
                     var price = Number($("#price_" + id).attr("data-price"));
-                    var total = price * curValue;
+                    var cumPrice = sizePrice + price; 
+                    var total = cumPrice * curValue;
                     $("#price_" + id).text(total);
                     console.log("current value", curValue, "id", id);
                 });
@@ -549,19 +562,76 @@
                 function () {
                     //get selected size
                     var id = $(this).attr("data-pId");
-                    var size = $(this).parents(".ItemCustomizeSection").find("a.select-size").attr('data-pizza-size');
+                    var size = $(this).parents(".ItemCustomizeSection").find("a.select-size").attr('data-pizza-size'); 
+                    //data-size-price
+                    var size_prize1 = Number($(this).parents(".ItemCustomizeSection").find("a.select-size").attr('data-size-price')); 
                     var toppingId = $(this).parents(".ItemCustomizeSection").find("a.select-topping")
                         .attr("data-topping-id");
-                    var qty = $(this).parent().find(".divQty").text();
+                    var qty = Number($(this).parent().find(".divQty").text());
 
                     console.log("size:", size, "topping:", toppingId, "qty ", qty);
-                    location.href = `/Item/CheckOut/?productId=${id}&qty=${qty}&toppingId=${toppingId}&size=${size}`;
+                    location.href = `/Item/CheckOut/?productId=${id}&qty=${qty}&toppingId=${toppingId}&size=${size}&sizePrice=${size_prize1}`;
 
                 });
 
         });
     </script>
+<script>
+    /// <reference path="../_ref.js" />
+    $(function () {
 
+        $("#contactForm").submit(function (event) {
+            event.preventDefault();
+            // jQuery.ajaxSettings.traditional = true;
+            $.ajax({
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                type: "post",
+                beforeSend: function () {
+                    $("#imgLoad").show();
+                    $("button[type='submit']").attr("disabled", true);
+                    //    $("button[type='submit']").attr("disabled", true);
+                },
+                complete: function () {
+                    $("#imgLoad").hide();
+
+                    $("button[type='submit']").removeAttr("disabled", true);
+                },
+                error: function (err) {
+                    $("#myAlert1").slideDown();
+                    console.log(err);
+                },
+                success: function (response) {
+                    $("#errorSummary ul li").remove();
+                    $("#errorSummary").hide();
+                    if (response.status === 200) {
+                        $("#txtMsg").text(response.message);
+                        $("#myModal").modal();
+
+                    }
+                    else {
+                        $("#errorSummary ul li").remove();
+                        $("#errorSummary").hide();
+                        response.errors.forEach(function (item, index, array) {
+                            $(".validation-summary-errors ul").append("<li>" + item + "<li>");
+                            $("#errorSummary ul").append("<li>" + item + "<li>");
+                            console.log(item);
+                            console.log(index);
+                            console.log(array);
+                        });
+                        //   $(".validation-summary-errors ul li").append("<li> $response.errors. <li>`)
+
+                        $(".validation-summary-errors ul li").show();
+                        $("#errorSummary").show();
+                    }
+                    console.log(response);
+                }
+            });
+
+        });
+
+    })
+</script>
     <script type="text/javascript" src="~/Pizza/MinifiedScripts/ThirdParty4dfa.js?ts=201609031604"></script>
 
     <script type="text/javascript" src="~/Pizza/MinifiedScripts/Scripts5894.js?ts=201905151136"></script>

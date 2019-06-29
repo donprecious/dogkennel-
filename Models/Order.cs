@@ -25,6 +25,7 @@ namespace bobbySaxyKennel.Models
         public string SIze { get; set; }
         public Nullable<int> ToppingId { get; set; }
         public string AdditionalNote { get; set; }
+        public Nullable<System.DateTime> DateTime { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Pet Pet { get; set; }

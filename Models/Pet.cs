@@ -30,6 +30,10 @@ namespace bobbySaxyKennel.Models
         public Nullable<int> SubCategoryId { get; set; }
         public Nullable<System.DateTime> Datetime { get; set; }
         public string ImgName { get; set; }
+        public Nullable<decimal> SmallPrize { get; set; }
+        public Nullable<decimal> MediumPrize { get; set; }
+        public Nullable<decimal> LargePrize { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

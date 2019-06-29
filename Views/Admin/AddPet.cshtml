@@ -68,6 +68,21 @@
                     @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", placeholder = "Ammount" } })
                     @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                </div> 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SmallPrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.SmallPrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Small Price" } })
+                    @Html.ValidationMessageFor(model => model.SmallPrize, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MediumPrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.MediumPrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Medium Price" } })
+                    @Html.ValidationMessageFor(model => model.SmallPrize, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LargePrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.LargePrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Large Price" } })
+                    @Html.ValidationMessageFor(model => model.LargePrize, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     @Html.HiddenFor(a => a.ImgLoc, new { id = "imgLoc" })

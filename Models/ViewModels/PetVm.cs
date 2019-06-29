@@ -34,6 +34,11 @@ namespace bobbySaxyKennel.Models.ViewModels
 
         public int SubCategoryId { get; set; }
  
+        public double SmallPrize { get; set; }
+        public double MediumPrize { get; set; }
+        public double LargePrize { get; set; }
+
+
 
 
     }

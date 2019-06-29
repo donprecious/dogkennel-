@@ -36,8 +36,9 @@
                         <td>
                             Total Cost : AED  @item.TotalPrice  | Quantity: @item.Quantity<br />
                             Size: @item.SIze <br />
-                            @item.Topping.Name
-                            Status: @item.Status
+                            @item.Topping.Name <br />
+                            Status: @item.Status<br />
+                        Date Ordered: @item.DateTime
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DeliveryAddress)

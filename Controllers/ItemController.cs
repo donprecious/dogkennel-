@@ -32,7 +32,7 @@ namespace bobbySaxyKennel.Controllers
         }
 
         [Authorize]
-        public ActionResult CheckOut(int productId, int qty, int toppingId, string size)
+        public ActionResult CheckOut(int productId, int qty, int toppingId, string size, double sizePrice)
         {
             if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
             {
@@ -41,7 +41,7 @@ namespace bobbySaxyKennel.Controllers
             var product = new Pets().Getpet(productId);
             var customerId = CustomerId();
             var customer  = new Customers().GetCustomer(customerId);
-            var price = product.Amount * qty;
+            var price = (product.Amount + Convert.ToDecimal(sizePrice)) * qty;
             var orderVm = new OrderVm()
             {
                  CustomerId = customerId,
