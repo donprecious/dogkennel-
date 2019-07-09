@@ -1,0 +1,166 @@
+﻿@using bobbySaxyKennel.Models.ClassModel
+@model dynamic
+
+@{
+    ViewBag.Title = "Menu";
+    var category = new Categories().List(); 
+}
+
+<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="vertical-menu">
+                @foreach (var i in category)
+                {
+                    <a class="menu-link" data-id="@i.PetCategoyID" >@i.Name</a>
+                }
+               
+
+            </div>
+        </div> 
+        <div class="col-sm-6">
+            <div class="replaceDiv">
+                @Html.Action("AllMenuCategoryItem")
+            </div>
+            
+            <hr>
+        </div>
+        <div class="col-sm-3">
+            <h3 > <i class="fa fa-shopping-cart"></i> Cart <span class="badge text-danger"> 2  </span> <button class="btn btn-danger pull-right"> Check out</button> </h3> 
+            <div class="cart">
+                <div class="media">
+                 
+                    <div class="media-body"> 
+                        <h3 class="media-heading">Item 1 <small> AED 20 </small> <a class="pull-right"> <i class="fa fa-trash"></i></a> </h3>  
+                        <ul>
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                        </ul>
+                  
+                    </div>
+                    <hr/>
+                </div> 
+                <div class="media">
+                 
+                    <div class="media-body"> 
+                        <h3 class="media-heading">Item 1 <small> AED 20 </small> <a class="pull-right"> <i class="fa fa-trash"></i></a> </h3>  
+                        <ul>
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                            <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a> 
+                                <hr/>
+                            </li> 
+                        </ul>
+                  
+                    </div>
+                    <hr/>
+                </div> 
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                Add More Option
+            </div>
+            <div class="modal-body">
+                <div class="mealOptionDiv"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css
+{
+    <style>
+        .vertical-menu {
+            width: 200px; /* Set a width if you like */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .vertical-menu a {
+            background-color: #eee; /* Grey background color */
+            color: black; /* Black text color */
+            display: block; /* Make the links appear below each other */
+            padding: 12px; /* Add some padding */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc; /* Dark grey background on mouse-over */
+        }
+
+        .vertical-menu a {
+            background-color: #dc143c;
+            color: white;
+        }
+
+        a:hover {
+            color: #dc143c;
+        } 
+
+
+        .modal-content {
+            border-radius: 0px;
+            box-shadow: 2px 8px 16px 0px #420b0b;
+        }
+
+    </style>
+}
+
+@section Scripts
+{
+    <script>
+
+        function replaceDiv(url) {
+            $.ajax(url,
+                {
+                    type: "Get",
+                    beforeSend: function() {
+                        //showModal
+                        $(".page-loader").show();
+                    },
+                    complete: function() {
+                        //hide modal
+                        $(".page-loader").hide();
+                    },
+                    success: function(response) {
+                        //display content
+                        $(".replaceDiv").html(response);
+                        console.log(response);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+
+                });
+        } 
+
+        $(".menu-link").on("click",
+            function () {
+                var id = $(this).attr("data-id"); 
+                
+                replaceDiv("/Item/MenuCategoryItem/"+id);
+            });
+    
+    </script>
+}

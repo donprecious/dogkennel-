@@ -1,0 +1,518 @@
+﻿<body>
+
+    <!-- End Google Tag Manager -->
+    <div class="container">
+        <div id="wrapper">
+            <!--    --------------------------------------Header area--------------------------------------->
+            <div class="row" id="headerBlock">
+                <br />
+                <div class="large-66 medium-66 columns lanBar" style="z-index: 0;">
+                    <div class="small-16 smaller-16 columns hide-for-medium-port-up mobMenu"
+                         style="max-width: 30px; padding-left: 3px; padding-right: 3px;">
+                        <a id="cornerNav" href="#">
+                            <img src="../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/img_trans.gif"
+                                 style="background: url(../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/arrows_strloc_cornernav.png) 0 -212px; height:21px; width:24px;" />
+                        </a>
+                    </div>
+
+                    <span id="welcome_box">
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+                            {
+                                @Html.AntiForgeryToken()
+                                <ul class="inline-list">
+                                    <li><a href="@Url.Action("MyOrders", "Item")"><small><i class="fa fa-shopping-cart"></i> My Orders</small></a></li>
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><small>LogOut</small></a></li>
+                                </ul>
+
+                            }
+                        }
+                        else
+                        {
+                            <ul class="inline-list">
+                                <li><a href="@Url.Action("Register", "Account")"><small>Create an Account</small></a></li>
+                                <li><a href="@Url.Action("Login", "Account")"><small>Sign In</small></a></li>
+                            </ul>
+                        }
+
+
+                    </span>
+                    <ul id="language" class="inline-list lan">
+                        <li>
+                            <a id="lang_url_en" href="/?lang=en&amp;sub=%2F">
+                                <small>
+                                    <span class="active_lang">English</span>
+                                </small>
+                            </a>
+                        </li>
+
+                        <li> </li>
+                    </ul>
+                    <div id="welcomeMsg" class="" style=" margin-bottom: 10px; margin-top: 0px;">
+                        <!--<h3 id='homeWelcomeMessage' style='margin-bottom: 0;'>Welcome</h3>--> <br />
+                        @*<div class="notLog">
+                            <p style="margin-bottom: 10px;">
+                                <a href="@Url.Action("Login","Account")">Sign in</a>, <a href="@Url.Action("Register","Account")">Create an Account</a> <span>or order your favorites as a Guest</span>
+                            </p>
+                        </div>*@
+                    </div>
+                </div>
+<div class="large-33 medium-33 show-for-medium-port-up columns text-right" style="z-index: 4;">
+    <div class="right" style="width: 200px;">
+
+    </div>
+</div>
+<div class="large-100 medium-100 small-100 smallest-100 columns left">
+
+    <span id="web-icon" class="hotline">
+        <a href="tel:+97143791999" style="color: #ffffff!important">
+            <img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call_button3.png" class="img_reset" /><span class="callpad"><span>Call Us</span> </span>+971 4 379 1999
+        </a>
+    </span>
+    <span id="mobile-icon" class="hotline">
+        <a href="tel:600569999" style="color: #ffffff!important">
+            <img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call-us-blk.png"
+                 style="margin-top: 10px;width: 50px;" />
+        </a>
+    </span>
+    <span class="taxmsg text-right">*All prices are VAT inclusive</span>
+</div>
+<div class="large-100 medium-100 small-60 smallest-72 columns left">
+    <fieldset id="logofieldset" class="textWithLine">
+        <legend align="center">
+            <a id="home" href="@Url.Action("Index","Home")">
+                <img id="ph_logo" class="logoview" src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/logo.png"
+                     style="background: url(../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/logo.png)" />
+                <img id="ph_logo" class="logoview2" src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/logo.png"
+                     style="background: url(../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/logo.png)" />
+            </a>
+        </legend>
+    </fieldset>
+</div>
+
+<!---Welcome msg-->
+<div class="columns">
+
+</div>
+            </div>
+
+<div id="upperSubMenu" class="row categoryNavigation isHomePage">
+    <div id="main-nav" class="large-12 small-12 columns med-large-90">
+        <ul id="catNavPrimary" class="menunav">
+            <li><a class="mnu-4000021" href="@Url.Action("Index","Home")">Meals</a> </li>
+            @foreach (var i in categories)
+            {
+                <li><a class="mnu-2" href="javascript:showList(@i.PetCategoyID);">@i.Name</a> </li>
+
+            }
+        </ul>
+    </div>
+</div>
+
+<div id="homePageWrapper">
+    <div id="replaceDiv">
+        @RenderBody()
+    </div>
+
+
+</div>
+
+<div id="lowerSubMenu" class="row categoryNavigation">
+    <div id="main-nav2" class="large-12 small-12 columns">
+        <ul id="catNavPrimary" class="menunav">
+            <li><a class="mnu-4000021" href="javascript:document._cr_act(47);">Meals</a> </li>
+            @foreach (var i in categories)
+            {
+                <li><a class="mnu-2" href="javascript:showList(@i.PetCategoyID);">@i.Name</a> </li>
+            }
+
+        </ul>
+    </div>
+</div>
+<div id="homePageWrapper2">
+    <div id="homeBanner" style="display: block">
+        <div>
+            <div class="row" id="">
+                <br />
+                <div id="3304f002-5a82-44b7-87a7-842d335afbfa" class="adsContainer submnuundefined">
+                    <div class="fakepanelContainer canNotAdd dealItem fakepanelContainerLeft">
+                        <a style="display:block" href="javascript:document._cr_act(168);">
+                            <div class="fakepanel">
+                                <div class="row" style="width:110%!important;">
+                                    <img src="../Pizza/Images/Promos/Menu4/portf4000061-en.jpg"
+                                         style="width: 100%;height: auto;"
+                                         orgimg="../Pizza/Images/Promos/Menu4/portf4000061-en.jpg" />
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fakepanelContainer canNotAdd dealItem fakepanelContainerRight">
+                        <a style="display:block" href="javascript:document._cr_act(174);">
+                            <div class="fakepanel">
+                                <div class="row" style="width:110%!important;">
+                                    <img src="../Pizza/Images/Promos/Menu4/portf4000046-en.jpg"
+                                         style="width: 100%;height: auto;"
+                                         orgimg="../Pizza/Images/Promos/Menu4/portf4000046-en.jpg" />
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="footer">
+    <div class="large-2 medium-port-3 small-land-12 small-12 columns">
+        <h6 class="show-for-medium-port-up">Order</h6>
+        <ul id="navigation">
+            <li><a class="mnu-4000021" href="@Url.Action("Index","Home")">Meals</a> </li>
+            @foreach (var i in categories)
+            {
+                <li><a class="mnu-2" href="javascript:showList(@i.PetCategoyID);">@i.Name</a> </li>
+
+            }
+
+        </ul>
+    </div>
+
+    <div class="large-2 medium-port-3 small-land-12 small-12 columns">
+        <h6>customer services</h6>
+        <ul class="subnav">
+            <li>
+                <a id="contact" href="@Url.Action("Contact", "Home")">Contact Us</a>
+            </li>
+
+            <li>
+                <a id="faq" href="@Url.Action("Faq", "Home")">FAQs</a>
+            </li>
+        </ul>
+
+        <h6>My Account</h6>
+        <ul id="footerUserMenu" class="subnav">
+            <li><a href="@Url.Action("Register","Account")">Create an Account</a></li>
+            <li><a href="@Url.Action("Login","Account")" id="footer-sign-in">Sign In</a></li>
+        </ul>
+    </div>
+
+    <div class="large-2 medium-port-3 small-land-12 columns">
+
+
+        <h6>Policies</h6>
+        <ul class="subnav">
+            <li>
+                <a id="privacy" href="@Url.Action("Privacy", "Home")">Privacy Policy</a>
+            </li>
+            <li>
+                <a id="terms" href="@Url.Action("Terms", "Home")">Terms of Use</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="large-4 medium-port-12 small-land-12 small-12 columns">
+        <h6>Connect with Khaleej tacos</h6>
+        <div class="row" id="socialBlock">
+
+        </div>
+    </div>
+
+    <hr />
+    <div class="row text-center" id="tandcs">
+
+        <p class="footerText">
+            Crust availability, prices, participation, delivery areas and charges, and minimum
+            purchase requirements for delivery may vary. Additional charge for extra cheese may apply.<br />©<span class="thisYear"></span>Khaleej tacos, Inc. All rights reserved. The Khaleej tacos name, logos and related marks
+            are trademarks of Khaleej tacos, Inc.<br />PEPSI, PEPSI-COLA, PEPSI MAX and the Pepsi Globe are registered
+            trademarks of PepsiCo, Inc.<br />Twitter is a trademark of Twitter, Inc.<br />All other trademarks are the
+            property of their respective owners.
+        </p>
+    </div>
+
+    <div class="bottomFixed contain-to-grid" id="dockedBasket">
+        <div class="top-bar">
+            <div class="row">
+                <div class="med-50 columns hide-under-med" id="EditOrderModeContainer" style="height: 71px;">
+                    <span id="OrderModeType"
+                          style="margin-top: 18px; font-size: 1em; color: #000000; background: #ffd440; padding: 0px 11px; clear: both; display: inline-block; height: 16px; vertical-align: middle; width: 90px">
+                        Delivery
+                        to
+                    </span>
+                    <h6 id="DeliveryTitle">Click here to choose your delivery location</h6>
+                    <span id="CloseOrderMode" class="CloseEditOrderMode" style="display: none">
+                        CLOSE<img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/img_trans.gif"
+                                  style="background: url(../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/arrows_strloc_cornernav.png) 0 0;width: 15px; height: 15px; margin-left: 10px; margin-right: 20px;" />
+                    </span>
+                    <span id="EditOrderMode" class="btmEditAddress">
+                        EDIT<img src="~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/img_trans.gif"
+                                 style="background: url(../Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/arrows_strloc_cornernav.png) 0 -50px; width: 15px; height: 15px; margin-left: 10px; margin-right: 20px;" />
+                    </span>
+                </div>
+                <div class="med-50 smallest-100 columns" id="basketContainer" onclick="javascript:showMyCart();"
+                     style="cursor: pointer">
+                    <div id="addedToBasket">
+                        <!-- this section is displayed when an item is added to cart, it should contain information about the added item.-->
+                        <div id="addedBasketInner">
+                            <div class="row">
+                                <div class="small-12 large-12 columns">
+                                    <p class="addedText">Added to your order</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-8 large-8 columns">
+                                    <p id="addedItemName" style="font-size: 1.2em;"></p>
+                                </div>
+                                <div class="small-4 large-4 columns">
+                                    <p>
+                                        <span id="addedItemPrice"></span><span style="font-size: 0.7em; margin-left: 15px; margin-right: 15px">
+                                            <a id="delAddedItem" href="#"
+                                               onclick="$('#addedToBasket').hide(); delFromNotification=true; return true;">Remove</a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+
+<div id="fb-root"></div>
+
+<div class="page-loader" style="display: none">
+    <img class="page-loader-image" src="~/Pizza/images/loader.gif" />
+</div>
+@Scripts.Render("~/bundles/jquery")
+@RenderSection("UpperScripts", required: false)
+<script>
+
+
+    $(function () {
+
+
+
+
+        $(document.body).on('click',
+            '.DivFront',
+            function () {
+                $(this).slideToggle();
+                var $Back = $(this).parent().find(".DivBack, .ItemCustomizeSection").slideToggle();
+            });
+        //$(document.body).on('mouseover',
+        //    '.DivFront',
+        //    function () {
+        //        $(this).slideToggle();
+        //        var $Back = $(this).parent().find(".DivBack, .ItemCustomizeSection").slideToggle();
+        //    });
+
+        $(document.body).on('click',
+            '.DivBack',
+            function () {
+                $(this).slideToggle();
+                var $Back = $(this).parent().find(".DivFront, .ItemCustomizeSection").slideToggle();
+
+            });
+        $(document.body).on('click',
+            '.item_topping',
+            function () {
+                var id = $(this).attr("data-id");
+                var loc = $(this).attr("data-loc");
+                var topId = $(this).attr("data-locId");
+                $("#selectDrop2_" + id).text(loc);
+                $("#selectDrop2_" + id).attr("data-topping-id", topId);
+
+                console.log(loc);
+            });
+        $(document.body).on('click',
+            '.item_size',
+            function () {
+                var id = $(this).attr("data-id");
+                var size = $(this).attr("data-size");
+                var price = $(this).attr("data-size-price");
+                $("#selectDrop_" + id).text(size);
+                $("#selectDrop_" + id).attr("data-pizza-size", size);
+                $("#selectDrop_" + id).attr("data-pizza-price", price);
+
+                //get current price
+
+                console.log(size);
+            });
+        $(document.body).on('click',
+            '.CounterUp',
+            function () {
+                //get current value
+                var id = $(this).attr("data-id");
+                //current value
+
+                var curValue = Number($("#QTY_" + id).text());
+                curValue += 1;
+                $("#QTY_" + id).text(curValue);
+                var sizePrice = Number($("#selectDrop_" + id).attr("data-size-price"));
+
+                var price = Number($("#price_" + id).attr("data-price"));
+                var cumPrice = sizePrice + price;
+                var total = cumPrice * curValue;
+                $("#price_" + id).text(total);
+                console.log("current value", curValue, "id", id);
+            });
+        $(document.body).on('click',
+            '.CounterDown',
+            function () {
+                //get current value
+                var id = $(this).attr("data-id");
+                //current value
+
+                var curValue = Number($("#QTY_" + id).text());
+
+                if (curValue > 1) {
+                    curValue -= 1;
+                    $("#QTY_" + id).text(curValue);
+
+                }
+                var sizePrice = Number($("#selectDrop_" + id).attr("data-size-price"));
+
+                var price = Number($("#price_" + id).attr("data-price"));
+                var cumPrice = sizePrice + price;
+                var total = cumPrice * curValue;
+                $("#price_" + id).text(total);
+                console.log("current value", curValue, "id", id);
+            });
+
+        $(document.body).on('click',
+            '.btnMakeOrder',
+            function () {
+                //get selected size
+                var id = $(this).attr("data-pId");
+                var size = $(this).parents(".ItemCustomizeSection").find("a.select-size").attr('data-pizza-size');
+                //data-size-price
+                var size_prize1 = Number($(this).parents(".ItemCustomizeSection").find("a.select-size").attr('data-size-price'));
+                var toppingId = $(this).parents(".ItemCustomizeSection").find("a.select-topping")
+                    .attr("data-topping-id");
+                var qty = Number($(this).parent().find(".divQty").text());
+
+                console.log("size:", size, "topping:", toppingId, "qty ", qty);
+                location.href = `/Item/CheckOut/?productId=${id}&qty=${qty}&toppingId=${toppingId}&size=${size}&sizePrice=${size_prize1}`;
+
+            });
+
+    });
+</script>
+<script>
+    /// <reference path="../_ref.js" />
+    $(function () {
+
+        $("#contactForm").submit(function (event) {
+            event.preventDefault();
+            // jQuery.ajaxSettings.traditional = true;
+            $.ajax({
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                type: "post",
+                beforeSend: function () {
+                    $("#imgLoad").show();
+                    $("button[type='submit']").attr("disabled", true);
+                    //    $("button[type='submit']").attr("disabled", true);
+                },
+                complete: function () {
+                    $("#imgLoad").hide();
+
+                    $("button[type='submit']").removeAttr("disabled", true);
+                },
+                error: function (err) {
+                    $("#myAlert1").slideDown();
+                    console.log(err);
+                },
+                success: function (response) {
+                    $("#errorSummary ul li").remove();
+                    $("#errorSummary").hide();
+                    if (response.status === 200) {
+                        $("#txtMsg").text(response.message);
+                        $("#myModal").modal();
+
+                    }
+                    else {
+                        $("#errorSummary ul li").remove();
+                        $("#errorSummary").hide();
+                        response.errors.forEach(function (item, index, array) {
+                            $(".validation-summary-errors ul").append("<li>" + item + "<li>");
+                            $("#errorSummary ul").append("<li>" + item + "<li>");
+                            console.log(item);
+                            console.log(index);
+                            console.log(array);
+                        });
+                        //   $(".validation-summary-errors ul li").append("<li> $response.errors. <li>`)
+
+                        $(".validation-summary-errors ul li").show();
+                        $("#errorSummary").show();
+                    }
+                    console.log(response);
+                }
+            });
+
+        });
+
+    })
+</script>
+<script type="text/javascript" src="~/Pizza/MinifiedScripts/ThirdParty4dfa.js?ts=201609031604"></script>
+
+<script type="text/javascript" src="~/Pizza/MinifiedScripts/Scripts5894.js?ts=201905151136"></script>
+<script type="text/javascript"
+        src="~/Pizza/MinifiedScripts/Yum-PizzaHut-Americana-v2/ThemeScripts.js"></script>
+<link rel='stylesheet' href='~/Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/font_en.css' type='text/css' />
+
+
+<script>
+    /*!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs'); */
+</script>
+
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+        function showAll() {
+            replace("@Url.Action("All", "Item")");
+        }
+        function showList(id)
+        {
+            replace("/Item/AllCategoryItem/"+id);
+
+        }
+        function showSubList(id, subId) {
+            replace("/Item/Sub/?category="+id+"&sub="+subId);
+        }
+        function replace(url) {
+            $.ajax(url,
+                {
+                    type: "Get",
+                    beforeSend: function() {
+                        //showModal
+                        $(".page-loader").show();
+                    },
+                    complete: function() {
+                        //hide modal
+                        $(".page-loader").hide();
+                    },
+                    success: function(response) {
+                        //display content
+                        $("#replaceDiv").html(response);
+                        console.log(response);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+
+                });
+        }
+</script>
+
+@RenderSection("Scripts", required: false)
+
+
+</body>

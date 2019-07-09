@@ -42,6 +42,26 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Faq" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="ItemOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="5000" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemId" Type="int" />
+  </EntityType>
+  <EntityType Name="ItemSize">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="5000" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemId" Type="int" />
+  </EntityType>
   <EntityType Name="Logins">
     <Key>
       <PropertyRef Name="LoginProvider" />
@@ -256,6 +276,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ItemOptions_Pets">
+    <End Role="Pets" Type="Self.Pets" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ItemOptions" Type="Self.ItemOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pets">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="ItemOptions">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemSize_Pets">
+    <End Role="Pets" Type="Self.Pets" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ItemSize" Type="Self.ItemSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pets">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="ItemSize">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Orders_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -444,6 +492,8 @@
     <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemOptions" EntityType="Self.ItemOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemSize" EntityType="Self.ItemSize" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PetCategories" EntityType="Self.PetCategories" Schema="dbo" store:Type="Tables" />
@@ -471,6 +521,14 @@
     <AssociationSet Name="FK_dbo_UserClaims_dbo_Users_UserId" Association="Self.FK_dbo_UserClaims_dbo_Users_UserId">
       <End Role="Users" EntitySet="Users" />
       <End Role="UserClaims" EntitySet="UserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOptions_Pets" Association="Self.FK_ItemOptions_Pets">
+      <End Role="Pets" EntitySet="Pets" />
+      <End Role="ItemOptions" EntitySet="ItemOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemSize_Pets" Association="Self.FK_ItemSize_Pets">
+      <End Role="Pets" EntitySet="Pets" />
+      <End Role="ItemSize" EntitySet="ItemSize" />
     </AssociationSet>
     <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
       <End Role="Customers" EntitySet="Customers" />

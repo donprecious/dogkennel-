@@ -94,6 +94,31 @@ namespace bobbySaxyKennel.Controllers
             return View("Orders", orders);
         }
 
-       
+        public ActionResult Menu()
+        {
+            return View();
+        }
+        public ActionResult MenuCategoryItem(int id)
+        {
+            var items = new Pets().List().Where(a => a.PetCategory.PetCategoyID == id).ToList();
+            return PartialView("_MenuItem", items);
+        }
+
+        public ActionResult AllMenuCategoryItem()
+        {
+            var items = new Pets().List();
+            return PartialView("_MenuItem", items);
+        }
+
+        public ActionResult MealOptions(int id)
+        {  
+            var 
+            return PartialView("_MealOptions");
+        }
+        public ActionResult MealSize(int id)
+        {
+            return PartialView("_MealSize");
+
+        }
     }
 }

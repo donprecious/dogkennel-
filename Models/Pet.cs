@@ -17,6 +17,8 @@ namespace bobbySaxyKennel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pet()
         {
+            this.ItemOptions = new HashSet<ItemOption>();
+            this.ItemSizes = new HashSet<ItemSize>();
             this.Orders = new HashSet<Order>();
         }
     
@@ -35,6 +37,10 @@ namespace bobbySaxyKennel.Models
         public Nullable<decimal> LargePrize { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemOption> ItemOptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemSize> ItemSizes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         public virtual PetCategory PetCategory { get; set; }

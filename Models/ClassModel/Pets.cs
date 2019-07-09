@@ -228,6 +228,22 @@ namespace bobbySaxyKennel.Models.ClassModel
             }
         }
 
+       public IEnumerable<ItemOption> GetItemOption(int petId)
+       {
+           using (db = new BobSaxyDogsEntities())
+           {
+               return db.ItemOptions.Where(a => a.ItemId == petId).ToList();
+           }
+        }
+
+       public IEnumerable<ItemSize> GetSizeOption(int petId)
+       {
+           using (db = new BobSaxyDogsEntities())
+           {
+               return db.ItemSizes.Where(a => a.ItemId == petId).ToList();
+           }
+       }
+
         BobSaxyDogsEntities db;
     }
 }

@@ -3,12 +3,14 @@
   @{
       var catgory = new Categories().List();
       var loca = new ToppingService().List();
+
+     
   }
     <div id="content" class="row pad15" style="text-align: center; display: block;">
         <div>
             <div class="background_page_outer_wrapper">
                 <div class="background_page_inner_wrapper">
-                    <h1 class="background_page_title">Pizza</h1>
+                    <h1 class="background_page_title">Tacos</h1>
                     <div class="background_page_content_wrapper">
                         <div class="background_page_filters_wrapper">
                             <div class="background_page_filters_buttons" id="deb5f296-d270-43c0-9aea-02c730373428">
@@ -23,6 +25,7 @@
                                         <input id="sub_@a.Id" value="@a.Name"
                                                class="background_page_filter_button" onclick="showSubList(@i.PetCategoryID, @a.Id)" type="button">
                                     }
+                                    break;
                                 }
                                 <div class="c">
 

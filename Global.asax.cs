@@ -14,7 +14,7 @@ namespace bobbySaxyKennel
         protected void Application_Start()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            GlobalFilters.Filters.Add(new RequireHttpsAttribute());
+            //GlobalFilters.Filters.Add(new RequireHttpsAttribute());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

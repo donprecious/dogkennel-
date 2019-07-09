@@ -57,7 +57,7 @@
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="badge bg-primary">@orders</span> <b class="caret"></b></a>
-                 @Html.Action("shortMessage")
+                    @Html.Action("shortMessage", "Admin")
                 </li>
              
                 <li class="dropdown">
@@ -83,6 +83,8 @@
                         <ul id="demo" class="collapse">
                             <li>
                                 <a href="@Url.Action("AddPet", "admin", new { sellerID=sellerID })"><i class="fa fa-fw fa-plus"></i> Add Item</a>
+                                <a href="@Url.Action("Index", "ItemOptions", new { sellerID=sellerID })"><i class="fa fa-fw fa-plus"></i> Item Options</a>
+
                             </li>
                        
                             <li>
