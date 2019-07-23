@@ -1,0 +1,399 @@
+﻿@using bobbySaxyKennel.Models.ClassModel
+@model dynamic
+
+@{
+    ViewBag.Title = "Menu";
+    var category = new Categories().List(); 
+}
+
+<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
+    <div class="row">
+        @*<div class="col-sm-12 visible-sm visible-xs">
+            <nav class="navbar navbar-inverse bg-danger">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Category</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        @foreach (var i in category)
+                        { 
+                        <li> <a  class="menu-link" data-id="@i.PetCategoyID">@i.Name</a></li>
+                           
+                        }
+                  
+                    </ul>
+                </div>
+            </nav>
+         
+        </div>*@ 
+        <div class="col-md-3">
+            <div class="vertical-menu">
+                @foreach (var i in category)
+                {
+                    <a class="menu-link" data-id="@i.PetCategoyID">@i.Name</a>
+                }
+
+
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-6">
+            <div class="replaceDiv">
+                @Html.Action("AllMenuCategoryItem")
+            </div>
+
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <h3 > <i class="fa fa-shopping-cart"></i> Cart <span class="badge text-danger" id="cartCount"> 0 </span> <button class="btn btn-danger pull-right" type="button" id="checkout"> Check out</button> </h3>
+            <div id="cart">
+                @*<div class="media">
+
+            <div class="media-body" id="cartItem">
+                <h3 class="media-heading">Item 1 <small> AED 20 </small> <a class="pull-right"> <i class="fa fa-trash"></i></a> </h3>
+                <ul>
+                    <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a>
+                        <hr/>
+                    </li>
+                    <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a>
+                        <hr/>
+                    </li>
+                    <li>  Sub item 1  <small> AED 20 </small>    <a class="pull-right"> <i class="fa fa-trash"></i></a>
+                        <hr/>
+                    </li>
+                </ul>
+
+            </div>
+          
+        </div>*@
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                Add More Option
+            </div>
+            <div class="modal-body">
+                <div id="mealOptionDiv"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css
+{
+    <style>
+        .vertical-menu {
+            width: 200px; /* Set a width if you like */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .vertical-menu a {
+            background-color: #eee; /* Grey background color */
+            color: black; /* Black text color */
+            display: block; /* Make the links appear below each other */
+            padding: 12px; /* Add some padding */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc; /* Dark grey background on mouse-over */
+        }
+
+        .vertical-menu a {
+            background-color: #dc143c;
+            color: white;
+        }
+
+        a:hover {
+            color: #dc143c;
+        }
+
+
+        .modal-content {
+            border-radius: 0px;
+            box-shadow: 2px 8px 16px 0px #420b0b;
+        }
+        .col-md-3 a {
+            border-radius: 0px;
+        }
+    </style>
+}
+
+@section Scripts
+{
+    <script>
+
+        function replaceDiv(url, $div) {
+            $.ajax(url,
+                {
+                    type: "Get",
+                    beforeSend: function() {
+                        //showModal
+                        $(".page-loader").show();
+                    },
+                    complete: function() {
+                        //hide modal
+                        $(".page-loader").hide();
+                    },
+                    success: function(response) {
+                        //display content
+                        $div.html(response);
+                        console.log(response);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+
+                });
+        }
+
+        $(".menu-link").on("click",
+            function() {
+                var id = $(this).attr("data-id");
+                replaceDiv("/Item/MenuCategoryItem/"+id, $(".replaceDiv"));
+            });
+
+    </script>
+    <script>
+
+        var sizeOption = {
+            sizeId: 0,
+            name: "",
+            description: "",
+            cost: ""
+        };
+
+        var products = [];
+        var itemOptions = [];
+        var currentProductItemId = 0;
+    </script>
+    <script>
+        $(document.body).on("click", ".menu-item",
+            function() {
+                var id = $(this).attr("data-id");
+                var name = $(this).attr("data-name");
+                var cost = $(this).attr("data-cost");
+
+                var hasOption = $(this).attr("data-hasOption");
+
+
+                if (hasOption == "True") {
+                    $("#mealOptionDiv").load("/Item/MealOptions/" + id);
+                }
+
+                if (hasOption == "True") {
+                    var product = {};
+                    product.productId = id;
+                    product.cost = cost;
+                    product.name = name;
+                    product.quantity = 1;
+                    product.productItemId = products.length + 1;
+                    currentProductItemId = products.length + 1;
+                    product.itemOption = [];
+                    product.itemSize = [];
+                    products.push(product);
+
+                    $("#myModal").modal();
+                    var markup = `<div class="media" id= "media_${product.productItemId}">
+
+            <div class="media-body" >
+                <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                        .cost
+                        } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                        }" > <i class="fa fa-trash"></i></a> </h3> 
+    <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                        }" id ="cartProductQuantity_${product.productId}"  value="${
+                        product.quantity}">
+                <ul id="cartOptionList_${product.productItemId}">
+                   
+                </ul>
+
+            </div>
+          
+        </div>`;
+                    $("#cart").append(markup);
+                    //update cart  
+                    $("#cartCount").text(products.length);
+                } else {
+                    var product = {};
+                    product.productId = id;
+                    product.cost = cost;
+                    product.name = name;
+                    product.quantity = 1;
+                    product.productItemId = products.length + 1;
+                    product.itemOption = [];
+                    product.itemSize = [];
+                    products.push(product);
+
+                    // add item to cart 
+                    var markup = `<div class="media" id= "media_${product.productItemId}">
+
+            <div class="media-body" >
+                <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                        .cost
+                        } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                        }" > <i class="fa fa-trash"></i></a> </h3> 
+    <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                        }" id ="cartProductQuantity_${product.productId}"  value="${
+                        product.quantity}">
+                <ul id="cartOptionList_${product.productItemId}">
+                   
+                </ul>
+
+            </div>
+          
+        </div>`;
+                    $("#cart").append(markup);
+                    //update cart  
+                    $("#cartCount").text(products.length);
+                }
+            });
+
+        function updateProductQty(id, value) {
+            products.forEach(function(a) {
+                if (a.productItemId == id) {
+                    a.quantity = value;
+                }
+
+                console.log(products);
+            });
+        }
+      
+        $(document.body).on('change',
+            '.productQty',
+            function() {
+                updateProductQty($(this).attr("data-id"), $(this).val());
+            });
+
+        //remove product 
+
+        $(document.body).on("click",
+            ".remove-product",
+            function() {
+                var id = $(this).attr("data-id");
+
+                //remove from array  
+
+                for (const [index, item] of products.entries()) {
+                    if (item.productItemId == id) {
+                        products.splice(index, 1);
+                    }
+                }
+
+                //products.forEach(function(item, index) {
+                //    if (item.productItemId == id) {
+                //        products.splice(index, 1);
+                //    }
+                //});
+                console.log(products);
+                $("#media_" + id).remove();
+                $("#cartCount").text(products.length);
+            });
+
+        //add to option product to cart  
+        $(document.body).on("click",
+            "#btnAddtoCart",
+            function() {
+                $.each($("input[name='mealOption']:checked"),
+                    function() {
+                        var id = $(this).val();
+                        var name = $(this).attr("data-name");
+                        var amount = $(this).attr("data-amount");
+                        var productId = $(this).attr("data-productId");
+                        var itemOption = {
+                            optionId: id,
+                            name: name,
+                            cost: amount,
+                            productId: productId,
+                            productItemId: currentProductItemId,
+                            itemOptionId: itemOptions.length + 1
+                        };
+                        //itemOptions.push(itemOption);
+                        //update product  
+                        for (var i of products) {
+                            if (i.productItemId == currentProductItemId) {
+                                i.itemOption.push(itemOption);
+                            }
+                        }
+                        // display markup
+                        var mackup =
+                            `<li id="optionDiv_${itemOption.itemOptionId}">  ${itemOption.name}  <small> AED ${
+                                itemOption.cost}  </small>    <a class="pull-right remove-option" data-option-id = "${
+                                itemOption.itemOptionId}"> <i class="fa fa-trash"></i></a>
+                        <hr/>
+                    </li>`;
+                        $("#cartOptionList_" + currentProductItemId).append(mackup);
+
+                    });
+                $("#myModal").modal('close');
+            });
+
+        $(document.body).on("click",
+            ".remove-option",
+            function() {
+                var id = $(this).attr("data-option-id");
+                //remove from array  
+                for (const [index, item] of products.entries()) {
+                    for (const [oindex, oitem] of item.itemOption.entries()) {
+                        if (oitem.itemOptionId == id) {
+                            item.itemOption.splice(oindex, 1);
+                        }
+                    }
+                }
+                console.log(products);
+                $("#optionDiv_" + id).remove();
+            });
+
+
+        $("#checkout").click(function(event) {
+            event.preventDefault();
+            var mproducts = products;
+
+            //var product = [
+            //    {
+            //        productId: 0,
+            //        cost: 0.0,
+            //        name: "moa",
+            //        quantity: 1,
+            //        productItemId: 2,
+            //        itemOption: [],
+            //        itemSize: []
+            //    }, {
+            //        productId: 0,
+            //        cost: 0.0,
+            //        name: "moa",
+            //        quantity: 1,
+            //        productItemId: 2,
+            //        itemOption: [],
+            //        itemSize: []
+            //    }
+            //];
+
+            $.ajax("/Item/ProcessOrder",
+                {
+                    type: "POST",
+                    data: {"product": products} ,
+                    //dataType: 'json',
+                    success: function (response) { 
+                        if (response.status == 200) {
+                            location.href = "/Item/CheckOutCart";
+                        }
+                        console.log(response);
+                    },
+                    error: function() {
+                        console.log(response);
+                    }
+                });
+        });
+    </script>
+}

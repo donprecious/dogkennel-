@@ -128,34 +128,51 @@
                 <ul id="top-menu" class="menu">
                     <li id="menu-item-35"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-35">
-                        <a href="index.html">Home</a>
+                        <a href="@Url.Action("Index", "Home")">Home</a>
                     </li>
                     <li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36">
-                        <a href="https://jimboystacos.alohaorderonline.com/">Order Online</a>
+                        <a href="@Url.Action("Menu", "Item")">Order Online</a>
                     </li>
                     <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33">
-                        <a href="our-food/index.html">Our Food</a>
+                        <a href="@Url.Action("Foods", "Item")">Our Food</a>
+                    </li> 
+                    <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33">
+                        <a href="@Url.Action("Meal", "Item")">Meals</a>
                     </li>
                     <li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
-                        <a href="our-locations/index.html">Our Locations</a>
+                        <a href="@Url.Action("Faq", "Home")">FAQ</a>
                     </li>
                     <li id="menu-item-767"
                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-767">
-                        <a href="upcoming-locations/huntington-beach/index.html">Upcoming Locations</a>
-                    </li>
-                    <li id="menu-item-107"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107">
-                        <a href="our-story/index.html">Our Story</a>
-                    </li>
-                    <li id="menu-item-106"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106">
-                        <a href="taconation/index.html">Taco Nation</a>
-                    </li>
+                        <a href="@Url.Action("About", "Home")">About</a>
+                    </li> 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li id="menu-item-107"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107">
+                            <a href="@Url.Action("MyOrders", "Item")">My Orders</a>
+                        </li>
+                        <li id="menu-item-106"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106">
+                    <a href="@Url.Action("SignOut","Account")">Logout</a> </li>
+                    }
+                    else {  
+                        <li id="menu-item-107"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107">
+                                <a href="@Url.Action("Login", "Account")">Login</a>
+                            </li>
+                        <li id="menu-item-107"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107">
+                            <a href="@Url.Action("Register", "Account")">Register</a>
+                        </li>
+
+                    }
+                   
                     <li id="menu-item-104"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104">
-                        <a href="catering/index.html">Catering</a>
+                        <a href="@Url.Action("Contact", "Home")">Contact us</a>
                     </li>
-                    <li id="menu-item-103"
+                    @*<li id="menu-item-103"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103">
                         <a href="franchising/index.html">Franchising</a>
                     </li>
@@ -174,7 +191,7 @@
                     <li id="menu-item-101"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101">
                         <a href="contact-us/index.html">Contact Us</a>
-                    </li>
+                    </li>*@
                 </ul>
             </div>
         </nav>
@@ -183,7 +200,7 @@
         <header id="masthead" class="site-header" role="banner">
             <div class="wrap">
                 <div class="main-logo">
-                    <a href="index.html" rel="home" title="Khaleej  Tacos">
+                    <a href="@Url.Action("Index", "Home")" rel="home" title="Khaleej  Tacos">
                         <img alt="Logo"
                              src="~/images/logo.PNG" />
                     </a>
@@ -191,32 +208,27 @@
                 <div class="right-pusher"></div>
                 <nav class="main-nav">
                     <div class="row">
-                        <div class="col-md-2"><a href="index.html">Home</a></div>
-                        <div class="col-md-2"><a href="our-food/index.html">Menu</a></div>
-                        <div class="col-md-2 dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                               data-hover="dropdown" data-delay="1000" data-close-others="false">Locations</a>
-                            <ul class="dropdown-menu">
-                                <li><a tabindex="-1" href="our-locations/index.html">Current Locations</a></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                       data-hover="dropdown" data-delay="1000" data-close-others="false">
-                                        Coming
-                                        Soon
-                                    </a>
-                                    <ul class="dropdown-menu mdois">
-                                        <li> <a class="anot-rdy" tabindex="-1">Downtown Commons, Sacramento</a></li>
-                                        <li class="divider"></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-2"><a href="our-story/index.html">Our Story</a></div>
-                        <div class="col-md-2"><a href="franchising/index.html">Franchising</a></div>
-                        <div class="col-md-2"><a href="careers/index.html">Careers</a></div>
+                        <div class="col-md-2"><a href="@Url.Action("Index", "Home")">Home</a></div>
+                        <div class="col-md-2"><a href="@Url.Action("Foods", "Item")">Menu</a></div>
+                        <div class="col-md-2"><a href="@Url.Action("Meal", "Item")">Meals</a></div>
+
+                        <div class="col-md-2"><a href="@Url.Action("Faq", "Home")">FAQ</a></div>
+                        <div class="col-md-2"><a href="@Url.Action("About", "Home")">About</a></div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="col-md-2"><a href="@Url.Action("MyOrders","Item")">My orders</a></div>
+
+                            <div class="col-md-2"><a href="@Url.Action("SignOut","Account")">My orders</a></div>
+
+                        }
+                        else
+                        {
+                            <div class="col-md-2"><a href="@Url.Action("Login", "Account")">Login</a></div>
+                            <div class="col-md-2"><a href="@Url.Action("Register", "Account")">Register</a></div>
+
+                        }
                         <div class="col-md-3">
-                            <a href="https://jimboystacos.alohaorderonline.com/" target="_blank">
+                            <a href="@Url.Action("Menu","Item")">
                                 Order
                                 Online
                             </a>
@@ -236,16 +248,26 @@
                     <div class="foot_left">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="taconation/index.html">Taco Nation</a></li>
-                                <li><a href="community/index.html">Community</a></li>
-                                <li><a href="catering/index.html">Catering</a></li>
-                                <li><a href="franchising/index.html">Franchising</a></li>
-                                <li><a href="franchising/site-requirements/index.html">Real Estate</a></li>
-                                <li><a href="fresh-buzz/index.html">Fresh Buzz</a></li>
-                                <li><a href="careers/index.html">Careers</a></li>
-                                <li><a href="gift-cards/index.html">Gift Cards</a></li>
-                                <li><a href="specials/index.html">Specials</a></li>
-                                <li><a href="contact-us/index.html">Contact Us</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Menu","Item")">Menu</a></li>
+                                <li><a href="@Url.Action("Meal","Item")">Meals</a></li>
+
+                                <li><a href="@Url.Action("Faq","Home")">Faq</a></li>
+                                <li><a href="@Url.Action("About","Home")">About</a></li>
+                                <li><a href="@Url.Action("Privacy","Home")">Privacy</a></li>
+                                <li><a href="@Url.Action("Contact","Home")">Contact us</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="@Url.Action("MyOrders","Item")">Menu</a></li>
+
+                                    <li><a href="@Url.Action("SignOut","Account")">Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Login","Account")">Logout</a></li>
+
+                                }
+
                             </ul>
                         </nav>
                         <div class="social" style="color: rgba(255, 255, 255, 1) !important;">
@@ -585,13 +607,7 @@
                     $(this).slideToggle();
                     var $Back = $(this).parent().find(".DivBack, .ItemCustomizeSection").slideToggle();
                 });
-            //$(document.body).on('mouseover',
-            //    '.DivFront',
-            //    function () {
-            //        $(this).slideToggle();
-            //        var $Back = $(this).parent().find(".DivBack, .ItemCustomizeSection").slideToggle();
-            //    });
-
+         
             $(document.body).on('click',
                 '.DivBack',
                 function () {
@@ -620,7 +636,7 @@
                     $("#selectDrop_" + id).attr("data-pizza-size", size);
                     $("#selectDrop_" + id).attr("data-pizza-price", price);
 
-                    //get current price
+                    // get current price
 
                     console.log(size);
                 });

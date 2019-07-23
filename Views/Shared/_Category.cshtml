@@ -1,0 +1,29 @@
+﻿@using bobbySaxyKennel.Models.ClassModel
+@{
+    var catgories = new Categories().List();
+} 
+
+<div id="left-third-column" style="overflow: hidden;">
+    <div id="left-column-inner">
+        <div class="submenus-container">
+            <div id="submenu-wrapper" style="height: auto;">
+                <ol class="submenus" id="submenus">
+                    @foreach (var i in catgories)
+                    {
+                        <li class="submenu list-item mobile-web-with-image" value="66">
+                            <a data-id ="@i.PetCategoyID">
+                                <div class="menu-picture-div submenu-picture-div">
+                                    <img class="menu-picture" src="@i.imageUrl">
+                                </div>
+                                <span>@i.Name</span>
+                                <img class="menu-button-arrow" src="https://nolocdnv.azureedge.net/Content/Static?ContentFile=Images/arrow.png">
+                            </a>
+                        </li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+

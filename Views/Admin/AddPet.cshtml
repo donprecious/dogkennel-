@@ -195,11 +195,9 @@
                         var r = "";
                         response.forEach((i) => {
                             r += `<option value="${i.Id}"> ${i.Name}</option>`;
-                        })
-
+                        });
                         $dropdown.empty();
                         $dropdown.html(r);
-
                     }
                 });
             $(document.body).on('change',
@@ -216,9 +214,7 @@
                                 var r = "";
                                 response.forEach((i) => {
                                     r += `<option value= "${i.Id}"> ${i.Name}</option>`;
-
-                                })
-
+                                });
                                 $dropdown.empty();
                                 $dropdown.html(r);
                             }

@@ -143,7 +143,9 @@ namespace bobbySaxyKennel.Models.ClassModel
 
                 using (db = new BobSaxyDogsEntities())
                 {
-                    var r = db.Pets.Include(a=>a.Seller).Include(a=>a.PetCategory).Include(a=>a.PetView).Where( a=>a.PetID==petId).SingleOrDefault();
+                    var r = db.Pets.Include(a=>a.Seller).Include(a=>a.PetCategory)
+                        .Include(a => a.ItemSizes)
+                        .Include(a => a.ItemOptions).Include(a=>a.PetView).Where( a=>a.PetID==petId).SingleOrDefault();
                     if (r != null)
                     {
                         return r;
@@ -214,7 +216,9 @@ namespace bobbySaxyKennel.Models.ClassModel
                 return db.Pets.Include(a => a.PetCategory).
                     Include(a=>a.PetCategory)
                     .Include(a => a.Seller)
-                    .Include(a=>a.SubCategory)
+                    .Include(a=>a.SubCategory) 
+                    .Include(a=>a.ItemSizes)
+                    .Include(a=>a.ItemOptions)
                     .Include(a=>a.PetCategory.SubCategories)
                     .ToList<Pet>();
             }
@@ -232,7 +236,7 @@ namespace bobbySaxyKennel.Models.ClassModel
        {
            using (db = new BobSaxyDogsEntities())
            {
-               return db.ItemOptions.Where(a => a.ItemId == petId).ToList();
+               return db.ItemOptions.Where(a => a.ItemId == petId).Include(a=>a.Pet).ToList();
            }
         }
 

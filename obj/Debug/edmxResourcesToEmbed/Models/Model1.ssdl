@@ -88,6 +88,8 @@
     <Property Name="ToppingId" Type="int" />
     <Property Name="AdditionalNote" Type="varchar(max)" />
     <Property Name="DateTime" Type="datetime" />
+    <Property Name="ItemDetail" Type="varchar(max)" />
+    <Property Name="PickupTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PetCategories">
     <Key>

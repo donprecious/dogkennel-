@@ -1,0 +1,474 @@
+﻿
+
+<!DOCTYPE html >
+<html >
+
+<head>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://nolocdnv.azureedge.net/Content?ContentFile=favicon.ico&amp;companyCode=JITA001&amp;designId=1" />
+
+    <meta content="True" name="HandheldFriendly" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+    <meta content="width=device-width, user-scalable=no" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+
+    <title>Khaleej tacos &#8211; Do It Different, Keep It Fresh, and Bring It Home!</title>
+    <link href="~/mobile/Content/Styles.css" rel="stylesheet" type="text/css" />
+
+    <link href='https://jimboystacos.alohaorderonline.com/Content.ashx?ContentFile=Custom.css&amp;wv=5&amp;Design=1&amp;companyCode=JITA001&amp;designId=1' rel='stylesheet' />
+
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="~/mobile/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/jquery.cookie.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/jquery.validate.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/date.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/utilMobile.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/ncr-programmatic.js" type="text/javascript"></script>
+
+
+    <script src="~/mobile/Scripts/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="LoadPhoneFormatterScript"></script>
+
+    <script type="text/javascript" src="LoadUtilScript"></script>
+
+
+</head>
+<body>
+
+
+
+
+
+    <div class="page">
+
+        <div class="sticky-wrap">
+
+
+            <header id="page-header" class="nav-bar-gradient">
+                <div id="page-header-container">
+                    <div id="login-display">
+                        <div id="header-floater"></div>
+                        <div id="ios-arrow-left" class="back" data-href="" title="Back"></div>
+
+                        <div class="page-title">Our Menu</div>
+                        <div id="sc-show-cart">
+                            <img src="https://nolocdnv.azureedge.net/Content/Static?ContentFile=Images/cart.png" id="ios-arrow-left" class="sc-cart-button">
+                        </div>
+                        <div id="sc-bubble" style="display: none;">
+                            0
+                        </div>
+                    </div>
+
+                    <br>
+                    <div id="header-title" class="lrg-header-text text-shadow phone-hide">
+                        It's as easy as <span class="bold">one, two, three.</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="clear phone-show"></div>
+                </div>
+            </header>
+            <div id="replaceDiv">
+                @RenderBody()
+            </div>
+            <div class="clear "></div>
+
+        </div>
+
+
+        <footer id="page-footer">
+            <div id="login-display">
+                <div id="header-floater"></div>
+                <div id="login-content">
+                    <div style="height:auto; position:relative;">
+                        <div id="loginFooter">
+
+                            <div id="logindiv" class="left">
+                                <b>
+                                    <div id="tldiv">
+                                        <a onclick="" id="login-link">Sign up | Login</a> | <a onclick="showContactForm()" id="contact-link">Contact Us</a>
+                                    </div>
+                                    <div id="bldiv">
+                                        <a id="home-link" href="@Url.Action("Index", "Home")">Home |</a>
+                                        <a href="@Url.Action("Faq", "Home")" id="privacy-link"> Privacy Policy</a>
+                                        <a target="_blank" href="@Url.Action("Terms", "Home")" id="termsofuse-link">| Terms of Use</a>
+                                    </div>
+                                </b>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </footer>
+
+
+    </div>
+
+
+    <script src="~/mobile/Scripts/mobiscroll-2.0.2.custom.min.js" type="text/javascript"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css' />
+
+
+    <script src="~/mobile/Scripts/mobileScripts.js" type="text/javascript"></script>
+
+
+    <div class="loaderPopup" id="loaderSpace">
+        <div class="loader-background">
+        </div>
+        <div class="loader-container loader">
+        </div>
+    </div>
+
+    <script>
+    function showAll() {
+        replace("@Url.Action("All", "Item")");
+    }
+    function showList(id)
+    {
+        replace("/Item/AllCategoryItem/"+id);
+
+    }
+    function showSubList(id, subId) {
+        replace("/Item/Sub/?category="+id+"&sub="+subId);
+    }
+    function replace(url) {
+        $.ajax(url,
+            {
+                type: "Get",
+                beforeSend: function() {
+                    //showModal
+                    $(".page-loader").show();
+                },
+                complete: function() {
+                    //hide modal
+                    $(".page-loader").hide();
+                },
+                success: function(response) {
+                    //display content
+                    $("#replaceDiv").html(response);
+                    console.log(response);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+    }
+
+
+    </script>
+    @section css
+{
+        <style>
+            .vertical-menu {
+                width: 200px; /* Set a width if you like */
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+                .vertical-menu a {
+                    background-color: #eee; /* Grey background color */
+                    color: black; /* Black text color */
+                    display: block; /* Make the links appear below each other */
+                    padding: 12px; /* Add some padding */
+                    text-decoration: none; /* Remove underline from links */
+                }
+
+                    .vertical-menu a:hover {
+                        background-color: #ccc; /* Dark grey background on mouse-over */
+                    }
+
+                .vertical-menu a {
+                    background-color: #dc143c;
+                    color: white;
+                }
+
+            a:hover {
+                color: #dc143c;
+            }
+
+
+            .modal-content {
+                border-radius: 0px;
+                box-shadow: 2px 8px 16px 0px #420b0b;
+            }
+
+            .col-md-3 a {
+                border-radius: 0px;
+            }
+        </style>
+    }
+
+    @section Scripts
+{
+        <script>
+
+            function replaceDiv(url, $div) {
+                $.ajax(url,
+                    {
+                        type: "Get",
+                        beforeSend: function () {
+                            //showModal
+                            $(".page-loader").show();
+                        },
+                        complete: function () {
+                            //hide modal
+                            $(".page-loader").hide();
+                        },
+                        success: function (response) {
+                            //display content
+                            $div.html(response);
+                            console.log(response);
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+
+                    });
+            }
+
+            $(".menu-link").on("click",
+                function () {
+                    var id = $(this).attr("data-id");
+                    replaceDiv("/Item/MenuCategoryItem/" + id, $(".replaceDiv"));
+                });
+
+        </script>
+        <script>
+
+            var sizeOption = {
+                sizeId: 0,
+                name: "",
+                description: "",
+                cost: ""
+            };
+
+            var products = [];
+            var itemOptions = [];
+            var currentProductItemId = 0;
+        </script>
+        <script>
+            $(document.body).on("click", ".menu-item",
+                function () {
+                    var id = $(this).attr("data-id");
+                    var name = $(this).attr("data-name");
+                    var cost = $(this).attr("data-cost");
+
+                    var hasOption = $(this).attr("data-hasOption");
+
+                    if (hasOption == "True") {
+                        $("#replaceDiv").load("/Item/MealOptions/" + id);
+                    }
+
+                    if (hasOption == "True") {
+                        var product = {};
+                        product.productId = id;
+                        product.cost = cost;
+                        product.name = name;
+                        product.quantity = 1;
+                        product.productItemId = products.length + 1;
+                        currentProductItemId = products.length + 1;
+                        product.itemOption = [];
+                        product.itemSize = [];
+                        products.push(product);
+
+                        $("#myModal").modal();
+                        var markup = `<div class="media" id= "media_${product.productItemId}">
+
+                    <div class="media-body" >
+                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                                .cost
+                            } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                            }" > <i class="fa fa-trash"></i></a> </h3>
+            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                            }" id ="cartProductQuantity_${product.productId}"  value="${
+                            product.quantity}">
+                        <ul id="cartOptionList_${product.productItemId}">
+
+                        </ul>
+
+                    </div>
+
+                </div>`;
+                     //   $("#cart").append(markup);
+                        //update cart
+
+                        $("#cartCount").text(products.length);
+                    } else {
+                        var product = {};
+                        product.productId = id;
+                        product.cost = cost;
+                        product.name = name;
+                        product.quantity = 1;
+                        product.productItemId = products.length + 1;
+                        product.itemOption = [];
+                        product.itemSize = [];
+                        products.push(product);
+
+                        // add item to cart
+                        var markup = `<div class="media" id= "media_${product.productItemId}">
+
+                    <div class="media-body" >
+                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                                .cost
+                            } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                            }" > <i class="fa fa-trash"></i></a> </h3>
+            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                            }" id ="cartProductQuantity_${product.productId}"  value="${
+                            product.quantity}">
+                        <ul id="cartOptionList_${product.productItemId}">
+
+                        </ul>
+
+                    </div>
+
+                </div>`;
+                        $("#cart").append(markup);
+                        //update cart
+                        $("#cartCount").text(products.length);
+                    }
+                });
+
+            function updateProductQty(id, value) {
+                products.forEach(function (a) {
+                    if (a.productItemId == id) {
+                        a.quantity = value;
+                    }
+
+                    console.log(products);
+                });
+            }
+
+            $(document.body).on('change',
+                '.productQty',
+                function () {
+                    updateProductQty($(this).attr("data-id"), $(this).val());
+                });
+
+            //remove product
+
+            $(document.body).on("click",
+                ".remove-product",
+                function () {
+                    var id = $(this).attr("data-id");
+
+                    //remove from array
+
+                    for (const [index, item] of products.entries()) {
+                        if (item.productItemId == id) {
+                            products.splice(index, 1);
+                        }
+                    }
+
+                    //products.forEach(function(item, index) {
+                    //    if (item.productItemId == id) {
+                    //        products.splice(index, 1);
+                    //    }
+                    //});
+                    console.log(products);
+                    $("#media_" + id).remove();
+                    $("#cartCount").text(products.length);
+                });
+
+            //add to option product to cart
+            $(document.body).on("click",
+                "#btnAddtoCart",
+                function () {
+                    $.each($("input[name='mealOption']:checked"),
+                        function () {
+                            var id = $(this).val();
+                            var name = $(this).attr("data-name");
+                            var amount = $(this).attr("data-amount");
+                            var productId = $(this).attr("data-productId");
+                            var itemOption = {
+                                optionId: id,
+                                name: name,
+                                cost: amount,
+                                productId: productId,
+                                productItemId: currentProductItemId,
+                                itemOptionId: itemOptions.length + 1
+                            };
+                            //itemOptions.push(itemOption);
+                            //update product
+                            for (var i of products) {
+                                if (i.productItemId == currentProductItemId) {
+                                    i.itemOption.push(itemOption);
+                                }
+                            }
+                            // display markup
+                            var mackup =
+                                `<li id="optionDiv_${itemOption.itemOptionId}">  ${itemOption.name}  <small> AED ${
+                                itemOption.cost}  </small>    <a class="pull-right remove-option" data-option-id = "${
+                                itemOption.itemOptionId}"> <i class="fa fa-trash"></i></a>
+                                <hr/>
+                            </li>`;
+                            $("#cartOptionList_" + currentProductItemId).append(mackup);
+
+                        });
+                    $("#myModal").modal('close');
+                });
+
+            $(document.body).on("click",
+                ".remove-option",
+                function () {
+                    var id = $(this).attr("data-option-id");
+                    //remove from array
+                    for (const [index, item] of products.entries()) {
+                        for (const [oindex, oitem] of item.itemOption.entries()) {
+                            if (oitem.itemOptionId == id) {
+                                item.itemOption.splice(oindex, 1);
+                            }
+                        }
+                    }
+                    console.log(products);
+                    $("#optionDiv_" + id).remove();
+                });
+
+
+            $("#checkout").click(function (event) {
+                event.preventDefault();
+                var mproducts = products;
+
+                $.ajax("/Item/ProcessOrder",
+                    {
+                        type: "POST",
+                        data: { "product": products },
+                        //dataType: 'json',
+                        success: function (response) {
+                            if (response.status == 200) {
+                                location.href = "/Item/CheckOutCart";
+                            }
+                            console.log(response);
+                        },
+                        error: function () {
+                            console.log(response);
+                        }
+                    });
+            });
+        </script>
+    }
+
+</body>
+
+</html>
+

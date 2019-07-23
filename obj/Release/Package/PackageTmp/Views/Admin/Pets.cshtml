@@ -75,7 +75,9 @@
                         <td>@i.Datetime</td>
                      
                         <td><a class="btn btn-xs btn-default" href="@Url.Action("EditPet","Admin",new { petId = i.PetID, sellerId=i.SellerID})">Edit</a> 
-                        | <a class="btn btn-xs btn-default" href="@Url.Action("DeletePet","Admin", new {petid=i.PetID})">Delete</a>  </td>
+                            | <a class="btn btn-xs btn-default" href="@Url.Action("DeletePet","Admin", new {petid=i.PetID})">Delete</a>  
+                            | <a class="btn btn-xs btn-default" href="@Url.Action("Options","ItemOptions", new {id=i.PetID})">View Option</a>  </td>
+
                     </tr>
                                 }
 

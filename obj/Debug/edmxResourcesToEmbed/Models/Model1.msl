@@ -81,6 +81,8 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="ItemDetail" ColumnName="ItemDetail" />
           <ScalarProperty Name="DateTime" ColumnName="DateTime" />
           <ScalarProperty Name="AdditionalNote" ColumnName="AdditionalNote" />
           <ScalarProperty Name="ToppingId" ColumnName="ToppingId" />

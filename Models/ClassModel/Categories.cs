@@ -9,7 +9,7 @@ namespace bobbySaxyKennel.Models.ClassModel
     public class Categories
     {
         public static string returnMessage;
-        public bool Add(string name, string description)
+        public bool Add(string name, string description, string imageLoc)
         {
 
             try
@@ -18,7 +18,7 @@ namespace bobbySaxyKennel.Models.ClassModel
                 using (db = new BobSaxyDogsEntities())
                 {
 
-                    db.PetCategories.Add(new PetCategory() { Name = name, Description = description });
+                    db.PetCategories.Add(new PetCategory() { Name = name, Description = description, imageUrl = imageLoc});
                     db.SaveChanges();
                     return true;
                 }

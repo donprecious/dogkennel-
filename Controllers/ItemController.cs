@@ -25,6 +25,10 @@ namespace bobbySaxyKennel.Controllers
             return PartialView("_Item", items);
         }
 
+        public ActionResult Foods()
+        {
+            return View();
+        }
         public ActionResult Sub(int category, int sub)
         {
             var items = new Pets().List().Where(a => a.PetCategory.PetCategoyID == category && a.SubCategoryId == sub).ToList();
@@ -50,7 +54,6 @@ namespace bobbySaxyKennel.Controllers
                  TotalPrice = price,
                  Product = product,
                  Customer = customer
-                 
             };
             return View("CheckOut", orderVm);
         }
@@ -75,6 +78,7 @@ namespace bobbySaxyKennel.Controllers
         }
 
 
+
         private string UserId()
         {
             return User.Identity.GetUserId();
@@ -96,7 +100,7 @@ namespace bobbySaxyKennel.Controllers
 
         public ActionResult Menu()
         {
-            return View();
+            return View("Menu");
         }
         public ActionResult MenuCategoryItem(int id)
         {
@@ -111,14 +115,66 @@ namespace bobbySaxyKennel.Controllers
         }
 
         public ActionResult MealOptions(int id)
-        {  
-            var 
-            return PartialView("_MealOptions");
+        {
+            var mealOptions = new Pets().GetItemOption(id); 
+            return PartialView("_MealOptions", mealOptions);
         }
         public ActionResult MealSize(int id)
         {
-            return PartialView("_MealSize");
+            var itemOption = new Pets().GetSizeOption(id);
+            return PartialView("_MealSize", itemOption);
 
+        }
+
+        [HttpPost]
+        public ActionResult ProcessOrder(List<Product> product)
+        {
+            Session["cart"] = product;
+            return Json(new {status=200});
+        }
+
+        [Authorize]
+        public ActionResult CheckOutCart()
+        {
+            List<Product> products = (List<Product>)Session["cart"];
+            return View(products);
+        }
+
+        public ActionResult CategoryView()
+        {
+            return PartialView("_Category");
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult CheckOutCart(OrderVm m)
+        {
+            List<Product> products = (List<Product>)Session["cart"];
+            var save = new Orders();
+            //var product = new Pets().Getpet(m.PetId);
+            //var price = product.Amount * m.Quantity;
+
+            foreach (var i in products)
+            {
+                var s = "";
+                if (i.itemOption != null)
+                {
+                    foreach (var a in i.itemOption)
+                    {
+                        s += $" {a.name} , cost: {a.cost } \n > ";
+                    }
+                }
+                save.Add(m.CustomerId, i.productId, m.DeliveryAddress, m.AddtionalPhoneNo, i.quantity, (double)i.cost, null,"", m.AdditionalNote, s, m.PickupTime); 
+              
+            }
+            Session["cart"] = null;
+            return Json(new { status = 200, message = "Order Successfully placed" });
+         
+
+        }
+
+        public ActionResult Meal()
+        {
+            return View();
         }
     }
 }

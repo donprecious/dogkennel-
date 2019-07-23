@@ -12,7 +12,7 @@ namespace bobbySaxyKennel.Models.ClassModel
         public static int orderId;
 
 
-        public bool Add(int customerId, int petId, string deliveryAddress, string contact, int quantity, double totalPrice, int toppingId, string size, string note )
+        public bool Add(int customerId, int petId, string deliveryAddress, string contact, int quantity, double totalPrice, int? toppingId, string size, string note, string optionDetail="", DateTime? pickupDateTime=null )
         {
             try
             {
@@ -30,7 +30,9 @@ namespace bobbySaxyKennel.Models.ClassModel
                         SIze = size,
                         ToppingId =  toppingId,
                        AdditionalNote = note,
-                       DateTime = DateTime.UtcNow
+                       DateTime = DateTime.UtcNow, 
+                       ItemDetail = optionDetail,
+                       PickupTime = pickupDateTime
                     };
                     db.Orders.Add(order);
                     db.SaveChanges();

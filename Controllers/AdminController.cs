@@ -408,7 +408,7 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (new Models.ClassModel.Categories().Add(m.Name, m.Description))
+                if (new Models.ClassModel.Categories().Add(m.Name, m.Description, m.ImageUrl))
                 {
                     return RedirectToAction("AddCategory");
                     //   return Json(new { status = 200, message = "Category Added Successfully " });

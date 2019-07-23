@@ -190,6 +190,8 @@
     <Property Name="ToppingId" Type="Int32" />
     <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="ItemDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PickupTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Customer" Relationship="bobsaxydogsModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
     <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Order" ToRole="Pet" />
     <NavigationProperty Name="Topping" Relationship="bobsaxydogsModel.FK_Orders_Toppings" FromRole="Order" ToRole="Topping" />

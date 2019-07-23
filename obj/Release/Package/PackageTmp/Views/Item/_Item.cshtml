@@ -1,12 +1,83 @@
 ﻿@using bobbySaxyKennel.Models.ClassModel
 @model System.Collections.Generic.List<bobbySaxyKennel.Models.Pet>
-  @{
-      var catgory = new Categories().List();
-      var loca = new ToppingService().List();
+@{
+    var catgory = new Categories().List();
+    var loca = new ToppingService().List();
 
+
+}
+<div id="content" class="site-content">
+    <div class="no-wrap">
      
-  }
-    <div id="content" class="row pad15" style="text-align: center; display: block;">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main" tabindex="-1">
+                <div class="our-story-img" style="background-image: url('/images/menu-head.jpg');">
+                    <div class="page-describer">
+                        <h1>Menu</h1>
+                        <p>View our Khaleej  Tacos tasty menu and order online.</p>
+                    </div>
+                </div>
+                <div class="ourmenu-dl-links">
+                    <ul>
+                       @foreach (var i in catgory)
+                       {
+                           <li class="nuti-lnks">
+                               <a class="nuti-aa" href="javascript:showList(@i.PetCategoyID);" title="@i.Description">@i.Name</a>
+                           </li>
+                       }
+                        
+
+                    </ul>
+                </div> 
+                @*<div class="ourmenu-dl-links">
+                    <ul>
+                     
+                        @foreach (var i in Model)
+                        {
+                            foreach (var a in i.PetCategory.SubCategories)
+                            {
+                                <li class="nuti-lnks">
+                                    <a class="nuti-aa btn-xs" href="showSubList(@i.PetCategoryID, @a.Id)" title="@i.Description">@i.Name</a>
+                                </li>
+                            }
+                            break;
+                        }
+
+                    </ul>
+                </div>*@ 
+            
+                <div class="our-food-full">
+                    <ul>
+                   
+                        @foreach (var i in Model)
+                        {
+                            <li >
+                                <div class="o-food-image" style="background-image: url(@i.ImgLocation);"></div>
+                                <div class="color-def">
+                                    <div class="mid-sec">
+                                        <h2 class="spacer">@i.Name</h2>
+                                        <a class="food-button" href="@Url.Action("Menu", "Item")">Order Now <em class="fa fa-chevron-right" aria-hidden="true"></em></a>
+                                    </div>
+                                    <div class="food-desc">
+                                        <p>@i.Amount</p>
+                                        <p>@i.Description</p>
+
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                      
+                       
+                    </ul>
+                </div>
+            </main>
+        </div>
+        <div class="footer-sizer" style="clear: both; height: 63.3906px;"></div>
+    </div>
+</div>
+
+
+@*<div id="content" class="row pad15" style="text-align: center; display: block;">
         <div>
             <div class="background_page_outer_wrapper">
                 <div class="background_page_inner_wrapper">
@@ -14,7 +85,7 @@
                     <div class="background_page_content_wrapper">
                         <div class="background_page_filters_wrapper">
                             <div class="background_page_filters_buttons" id="deb5f296-d270-43c0-9aea-02c730373428">
-                                @* sub categories *@
+
                                 <input id="FLTR_2_all" value="ALL" onclick="showAll()"
                                        class="background_page_filter_button background_page_filter_button_Active"
                                        type="button">
@@ -32,7 +103,7 @@
                                 </div>
                             </div>
                         </div>
-                   
+
                         <div class="background_page_content_thumbs VScrollable" style="top: 15px;">
                             <div class="row" id="Deals">
                                 <div class="large-12 columns">
@@ -64,16 +135,7 @@
                                                             </div>
                                                             <div class="ItemCustomizeSection" style="display: none;">
                                                                 <div class="SelectorsSection">
-                                                                    @*<div class="Item_Selector3 fake_combobox_wrapper SelectorCenterWrapper"
-                                                                         style="margin-bottom: 3px!important;">
-                                                                        <a href="#" class="fake_combobox_button"
-                                                                           id="selectSize_@i.PetID"
-                                                                           data-dropdown="SEL3CTRL_-9026004_2"></a>
-                                                                        <ul id="SEL3CTRL_-9026004_2"
-                                                                            class="fake_combobox_dropdown"
-                                                                            data-dropdown-content=""></ul>
-                                                                    </div>*@ 
-                                                                    
+
                                                                     @{
                                                                         double smallPrice=0.0, mediumPrice=0.0, largePrice = 0.0;
                                                                         if (i.SmallPrize != null)
@@ -96,8 +158,8 @@
                                                                         <a href="#" class="drop-down-button dropdown-toggle select-size"
                                                                            id="selectDrop_@i.PetID"
                                                                            data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" data-size-price="@mediumPrice" aria-expanded="false">Medium</a>
-                                                                        <ul 
-                                                                            
+                                                                        <ul
+
                                                                             class="selector-ul dropdown-menu"
                                                                             data-dropdown-content="" aria-labelledby="selectDrop_@i.PetID">
                                                                             <li data-size ="Small">
@@ -127,7 +189,7 @@
                                                                            data-dropdown="SEL2CTRL_-9026004_2">
                                                                             @loca.First().Name
                                                                         </a>
-                                                                        <ul 
+                                                                        <ul
                                                                             class="selector-ul dropdown-menu locationDropDown"
                                                                             data-dropdown-content="">
                                                                             @foreach (var l in loca)
@@ -141,8 +203,8 @@
                                                                                     </a>
                                                                                 </li>
                                                                             }
-                                                                         
-                                                                        
+
+
                                                                         </ul>
                                                                     </div>
                                                                     <div class="Item_ModGroup fake_combobox_wrapper SelectorCenterWrapper">
@@ -169,15 +231,15 @@
                                                                            href="javascript:document._cr_act(264);">
                                                                             <span id="PRICE_-9026004_2">
                                                                                 @{
-                                                                                    //get Medium Price 
-                                                                                    
+                                                                                    //get Medium Price
+
                                                                                     var total = mediumPrice + Convert.ToDouble(i.Amount);
                                                                                 }
                                                                                 AED <span class="currencySymbol" data-price="@total.ToString("##.###")" id="price_@i.PetID"> @total.ToString("##.###") </span> (Order)
                                                                             </span>
                                                                         </a>
                                                                     </div>
-                                                   
+
                                                                     <a href="javascript:document._cr_act(265);"
                                                                        class="WebItemCustomizeLink">Customize</a>
                                                                 </div>
@@ -198,4 +260,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@

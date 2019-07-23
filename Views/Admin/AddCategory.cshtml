@@ -32,6 +32,31 @@
                         </div>
 
                         <div class="form-group">
+                            @Html.HiddenFor(a => a.ImageUrl, new { id = "imgLoc" })
+                            <input id="fullImageName" type="hidden" />
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"> Select a photo</label>
+                            <input type="file" accept=".jpg, .jpeg, .png, .gif" class="item-img file center-block form-control input-control" placeholder="Select A Picture to Upload" />
+                            <div class="progress hide-loader">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                    <span class="text-secondary"></span>
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="img-upload-div hide-loader" id="imgUploadDiv">
+                            <div class="div-overlay">
+                                <img src="" class="centerItem" id="imgLoader" width="50" height="50" />
+                            </div>
+                            <img src="" class="img-upload" id="item-img-output" />
+                            <button class="top-float-button btn-circle-icon btn  btn-xs btn-danger hide-loder" id="deleteUpload"><i class="fa fa-remove"></i></button>
+                        </div>
+
+                        <div class="form-group">
                             <button type="submit" class="btn btn-default">Create <img src="~/images/AjaxLoader/ringLoading1.gif" id="imgLoad" class="hide-loder" width="20" height="20" /> </button>
                         </div>
 
@@ -44,18 +69,29 @@
     </div>
     <div class="col-sm-6">
         <div id="subcategoryDiv">
-
         </div>
-
         @Html.Action("CategoryList")
-
-
     </div>
 </div>
 
-@*<div>
-        @Html.ActionLink("Back to List", "SellerList", "Admin")
-    </div>*@
+<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div id="upload-demo" class="center-block"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
     <div class="modal-dialog" role="document">
@@ -73,21 +109,37 @@
         </div>
     </div>
 </div>
+@section css{
 
+    <link href="~/Content/croppie.css" rel="stylesheet" />
+    <style>
+        #upload-demo {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+}
 
 @section Scripts{
-    @*<script src="~/Scripts/AppScripts/postWithModel.js"></script>*@ 
+    @*<script src="~/Scripts/AppScripts/postWithModel.js"></script>*@
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/croppie.js"></script>
+
+    <script src="~/Scripts/AppScripts/fileUpload.js"></script>
+    <script src="~/Scripts/AppScripts/CroppieModalCrop.js"></script>
+
     <script>
 
         function displaySubCategory(id) {
-            $.ajax("/Admin/SubCategoryList/"+id,
+            $.ajax("/Admin/SubCategoryList/" + id,
                 {
                     type: "Get",
-                    success: function(response) {
+                    success: function (response) {
                         $("#subcategoryDiv").html(response);
                         console.log(response);
                     },
-                    error: function(err) {
+                    error: function (err) {
                         console.log(err);
                     }
                 });

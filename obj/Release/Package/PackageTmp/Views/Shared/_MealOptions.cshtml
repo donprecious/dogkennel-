@@ -1,0 +1,17 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.ItemOption>
+
+
+@if (Model.Any())
+{
+
+    <div class="row" style="padding: 10px">
+        <h4>Select Options to Include</h4> 
+        @foreach (var i in Model)
+        {
+            <div class="col-sm-4">
+              <span> <input class="mealOption" name="mealOption" data-productId ="@i.Pet.PetID" data-name="@i.Name" data-amount="@i.Price"  type="checkbox" value="@i.Id" /> @i.Name - (@i.Price) </span>
+            </div>
+        }
+        <button class="btn btn-danger" id="btnAddtoCart"> Add to cart</button>
+    </div>
+}
