@@ -32,7 +32,7 @@ namespace bobbySaxyKennel.Controllers
         }
 
         [Authorize]
-        public ActionResult CheckOut(int productId, int qty, int toppingId, string size, double sizePrice)
+        public ActionResult CheckOut(int productId, int qty =0, int? toppingId=null, string size=null, double sizePrice=0.0)
         {
             if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
             {
@@ -67,14 +67,13 @@ namespace bobbySaxyKennel.Controllers
                 var save = new Orders();
                 var product = new Pets().Getpet(m.PetId);
                 var price = product.Amount * m.Quantity;
-                save.Add(m.CustomerId, m.PetId, m.DeliveryAddress, m.AddtionalPhoneNo, m.Quantity, (double) price, m.ToppingId, m.SIze, m.AdditionalNote);
+                save.Add(m.CustomerId, m.PetId, m.DeliveryAddress, m.AddtionalPhoneNo, m.Quantity, (double) price, 
+                    m.ToppingId, m.SIze, $"Pick Up Location: {m.PickUpLocation} \n" +                                $"Pick Up Date: {m.PickUpDatetime} \n Drop off location: {m.DropoffLocation} \n Drop off Date  "+ m.AdditionalNote);
                 ViewBag.OrderId = Orders.orderId;
                 return View("OrderComplete", new{ OrderId = Orders.orderId });
             }
             return View(m);
         }
-
-
         private string UserId()
         {
             return User.Identity.GetUserId();
@@ -94,6 +93,18 @@ namespace bobbySaxyKennel.Controllers
             return View("Orders", orders);
         }
 
-       
+        public ActionResult Cars()
+        {
+            var items = new Pets().List();
+            return View(items);
+        }
+
+        public ActionResult FilterCars(int id)
+        {
+            var items = new Pets().List().Where(a => a.PetCategory.PetCategoyID == id).ToList();
+         
+            return View("Cars",items);
+        }
     }
-}
+} 
+

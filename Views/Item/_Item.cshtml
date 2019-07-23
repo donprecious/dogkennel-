@@ -1,70 +1,228 @@
 ﻿@using bobbySaxyKennel.Models.ClassModel
 @model System.Collections.Generic.List<bobbySaxyKennel.Models.Pet>
-  @{
-      var catgory = new Categories().List();
-      var loca = new ToppingService().List();
+@{
+    var categories = new Categories().List();
+    var loca = new ToppingService().List();
 
-     
-  }
-    <div id="content" class="row pad15" style="text-align: center; display: block;">
-        <div>
-            <div class="background_page_outer_wrapper">
-                <div class="background_page_inner_wrapper">
-                    <h1 class="background_page_title">Pizza</h1>
-                    <div class="background_page_content_wrapper">
-                        <div class="background_page_filters_wrapper">
-                            <div class="background_page_filters_buttons" id="deb5f296-d270-43c0-9aea-02c730373428">
-                                @* sub categories *@
-                                <input id="FLTR_2_all" value="ALL" onclick="showAll()"
-                                       class="background_page_filter_button background_page_filter_button_Active"
-                                       type="button">
-                                @foreach (var i in Model)
-                                {
-                                    foreach (var a in i.PetCategory.SubCategories)
+
+}
+
+<section class="car-search-section pt-120 pb-120">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="car-search-filter-area">
+            <div class="car-search-filter-form-area">
+                <form class="car-search-filter-form">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="cart-sort-field">
+                                <span class="caption">Sort by : </span>
+                                <select>
+                                    <option onclick="showAll()">All</option>
+
+                                    @foreach (var i in categories)
                                     {
-                                        <input id="sub_@a.Id" value="@a.Name"
-                                               class="background_page_filter_button" onclick="showSubList(@i.PetCategoryID, @a.Id)" type="button">
+                                        <option  value="@i.PetCategoyID">@i.Name</option>
                                     }
-                                    break;
-                                }
-                                <div class="c">
 
-                                </div>
+
+                                </select>
                             </div>
                         </div>
-                   
-                        <div class="background_page_content_thumbs VScrollable" style="top: 15px;">
-                            <div class="row" id="Deals">
-                                <div class="large-12 columns">
-                                    <div class="section-container row" style="border: 0;">
-                                        <div class="linneyAccordion">
-                                            <div id="94e2d17d-e1e8-4bf3-ae35-60d05d751bc7"
-                                                 class="large-12 large-centered small-land-12 medium-port-12 columns submnu2" style="position: relative; height: 1627.8px;">
+                        @*<div class="col-lg-7 col-md-7 col-sm-6 d-flex">
+                                        <input type="text" name="car_search" id="car_search" placeholder="Search what you want........" />
+                                        <button class="search-submit-btn">Search</button>
+                                    </div>*@
+                    </div>
+                </form>
+            </div>
+            <div class="view-style-toggle-area">
+                <button class="view-btn list-btn"><i class="fa fa-bars"></i></button>
+                <button class="view-btn grid-btn active"><i class="fa fa-th-large"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-70">
+<div class="col-lg-8">
+    <div class="car-search-result-area grid--view row mb-none-30" >
+        @foreach (var i in Model)
+        {
+            <div class="col-md-6 col-12">
+                <div class="car-item">
+                    <div class="thumb bg_img" data-background="assets/images/cars/4.jpg"></div>
+                    <div class="car-item-body">
+                        <div class="content">
+                            <h4 class="title">@i.Name</h4>
+                            <span class="price">start form NGN @i.Amount per day</span>
+                            <p>@i.Description</p>
+                            <a href="#" class="cmn-btn">rent car</a>
+                        </div>
+                        @*<div class="car-item-meta">
+                            <ul class="details-list">
+                                <li><i class="fa fa-car"></i>model 2014ib</li>
+                                <li><i class="fa fa-tachometer"></i>32000 KM</li>
+                                <li><i class="fa fa-sliders"></i>auto</li>
+                            </ul>
+                        </div>*@
+                    </div>
+                </div>
+            </div><!-- car-item end -->
+        }
 
-                                                @foreach (var i in Model)
-                                                {
-                                                    <div id="@i.PetID"
-                                                         class="SubMenuItem canAdd canCustomize selector1 selector2">
-                                                        <div class="SubMenuItemInnerContainer">
-                                                            <div class="ItemFront DivFront" style="display: block;">
-                                                                <div class="ItemTextWrapper">
-                                                                    <span class="ItemTitle">@i.Name</span>
-                                                                </div>
-                                                                <div class="ItemImgWrapper">
-                                                                    <img src="@i.ImgLocation" orgimg="@i.ImgLocation">
-                                                                </div>
+
+    </div>
+    @*<nav class="d-pagination" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item active"><a class="page-link" href="~/car/#">1</a></li>
+            <li class="page-item"><a class="page-link" href="~/car/#">2</a></li>
+            <li class="page-item"><a class="page-link" href="~/car/#">3</a></li>
+            <li class="page-item"><a class="page-link" href="~/car/#">4</a></li>
+            <li class="page-item"><a class="page-link" href="~/car/#">5</a></li>
+        </ul>
+    </nav>*@
+</div>
+<div class="col-lg-4">
+    <aside class="sidebar">
+        <div class="widget widget-reservation">
+            <h4 class="widget-title">reservation</h4>
+            <div class="widget-body">
+                <form class="car-search-form">
+                    <div class="row">
+                        <div class="col-lg-12 form-group">
+                            <select>
+                                <option onclick="showAll()">All</option>
+
+                                @foreach (var i in categories)
+                                {
+                                    <option  value="@i.PetCategoyID">@i.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-map-marker"></i>
+                            <input class="form-control has-icon" type="text" placeholder="Pickup Location" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-map-marker"></i>
+                            <input class="form-control has-icon" type="text" placeholder="Drop Off Location" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-calendar"></i>
+                            <input type='text' class='form-control has-icon datepicker-here' data-language='en' placeholder="Pickup Date" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-clock-o"></i>
+                            <input type="text" name="timepicker" class="form-control has-icon timepicker" placeholder="Pickup Time" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-calendar"></i>
+                            <input type='text' class='form-control has-icon datepicker-here' data-language='en' placeholder="Drop Off Date" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <i class="fa fa-clock-o"></i>
+                            <input type="text" name="timepicker" class="form-control has-icon timepicker" placeholder="Drop Off Time" />
+                        </div>
+                    </div>
+                    <button type="submit" class="cmn-btn">Reservation</button>
+                </form>
+            </div>
+        </div><!-- widget end -->
+        <div class="widget widget-price-filter">
+            <h4 class="widget-title">price filter</h4>
+            <div class="widget-body">
+                <div id="slider-range"></div>
+                <div class="filter-price-result">
+                    <input type="text" id="amount" readonly=readonly /><span>(Per Day)</span>
+                </div>
+            </div>
+        </div><!-- widget end -->
+        <div class="widget widget-testimonial">
+            <h4 class="widget-title">testimonial</h4>
+            <div class="widget-body">
+                <div class="testimonial-slider owl-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item--header">
+                            <div class="thumb"><img src="~/car/assets/images/testimonial/1.jpg" alt="image" /></div>
+                            <div class="content">
+                                <h6 class="name">martin hook</h6>
+                                <span class="designation">business man</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-item--body">
+                            <p>Tristique consequat, lorem sed vivamus donec eget, nulla pharetra lacinia wisi diamaliquam velit nec.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- widget end -->
+    </aside>
+</div>
+</div>
+</div>
+</section>
+
+
+<div id="content" class="row pad15" style="text-align: center; display: block;">
+    <div>
+        <div class="background_page_outer_wrapper">
+            <div class="background_page_inner_wrapper">
+                <h1 class="background_page_title">Pizza</h1>
+                <div class="background_page_content_wrapper">
+                    <div class="background_page_filters_wrapper">
+                        <div class="background_page_filters_buttons" id="deb5f296-d270-43c0-9aea-02c730373428">
+                            @* sub categories *@
+                            <input id="FLTR_2_all" value="ALL" onclick="showAll()"
+                                   class="background_page_filter_button background_page_filter_button_Active"
+                                   type="button">
+                            @foreach (var i in Model)
+                            {
+                                foreach (var a in i.PetCategory.SubCategories)
+                                {
+                                    <input id="sub_@a.Id" value="@a.Name"
+                                           class="background_page_filter_button" onclick="showSubList(@i.PetCategoryID, @a.Id)" type="button">
+                                }
+                                break;
+                            }
+                            <div class="c">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_page_content_thumbs VScrollable" style="top: 15px;">
+                        <div class="row" id="Deals">
+                            <div class="large-12 columns">
+                                <div class="section-container row" style="border: 0;">
+                                    <div class="linneyAccordion">
+                                        <div id="94e2d17d-e1e8-4bf3-ae35-60d05d751bc7"
+                                             class="large-12 large-centered small-land-12 medium-port-12 columns submnu2" style="position: relative; height: 1627.8px;">
+
+                                            @foreach (var i in Model)
+                                            {
+                                                <div id="@i.PetID"
+                                                     class="SubMenuItem canAdd canCustomize selector1 selector2">
+                                                    <div class="SubMenuItemInnerContainer">
+                                                        <div class="ItemFront DivFront" style="display: block;">
+                                                            <div class="ItemTextWrapper">
+                                                                <span class="ItemTitle">@i.Name</span>
                                                             </div>
-                                                            <div class="ItemBack DivBack" style="display: none;">
-                                                                <div class="ItemTextWrapper">
-                                                                    <span class="ItemTitle">@i.Name</span>
-                                                                    <p>
-                                                                     @i.Description
-                                                                    </p>
-                                                                </div>
+                                                            <div class="ItemImgWrapper">
+                                                                <img src="@i.ImgLocation" orgimg="@i.ImgLocation">
                                                             </div>
-                                                            <div class="ItemCustomizeSection" style="display: none;">
-                                                                <div class="SelectorsSection">
-                                                                    @*<div class="Item_Selector3 fake_combobox_wrapper SelectorCenterWrapper"
+                                                        </div>
+                                                        <div class="ItemBack DivBack" style="display: none;">
+                                                            <div class="ItemTextWrapper">
+                                                                <span class="ItemTitle">@i.Name</span>
+                                                                <p>
+                                                                    @i.Description
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ItemCustomizeSection" style="display: none;">
+                                                            <div class="SelectorsSection">
+                                                                @*<div class="Item_Selector3 fake_combobox_wrapper SelectorCenterWrapper"
                                                                          style="margin-bottom: 3px!important;">
                                                                         <a href="#" class="fake_combobox_button"
                                                                            id="selectSize_@i.PetID"
@@ -72,123 +230,117 @@
                                                                         <ul id="SEL3CTRL_-9026004_2"
                                                                             class="fake_combobox_dropdown"
                                                                             data-dropdown-content=""></ul>
-                                                                    </div>*@ 
-                                                                    
-                                                                    @{
-                                                                        double smallPrice=0.0, mediumPrice=0.0, largePrice = 0.0;
-                                                                        if (i.SmallPrize != null)
-                                                                        {
-                                                                            smallPrice = Convert.ToDouble( i.SmallPrize);
-                                                                        }
+                                                                    </div>*@
 
-                                                                        if (i.MediumPrize != null)
-                                                                        {
-                                                                            smallPrice = Convert.ToDouble( i.MediumPrize);
-                                                                        }
-
-                                                                        if (i.LargePrize != null)
-                                                                        {
-                                                                            largePrice = Convert.ToDouble( i.LargePrize);
-                                                                        }
-
+                                                                @{
+                                                                    double smallPrice = 0.0, mediumPrice = 0.0, largePrice = 0.0;
+                                                                    if (i.SmallPrize != null)
+                                                                    {
+                                                                        smallPrice = Convert.ToDouble(i.SmallPrize);
                                                                     }
-                                                                    <div class="Item_Selector1 fake_combobox_wrapper SelectorLeftWrapper dropdown">
-                                                                        <a href="#" class="drop-down-button dropdown-toggle select-size"
-                                                                           id="selectDrop_@i.PetID"
-                                                                           data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" data-size-price="@mediumPrice" aria-expanded="false">Medium</a>
-                                                                        <ul 
-                                                                            
-                                                                            class="selector-ul dropdown-menu"
-                                                                            data-dropdown-content="" aria-labelledby="selectDrop_@i.PetID">
-                                                                            <li data-size ="Small">
-                                                                                <a href="#" class="item_size"  data-id="@i.PetID" data-size-price="@smallPrice" data-size="Small">
-                                                                                    <h5>Small</h5>
-                                                                                    <p></p>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-size="Medium">
-                                                                                <a data-size="Medium" class="item_size" data-size-price="@mediumPrice" data-id="@i.PetID" >
-                                                                                    <h5>Medium</h5>
-                                                                                    <p></p>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li data-size="Large" >
-                                                                                <a data-size="Large" class="item_size" data-size-price="@largePrice" data-id="@i.PetID" >
-                                                                                    <h5>Large</h5>
-                                                                                    <p></p>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="Item_Selector2 fake_combobox_wrapper SelectorRightWrapper dropdown">
-                                                                        <a href="#" class="drop-down-button dropdown-toggle select-topping"
-                                                                           id="selectDrop2_@i.PetID" data-toggle="dropdown"
-                                                                           data-topping-id ="@loca.First().Id"
-                                                                           data-dropdown="SEL2CTRL_-9026004_2">
-                                                                            @loca.First().Name
-                                                                        </a>
-                                                                        <ul 
-                                                                            class="selector-ul dropdown-menu locationDropDown"
-                                                                            data-dropdown-content="">
-                                                                            @foreach (var l in loca)
-                                                                            {
-                                                                                <li id="@l.Id">
-                                                                                    <a data-loc ="@l.Name" class="item_topping" data-id="@i.PetID" data-locId="@l.Id">
-                                                                                        <h5>@l.Name</h5>
-                                                                                        <p>
-                                                                                           @l.Description
-                                                                                        </p>
-                                                                                    </a>
-                                                                                </li>
-                                                                            }
-                                                                         
-                                                                        
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="Item_ModGroup fake_combobox_wrapper SelectorCenterWrapper">
-                                                                        <a href="#" class="fake_combobox_button"
-                                                                           id="CUST_MODGROUP_CTRLTITLE_-9026004_2"
-                                                                           data-dropdown="CUST_MODGROUP_CTRL_-9026004_2"></a>
-                                                                        <ul id="CUST_MODGROUP_CTRL_-9026004_2"
-                                                                            class="fake_combobox_dropdown"
-                                                                            data-dropdown-content=""></ul>
-                                                                    </div>
-                                                                    <div class="clear"></div>
+
+                                                                    if (i.MediumPrize != null)
+                                                                    {
+                                                                        smallPrice = Convert.ToDouble(i.MediumPrize);
+                                                                    }
+
+                                                                    if (i.LargePrize != null)
+                                                                    {
+                                                                        largePrice = Convert.ToDouble(i.LargePrize);
+                                                                    }
+
+                                                                }
+                                                                <div class="Item_Selector1 fake_combobox_wrapper SelectorLeftWrapper dropdown">
+                                                                    <a href="#" class="drop-down-button dropdown-toggle select-size"
+                                                                       id="selectDrop_@i.PetID"
+                                                                       data-dropdown="SEL1CTRL_-9026004_2" data-toggle="dropdown" aria-haspopup="true" data-pizza-size="Medium" data-size-price="@mediumPrice" aria-expanded="false">Medium</a>
+                                                                    <ul class="selector-ul dropdown-menu"
+                                                                        data-dropdown-content="" aria-labelledby="selectDrop_@i.PetID">
+                                                                        <li data-size="Small">
+                                                                            <a href="#" class="item_size" data-id="@i.PetID" data-size-price="@smallPrice" data-size="Small">
+                                                                                <h5>Small</h5>
+                                                                                <p></p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li data-size="Medium">
+                                                                            <a data-size="Medium" class="item_size" data-size-price="@mediumPrice" data-id="@i.PetID">
+                                                                                <h5>Medium</h5>
+                                                                                <p></p>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li data-size="Large">
+                                                                            <a data-size="Large" class="item_size" data-size-price="@largePrice" data-id="@i.PetID">
+                                                                                <h5>Large</h5>
+                                                                                <p></p>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
                                                                 </div>
-                                                                <div>
-                                                                    <div class="WebItemButton AddToCartBtn">
-                                                                        <div class="WebItemBtnCounter divQty"
-                                                                             id="QTY_@i.PetID">1</div>
-                                                                        <div class="WebItemBtnCounter_BtnsWrp">
-                                                                            <a class="CounterUp" data-id="@i.PetID"
-                                                                               ></a>
-                                                                            <a class="CounterDown" data-id="@i.PetID"
-                                                                               ></a>
-                                                                        </div>
-                                                                        <a class="WebItemBtnTitle btnMakeOrder" data-pId ="@i.PetID"
-                                                                           href="javascript:document._cr_act(264);">
-                                                                            <span id="PRICE_-9026004_2">
-                                                                                @{
-                                                                                    //get Medium Price 
-                                                                                    
-                                                                                    var total = mediumPrice + Convert.ToDouble(i.Amount);
-                                                                                }
-                                                                                AED <span class="currencySymbol" data-price="@total.ToString("##.###")" id="price_@i.PetID"> @total.ToString("##.###") </span> (Order)
-                                                                            </span>
-                                                                        </a>
-                                                                    </div>
-                                                   
-                                                                    <a href="javascript:document._cr_act(265);"
-                                                                       class="WebItemCustomizeLink">Customize</a>
+                                                                <div class="Item_Selector2 fake_combobox_wrapper SelectorRightWrapper dropdown">
+                                                                    <a href="#" class="drop-down-button dropdown-toggle select-topping"
+                                                                       id="selectDrop2_@i.PetID" data-toggle="dropdown"
+                                                                       data-topping-id="@loca.First().Id"
+                                                                       data-dropdown="SEL2CTRL_-9026004_2">
+                                                                        @loca.First().Name
+                                                                    </a>
+                                                                    <ul class="selector-ul dropdown-menu locationDropDown"
+                                                                        data-dropdown-content="">
+                                                                        @foreach (var l in loca)
+                                                                        {
+                                                                            <li id="@l.Id">
+                                                                                <a data-loc="@l.Name" class="item_topping" data-id="@i.PetID" data-locId="@l.Id">
+                                                                                    <h5>@l.Name</h5>
+                                                                                    <p>
+                                                                                        @l.Description
+                                                                                    </p>
+                                                                                </a>
+                                                                            </li>
+                                                                        }
+
+
+                                                                    </ul>
                                                                 </div>
+                                                                <div class="Item_ModGroup fake_combobox_wrapper SelectorCenterWrapper">
+                                                                    <a href="#" class="fake_combobox_button"
+                                                                       id="CUST_MODGROUP_CTRLTITLE_-9026004_2"
+                                                                       data-dropdown="CUST_MODGROUP_CTRL_-9026004_2"></a>
+                                                                    <ul id="CUST_MODGROUP_CTRL_-9026004_2"
+                                                                        class="fake_combobox_dropdown"
+                                                                        data-dropdown-content=""></ul>
+                                                                </div>
+                                                                <div class="clear"></div>
                                                             </div>
-                                                            <div class="clear"></div>
+                                                            <div>
+                                                                <div class="WebItemButton AddToCartBtn">
+                                                                    <div class="WebItemBtnCounter divQty"
+                                                                         id="QTY_@i.PetID">1</div>
+                                                                    <div class="WebItemBtnCounter_BtnsWrp">
+                                                                        <a class="CounterUp" data-id="@i.PetID"></a>
+                                                                        <a class="CounterDown" data-id="@i.PetID"></a>
+                                                                    </div>
+                                                                    <a class="WebItemBtnTitle btnMakeOrder" data-pId="@i.PetID"
+                                                                       href="javascript:document._cr_act(264);">
+                                                                        <span id="PRICE_-9026004_2">
+                                                                            @{
+                                                                                //get Medium Price
+
+                                                                                var total = mediumPrice + Convert.ToDouble(i.Amount);
+                                                                            }
+                                                                            AED <span class="currencySymbol" data-price="@total.ToString("##.###")" id="price_@i.PetID"> @total.ToString("##.###") </span> (Order)
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+
+                                                                <a href="javascript:document._cr_act(265);"
+                                                                   class="WebItemCustomizeLink">Customize</a>
+                                                            </div>
                                                         </div>
+                                                        <div class="clear"></div>
                                                     </div>
+                                                </div>
 
-                                                }
+                                            }
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -199,3 +351,4 @@
             </div>
         </div>
     </div>
+</div>

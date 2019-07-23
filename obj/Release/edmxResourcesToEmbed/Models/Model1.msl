@@ -3,8 +3,8 @@
   <EntityContainerMapping StorageEntityContainer="bobsaxydogsModelStoreContainer" CdmEntityContainer="BobSaxyDogsEntities">
     <EntitySetMapping Name="Abouts">
       <EntityTypeMapping TypeName="bobsaxydogsModel.About">
-        <MappingFragment StoreEntitySet="About">
-          <ScalarProperty Name="About1" ColumnName="About" />
+        <MappingFragment StoreEntitySet="Abouts">
+          <ScalarProperty Name="About1" ColumnName="About1" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -41,8 +41,30 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Faqs">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Faq">
-        <MappingFragment StoreEntitySet="Faq">
-          <ScalarProperty Name="Faq1" ColumnName="Faq" />
+        <MappingFragment StoreEntitySet="Faqs">
+          <ScalarProperty Name="Faq1" ColumnName="Faq1" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemOptions">
+      <EntityTypeMapping TypeName="bobsaxydogsModel.ItemOption">
+        <MappingFragment StoreEntitySet="ItemOptions">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemSizes">
+      <EntityTypeMapping TypeName="bobsaxydogsModel.ItemSize">
+        <MappingFragment StoreEntitySet="ItemSizes">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -59,6 +81,8 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="ItemDetail" ColumnName="ItemDetail" />
           <ScalarProperty Name="DateTime" ColumnName="DateTime" />
           <ScalarProperty Name="AdditionalNote" ColumnName="AdditionalNote" />
           <ScalarProperty Name="ToppingId" ColumnName="ToppingId" />
@@ -77,6 +101,7 @@
     <EntitySetMapping Name="PetCategories">
       <EntityTypeMapping TypeName="bobsaxydogsModel.PetCategory">
         <MappingFragment StoreEntitySet="PetCategories">
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="PetCategoyID" ColumnName="PetCategoyID" />
@@ -113,8 +138,8 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Policies">
       <EntityTypeMapping TypeName="bobsaxydogsModel.Policy">
-        <MappingFragment StoreEntitySet="Policy">
-          <ScalarProperty Name="Policy1" ColumnName="Policy" />
+        <MappingFragment StoreEntitySet="Policies">
+          <ScalarProperty Name="Policy1" ColumnName="Policy1" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -164,7 +189,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="SubCategories">
       <EntityTypeMapping TypeName="bobsaxydogsModel.SubCategory">
-        <MappingFragment StoreEntitySet="SubCategory">
+        <MappingFragment StoreEntitySet="SubCategories">
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />

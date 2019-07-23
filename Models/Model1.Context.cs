@@ -30,6 +30,8 @@ namespace bobbySaxyKennel.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
+        public virtual DbSet<ItemOption> ItemOptions { get; set; }
+        public virtual DbSet<ItemSize> ItemSizes { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<PetCategory> PetCategories { get; set; }

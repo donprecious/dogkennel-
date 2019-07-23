@@ -17,7 +17,13 @@ namespace bobbySaxyKennel.Models.ViewModels
         public decimal TotalPrice { get; set; }
         public string SIze { get; set; }
         public int ToppingId { get; set; }
-        public string AdditionalNote { get; set; }
+        public string AdditionalNote { get; set; } 
+        public string PickUpLocation { get; set; }
+        public DateTime PickUpDatetime { get; set; }
+
+        public string DropoffLocation { get; set; }  
+        public DateTime DropOffDateTime { get; set; }
+
         public Customer Customer { get; set; }
         public Pet Product { get; set; } 
     }

@@ -94,7 +94,7 @@ namespace bobbySaxyKennel.Models.ClassModel
             {
                 using (db = new BobSaxyDogsEntities())
                 {
-                    var da = db.Sellers.FirstOrDefault(a => a.UserID == userId);
+                    var da = db.Sellers.FirstOrDefault();
                     if (da != null)
                     {
                         return da.SellerID;

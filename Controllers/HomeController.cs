@@ -13,7 +13,7 @@ namespace bobbySaxyKennel.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Cars", "Item");
         }
 
         public ActionResult About()

@@ -214,8 +214,8 @@ namespace bobbySaxyKennel.Models.ClassModel
                 return db.Pets.Include(a => a.PetCategory).
                     Include(a=>a.PetCategory)
                     .Include(a => a.Seller)
-                    .Include(a=>a.SubCategory)
-                    .Include(a=>a.PetCategory.SubCategories)
+                    .Include(a => a.SubCategory)
+                    .Include(a => a.PetCategory.SubCategories)
                     .ToList<Pet>();
             }
         } 

@@ -5,12 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="bobsaxydogsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="About">
+        <EntityType Name="Abouts">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="About" Type="varchar(max)" />
+          <Property Name="About1" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -40,12 +40,32 @@
           <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <EntityType Name="Faq">
+        <EntityType Name="Faqs">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Faq" Type="varchar(max)" />
+          <Property Name="Faq1" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ItemOptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar" MaxLength="5000" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ItemId" Type="int" />
+        </EntityType>
+        <EntityType Name="ItemSizes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar" MaxLength="5000" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ItemId" Type="int" />
         </EntityType>
         <EntityType Name="Logins">
           <Key>
@@ -73,6 +93,8 @@
           <Property Name="ToppingId" Type="int" />
           <Property Name="AdditionalNote" Type="varchar(max)" />
           <Property Name="DateTime" Type="datetime" />
+          <Property Name="ItemDetail" Type="varchar(max)" />
+          <Property Name="PickupTime" Type="datetime" />
         </EntityType>
         <EntityType Name="PetCategories">
           <Key>
@@ -81,6 +103,7 @@
           <Property Name="PetCategoyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="300" />
+          <Property Name="imageUrl" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Pets">
           <Key>
@@ -108,12 +131,12 @@
           <Property Name="PetID" Type="int" Nullable="false" />
           <Property Name="NoOfViews" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Policy">
+        <EntityType Name="Policies">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Policy" Type="varchar(max)" />
+          <Property Name="Policy1" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="QuotaMessages">
           <Key>
@@ -154,7 +177,7 @@
           <Property Name="ShowEmail" Type="bit" Nullable="false" />
           <Property Name="AddressableEmail" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="SubCategory">
+        <EntityType Name="SubCategories">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -261,6 +284,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ItemOptions_Pets">
+          <End Role="Pets" Type="Self.Pets" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemOptions" Type="Self.ItemOptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets">
+              <PropertyRef Name="PetID" />
+            </Principal>
+            <Dependent Role="ItemOptions">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Pets">
+          <End Role="Pets" Type="Self.Pets" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemSizes" Type="Self.ItemSizes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets">
+              <PropertyRef Name="PetID" />
+            </Principal>
+            <Dependent Role="ItemSizes">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -326,10 +377,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Pets_SubCategory">
-          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+          <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="0..1" />
           <End Role="Pets" Type="Self.Pets" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SubCategory">
+            <Principal Role="SubCategories">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Pets">
@@ -409,17 +460,17 @@
           <End Role="PetCategories" Type="Self.PetCategories" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PetCategories">
               <PropertyRef Name="PetCategoyID" />
             </Principal>
-            <Dependent Role="SubCategory">
+            <Dependent Role="SubCategories">
               <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserRoles_Roles">
+        <Association Name="FK_UserRoles_Role">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -431,7 +482,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserRoles_Users">
+        <Association Name="FK_UserRoles_User">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -444,22 +495,24 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="bobsaxydogsModelStoreContainer">
-          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faqs" EntityType="Self.Faqs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemOptions" EntityType="Self.ItemOptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemSizes" EntityType="Self.ItemSizes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PetCategories" EntityType="Self.PetCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pets" EntityType="Self.Pets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PetViews" EntityType="Self.PetViews" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Policy" EntityType="Self.Policy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuotaMessages" EntityType="Self.QuotaMessages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuotaReplies" EntityType="Self.QuotaReplies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sellers" EntityType="Self.Sellers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Toppings" EntityType="Self.Toppings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserClaims" EntityType="Self.UserClaims" Schema="dbo" store:Type="Tables" />
@@ -476,6 +529,14 @@
           <AssociationSet Name="FK_dbo_UserClaims_dbo_Users_UserId" Association="Self.FK_dbo_UserClaims_dbo_Users_UserId">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserClaims" EntitySet="UserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemOptions_Pets" Association="Self.FK_ItemOptions_Pets">
+            <End Role="Pets" EntitySet="Pets" />
+            <End Role="ItemOptions" EntitySet="ItemOptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Pets" Association="Self.FK_ItemSize_Pets">
+            <End Role="Pets" EntitySet="Pets" />
+            <End Role="ItemSizes" EntitySet="ItemSizes" />
           </AssociationSet>
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
             <End Role="Customers" EntitySet="Customers" />
@@ -498,7 +559,7 @@
             <End Role="Pets" EntitySet="Pets" />
           </AssociationSet>
           <AssociationSet Name="FK_Pets_SubCategory" Association="Self.FK_Pets_SubCategory">
-            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="SubCategories" EntitySet="SubCategories" />
             <End Role="Pets" EntitySet="Pets" />
           </AssociationSet>
           <AssociationSet Name="FK_PetViews_Pets" Association="Self.FK_PetViews_Pets">
@@ -523,13 +584,13 @@
           </AssociationSet>
           <AssociationSet Name="FK_SubCategory_PetCategories" Association="Self.FK_SubCategory_PetCategories">
             <End Role="PetCategories" EntitySet="PetCategories" />
-            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="SubCategories" EntitySet="SubCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+          <AssociationSet Name="FK_UserRoles_Role" Association="Self.FK_UserRoles_Role">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="UserRoles" EntitySet="UserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserRoles_Users" Association="Self.FK_UserRoles_Users">
+          <AssociationSet Name="FK_UserRoles_User" Association="Self.FK_UserRoles_User">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserRoles" EntitySet="UserRoles" />
           </AssociationSet>
@@ -544,6 +605,8 @@
           <EntitySet Name="Contacts" EntityType="bobsaxydogsModel.Contact" />
           <EntitySet Name="Customers" EntityType="bobsaxydogsModel.Customer" />
           <EntitySet Name="Faqs" EntityType="bobsaxydogsModel.Faq" />
+          <EntitySet Name="ItemOptions" EntityType="bobsaxydogsModel.ItemOption" />
+          <EntitySet Name="ItemSizes" EntityType="bobsaxydogsModel.ItemSize" />
           <EntitySet Name="Logins" EntityType="bobsaxydogsModel.Login" />
           <EntitySet Name="Orders" EntityType="bobsaxydogsModel.Order" />
           <EntitySet Name="PetCategories" EntityType="bobsaxydogsModel.PetCategory" />
@@ -570,6 +633,14 @@
           <AssociationSet Name="FK_QuotaMessage_Customer" Association="bobsaxydogsModel.FK_QuotaMessage_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemOptions_Pets" Association="bobsaxydogsModel.FK_ItemOptions_Pets">
+            <End Role="Pet" EntitySet="Pets" />
+            <End Role="ItemOption" EntitySet="ItemOptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Pets" Association="bobsaxydogsModel.FK_ItemSize_Pets">
+            <End Role="Pet" EntitySet="Pets" />
+            <End Role="ItemSize" EntitySet="ItemSizes" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Logins_dbo_Users_UserId" Association="bobsaxydogsModel.FK_dbo_Logins_dbo_Users_UserId">
             <End Role="User" EntitySet="Users" />
@@ -669,6 +740,28 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Faq1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="ItemOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ItemId" Type="Int32" />
+          <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_ItemOptions_Pets" FromRole="ItemOption" ToRole="Pet" />
+        </EntityType>
+        <EntityType Name="ItemSize">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ItemId" Type="Int32" />
+          <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_ItemSize_Pets" FromRole="ItemSize" ToRole="Pet" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="LoginProvider" />
@@ -696,6 +789,8 @@
           <Property Name="ToppingId" Type="Int32" />
           <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="ItemDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PickupTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Customer" Relationship="bobsaxydogsModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
           <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Order" ToRole="Pet" />
           <NavigationProperty Name="Topping" Relationship="bobsaxydogsModel.FK_Orders_Toppings" FromRole="Order" ToRole="Topping" />
@@ -707,6 +802,7 @@
           <Property Name="PetCategoyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Pets" Relationship="bobsaxydogsModel.FK_Pets_PetCategory" FromRole="PetCategory" ToRole="Pet" />
           <NavigationProperty Name="SubCategories" Relationship="bobsaxydogsModel.FK_SubCategory_PetCategories" FromRole="PetCategory" ToRole="SubCategory" />
         </EntityType>
@@ -728,6 +824,8 @@
           <Property Name="MediumPrize" Type="Decimal" Precision="19" Scale="2" />
           <Property Name="LargePrize" Type="Decimal" Precision="19" Scale="2" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ItemOptions" Relationship="bobsaxydogsModel.FK_ItemOptions_Pets" FromRole="Pet" ToRole="ItemOption" />
+          <NavigationProperty Name="ItemSizes" Relationship="bobsaxydogsModel.FK_ItemSize_Pets" FromRole="Pet" ToRole="ItemSize" />
           <NavigationProperty Name="Orders" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Pet" ToRole="Order" />
           <NavigationProperty Name="PetCategory" Relationship="bobsaxydogsModel.FK_Pets_PetCategory" FromRole="Pet" ToRole="PetCategory" />
           <NavigationProperty Name="Seller" Relationship="bobsaxydogsModel.FK_Pets_Seller" FromRole="Pet" ToRole="Seller" />
@@ -904,6 +1002,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ItemOptions_Pets">
+          <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="bobsaxydogsModel.ItemOption" Role="ItemOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="PetID" />
+            </Principal>
+            <Dependent Role="ItemOption">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Pets">
+          <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="bobsaxydogsModel.ItemSize" Role="ItemSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pet">
+              <PropertyRef Name="PetID" />
+            </Principal>
+            <Dependent Role="ItemSize">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_Logins_dbo_Users_UserId">
           <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1074,8 +1200,8 @@
   <EntityContainerMapping StorageEntityContainer="bobsaxydogsModelStoreContainer" CdmEntityContainer="BobSaxyDogsEntities">
           <EntitySetMapping Name="Abouts">
             <EntityTypeMapping TypeName="bobsaxydogsModel.About">
-              <MappingFragment StoreEntitySet="About">
-                <ScalarProperty Name="About1" ColumnName="About" />
+              <MappingFragment StoreEntitySet="Abouts">
+                <ScalarProperty Name="About1" ColumnName="About1" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1112,8 +1238,30 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Faqs">
             <EntityTypeMapping TypeName="bobsaxydogsModel.Faq">
-              <MappingFragment StoreEntitySet="Faq">
-                <ScalarProperty Name="Faq1" ColumnName="Faq" />
+              <MappingFragment StoreEntitySet="Faqs">
+                <ScalarProperty Name="Faq1" ColumnName="Faq1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemOptions">
+            <EntityTypeMapping TypeName="bobsaxydogsModel.ItemOption">
+              <MappingFragment StoreEntitySet="ItemOptions">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemSizes">
+            <EntityTypeMapping TypeName="bobsaxydogsModel.ItemSize">
+              <MappingFragment StoreEntitySet="ItemSizes">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1130,6 +1278,8 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="bobsaxydogsModel.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+                <ScalarProperty Name="ItemDetail" ColumnName="ItemDetail" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
                 <ScalarProperty Name="AdditionalNote" ColumnName="AdditionalNote" />
                 <ScalarProperty Name="ToppingId" ColumnName="ToppingId" />
@@ -1148,6 +1298,7 @@
           <EntitySetMapping Name="PetCategories">
             <EntityTypeMapping TypeName="bobsaxydogsModel.PetCategory">
               <MappingFragment StoreEntitySet="PetCategories">
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PetCategoyID" ColumnName="PetCategoyID" />
@@ -1184,8 +1335,8 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Policies">
             <EntityTypeMapping TypeName="bobsaxydogsModel.Policy">
-              <MappingFragment StoreEntitySet="Policy">
-                <ScalarProperty Name="Policy1" ColumnName="Policy" />
+              <MappingFragment StoreEntitySet="Policies">
+                <ScalarProperty Name="Policy1" ColumnName="Policy1" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1235,7 +1386,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="SubCategories">
             <EntityTypeMapping TypeName="bobsaxydogsModel.SubCategory">
-              <MappingFragment StoreEntitySet="SubCategory">
+              <MappingFragment StoreEntitySet="SubCategories">
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
