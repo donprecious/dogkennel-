@@ -16,11 +16,11 @@
     <title>Renten - Car Rental Service HTML Template</title>
     <!-- site favicon -->
     <link rel="shortcut icon" type="image/png" href="~/car/assets/images/favicon.jpg" />
-    <!-- fontawesome css link -->
+    <!-- font awesome css link -->
     <link rel="stylesheet" href="~/car/assets/css/fontawesome.min.css" />
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="~/car/assets/css/bootstrap.min.css" />
-    <!-- lightcase css link -->
+    <!-- light case css link -->
     <link rel="stylesheet" href="~/car/assets/css/lightcase.css" />
     <!-- animate css link -->
     <link rel="stylesheet" href="~/car/assets/css/animate.css" />
@@ -95,44 +95,33 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav main-menu mr-auto">
-                            <li class="menu_has_children">
-                                <a href="~/car/#0">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="~/car/home-one.html">Home One</a></li>
-                                    <li><a href="~/car/home-two.html">Home Two</a></li>
-                                </ul>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")">Home</a>
+
                             </li>
-                            <li><a href="~/car/about.html">About</a>
+                            <li>
+                                <a href="@Url.Action("About", "Home")">About</a>
                             </li>
-                            <li class="menu_has_children">
-                                <a href="~/car/#0">cars</a>
-                                <ul class="sub-menu">
-                                    <li><a href="~/car/car-list-one.html">car list one</a></li>
-                                    <li><a href="~/car/car-list-two.html">car list two</a></li>
-                                </ul>
+                            <li>
+                                <a href="@Url.Action("Cars", "Item")">Cars</a>
                             </li>
-                            <li class="menu_has_children">
-                                <a href="~/car/#0">pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="~/car/reservation.html">reservation</a></li>
-                                    <li><a href="~/car/login.html">login</a></li>
-                                    <li><a href="~/car/registration.html">registration</a></li>
-                                    <li><a href="~/car/error-404.html">404</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu_has_children">
-                                <a href="~/car/#0">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="~/car/blog.html">blog page</a></li>
-                                    <li><a href="~/car/blog-details.html">blog details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="~/car/contact.html">contact us</a></li>
+                            <li><a href="@Url.Action("ContactUs", "Home")">Contact us</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="@Url.Action("SignOut", "Account")">Logout</a></li>
+                                <li><a href="@Url.Action("MyOrders", "Item")">My Reservations</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                                <li><a href="@Url.Action("Register", "Account")">Register</a></li>
+
+                            }
                         </ul>
                     </div>
                 </nav>
             </div>
-        </div><!-- header-bottom end -->
+        </div>
     </header>
     <!--  header-section end  -->
     <!-- inner-apge-banner start -->
@@ -163,7 +152,7 @@
                         <div class="footer-widget widget-about">
                             <div class="widget-about-content">
                                 <a href="~/car/home-one.html" class="footer-logo"><img src="~/car/assets/images/logo-footer.png" alt="logo" /></a>
-                                <p>Lorem ipsum dolor sit amet, congue placeranec. Leo faucibus sed eleifend bibendum n vehicula nulla mauris nulla ipsum neque sed. Gravida egestas fermentum urna, velit sed. </p>
+                                <p>our company has provided millions of customers with the best possible guaranteed price for their Car Rental. We welcome you to become our next satisfied customer. </p>
                                 <ul class="social-links">
                                     <li><a href="~/car/#0"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="~/car/#0"><i class="fa fa-twitter"></i></a></li>
@@ -625,13 +614,7 @@
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("UpperScripts", required: false)
     <script>
-
-
         $(function () {
-
-
-
-
             $(document.body).on('click',
                 '.DivFront',
                 function () {

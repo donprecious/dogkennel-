@@ -68,7 +68,7 @@ namespace bobbySaxyKennel.Controllers
                 var product = new Pets().Getpet(m.PetId);
                 var price = product.Amount * m.Quantity;
                 save.Add(m.CustomerId, m.PetId, m.DeliveryAddress, m.AddtionalPhoneNo, m.Quantity, (double) price, 
-                    m.ToppingId, m.SIze, $"Pick Up Location: {m.PickUpLocation} \n" +                                $"Pick Up Date: {m.PickUpDatetime} \n Drop off location: {m.DropoffLocation} \n Drop off Date  "+ m.AdditionalNote);
+                    1, m.SIze, $"Pick Up Location: {m.PickUpLocation} \n" +                                $"Pick Up Date: {m.PickUpDatetime} \n Drop off location: {m.DropoffLocation} \n Drop off Date  "+ m.AdditionalNote);
                 ViewBag.OrderId = Orders.orderId;
                 return View("OrderComplete", new{ OrderId = Orders.orderId });
             }

@@ -133,15 +133,12 @@ namespace bobbySaxyKennel.Controllers
             var m = new Models.ClassModel.Pets().Getpet(petId);
             if (User.Identity.IsAuthenticated)
             {
-               
                 string userId = User.Identity.GetUserId();
                 var customerid = new Customers().GetCustomerID(userId);
-
                 if (customerid != null)
                 {
                     var customer = new Customers().GetCustomer((int)customerid);
-                    var send = new Models.ClassModel.QuoteMessages()
-                                                                   .Add(customer.User.Email, customer.User.PhoneNumber, "An Order has been Placed please reply customer", sellerId, customer.CustomerID);
+                    var send = new Models.ClassModel.QuoteMessages().Add(customer.User.Email, customer.User.PhoneNumber, "An Order has been Placed please reply customer", sellerId, customer.CustomerID);
                     if (send)
                     {
                         TempData["view"] = 200;
@@ -182,11 +179,9 @@ namespace bobbySaxyKennel.Controllers
         }
         [Authorize]
         public ActionResult Messages(string id)
-
         {
             return View();
         }
-
         public List<string> ModelErrors()
         {
             List<string> lstErr = new List<string>();
@@ -195,7 +190,6 @@ namespace bobbySaxyKennel.Controllers
                 foreach (ModelError error in modelState.Errors)
                 {
                     lstErr.Add(error.ErrorMessage);
-
                 }
             }
             return lstErr;
