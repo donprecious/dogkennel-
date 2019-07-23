@@ -295,22 +295,22 @@
                         $("#myModal").modal();
                         var markup = `<div class="media" id= "media_${product.productItemId}">
 
-                    <div class="media-body" >
-                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                            <div class="media-body" >
+                                <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
                                 .cost
                             } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
                             }" > <i class="fa fa-trash"></i></a> </h3>
-            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                    <input type="number"  class="form-control productQty" data-id = "${product.productItemId
                             }" id ="cartProductQuantity_${product.productId}"  value="${
                             product.quantity}">
-                        <ul id="cartOptionList_${product.productItemId}">
+                                <ul id="cartOptionList_${product.productItemId}">
 
-                        </ul>
+                                </ul>
 
-                    </div>
+                            </div>
 
-                </div>`;
-                     //   $("#cart").append(markup);
+                        </div>`;
+                        //   $("#cart").append(markup);
                         //update cart
 
                         $("#cartCount").text(products.length);
@@ -328,21 +328,21 @@
                         // add item to cart
                         var markup = `<div class="media" id= "media_${product.productItemId}">
 
-                    <div class="media-body" >
-                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                            <div class="media-body" >
+                                <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
                                 .cost
                             } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
                             }" > <i class="fa fa-trash"></i></a> </h3>
-            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                    <input type="number"  class="form-control productQty" data-id = "${product.productItemId
                             }" id ="cartProductQuantity_${product.productId}"  value="${
                             product.quantity}">
-                        <ul id="cartOptionList_${product.productItemId}">
+                                <ul id="cartOptionList_${product.productItemId}">
 
-                        </ul>
+                                </ul>
 
-                    </div>
+                            </div>
 
-                </div>`;
+                        </div>`;
                         $("#cart").append(markup);
                         //update cart
                         $("#cartCount").text(products.length);
@@ -420,8 +420,8 @@
                                 `<li id="optionDiv_${itemOption.itemOptionId}">  ${itemOption.name}  <small> AED ${
                                 itemOption.cost}  </small>    <a class="pull-right remove-option" data-option-id = "${
                                 itemOption.itemOptionId}"> <i class="fa fa-trash"></i></a>
-                                <hr/>
-                            </li>`;
+                                        <hr/>
+                                    </li>`;
                             $("#cartOptionList_" + currentProductItemId).append(mackup);
 
                         });
