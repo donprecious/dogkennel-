@@ -1,0 +1,112 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.ItemOption>
+
+@{
+    var item = Model.FirstOrDefault();
+}
+@*@if (Model.Any())
+    {
+        <div class="row" style="padding: 10px">
+            <h4>Select Options to Include</h4>
+            @foreach (var i in Model)
+            {
+                <div class="col-sm-4">
+                    <span> <input class="mealOption" name="mealOption" data-productId="@i.Pet.PetID" data-name="@i.Name" data-amount="@i.Price" type="checkbox" value="@i.Id" /> @i.Name - (@i.Price) </span>
+                </div>
+            }
+            <button class="btn btn-danger" id="btnAddtoCart"> Add to cart</button>
+        </div>
+    }*@
+
+<div id="middle-third-column">
+    <div id="menu-item-wrapper" style="height: auto;">
+        <ol class="menu-item-container">
+
+
+            <div class="modifier-container">
+                <span class="modifier-description">
+                   
+                </span>
+
+                <div id="mod-select-container" data-itemheaderid="1432">
+                    <div class="modifier-select-each">
+                        <input type="radio" name="modifier-select" id="Node2" class="mod-select-input" data-nodeid="2" data-itemid="2616" data-itemprice="3.8000" data-isdefault="true" data-nodetype="Item" checked="checked" style="display: none;">
+                        <label for="Node2">
+                            <span id="name">@item.Name</span>
+                            <span id="caloricvalue"></span> <span id="price"> @item.Price</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modifier-page-container true" data-parentnodeid="2">
+
+
+
+                    <div class="modifier-group" data-optiongroupid="8746" data-optionminitems="0" data-optionmaxitems="0" data-peroptionmax="0" data-peroptionmin="0" data-validquantities="" data-forcesection="0" data-hidemodifier="false">
+                        <div class="modifier-group-header list-item modifier-group-header-name">
+                            <div>
+                                <a>Choose Your Options:</a>
+                                <img class="modifier-button-arrow" src="https://nolocdnv.azureedge.net/Content/Static?ContentFile=Images/arrow.png">
+                            </div>
+                            <div class="modifier-group-desc-container site">
+                                <span class="modifier-group-description" data-optiongroupid="8746">
+
+                                </span>
+                            </div>
+                        </div>
+                        @if (Model.Any())
+                        {
+                            <div class="row" style="padding: 10px">
+                                <h4>Select Options to Include</h4>
+                                @foreach (var i in Model)
+                                {
+                                    <div class="modifier-group-items">
+                                        <div class="site modifier-item">
+                                            <div class="modifier-item-content">
+                                                <input id="Node4" type="checkbox" name="mealOption" class="mealOption" name="3" data-productId="@i.Pet.PetID" data-name="@i.Name" data-amount="@i.Price" type="checkbox" value="@i.Id" data-nodeid="4" data-modifierid="4237" data-modifiergroupid="8746" data-modifieraction="0" data-defaultmodifieraction="0" data-modsection1="false" data-modsection2="false" data-modparentindex="-1" data-modifierreason="1" checked="" data-modifierdefaultqty="1" /> @i.Name - (@i.Price)
+                                                <label for="Node4">
+                                                    <span class="node-name">@i.Name</span>
+                                                    <span class="price" data-price="@i.Price" style="display: none;"></span>
+                                                    <span class="caloricValue" data-caloricvalue="0"></span>
+                                                </label>
+                                            </div>
+                                            <div class="modifier-sub-group">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                }
+                                <button class="btn btn-danger" id="btnAddtoCart"> Add to cart</button>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modifier-item-summary">
+
+                <div class="modifer-is-spl-instructions" style="display: none;">
+                    <input placeholder="Special Instructions" id="special-instructions" class="basicinput" style="width:95%; margin-left: 0.5em;" maxlength="60">
+                </div>
+                <div class="modifier-is-rcpt-name" style="display: none;">
+                    <input placeholder="Recipient Name" id="rcpt-name" class="basicinput" style="width:95%; margin-left: 0.5em;">
+                </div>
+            </div>
+
+
+        </ol>
+    </div>
+</div>
+
+<div id="staticfooter">
+    <div class="right-column">
+        <button id="addToOrderStaticButton" class="green-button" style="padding: 1em;line-height:1.5em ">Add to Order</button>
+    </div>
+    <div class="center-column">
+        <div style="line-height: 2em; margin-top: 1em;">
+            <button class="black-button" id="reduceqtybutton" style="height:2em;width:2em;margin-right:.5em" data-action="-1">-</button>
+            <input class="sc-item-qty productQty" data-id="" type="text" id="modifier-is-quantity" placeholder="1" style="height:2em" value="1">
+            <button class="black-button" style="height:2em;width:2em;margin-left:.5em" id="addqtybutton" data-action="+1">+</button>
+        </div>
+    </div>
+</div>

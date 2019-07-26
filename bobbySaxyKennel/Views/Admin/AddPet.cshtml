@@ -1,0 +1,228 @@
+﻿
+@using Microsoft.AspNet.Identity
+@model bobbySaxyKennel.Models.ViewModels.PetVm
+
+@{
+    ViewBag.Title = "Add Item";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var db = new bobbySaxyKennel.Models.BobSaxyDogsEntities();
+    var lst = db.PetCategories.OrderBy(a => a.Name).ToList();
+    var userid = User.Identity.GetUserId();
+    var sellerId = new bobbySaxyKennel.Models.ClassModel.Sellers().GetSellerID(userid);
+    if (sellerId == null)
+    {
+        sellerId = 0;
+    }
+    SelectList list = new SelectList(lst, "PetCategoyID", "Name");
+}
+
+<div class="myForm">
+    <div class="form-center">
+        <div class="title">
+            <h2>Add a Item</h2>
+        </div>
+        <div class="form-content">
+            @using (Html.BeginForm("AddPet", "Admin"))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <div class="form-group">
+                    <h4>@ViewBag.SellerName</h4>
+                    @*@Html.ValidationSummary(true,"")*@
+                    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                    <div class="alert alert-warning hide-loader" id="errorSummary">
+                        <ul></ul>
+                    </div>
+
+                    @Html.HiddenFor(a => a.SellerId)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label" })
+
+                    @Html.DropDownListFor(m => m.CategoryID, list, htmlAttributes: new { @class = "form-control input-control country", id = "CategoryList", placeholder = "Select Category", })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Sub Category</label>
+                    <select class="form-control" name="@Html.NameFor(a=>a.SubCategoryId)" id="subcategorySelect"></select>
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Product Name" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Description" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", placeholder = "Ammount" } })
+                    @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                </div> 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SmallPrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.SmallPrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Small Price" } })
+                    @Html.ValidationMessageFor(model => model.SmallPrize, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MediumPrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.MediumPrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Medium Price" } })
+                    @Html.ValidationMessageFor(model => model.SmallPrize, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LargePrize, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.LargePrize, new { htmlAttributes = new { @class = "form-control", placeholder = "Large Price" } })
+                    @Html.ValidationMessageFor(model => model.LargePrize, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.HiddenFor(a => a.ImgLoc, new { id = "imgLoc" })
+                    <input id="fullImageName" type="hidden" />
+                    @Html.HiddenFor(a => a.ImgName, new { id = "imgName" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImgLoc, htmlAttributes: new { @class = "control-label" })
+                    <input type="file" accept=".jpg, .jpeg, .png, .gif" class="item-img file center-block form-control input-control" placeholder="Select A Picture to Upload" />
+                    <div class="progress hide-loader">
+                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                            <span class="text-secondary"></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ImgLoc, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+                <div class="img-upload-div hide-loader" id="imgUploadDiv">
+                    <div class="div-overlay">
+                        <img src="" class="centerItem" id="imgLoader" width="50" height="50" />
+                    </div>
+                    <img src="" class="img-upload" id="item-img-output" />
+                    <button class="top-float-button btn-circle-icon btn  btn-xs btn-danger hide-loder" id="deleteUpload"><i class="fa fa-remove"></i></button>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Create <img src="~/images/AjaxLoader/ringLoading1.gif" id="imgLoad" class="hide-loder" width="20" height="20" /> </button>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>
+
+@*<div>
+        @Html.ActionLink("Back to List", "SellerList", "Admin")
+    </div>*@
+
+
+<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div id="upload-demo" class="center-block"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal-label">Notification</h4>
+            </div>
+            <div class="modal-body">
+                <p id="txtMsg"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section css{
+
+    <link href="~/Content/croppie.css" rel="stylesheet" />
+    <style>
+        #upload-demo {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/croppie.js"></script>
+
+    <script src="~/Scripts/AppScripts/fileUpload.js"></script>
+    <script src="~/Scripts/AppScripts/CroppieModalCrop.js"></script>
+    <script src="~/Scripts/AppScripts/postWithModel.js"></script>
+
+    <script>
+        $(function () {
+            var idx = $("#CategoryList").children("option:selected").val();
+            $.ajax("/Admin/JsonCategoryList/" + idx,
+                {
+                    type: "Get",
+                    success: function (response) {
+                        $dropdown = $("#subcategorySelect");
+                        console.log(response);
+                        var r = "";
+                        response.forEach((i) => {
+                            r += `<option value="${i.Id}"> ${i.Name}</option>`;
+                        });
+                        $dropdown.empty();
+                        $dropdown.html(r);
+                    }
+                });
+            $(document.body).on('change',
+                '#CategoryList',
+                function () {
+                    var id = $(this).children("option:selected").val();
+                    $.ajax("/Admin/JsonCategoryList/" + id,
+                        {
+                            type: "Get",
+                            success: function (response) {
+                                console.log(response);
+                                $dropdown = $("#subcategorySelect");
+                                console.log(response);
+                                var r = "";
+                                response.forEach((i) => {
+                                    r += `<option value= "${i.Id}"> ${i.Name}</option>`;
+                                });
+                                $dropdown.empty();
+                                $dropdown.html(r);
+                            }
+                        });
+                });
+        });
+            //    $("select#CategoryList").change(function() {
+
+            //});
+    </script>
+}

@@ -1,0 +1,20 @@
+﻿@using bobbySaxyKennel.Models.ClassModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@Html.Partial("_home")
+@Html.Action("All","Item")
+<div class="modal fade" id="myloadingModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/Pizza/images/loader.gif" />
+            </div>
+        </div>
+    </div>
+</div>
+@section UpperScripts{
+    <script src="~/Scripts/AppScripts/postWithModel.js"></script>
+}

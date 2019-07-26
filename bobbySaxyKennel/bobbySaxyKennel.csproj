@@ -1,0 +1,1519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B06FC80-DAA1-4B20-91AB-EC030618096F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bobbySaxyKennel</RootNamespace>
+    <AssemblyName>bobbySaxyKennel</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44332</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.3.1.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.1\lib\net40\CloudinaryDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.3.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\ItemOptionsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infastruture\FileUpload.cs" />
+    <Compile Include="Infastruture\RoleCreator.cs" />
+    <Compile Include="Infastruture\StringManipulation.cs" />
+    <Compile Include="Infastruture\VerificationFilter.cs" />
+    <Compile Include="Migrations\201809262327584_DbUpgrade.cs" />
+    <Compile Include="Migrations\201809262327584_DbUpgrade.Designer.cs">
+      <DependentUpon>201809262327584_DbUpgrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809271418353_AddressProperty.cs" />
+    <Compile Include="Migrations\201809271418353_AddressProperty.Designer.cs">
+      <DependentUpon>201809271418353_AddressProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\About.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassModel\Categories.cs" />
+    <Compile Include="Models\ClassModel\Orders.cs" />
+    <Compile Include="Models\ClassModel\Policy.cs" />
+    <Compile Include="Models\ClassModel\Users.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Faq.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemOption.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemSize.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pet.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PetCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PetView.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Policy.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuotaMessage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuotaReply.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Seller.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Topping.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserClaim.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Models\ClassModel\Contacts.cs" />
+    <Compile Include="Models\ClassModel\Customers.cs" />
+    <Compile Include="Models\ClassModel\Pets.cs" />
+    <Compile Include="Models\ClassModel\QuoteMessages.cs" />
+    <Compile Include="Models\ClassModel\Sellers.cs" />
+    <Compile Include="Models\ViewModels\CategoryVm.cs" />
+    <Compile Include="Models\ViewModels\ContactVm.cs" />
+    <Compile Include="Models\ViewModels\CustomerVm.cs" />
+    <Compile Include="Models\ViewModels\IdentityModels.cs" />
+    <Compile Include="Models\ViewModels\LocationVm.cs" />
+    <Compile Include="Models\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\MessageVm.cs" />
+    <Compile Include="Models\ViewModels\OrderVm.cs" />
+    <Compile Include="Models\ViewModels\PetVm.cs" />
+    <Compile Include="Models\ViewModels\PolicyVm.cs" />
+    <Compile Include="Models\ViewModels\QuotaVm.cs" />
+    <Compile Include="Models\ViewModels\SellerVm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\croppie.css" />
+    <Content Include="css\site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="images\2_1.png" />
+    <Content Include="images\2_11.jpg" />
+    <Content Include="images\3_1.png" />
+    <Content Include="images\3_11.jpg" />
+    <Content Include="images\AjaxLoader\Close.png" />
+    <Content Include="images\AjaxLoader\ok.png" />
+    <Content Include="images\AjaxLoader\ringLoading1.gif" />
+    <Content Include="images\Eclipse-1.7s-200px.gif" />
+    <Content Include="images\Handle with care.png" />
+    <Content Include="images\logo.PNG" />
+    <Content Include="images\myDogs\Bobby Dog.jpg" />
+    <Content Include="images\myDogs\puppy.jpg" />
+    <Content Include="images\myDogs\Dog.jpg" />
+    <Content Include="images\myDogs\kennel Dog.jpg" />
+    <Content Include="images\myDogs\Imported.jpg" />
+    <Content Include="images\myDogs\Quite Puppy.jpg" />
+    <Content Include="images\myDogs\BullDogs.jpg" />
+    <Content Include="images\Shape-Lightning.png" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\clock.png" />
+    <Content Include="images\dog-2.png" />
+    <Content Include="images\dog-3.png" />
+    <Content Include="images\dog-4.png" />
+    <Content Include="images\dropdown-arrow.html" />
+    <Content Include="images\facebook.png" />
+    <Content Include="images\heading-bg.png" />
+    <Content Include="images\marker.png" />
+    <Content Include="images\medium-dog.png" />
+    <Content Include="images\minus.png" />
+    <Content Include="images\pinterest.png" />
+    <Content Include="images\plus.png" />
+    <Content Include="images\profile-facebook.png" />
+    <Content Include="images\profile-twitter.png" />
+    <Content Include="images\search.html" />
+    <Content Include="images\services-adoption.png" />
+    <Content Include="images\services-advice.png" />
+    <Content Include="images\services-grooming.png" />
+    <Content Include="images\services-kennel.png" />
+    <Content Include="images\services-play.png" />
+    <Content Include="images\services-walking.png" />
+    <Content Include="images\telephone.png" />
+    <Content Include="images\testimonial-bg.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="images\view.png" />
+    <Content Include="mobile\Content\Styles.css" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}1caf.html" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}4e83.html" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}7198.html" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}c7ff.html" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}d998.html" />
+    <Content Include="mobile\Content\{{ContentAssetsUrl}}f7e9.html" />
+    <Content Include="mobile\Content\{{StaticContentAssetsUrl}}Images\ajax_loader.html" />
+    <Content Include="mobile\Content\{{StaticContentAssetsUrl}}Images\go-button.html" />
+    <Content Include="mobile\Content\{{StaticContentAssetsUrl}}Images\main-image.html" />
+    <Content Include="mobile\mobile\cart.html" />
+    <Content Include="mobile\mobile\checkout.html" />
+    <Content Include="mobile\mobile\forgotpassword.html" />
+    <Content Include="mobile\mobile\menu.html" />
+    <Content Include="mobile\mobile\menucart.html" />
+    <Content Include="mobile\mobile\menuoption.html" />
+    <Content Include="mobile\mobile\PrivacyPolicy.html" />
+    <Content Include="mobile\mobile\splash-2.html" />
+    <Content Include="mobile\mobile\Splash-3.html" />
+    <Content Include="mobile\mobile\Splash.html" />
+    <Content Include="mobile\mobile\TermsOfUse.html" />
+    <Content Include="mobile\Scripts\date.js" />
+    <Content Include="mobile\Scripts\jquery-1.8.0.min.js" />
+    <Content Include="mobile\Scripts\jquery.cookie.js" />
+    <Content Include="mobile\Scripts\jquery.inputmask.bundle.min.js" />
+    <Content Include="mobile\Scripts\jquery.validate.js" />
+    <Content Include="mobile\Scripts\json2.js" />
+    <Content Include="mobile\Scripts\mapControllerMobile.js" />
+    <Content Include="mobile\Scripts\mobileScripts.js" />
+    <Content Include="mobile\Scripts\mobiscroll-2.0.2.custom.min.js" />
+    <Content Include="mobile\Scripts\ncr-programmatic.js" />
+    <Content Include="mobile\Scripts\utilMobile.js" />
+    <Content Include="mobile\styles\FacebookBadge.png" />
+    <Content Include="jimboy\1137-2\feed\index.html" />
+    <Content Include="jimboy\1137-2\index.html" />
+    <Content Include="jimboy\css\images\apppks-01.png" />
+    <Content Include="jimboy\css\images\apppks-02.png" />
+    <Content Include="jimboy\css\images\apppks-03.png" />
+    <Content Include="jimboy\css\images\apppks-04.png" />
+    <Content Include="jimboy\css\images\apppks-05.png" />
+    <Content Include="jimboy\css\images\apppks-06.png" />
+    <Content Include="jimboy\css\images\big-phone-app.png" />
+    <Content Include="jimboy\css\images\buzz-head.jpg" />
+    <Content Include="jimboy\css\images\careers-header.jpg" />
+    <Content Include="jimboy\css\images\catering-head.jpg" />
+    <Content Include="jimboy\css\images\community-head.jpg" />
+    <Content Include="jimboy\css\images\contact-head.jpg" />
+    <Content Include="jimboy\css\images\divider-cent.png" />
+    <Content Include="jimboy\css\images\dl-button.png" />
+    <Content Include="jimboy\css\images\footer_BG.png" />
+    <Content Include="jimboy\css\images\foot_trailer.png" />
+    <Content Include="jimboy\css\images\franchisee-01.jpg" />
+    <Content Include="jimboy\css\images\franchisee-02.jpg" />
+    <Content Include="jimboy\css\images\franchisee-03.jpg" />
+    <Content Include="jimboy\css\images\frch-act-map.png" />
+    <Content Include="jimboy\css\images\frch-hd-bg.png" />
+    <Content Include="jimboy\css\images\frch-hd-top-main.png" />
+    <Content Include="jimboy\css\images\frch-time-icon_01.png" />
+    <Content Include="jimboy\css\images\frch-time-icon_02.png" />
+    <Content Include="jimboy\css\images\frch-time-icon_03.png" />
+    <Content Include="jimboy\css\images\frch-time-icon_spl.png" />
+    <Content Include="jimboy\css\images\frch-why-icons_01.png" />
+    <Content Include="jimboy\css\images\frch-why-icons_02-2.png" />
+    <Content Include="jimboy\css\images\frch-why-icons_02.png" />
+    <Content Include="jimboy\css\images\frch-why-icons_03-2.png" />
+    <Content Include="jimboy\css\images\frch-why-icons_05-2.png" />
+    <Content Include="jimboy\css\images\GC_Starburst.png" />
+    <Content Include="jimboy\css\images\GC_Starburst_h.png" />
+    <Content Include="jimboy\css\images\grid-01.jpg" />
+    <Content Include="jimboy\css\images\grid-02.jpg" />
+    <Content Include="jimboy\css\images\grid-03.jpg" />
+    <Content Include="jimboy\css\images\grid-04.jpg" />
+    <Content Include="jimboy\css\images\grid-05.jpg" />
+    <Content Include="jimboy\css\images\grid-06.jpg" />
+    <Content Include="jimboy\css\images\jb-frch-slide-01.jpg" />
+    <Content Include="jimboy\css\images\jb-frch-slide-02.jpg" />
+    <Content Include="jimboy\css\images\jb-frch-slide-04.jpg" />
+    <Content Include="jimboy\css\images\jb-request-bg.jpg" />
+    <Content Include="jimboy\css\images\jbt-food-display.jpg" />
+    <Content Include="jimboy\css\images\jbt-territ-bg.jpg" />
+    <Content Include="jimboy\css\images\jbt-tv.png" />
+    <Content Include="jimboy\css\images\jim-standing-beside-original-trailer.jpg" />
+    <Content Include="jimboy\css\images\left_arrow.png" />
+    <Content Include="jimboy\css\images\left_arrow_glow.png" />
+    <Content Include="jimboy\css\images\main-menu-front.png" />
+    <Content Include="jimboy\css\images\menu-head.jpg" />
+    <Content Include="jimboy\css\images\menu-order.jpg" />
+    <Content Include="jimboy\css\images\newhm-sm.jpg" />
+    <Content Include="jimboy\css\images\page-border.png" />
+    <Content Include="jimboy\css\images\promo-bg.jpg" />
+    <Content Include="jimboy\css\images\right_arrow.png" />
+    <Content Include="jimboy\css\images\right_arrow_glow.png" />
+    <Content Include="jimboy\css\images\sq-cell-01.png" />
+    <Content Include="jimboy\css\images\sq-cell-02.png" />
+    <Content Include="jimboy\css\images\sq-cell-03.png" />
+    <Content Include="jimboy\css\images\sq-cell-04.png" />
+    <Content Include="jimboy\css\images\sq-cell-05.png" />
+    <Content Include="jimboy\css\images\sq-cell-06.png" />
+    <Content Include="jimboy\css\images\sub-req.png" />
+    <Content Include="jimboy\css\images\sup-1.png" />
+    <Content Include="jimboy\css\images\sup-2.png" />
+    <Content Include="jimboy\css\images\sup-3.png" />
+    <Content Include="jimboy\css\images\sup-4.png" />
+    <Content Include="jimboy\css\images\sup-5.png" />
+    <Content Include="jimboy\css\images\sup-6.png" />
+    <Content Include="jimboy\css\images\sup-7.png" />
+    <Content Include="jimboy\css\images\wjb-tsep.png" />
+    <Content Include="jimboy\css\images\word-border.png" />
+    <Content Include="jimboy\css\images\wsep-dot.png" />
+    <Content Include="jimboy\css\site.css" />
+    <Content Include="jimboy\fonts\Avenir-Roman.svg" />
+    <Content Include="jimboy\fonts\bellfort_light.html" />
+    <Content Include="jimboy\fonts\bellfort_light.svg" />
+    <Content Include="jimboy\fonts\brandongrotesque-black.svg" />
+    <Content Include="jimboy\fonts\brandon_med.html" />
+    <Content Include="jimboy\fonts\brandon_med.svg" />
+    <Content Include="jimboy\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="jimboy\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="jimboy\fonts\interstate-blackcondensed.svg" />
+    <Content Include="jimboy\fonts\interstate-boldcondensed.svg" />
+    <Content Include="jimboy\fonts\Interstate-ExtraLightCond.svg" />
+    <Content Include="jimboy\fonts\Newcastle Basic Clean.svg" />
+    <Content Include="jimboy\fonts\riftsoft-bold.svg" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regular.svg" />
+    <Content Include="jimboy\images\apppks-01.png" />
+    <Content Include="jimboy\images\apppks-02.png" />
+    <Content Include="jimboy\images\apppks-03.png" />
+    <Content Include="jimboy\images\apppks-04.png" />
+    <Content Include="jimboy\images\apppks-05.png" />
+    <Content Include="jimboy\images\apppks-06.png" />
+    <Content Include="jimboy\images\big-phone-app.png" />
+    <Content Include="jimboy\images\buzz-head.jpg" />
+    <Content Include="jimboy\images\careers-header.jpg" />
+    <Content Include="jimboy\images\catering-head.jpg" />
+    <Content Include="jimboy\images\community-head.jpg" />
+    <Content Include="jimboy\images\contact-head.jpg" />
+    <Content Include="jimboy\images\divider-cent.png" />
+    <Content Include="jimboy\images\dl-button.png" />
+    <Content Include="jimboy\images\footer_BG.png" />
+    <Content Include="jimboy\images\foot_trailer.png" />
+    <Content Include="jimboy\images\franchisee-01.jpg" />
+    <Content Include="jimboy\images\franchisee-02.jpg" />
+    <Content Include="jimboy\images\franchisee-03.jpg" />
+    <Content Include="jimboy\images\frch-act-map.png" />
+    <Content Include="jimboy\images\frch-hd-bg.png" />
+    <Content Include="jimboy\images\frch-hd-top-main.png" />
+    <Content Include="jimboy\images\frch-time-icon_01.png" />
+    <Content Include="jimboy\images\frch-time-icon_02.png" />
+    <Content Include="jimboy\images\frch-time-icon_03.png" />
+    <Content Include="jimboy\images\frch-time-icon_spl.png" />
+    <Content Include="jimboy\images\frch-why-icons_01.png" />
+    <Content Include="jimboy\images\frch-why-icons_02-2.png" />
+    <Content Include="jimboy\images\frch-why-icons_02.png" />
+    <Content Include="jimboy\images\frch-why-icons_03-2.png" />
+    <Content Include="jimboy\images\frch-why-icons_05-2.png" />
+    <Content Include="jimboy\images\GC_Starburst.png" />
+    <Content Include="jimboy\images\GC_Starburst_h.png" />
+    <Content Include="jimboy\images\grid-01.jpg" />
+    <Content Include="jimboy\images\grid-02.jpg" />
+    <Content Include="jimboy\images\grid-03.jpg" />
+    <Content Include="jimboy\images\grid-04.jpg" />
+    <Content Include="jimboy\images\grid-05.jpg" />
+    <Content Include="jimboy\images\grid-06.jpg" />
+    <Content Include="jimboy\images\jb-frch-slide-01.jpg" />
+    <Content Include="jimboy\images\jb-frch-slide-02.jpg" />
+    <Content Include="jimboy\images\jb-frch-slide-04.jpg" />
+    <Content Include="jimboy\images\jb-request-bg.jpg" />
+    <Content Include="jimboy\images\jbt-food-display.jpg" />
+    <Content Include="jimboy\images\jbt-territ-bg.jpg" />
+    <Content Include="jimboy\images\jbt-tv.png" />
+    <Content Include="jimboy\images\jim-standing-beside-original-trailer.jpg" />
+    <Content Include="jimboy\images\left_arrow.png" />
+    <Content Include="jimboy\images\left_arrow_glow.png" />
+    <Content Include="jimboy\images\main-menu-front.png" />
+    <Content Include="jimboy\images\menu-head.jpg" />
+    <Content Include="jimboy\images\menu-order.jpg" />
+    <Content Include="jimboy\images\newhm-sm.jpg" />
+    <Content Include="jimboy\images\page-border.png" />
+    <Content Include="jimboy\images\promo-bg.jpg" />
+    <Content Include="jimboy\images\right_arrow.png" />
+    <Content Include="jimboy\images\right_arrow_glow.png" />
+    <Content Include="jimboy\images\sq-cell-01.png" />
+    <Content Include="jimboy\images\sq-cell-02.png" />
+    <Content Include="jimboy\images\sq-cell-03.png" />
+    <Content Include="jimboy\images\sq-cell-04.png" />
+    <Content Include="jimboy\images\sq-cell-05.png" />
+    <Content Include="jimboy\images\sq-cell-06.png" />
+    <Content Include="jimboy\images\sub-req.png" />
+    <Content Include="jimboy\images\sup-1.png" />
+    <Content Include="jimboy\images\sup-2.png" />
+    <Content Include="jimboy\images\sup-3.png" />
+    <Content Include="jimboy\images\sup-4.png" />
+    <Content Include="jimboy\images\sup-5.png" />
+    <Content Include="jimboy\images\sup-6.png" />
+    <Content Include="jimboy\images\sup-7.png" />
+    <Content Include="jimboy\images\wjb-tsep.png" />
+    <Content Include="jimboy\images\word-border.png" />
+    <Content Include="jimboy\images\wsep-dot.png" />
+    <Content Include="jimboy\scripts\bdropdown.js" />
+    <Content Include="jimboy\scripts\bootstrap.min.js" />
+    <Content Include="jimboy\scripts\flexslider.css" />
+    <Content Include="jimboy\scripts\font-awesome.css" />
+    <Content Include="jimboy\scripts\fonts\flexslider-icon-2.html" />
+    <Content Include="jimboy\scripts\fonts\flexslider-icon-3.html" />
+    <Content Include="jimboy\scripts\fonts\flexslider-icon-4.html" />
+    <Content Include="jimboy\scripts\fonts\flexslider-icon.html" />
+    <Content Include="jimboy\scripts\fonts\flexslider-icond41d.html" />
+    <Content Include="jimboy\scripts\initialization.js" />
+    <Content Include="jimboy\scripts\jquery.3.2.1.min.js" />
+    <Content Include="jimboy\scripts\jquery.flexslider-min.js" />
+    <Content Include="jimboy\scripts\specials.js" />
+    <Content Include="jimboy\scripts\super-sizer.js" />
+    <Content Include="jimboy\scripts\underscore.min4511.js" />
+    <Content Include="jimboy\upcoming-locations\huntington-beach\index.html" />
+    <Content Include="jimboy\wp-content\cache\nextend\web\n2-ss-3\n2-ss-354e6.js" />
+    <Content Include="jimboy\wp-content\cache\nextend\web\n2-ss-4\n2-ss-454e6.js" />
+    <Content Include="jimboy\wp-content\cache\nextend\web\n2-ss-5\n2-ss-55570.js" />
+    <Content Include="jimboy\wp-content\cache\nextend\web\n2-ss-6\n2-ss-67719.js" />
+    <Content Include="jimboy\wp-content\cache\nextend\web\n2\n297e3.js" />
+    <Content Include="jimboy\wp-content\plugins\google-reviews-business\static\img\powered_by_google_on_white.png" />
+    <Content Include="jimboy\wp-content\plugins\google-reviews-business\static\js\rplg.js" />
+    <Content Include="jimboy\wp-content\plugins\google-reviews-business\static\js\wpac-time.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\css\chosen-sprite%402x.png" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\css\chosen-sprite.png" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\css\formsmain.min.css" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\images\calendar.png" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\images\datepicker\arrow.png" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\images\gf-creditcard-icons.png" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\conditional_logic.min.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\datepicker.min.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\gravityforms.min.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\jquery.json.min.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\jquery.maskedinput.min.js" />
+    <Content Include="jimboy\wp-content\plugins\gravityforms\js\placeholders.jquery.min.js" />
+    <Content Include="jimboy\wp-content\plugins\smart-slider-3\library\media\dist\smartslider-frontend.mincc39.js" />
+    <Content Include="jimboy\wp-content\plugins\smart-slider-3\library\media\plugins\type\simple\simple\dist\smartslider-simple-type-frontend.mincc39.js" />
+    <Content Include="jimboy\wp-content\plugins\smart-slider-3\nextend\media\dist\nextend-frontend.min31ad.js" />
+    <Content Include="jimboy\wp-content\plugins\wordpress-popup\assets\js\front.min.js" />
+    <Content Include="jimboy\wp-content\plugins\wp-accessibility\js\longdesc.button.js" />
+    <Content Include="jimboy\wp-content\plugins\wp-accessibility\js\skiplinks.webkit.js" />
+    <Content Include="jimboy\wp-content\plugins\wp-store-locator\js\wpsl-gmap.min.js" />
+    <Content Include="jimboy\wp-content\themes\twentyseventeen\assets\js\global.js" />
+    <Content Include="jimboy\wp-content\themes\twentyseventeen\assets\js\jquery.scrollTo.js" />
+    <Content Include="jimboy\wp-content\themes\twentyseventeen\assets\js\navigation.js" />
+    <Content Include="jimboy\wp-content\themes\twentyseventeen\assets\js\skip-link-focus-fix.js" />
+    <Content Include="jimboy\wp-content\uploads\2017\05\example_01.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\05\example_04-1024x683.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\beverages.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Burrito.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\desserts.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\extras.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\favorites_TacoBurger.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Kids-Meal.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Plates.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\salads-1.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Table-of-assorted-menu-items-Playmaker-Pack.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Taco.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\07\updated-promo.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2017\11\jimboys_icon-100x100.png" />
+    <Content Include="jimboy\wp-content\uploads\2017\11\jimboys_icon-300x300.png" />
+    <Content Include="jimboy\wp-content\uploads\2017\12\Logo-test.png" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\Folsom-Rendering.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\IMG_0242m.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\Standing-Woodland.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\temp-gallery.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\Traditional-Huntington-Beach.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\05\TraditionalSunridge.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2018\11\15112018.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\03\Now-Open-Website-slider.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\03\ws-irvine-header2.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\03\ws-map-2.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\06\Brisket-Taco.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\06\jbt_gift_card.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\06\jb_taco_nation.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\06\jt-birthday.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\06\specials-01.jpg" />
+    <Content Include="jimboy\wp-content\uploads\2019\07\brisket-2.jpg" />
+    <Content Include="jimboy\wp-includes\js\jquery\ui\datepicker.min.js" />
+    <Content Include="jimboy\wp-includes\js\wp-embed.min.js" />
+    <Content Include="jimboy\wp-includes\js\wp-emoji-release.min.js" />
+    <Content Include="jimboy\wp-includes\wlwmanifest.xml" />
+    <Content Include="jimboy\wp-json\index.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\carouFredSel.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\ekkoLightbox.js" />
+    <Content Include="js\gmap3.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.bxslider.min.js" />
+    <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="mmenu\mmenu-js-master\.gitignore" />
+    <Content Include="mmenu\mmenu-js-master\demo\advanced.html" />
+    <Content Include="mmenu\mmenu-js-master\demo\css\demo.css" />
+    <Content Include="mmenu\mmenu-js-master\demo\css\site.css" />
+    <Content Include="mmenu\mmenu-js-master\demo\default.html" />
+    <Content Include="mmenu\mmenu-js-master\demo\img\iphonex-example-blue.png" />
+    <Content Include="mmenu\mmenu-js-master\demo\img\iphonex-example-camera.png" />
+    <Content Include="mmenu\mmenu-js-master\demo\onepage.html" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\autoheight\mmenu.autoheight.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\autoheight\mmenu.autoheight.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\autoheight\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\backbutton\mmenu.backbutton.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\backbutton\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\columns\mmenu.columns.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\columns\mmenu.columns.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\columns\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\counters\mmenu.counters.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\counters\mmenu.counters.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\counters\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dividers\mmenu.dividers.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dividers\mmenu.dividers.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dividers\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\drag\mmenu.drag.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\drag\mmenu.drag.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\drag\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\drag\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dropdown\mmenu.dropdown.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dropdown\mmenu.dropdown.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dropdown\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\dropdown\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\fixedelements\mmenu.fixedelements.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\fixedelements\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconbar\mmenu.iconbar.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconbar\mmenu.iconbar.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconbar\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconpanels\mmenu.iconpanels.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconpanels\mmenu.iconpanels.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\iconpanels\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\keyboardnavigation\mmenu.keyboardnavigation.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\keyboardnavigation\mmenu.keyboardnavigation.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\keyboardnavigation\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\lazysubmenus\mmenu.lazysubmenus.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\lazysubmenus\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\mmenu.navbars.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\mmenu.navbars.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.breadcrumbs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.close.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.next.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.prev.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.searchfield.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.tabs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_navbar.title.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\navbars\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\pagescroll\mmenu.pagescroll.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\pagescroll\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\pagescroll\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\mmenu.searchfield.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\mmenu.searchfield.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\translations\de.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\translations\fa.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\translations\nl.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\translations\ru.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\translations\translate.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\searchfield\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sectionindexer\mmenu.sectionindexer.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sectionindexer\mmenu.sectionindexer.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sectionindexer\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\setselected\mmenu.setselected.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\setselected\mmenu.setselected.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\setselected\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sidebar\mmenu.sidebar.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sidebar\mmenu.sidebar.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\sidebar\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\toggles\mmenu.toggles.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\addons\toggles\mmenu.toggles.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\offcanvas\mmenu.offcanvas.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\offcanvas\mmenu.offcanvas.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\offcanvas\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\offcanvas\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\mmenu.oncanvas.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\mmenu.oncanvas.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\translations\de.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\translations\fa.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\translations\nl.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\translations\ru.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\translations\translate.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\oncanvas\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\mmenu.screenreader.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\mmenu.screenreader.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\translations\de.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\translations\fa.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\translations\nl.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\translations\ru.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\translations\translate.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\_configs.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\screenreader\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\scrollbugfix\mmenu.scrollbugfix.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\scrollbugfix\_options.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_dom.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_eventlisteners.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_helpers.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_i18n.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_matchmedia.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\core\_support.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\borderstyle\mmenu.borderstyle.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\effects\mmenu.effects.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\fullscreen\mmenu.fullscreen.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\listview\mmenu.listview.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\multiline\mmenu.multiline.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\pagedim\mmenu.pagedim.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\popup\mmenu.popup.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\positioning\mmenu.positioning.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\shadows\mmenu.shadows.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\themes\mmenu.themes.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\extensions\tileview\mmenu.tileview.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\mmenu.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\mmenu.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\angular\mmenu.angular.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\bootstrap\mmenu.bootstrap.css" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\bootstrap\mmenu.bootstrap.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\magento\mmenu.magento.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\olark\mmenu.olark.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\turbolinks\mmenu.turbolinks.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\wrappers\wordpress\mmenu.wordpress.js" />
+    <Content Include="mmenu\mmenu-js-master\dist\_version.js" />
+    <Content Include="mmenu\mmenu-js-master\gulpfile.js" />
+    <Content Include="mmenu\mmenu-js-master\gulp\css.js" />
+    <Content Include="mmenu\mmenu-js-master\gulp\dirs.js" />
+    <Content Include="mmenu\mmenu-js-master\gulp\js.js" />
+    <Content Include="mmenu\mmenu-js-master\index.html" />
+    <Content Include="mmenu\mmenu-js-master\LICENSE.txt" />
+    <Content Include="mmenu\mmenu-js-master\src\mmenu.debugger.js" />
+    <Content Include="mmenu\mmenu-js-master\src\mmenu.js" />
+    <Content Include="Models\Model1.edmx.sql" />
+    <Content Include="Pizza\images\icon-menu.html" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000164.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000165.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000166.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000167.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000168.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000169.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000170.jpg" />
+    <Content Include="Pizza\images\ItemsImages\Menu4\itm000171.jpg" />
+    <Content Include="Pizza\images\loader.gif" />
+    <Content Include="Pizza\images\Promos\Menu4\1.jpeg" />
+    <Content Include="Pizza\images\Promos\Menu4\2.jpeg" />
+    <Content Include="Pizza\images\Promos\Menu4\3.jpeg" />
+    <Content Include="Pizza\images\Promos\Menu4\4.jpeg" />
+    <Content Include="Pizza\images\Promos\Menu4\5.jpeg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000052-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000052-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000063-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\deal000063-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000020-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000020-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000044-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000044-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000046-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000046-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000059-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000059-un.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000061-en.jpg" />
+    <Content Include="Pizza\images\Promos\Menu4\portf4000061-un.jpg" />
+    <Content Include="Pizza\images\SharedImages\add_to_cart_btn.png" />
+    <Content Include="Pizza\images\SharedImages\spin-down-w.png" />
+    <Content Include="Pizza\images\SharedImages\spin-up-w.png" />
+    <Content Include="Pizza\Image\big-pizza.html" />
+    <Content Include="Pizza\MinifiedScripts\Scripts5894.js" />
+    <Content Include="Pizza\MinifiedScripts\Scripts9839.js" />
+    <Content Include="Pizza\MinifiedScripts\ThirdParty4dfa.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts5894.js" />
+    <Content Include="Pizza\MinifiedScripts\Yum-PizzaHut-Americana-v2\ThemeScripts9839.js" />
+    <Content Include="Pizza\Themes\jquery-2.2.3.min.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\CssFile.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\combobtn.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\combobtnhot.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-anim_basic_16x16.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_flat_0_aaaaaa_40x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_flat_75_ffffff_40x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_55_fbf9ee_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_65_ffffff_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_75_dadada_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_75_e6e6e6_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_glass_95_fef1ec_1x400.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-bg_highlight-soft_75_cccccc_1x100.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_222222_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_2e83ff_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_454545_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_888888_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\images\ui-icons_cd0a0a_256x240.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\lang_en.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\CSS\lang_un.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.svg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\font_en.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\font_un.css" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\404-error-page.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_full_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_left_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_no_full_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\active_right_pizza.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\appDownload.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\arrows_strloc_cornernav.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\background-new.jpg" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\bottom-bar-bg-hover.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\bottom-bar-bg.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-add-un.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-add.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow-disabled.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-arrow3.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-bg.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button-disabled.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\button.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\call-us-blk.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\call_button3.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\check.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\combobtn.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-bg.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-bg2.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-down.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\counter-up.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\down_arrow.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\dropdown-arrow.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\faq-arrow-1.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\faq-arrow-2.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\fbbutton.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\filter_button.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\footer.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\img_trans.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\included-sash.html" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_blocks.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_thumbs.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\item_style_thumbs_active.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\logo.PNG" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\mCSB_buttons.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\nomodcode.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pagination.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizza-hut.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizzahut.PNG" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\pizza_Ar.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\radio-check.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\sliderArrow.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\small-button-repeat-black.gif" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\SocialButtons.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Image\sprites.png" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\GESPromotionbea6.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\ItemsAvailabilityValidationf15d.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\OrderTrackingOverride1bce.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\OrderTrackingOverridebea6.js" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\JS\PizzaDiscount5059.js" />
+    <Content Include="Scripts\AppScripts\CroppieModalCrop.js" />
+    <Content Include="Scripts\AppScripts\fileUpload.js" />
+    <Content Include="Scripts\AppScripts\PostForm.js" />
+    <Content Include="Scripts\AppScripts\postWithModel.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.eot" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.ttf" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.woff" />
+    <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfontd41d.eot" />
+    <Content Include="jimboy\fonts\Avenir-Roman.eot" />
+    <Content Include="jimboy\fonts\Avenir-Roman.ttf" />
+    <Content Include="jimboy\fonts\Avenir-Roman.woff" />
+    <Content Include="jimboy\fonts\Avenir-Romand41d.eot" />
+    <Content Include="jimboy\fonts\bellfort_light.eot" />
+    <Content Include="jimboy\fonts\bellfort_light.woff" />
+    <Content Include="jimboy\fonts\bellfort_lightd41d.eot" />
+    <Content Include="jimboy\fonts\brandongrotesque-black.eot" />
+    <Content Include="jimboy\fonts\brandongrotesque-black.ttf" />
+    <Content Include="jimboy\fonts\brandongrotesque-black.woff" />
+    <Content Include="jimboy\fonts\brandongrotesque-blackd41d.eot" />
+    <Content Include="jimboy\fonts\brandon_med.eot" />
+    <Content Include="jimboy\fonts\brandon_med.woff" />
+    <Content Include="jimboy\fonts\brandon_medd41d.eot" />
+    <Content Include="jimboy\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="jimboy\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="jimboy\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="jimboy\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="jimboy\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="jimboy\fonts\interstate-blackcondensed.eot" />
+    <Content Include="jimboy\fonts\interstate-blackcondensed.ttf" />
+    <Content Include="jimboy\fonts\interstate-blackcondensed.woff" />
+    <Content Include="jimboy\fonts\interstate-blackcondensedd41d.eot" />
+    <Content Include="jimboy\fonts\interstate-boldcondensed.eot" />
+    <Content Include="jimboy\fonts\interstate-boldcondensed.ttf" />
+    <Content Include="jimboy\fonts\interstate-boldcondensed.woff" />
+    <Content Include="jimboy\fonts\interstate-boldcondensedd41d.eot" />
+    <Content Include="jimboy\fonts\Interstate-ExtraLightCond.eot" />
+    <Content Include="jimboy\fonts\Interstate-ExtraLightCond.ttf" />
+    <Content Include="jimboy\fonts\Interstate-ExtraLightCond.woff" />
+    <Content Include="jimboy\fonts\Interstate-ExtraLightCondd41d.eot" />
+    <Content Include="jimboy\fonts\Newcastle Basic Clean.eot" />
+    <Content Include="jimboy\fonts\Newcastle Basic Clean.ttf" />
+    <Content Include="jimboy\fonts\Newcastle Basic Clean.woff" />
+    <Content Include="jimboy\fonts\Newcastle Basic Cleand41d.eot" />
+    <Content Include="jimboy\fonts\riftsoft-bold.eot" />
+    <Content Include="jimboy\fonts\riftsoft-bold.ttf" />
+    <Content Include="jimboy\fonts\riftsoft-bold.woff" />
+    <Content Include="jimboy\fonts\riftsoft-boldd41d.eot" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regular.eot" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regular.ttf" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regular.woff" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regular.woff2" />
+    <Content Include="jimboy\fonts\subset-BrandonGrotesque-Regulard41d.eot" />
+    <Content Include="jimboy\wp-content\plugins\wordpress-popup\assets\fonts\wpdui-fi014a.eot" />
+    <Content Include="jimboy\wp-content\plugins\wp-store-locator\font\fontello8040.eot" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Jimboys_Menu_NorCal.pdf" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\Nor-Cal-Nutrition-Menu.pdf" />
+    <Content Include="jimboy\wp-content\uploads\2017\06\So-Cal-To-Go-Menu-3.pdf" />
+    <Content Include="jimboy\wp-content\uploads\2018\08\Employment-Application.pdf" />
+    <Content Include="jimboy\wp-content\uploads\2018\10\Jimboys_Menu_SoCal.pdf" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed041f" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed0e04.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed0fa2" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed10e0.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed1cb5.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed2172.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed2fa2" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed31fb" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed3f6e.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed41e8" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed42d5.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed460e" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed4671.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed46a4.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed4b67" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed54fd" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed5cc6.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed5cef" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed5d09" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed5e5b" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed5f8f.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed6c11.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed6d54" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed6dd4.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed6f94" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed7145" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed7490" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed7611.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed76c2" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed78be" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed7dc9" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed9147" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed93a5" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed96a3.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed9759" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed99a7.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embed9e79.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embeda673.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embeda8b3.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedb19d" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedbd10.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedc17a" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedd71f.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedd9cb" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embede067.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embede82a.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embeded5d.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedef26" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedf825.json" />
+    <Content Include="jimboy\wp-json\oembed\1.0\embedfe9f.json" />
+    <Content Include="jimboy\css\fonts\bellfort_light.woff" />
+    <Content Include="jimboy\css\fonts\brandongrotesque-black.woff" />
+    <Content Include="jimboy\css\fonts\brandon_med.woff" />
+    <Content Include="jimboy\css\fonts\Newcastle Basic Clean.woff" />
+    <Content Include="jimboy\css\fonts\riftsoft-bold.woff" />
+    <Content Include="mmenu\mmenu-js-master\composer.json" />
+    <Content Include="mmenu\mmenu-js-master\CONTRIBUTING.md" />
+    <Content Include="mmenu\mmenu-js-master\package-lock.json" />
+    <Content Include="mmenu\mmenu-js-master\package.json" />
+    <Content Include="mmenu\mmenu-js-master\README.md" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\autoheight\mmenu.autoheight.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\autoheight\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\columns\mmenu.columns.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\columns\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\columns\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\counters\mmenu.counters.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\counters\_counters.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\counters\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\counters\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\dividers\mmenu.dividers.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\dividers\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\drag\mmenu.drag.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\drag\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\dropdown\mmenu.dropdown.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\dropdown\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\dropdown\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconbar\mmenu.iconbar.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconbar\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconbar\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconpanels\mmenu.iconpanels.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconpanels\_iconpanels.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconpanels\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconpanels\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\iconpanels\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\keyboardnavigation\mmenu.keyboardnavigation.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\keyboardnavigation\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\navbars\mmenu.navbars.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\navbars\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\navbars\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.breadcrumbs.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.tabs.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\searchfield\mmenu.searchfield.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\searchfield\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sectionindexer\mmenu.sectionindexer.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sectionindexer\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sectionindexer\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\setselected\mmenu.setselected.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\setselected\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sidebar\mmenu.sidebar.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sidebar\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sidebar\_sidebar.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\sidebar\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\toggles\mmenu.toggles.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\toggles\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\toggles\_toggles.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\addons\toggles\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\offcanvas\mmenu.offcanvas.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\offcanvas\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\offcanvas\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\offcanvas\_offcanvas.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\offcanvas\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\mmenu.oncanvas.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.buttons.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.buttons.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.listviews.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.listviews.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.menu.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.menu.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.navbar.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.navbar.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.panels.rtl.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.panels.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_oncanvas.vertical.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\oncanvas\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\screenreader\mmenu.screenreader.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\screenreader\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\core\screenreader\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\borderstyle\mmenu.borderstyle.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\borderstyle\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\effects\mmenu.effects.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\effects\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\effects\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\effects\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\fullscreen\mmenu.fullscreen.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\fullscreen\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\fullscreen\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\listview\mmenu.listview.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\listview\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\multiline\mmenu.multiline.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\multiline\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\pagedim\mmenu.pagedim.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\pagedim\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\pagedim\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\popup\mmenu.popup.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\popup\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\popup\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\positioning\mmenu.positioning.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\positioning\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\positioning\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\shadows\mmenu.shadows.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\shadows\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\themes\mmenu.themes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\themes\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\tileview\mmenu.tileview.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\extensions\tileview\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\mmenu.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\wrappers\bootstrap\mmenu.bootstrap.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\_includes.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\_mixins.scss" />
+    <Content Include="mmenu\mmenu-js-master\src\_variables.scss" />
+    <Content Include="mmenu\mmenu-js-master\tsconfig.json" />
+    <Content Include="pizzaDb.bak" />
+    <Content Include="mobile\mobile\LoadPhoneFormatterScript" />
+    <Content Include="mobile\mobile\LoadUtilScript" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\khaleejtacos.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\khaleejtacos.com - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\khaleejtacos.com - Web Deploy2.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\croppie.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="css\sb-admin.css" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\Shared\old.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_ContactUs.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome\less\bordered-pulled.less" />
+    <Content Include="font-awesome\less\core.less" />
+    <Content Include="font-awesome\less\fixed-width.less" />
+    <Content Include="font-awesome\less\font-awesome.less" />
+    <Content Include="font-awesome\less\icons.less" />
+    <Content Include="font-awesome\less\larger.less" />
+    <Content Include="font-awesome\less\list.less" />
+    <Content Include="font-awesome\less\mixins.less" />
+    <Content Include="font-awesome\less\path.less" />
+    <Content Include="font-awesome\less\rotated-flipped.less" />
+    <Content Include="font-awesome\less\spinning.less" />
+    <Content Include="font-awesome\less\stacked.less" />
+    <Content Include="font-awesome\less\variables.less" />
+    <Content Include="font-awesome\scss\font-awesome.scss" />
+    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome\scss\_core.scss" />
+    <Content Include="font-awesome\scss\_fixed-width.scss" />
+    <Content Include="font-awesome\scss\_icons.scss" />
+    <Content Include="font-awesome\scss\_larger.scss" />
+    <Content Include="font-awesome\scss\_list.scss" />
+    <Content Include="font-awesome\scss\_mixins.scss" />
+    <Content Include="font-awesome\scss\_path.scss" />
+    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome\scss\_spinning.scss" />
+    <Content Include="font-awesome\scss\_stacked.scss" />
+    <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Admin\SellersList.cshtml" />
+    <Content Include="Views\Admin\AddSeller.cshtml" />
+    <Content Include="Views\Admin\Pets.cshtml" />
+    <Content Include="Views\Admin\AddPet.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Shared\_CategoryList.cshtml" />
+    <Content Include="Views\Admin\EditCategory.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\EditSeller.cshtml" />
+    <Content Include="Views\Shared\_ModalNotice.cshtml" />
+    <Content Include="Views\Admin\SellerPets.cshtml" />
+    <Content Include="Views\Admin\EditPet.cshtml" />
+    <Content Include="Views\Admin\ReplyQuota.cshtml" />
+    <Content Include="Views\Admin\Messages.cshtml" />
+    <Content Include="Views\Admin\MyMessages.cshtml" />
+    <Content Include="Views\Admin\CustomerList.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Shared\_ShortMessage.cshtml" />
+    <Content Include="Views\Admin\MyUnreadMessages.cshtml" />
+    <Content Include="Views\Admin\MyreadMessages.cshtml" />
+    <Content Include="Views\Admin\Super.cshtml" />
+    <Content Include="Views\Home\Pet.cshtml" />
+    <Content Include="Views\Shared\_SendQuotaMessage.cshtml" />
+    <Content Include="Views\Home\Gallary.cshtml" />
+    <Content Include="Views\Home\Messages.cshtml" />
+    <Content Include="Views\Admin\Contacts.cshtml" />
+    <Content Include="Views\Admin\QuotaMessage.cshtml" />
+    <Content Include="Views\Shared\_ShortPets.cshtml" />
+    <Content Include="Views\Admin\SubCategoryList.cshtml" />
+    <Content Include="Views\Admin\AddSubCategory.cshtml" />
+    <Content Include="Views\Admin\EditSubCategory.cshtml" />
+    <Content Include="Views\Shared\_SubCategoryList.cshtml" />
+    <Content Include="Views\Shared\_home.cshtml" />
+    <Content Include="Views\Admin\EditLocation.cshtml" />
+    <Content Include="Views\Admin\AddLocation.cshtml" />
+    <Content Include="Views\Admin\_LocationList.cshtml" />
+    <Content Include="Views\Item\_Item.cshtml" />
+    <Content Include="Views\Item\CheckOut.cshtml" />
+    <Content Include="Views\Item\OrderComplete.cshtml" />
+    <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Home\Faq.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Admin\Faq.cshtml" />
+    <Content Include="Views\Admin\AboutPage.cshtml" />
+    <Content Include="Views\Admin\PolicyPage.cshtml" />
+    <Content Include="Views\Item\Orders.cshtml" />
+    <Content Include="Views\ItemOptions\Create.cshtml" />
+    <Content Include="Views\ItemOptions\Delete.cshtml" />
+    <Content Include="Views\ItemOptions\Details.cshtml" />
+    <Content Include="Views\ItemOptions\Edit.cshtml" />
+    <Content Include="Views\ItemOptions\Index.cshtml" />
+    <Content Include="Views\ItemOptions\Options.cshtml" />
+    <Content Include="Views\Item\Menu.cshtml" />
+    <Content Include="Views\Item\_MenuItem.cshtml" />
+    <Content Include="Views\Shared\_MealOptions.cshtml" />
+    <Content Include="Views\Shared\_MealSize.cshtml" />
+    <Content Include="Views\Item\ProcessOrder.cshtml" />
+    <Content Include="Views\Item\CheckOutCart.cshtml" />
+    <Content Include="Views\Item\Foods.cshtml" />
+    <Content Include="Views\Shared\_mobileLayout.cshtml" />
+    <Content Include="Views\Shared\_Category.cshtml" />
+    <Content Include="Views\Item\Meal.cshtml" />
+    <Content Include="Views\Shared\_Meal.cshtml" />
+    <Content Include="Views\Shared\_MenuCart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809262327584_DbUpgrade.resx">
+      <DependentUpon>201809262327584_DbUpgrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809271418353_AddressProperty.resx">
+      <DependentUpon>201809271418353_AddressProperty.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\autoheight\mmenu.autoheight.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\autoheight\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\autoheight\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\backbutton\mmenu.backbutton.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\backbutton\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\backbutton\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\columns\mmenu.columns.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\columns\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\columns\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\counters\mmenu.counters.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\counters\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\counters\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dividers\mmenu.dividers.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dividers\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dividers\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\drag\mmenu.drag.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\drag\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\drag\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\drag\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dropdown\mmenu.dropdown.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dropdown\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dropdown\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\dropdown\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\fixedelements\mmenu.fixedelements.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\fixedelements\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\fixedelements\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconbar\mmenu.iconbar.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconbar\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconbar\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconpanels\mmenu.iconpanels.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconpanels\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\iconpanels\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\keyboardnavigation\mmenu.keyboardnavigation.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\keyboardnavigation\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\keyboardnavigation\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\lazysubmenus\mmenu.lazysubmenus.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\lazysubmenus\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\lazysubmenus\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\mmenu.navbars.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.breadcrumbs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.close.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.next.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.prev.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.searchfield.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.tabs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_navbar.title.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\navbars\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\pagescroll\mmenu.pagescroll.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\pagescroll\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\pagescroll\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\pagescroll\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\mmenu.searchfield.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\translations\de.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\translations\fa.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\translations\nl.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\translations\ru.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\translations\translate.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\searchfield\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sectionindexer\mmenu.sectionindexer.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sectionindexer\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sectionindexer\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\setselected\mmenu.setselected.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\setselected\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\setselected\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sidebar\mmenu.sidebar.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sidebar\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\sidebar\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\addons\toggles\mmenu.toggles.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\offcanvas\mmenu.offcanvas.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\offcanvas\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\offcanvas\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\offcanvas\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\mmenu.oncanvas.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\translations\de.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\translations\fa.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\translations\nl.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\translations\ru.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\translations\translate.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\oncanvas\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\mmenu.screenreader.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\translations\de.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\translations\fa.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\translations\nl.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\translations\ru.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\translations\translate.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\_configs.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\screenreader\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\scrollbugfix\mmenu.scrollbugfix.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\scrollbugfix\_options.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\scrollbugfix\_typings.d.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_dom.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_eventlisteners.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_helpers.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_i18n.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_matchmedia.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\core\_support.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\angular\mmenu.angular.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\bootstrap\mmenu.bootstrap.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\magento\mmenu.magento.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\olark\mmenu.olark.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\turbolinks\mmenu.turbolinks.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\wrappers\wordpress\mmenu.wordpress.ts" />
+    <TypeScriptCompile Include="mmenu\mmenu-js-master\src\_version.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49693</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44332/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

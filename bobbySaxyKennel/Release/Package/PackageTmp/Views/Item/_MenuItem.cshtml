@@ -1,0 +1,20 @@
+﻿@model System.Collections.Generic.List<bobbySaxyKennel.Models.Pet>
+ 
+@foreach (var i in Model.OrderBy(a=>a.Datetime))
+{
+    var hasOption = i.ItemOptions.Any();
+    var hasSize = i.ItemSizes.Any();
+    <a class="menu-item" data-id="@i.PetID" data-cost="@i.Amount" data-name="@i.Name" data-hasSize ="@hasSize" data-hasOption ="@hasOption">
+        <div class="media">
+            <div class="media-left">
+                <img src="@i.ImgLocation" class="media-object" style="width: 100px">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">@i.Name  <small> AED @i.Amount </small></h4>
+                <p>@i.Description</p>
+            </div>
+        </div> 
+        <hr/>
+    </a>
+     
+}

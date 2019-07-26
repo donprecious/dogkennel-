@@ -1,0 +1,165 @@
+﻿/*
+js185188 - 24.06.2015
+sb185131 - 01.07.2015
+Phone Formatter Class, this class works only for freeform phone numbers
+
+Parameters
+    controls - requires the input controls to attach formatting methods
+    freeFormMaxLength - max length
+    freeFormMinDigits - minimum number of digits
+    freeFormFormatChars - mask format e.g. (63) (917) 301 - 5688
+    freeFormRegEx - regex validation for allowed input
+
+Usage
+    var controls = $("input[PhoneMask=true]");
+    var freeFormMaxLength = '@PhoneFormat.MaxLength';
+    var freeFormMinDigits = '@PhoneFormat.MinDigits';
+    var freeFormFormatChars = '@PhoneFormat.FormatChars';
+    var freeFormRegEx = '@PhoneFormat.FormatRegEx';
+    var phone = new phoneCtrls(controls, freeFormMaxLength, freeFormMinDigits, freeFormFormatChars, freeFormRegEx);
+    phone.bind(phone.getFreeFormatRegEx(), phone.getFreeFormFormatChars());
+    phone.setMaxLength();
+    phone.setErrorRequiredMsg(GetResourceObject('WebOrder.PhoneNumberInput.PhoneRequiredError'));
+    phone.setErrorInvalidFormatMsg(GetResourceObject('WebOrder.PhoneNumberInput.PhoneNotValidError'));
+*/
+
+var phoneCtrls = function (controls, freeFormMaxLength, freeFormMinDigits, freeFormFormatChars, freeFormRegEx) {
+    var parent = this;
+    var errorRequired = '';
+    var errorInvalidForm = '';
+    var errMsgs = '';
+    
+    this.getFreeFormMaxLength = function () {
+        return freeFormMaxLength;
+    };
+
+    this.getFreeFormMinDigits = function () {
+        return freeFormMinDigits;
+    };
+
+    this.getFreeFormFormatChars = function () {
+        return freeFormFormatChars;
+    };
+
+    this.getFreeFormatRegEx = function () {
+        return freeFormRegEx;
+    };
+
+    this.bind = function (freeFormRegEx, freeFormFormatChars) {
+        //set formatting on load
+        $.each(controls, function (index, control) {
+            if ($(control) != null && $(control).val() != null && $(control).val() != undefined) {
+                parent.applyPhoneMask($(control), freeFormRegEx, freeFormFormatChars);
+            }
+        });
+
+        //set formatting on keypress
+        controls.bind('keydown keypress keyup blur', function () {
+            parent.applyPhoneMask(this, freeFormRegEx, freeFormFormatChars);
+        });
+    };
+
+    this.setMaxLength = function () {
+        controls.attr('maxlength', this.getFreeFormMaxLength());
+    };
+
+    this.setErrorRequiredMsg = function (value) {
+        errorRequired = value;
+    };
+
+    this.setErrorInvalidFormatMsg = function (value) {
+        errorInvalidForm = value;
+    };
+
+    this.applyPhoneMask = function (control, regex, pattern) {
+        if (regex.length <= 0 || pattern.length <= 0)
+            return true;
+        
+        var inputVal = $(control).is('input') ? $(control).val() : $(control).text();
+        var value = this.phoneFormat(inputVal, new RegExp(regex), pattern);
+        if (value != inputVal) {
+            if ($(control).is('input'))
+                $(control).val(value);
+            else
+                $(control).text(value);
+        }
+    };
+
+    this.phoneFormat = function (val, reg, pat) {
+        var newVal = val.replace(/\D/g, "");
+        newVal = newVal.replace(reg, pat);
+        return newVal;
+    };
+
+    this.clientValidation = function (control) {
+
+        if ($(control) == null)
+            return true;
+
+        var isValid = false;
+        var allowEmpty = /true/i.test($(control).attr('allowempty'));
+        var value = $(control).val();
+
+        if (allowEmpty == null)
+            return isValid = true;
+
+        if (!allowEmpty && value.length == 0) {
+            isValid = false;
+            errMsgs = errorRequired;
+            return isValid;
+        }
+
+        if (!allowEmpty && value.length > 0) {
+            isValid = this.freeFormPhoneLogicCheck(value);
+
+            if (!isValid) {
+                errMsgs = errorInvalidForm;
+                return isValid;
+            }
+        }
+        else {
+            if (value.length === 0) {
+                isValid = true;
+            }
+            else {
+                isValid = this.freeFormPhoneLogicCheck(value);
+
+                if (!isValid) {
+                    errMsgs = errorInvalidForm;
+                    return isValid;
+                }
+            }
+        }
+
+        return isValid;
+    };
+
+
+    this.regexEsc = function (s) {
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    };
+
+    this.freeFormPhoneLogicCheck = function (freeFormPhoneNumber) {
+        var isValid = false;
+
+        var maxLength = parent.getFreeFormMaxLength();
+        var minDigit = parent.getFreeFormMinDigits();
+
+        if (freeFormPhoneNumber.length >= minDigit && freeFormPhoneNumber.length <= maxLength) {
+
+            var digitCount = freeFormPhoneNumber.replace(/\D/g, "").length;
+            var esc = this.regexEsc(parent.getFreeFormFormatChars());
+            var regex = new RegExp("^[0-9," + esc + "]+$");                    
+            var allAllowedChar = regex.test(freeFormPhoneNumber);
+
+            if (digitCount >= parent.getFreeFormMinDigits() && allAllowedChar) {
+                isValid = true;
+            }            
+        }
+        return isValid;
+    };
+
+    this.getErrorMsg = function () {
+        return errMsgs;
+    };
+};

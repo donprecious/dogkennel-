@@ -1,0 +1,798 @@
+﻿
+
+<!DOCTYPE html >
+<html>
+
+<head>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://nolocdnv.azureedge.net/Content?ContentFile=favicon.ico&amp;companyCode=JITA001&amp;designId=1" />
+
+    <meta content="True" name="HandheldFriendly" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+    <meta content="width=device-width, user-scalable=no" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Khaleej tacos &#8211; Do It Different, Keep It Fresh, and Bring It Home!</title>
+
+    <link href="~/mobile/Content/Styles.css" rel="stylesheet" type="text/css" />
+
+    <link href='https://jimboystacos.alohaorderonline.com/Content.ashx?ContentFile=Custom.css&amp;wv=5&amp;Design=1&amp;companyCode=JITA001&amp;designId=1' rel='stylesheet' />
+
+    <style>
+
+        .page-loader {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .page-loader-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+        }
+    </style>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="~/mobile/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/jquery.cookie.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/jquery.validate.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/date.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/utilMobile.js" type="text/javascript"></script>
+
+    <script src="~/mobile/Scripts/ncr-programmatic.js" type="text/javascript"></script>
+
+
+    <script src="~/mobile/Scripts/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+
+
+    @*<script type="text/javascript" src="LoadPhoneFormatterScript"></script>
+
+        <script type="text/javascript" src="LoadUtilScript"></script>*@
+    <style>
+        /* The Modal (background) */
+        .modal1, .modal2 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 1.5em; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content1, .modal-content2 {
+            overflow: auto;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .page {
+            background: url(../images/logo.PNG) top no-repeat !important;
+        }
+    </style>
+    <script>
+        // Get the modal
+        var $modal = $("#myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        function showModal() {
+            $("#myModal").show();
+        }
+        function showModal1(modal) {
+            $(modal).show();
+        }
+        function hideModal() {
+            $("#myModal").hide();
+        } $("#myModal").hide()
+        function hideModal2(modal) {
+            $(modal).hide();
+        }
+        function showLoader() {
+            $(".page-loader").show();
+        }
+        function hideLoader() {
+            $(".page-loader").hide();
+        }
+
+    </script>
+</head>
+<body>
+
+
+
+
+
+    <div class="page">
+        <div> </div>
+        <div class="sticky-wrap">
+
+            @if (Session["backurl"] == null)
+            {
+                Session["backurl"] = "#";
+
+            }
+
+            <header id="page-header" class="nav-bar-gradient">
+                <div id="page-header-container">
+                    <div id="login-display">
+                        <div id="header-floater"></div>
+                        <div id="ios-arrow-left" class="backurl" data-href="@Session["backurl"]" title="Back"></div>
+
+                        <div class="page-title">Our Menu</div>
+                        <div id="sc-show-cart">
+                            <img src="https://nolocdnv.azureedge.net/Content/Static?ContentFile=Images/cart.png" id="ios-arrow-left" class="sc-cart-button showCart">
+                        </div>
+                        <div id="sc-bubble" class="cartCount">
+                            0
+                        </div>
+                    </div>
+
+                    <br>
+                    <div id="header-title" class="lrg-header-text text-shadow phone-hide">
+                        It's as easy as <span class="bold">one, two, three.</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="clear phone-show"></div>
+                </div>
+            </header>
+            <div id="replaceDiv" class="replaceDiv">
+                @RenderBody()
+            </div>
+            <div class="clear "></div>
+
+        </div>
+
+
+        <footer id="page-footer">
+            <div id="login-display">
+                <div id="header-floater"></div>
+                <div id="login-content">
+                    <div style="height:auto; position:relative;">
+                        <div id="loginFooter">
+
+                            <div id="logindiv" class="left">
+                                <b>
+                                    <div id="tldiv">
+                                        <a onclick="" id="login-link">Sign up | Login</a> | <a onclick="showContactForm()" id="contact-link">Contact Us</a>
+                                    </div>
+                                    <div id="bldiv">
+                                        <a id="home-link" href="@Url.Action("Index", "Home")">Home |</a>
+                                        <a href="@Url.Action("Faq", "Home")" id="privacy-link"> Privacy Policy</a>
+                                        <a target="_blank" href="@Url.Action("Terms", "Home")" id="termsofuse-link">| Terms of Use</a>
+                                    </div>
+                                </b>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </footer>
+
+
+    </div>
+
+    <!-- The Modal -->
+    @*<div class="modal2">
+
+
+        <div class="modal-content2">
+            <span class="close" onclick="hideModal('.modal2')">&times;</span>
+            <div class="optionDiv">
+                <h2>Item Added to cart</h2>
+                <a class="green-button" class="continue-order" onclick="hideModal('.modal2')"> Continue Ordering </a>
+                <a class="green-button" class="showCart"> Proceed Check out </a>
+
+            </div>
+        </div>
+
+    </div>*@
+
+    <div id="myModal" class="modal1">
+
+        <!-- Modal content -->
+        <div class="modal-content1">
+            <span class="close" onclick="hideModal()">&times;</span>
+            <div class="optionDiv"></div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="page-loader" style="display: none">
+        <img class="page-loader-image" src="~/Pizza/images/loader.gif" />
+    </div>
+
+    <script src="~/mobile/Scripts/mobiscroll-2.0.2.custom.min.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css' />
+
+    <script src="~/mobile/Scripts/mobileScripts.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <div class="loaderPopup" id="loaderSpace">
+        <div class="loader-background">
+
+        </div>
+        <div class="loader-container loader">
+        </div>
+    </div>
+
+    <script>
+    function showAll() {
+        replace("@Url.Action("All", "Item")");
+    }
+    function showList(id)
+    {
+        replace("/Item/AllCategoryItem/"+id);
+
+        }
+        function showAllCategory() {
+            replace("@Url.Action("CategoryView", "Item")");
+
+        }
+    function showSubList(id, subId) {
+        replace("/Item/Sub/?category="+id+"&sub="+subId);
+    }
+        function replace(url) {
+            var state = false;
+        $.ajax(url,
+            {
+                type: "Get",
+                beforeSend: function() {
+                    //showModal
+                    $(".page-loader").show();
+                },
+                complete: function() {
+                    //hide modal
+                    $(".page-loader").hide();
+                },
+                success: function(response) {
+                    //display content
+                    $("#replaceDiv").html(response);
+                    console.log(response);
+                    state = true;
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+            return state;
+        }
+
+        function showCart() {
+            replaceDiv("/Item/_MenuCart", $(".replaceDiv") ,
+                function () {
+                    var total = 0.0;
+                    var subtotal = 0.0;
+                    for(var i of products) {
+                        total += parseFloat( i.cost);
+                        for (var r of i.itemOption) {
+                            subtotal += parseFloat(r.cost);
+                        }
+                        var html = `<div  class="sc-item-div site" id="media_${i.productItemId}">
+            <div class="sc-item-name">
+                <div class="item_name" > ${i.name}  <span class="inneroption"></span> </div>
+                <div class="item_qty">
+
+                    <input type="number"   class="sc-item-qty productQty" data-id = "${i.productItemId
+                            }" id ="cartProductQuantity_${i.productId}"  value="${
+                            i.quantity} >
+
+                </div>
+            </div>
+
+            <div class="sc-item-price">
+                <span>AED ${i.cost}</span>
+
+                <img src="https://nolocdnv.azureedge.net/Content?ContentFile=button_receipt_cancel_item.png&amp;companyCode=JITA001&amp;designId=1" class="OrderCancelLineItem remove-product"  data-id = "${i.productItemId}">
+            </div>
+
+        </div>`;
+                        $("#sc-items-container").append(html);
+                    }
+                    total += subtotal;
+                    $(".sc-total-amount").text(total);
+                });
+        }
+
+    function gocheckout() {
+        var mproducts = products;
+
+        $.ajax("/Item/ProcessOrder",
+            {
+                type: "POST",
+                data: { "product": products },
+                //dataType: 'json',
+                success: function (response) {
+                    if (response.status == 200) {
+                        location.href = "/Item/CheckOutCart";
+                    }
+                    console.log(response);
+                },
+                error: function () {
+                    console.log(response);
+                }
+            });
+    }
+    </script>
+
+
+
+    <script>
+
+            function replaceDiv(url, $div, callback) {
+                $.ajax(url,
+                    {
+                        type: "Get",
+                        beforeSend: function () {
+                            //showModal
+                            $(".page-loader").show();
+                        },
+                        complete: function () {
+                            //hide modal
+                            $(".page-loader").hide();
+                        },
+                        success: function (response) {
+                            //display content
+                            $div.html(response);
+                            if (typeof callback === "function") {
+                                // Call it, since we have confirmed it is callable
+                                callback();
+                            }
+                            console.log(response);
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+
+                    });
+            }
+
+            function showFood(id) {
+                var r = replaceDiv("/Item/_Meal/" + id, $(".replaceDiv"));
+                if (r) {
+                  @{
+                      Session["backurl"] = "/Item/CategoryView/";
+                  }
+                    $(".backurl").attr("data-href", "/Item/CategoryView/");
+                }
+            }
+
+            $(".backurl").click(function(e) {
+                var url = $(this).attr("data-href");
+                if (url != "" || url != "#") {
+                    replaceDiv(url, $(".replaceDiv"));
+                }
+            });
+    </script>
+    <script>
+
+        var sizeOption = {
+            sizeId: 0,
+            name: "",
+            description: "",
+            cost: ""
+        };
+
+        var products = [];
+        var itemOptions = [];
+        var currentProductItemId = 0;
+    </script>
+    <script>
+        $(document.body).on("click", ".menu-item",
+            function () {
+                var id = $(this).attr("data-id");
+                var name = $(this).attr("data-name");
+                var cost = $(this).attr("data-cost");
+                var hasOption = $(this).attr("data-hasOption");
+                var product = {};
+                product.productItemId = products.length + 1;
+                if (hasOption == "True") {
+
+                    var r = replaceDiv("/Item/MealOptions/" + id, $(".optionDiv"), function () {
+                        $(".productQty").attr("data-id", product.productItemId);
+
+                    });
+
+                }
+
+                if (hasOption == "True") {
+                    product.productId = id;
+                    product.cost = cost;
+                    product.name = name;
+                    product.quantity = 1;
+                    currentProductItemId = products.length + 1;
+                    product.itemOption = [];
+                    product.itemSize = [];
+                    products.push(product);
+
+                    showModal();
+                    var markup = `<div class="media" id= "media_${product.productItemId}">
+
+                                    <div class="media-body" >
+                                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                            .cost
+                        } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                        }" > <i class="fa fa-trash"></i></a> </h3>
+                            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                        }" id ="cartProductQuantity_${product.productId}"  value="${
+                        product.quantity}">
+                                        <ul id="cartOptionList_${product.productItemId}">
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>`;
+                    //   $("#cart").append(markup);
+                    //update cart
+
+                    $(".cartCount").text(products.length);
+                    //showModal1(".modal2");
+                  
+                } else {
+
+                    product.productId = id;
+                    product.cost = cost;
+                    product.name = name;
+                    product.quantity = 1;
+                    //product.productItemId = products.length + 1;
+                    product.itemOption = [];
+                    product.itemSize = [];
+                    products.push(product);
+
+                    // add item to cart
+                    var markup = `<div class="media" id= "media_${product.productItemId}">
+
+                                    <div class="media-body" >
+                                        <h3 class="media-heading" id="cartProductId_${product.productId}">${product.name} <small> AED ${product
+                            .cost
+                        } </small>  <a class="pull-right remove-product" data-id = "${product.productItemId
+                        }" > <i class="fa fa-trash"></i></a> </h3>
+                            <input type="number"  class="form-control productQty" data-id = "${product.productItemId
+                        }" id ="cartProductQuantity_${product.productId}"  value=" ${
+                        product.quantity}">
+                                        <ul id="cartOptionList_${product.productItemId}">
+
+                                        </ul>
+                                    </div>
+
+                                </div>`;
+                    //$("#cart").append(markup);
+                    //update cart
+                    $(".cartCount").text(products.length);
+                    //showModal1(".modal2");  
+                    hideModal(); 
+                    const swalWithBootstrapButtons = Swal.mixin({
+                        customClass: {
+                            confirmButton: 'btn btn-success',
+                            cancelButton: 'btn btn-danger'
+                        },
+                        buttonsStyling: false,
+                    });
+
+                    swalWithBootstrapButtons.fire({
+                        title: 'Item Added to cart',
+                        text: "",
+                        type: 'success',
+                        showCancelButton: true,
+                        confirmButtonText: 'Go to cart',
+                        cancelButtonText: 'Continue'
+                    }).then((result) => {
+                        if (result.value) {
+                            //
+                            hideModal();
+                            showCart();
+                        } else if (
+                            // Read more about handling dismissals
+                            result.dismiss === Swal.DismissReason.cancel
+                        ) {
+                            //swalWithBootstrapButtons.fire(
+                            //    'Cancelled',
+                            //    'Your imaginary file is safe :)',
+                            //    'error'
+                            //);
+                        }
+                    });
+
+                }
+            });
+
+        function updateProductQty(id, value) {
+            products.forEach(function (a) {
+                if (a.productItemId == id) {
+                    a.quantity = value;
+                }
+
+                console.log(products);
+            });
+        }
+        $(document.body).on('click',
+            '#reduceqtybutton',
+            function () {
+                var curValue = Number($(".productQty").val());
+                if (curValue > 1) {
+                    curValue -= 1;
+                    $(".productQty").val(curValue);
+                    updateProductQty($(this).attr($(".productQty")), $(this).val());
+
+                }
+            });
+        $(document.body).on('click',
+            '#addqtybutton',
+            function () {
+                var curValue = Number($(".productQty").val());
+
+                curValue += 1;
+                $(".productQty").val(curValue);
+                updateProductQty($(this).attr($(".productQty")), $(this).val());
+
+            });
+        $(document.body).on('click',
+            '.reduceqtybutton',
+            function () {
+                var curValue = Number($(".productQty").val());
+                if (curValue > 1) {
+                    curValue -= 1;
+                    $(".productQty").val(curValue);
+                    updateProductQty($(this).attr($(".productQty")), $(this).val());
+
+                }
+            });
+        $(document.body).on('click',
+            '.addqtybutton',
+            function () {
+                var curValue = Number($(".productQty").val());
+
+                curValue += 1;
+                $(".productQty").val(curValue);
+                updateProductQty($(this).attr($(".productQty")), $(this).val());
+
+            });
+        //reduceqtybutton
+
+
+
+        $(document.body).on('change',
+            '.productQty',
+            function () {
+                updateProductQty($(this).attr("data-id"), $(this).val());
+            });
+
+        //remove product
+
+        $(document.body).on("click",
+            ".remove-product",
+            function () {
+                var id = $(this).attr("data-id");
+
+                //remove from array
+
+                for (const [index, item] of products.entries()) {
+                    if (item.productItemId == id) {
+                        products.splice(index, 1);
+                    }
+                }
+
+                //products.forEach(function(item, index) {
+                //    if (item.productItemId == id) {
+                //        products.splice(index, 1);
+                //    }
+                //});
+                //console.log(products);
+                $("#media_" + id).remove();
+                $(".cartCount").text(products.length);
+            });
+
+        //add to option product to cart
+        $(document.body).on("click",
+            "#btnAddtoCart",
+            function () {
+                $.each($("input[name='mealOption']:checked"),
+                    function () {
+                        var id = $(this).val();
+                        var name = $(this).attr("data-name");
+                        var amount = $(this).attr("data-amount");
+                        var productId = $(this).attr("data-productId");
+                        var itemOption = {
+                            optionId: id,
+                            name: name,
+                            cost: amount,
+                            productId: productId,
+                            productItemId: currentProductItemId,
+                            itemOptionId: itemOptions.length + 1
+                        };
+                        //itemOptions.push(itemOption);
+                        //update product
+                        for (var i of products) {
+                            if (i.productItemId == currentProductItemId) {
+                                i.itemOption.push(itemOption);
+                            }
+                        }
+                        // display markup
+                        var mackup =
+                            `<li id="optionDiv_${itemOption.itemOptionId}">  ${itemOption.name}  <small> AED ${
+                            itemOption.cost}  </small>    <a class="pull-right remove-option" data-option-id = "${
+                            itemOption.itemOptionId}"> <i class="fa fa-trash"></i></a>
+                                                <hr/>
+                                            </li>`;
+                        //$("#cartOptionList_" + currentProductItemId).append(mackup);
+                        $("#myModal").hide();
+                        hideModal();
+                        const swalWithBootstrapButtons = Swal.mixin({
+                            customClass: {
+                                confirmButton: 'btn btn-success',
+                                cancelButton: 'btn btn-danger'
+                            },
+                            buttonsStyling: false,
+                        });
+
+                        swalWithBootstrapButtons.fire({
+                            title: 'Item Added to cart',
+                            text: "",
+                            type: 'success',
+                            showCancelButton: true,
+                            confirmButtonText: 'Go to cart',
+                            cancelButtonText: 'Continue'
+                        }).then((result) => {
+                            if (result.value) {
+                                //
+                                hideModal();
+                                showCart();
+                            } else if (
+                                // Read more about handling dismissals
+                                result.dismiss === Swal.DismissReason.cancel
+                            ) {
+                                //swalWithBootstrapButtons.fire(
+                                //    'Cancelled',
+                                //    'Your imaginary file is safe :)',
+                                //    'error'
+                                //);
+                            }
+                        });
+                    });
+                //$("#myModal").modal('close');
+            });
+
+        $(document.body).on("click",
+            ".remove-option",
+            function () {
+                var id = $(this).attr("data-option-id");
+                //remove from array
+                for (const [index, item] of products.entries()) {
+                    for (const [oindex, oitem] of item.itemOption.entries()) {
+                        if (oitem.itemOptionId == id) {
+                            item.itemOption.splice(oindex, 1);
+                        }
+                    }
+                }
+                console.log(products);
+                $("#optionDiv_" + id).remove();
+            });
+
+
+        $("#checkout").click(function (event) {
+            event.preventDefault();
+            var mproducts = products;
+
+            $.ajax("/Item/ProcessOrder",
+                {
+                    type: "POST",
+                    data: { "product": products },
+                    //dataType: 'json',
+                    success: function (response) {
+                        if (response.status == 200) {
+                            location.href = "/Item/CheckOutCart";
+                        }
+                        console.log(response);
+                    },
+                    error: function () {
+                        console.log(response);
+                    }
+                });
+        });
+
+        $(".checkout").click(function (event) {
+            event.preventDefault();
+            var mproducts = products;
+
+            $.ajax("/Item/ProcessOrder",
+                {
+                    type: "POST",
+                    data: { "product": products },
+                    //dataType: 'json',
+                    success: function (response) {
+                        if (response.status == 200) {
+                            location.href = "/Item/CheckOutCart";
+                        }
+                        console.log(response);
+                    },
+                    error: function () {
+                        console.log(response);
+                    }
+                });
+        });
+        $(".showCart").on("click",
+            function () {
+                showCart();
+            }
+        );
+
+        function confirmCart() {
+            showModal1(".modal2");
+
+        }
+
+        $(function () {
+            var count = products.length;
+            $(".cartCount").text(count);
+        });
+
+    </script>
+
+
+</body>
+
+</html>
+

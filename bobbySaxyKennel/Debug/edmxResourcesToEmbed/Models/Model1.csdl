@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bobsaxydogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BobSaxyDogsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abouts" EntityType="bobsaxydogsModel.About" />
+    <EntitySet Name="C__MigrationHistory" EntityType="bobsaxydogsModel.C__MigrationHistory" />
+    <EntitySet Name="Contacts" EntityType="bobsaxydogsModel.Contact" />
+    <EntitySet Name="Customers" EntityType="bobsaxydogsModel.Customer" />
+    <EntitySet Name="Faqs" EntityType="bobsaxydogsModel.Faq" />
+    <EntitySet Name="ItemOptions" EntityType="bobsaxydogsModel.ItemOption" />
+    <EntitySet Name="ItemSizes" EntityType="bobsaxydogsModel.ItemSize" />
+    <EntitySet Name="Logins" EntityType="bobsaxydogsModel.Login" />
+    <EntitySet Name="Orders" EntityType="bobsaxydogsModel.Order" />
+    <EntitySet Name="PetCategories" EntityType="bobsaxydogsModel.PetCategory" />
+    <EntitySet Name="Pets" EntityType="bobsaxydogsModel.Pet" />
+    <EntitySet Name="PetViews" EntityType="bobsaxydogsModel.PetView" />
+    <EntitySet Name="Policies" EntityType="bobsaxydogsModel.Policy" />
+    <EntitySet Name="QuotaMessages" EntityType="bobsaxydogsModel.QuotaMessage" />
+    <EntitySet Name="QuotaReplies" EntityType="bobsaxydogsModel.QuotaReply" />
+    <EntitySet Name="Roles" EntityType="bobsaxydogsModel.Role" />
+    <EntitySet Name="Sellers" EntityType="bobsaxydogsModel.Seller" />
+    <EntitySet Name="SubCategories" EntityType="bobsaxydogsModel.SubCategory" />
+    <EntitySet Name="sysdiagrams" EntityType="bobsaxydogsModel.sysdiagram" />
+    <EntitySet Name="Toppings" EntityType="bobsaxydogsModel.Topping" />
+    <EntitySet Name="UserClaims" EntityType="bobsaxydogsModel.UserClaim" />
+    <EntitySet Name="Users" EntityType="bobsaxydogsModel.User" />
+    <AssociationSet Name="FK_Customer_Users" Association="bobsaxydogsModel.FK_Customer_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="bobsaxydogsModel.FK_Orders_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaMessage_Customer" Association="bobsaxydogsModel.FK_QuotaMessage_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOptions_Pets" Association="bobsaxydogsModel.FK_ItemOptions_Pets">
+      <End Role="Pet" EntitySet="Pets" />
+      <End Role="ItemOption" EntitySet="ItemOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemSize_Pets" Association="bobsaxydogsModel.FK_ItemSize_Pets">
+      <End Role="Pet" EntitySet="Pets" />
+      <End Role="ItemSize" EntitySet="ItemSizes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Logins_dbo_Users_UserId" Association="bobsaxydogsModel.FK_dbo_Logins_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Pets" Association="bobsaxydogsModel.FK_Orders_Pets">
+      <End Role="Pet" EntitySet="Pets" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Toppings" Association="bobsaxydogsModel.FK_Orders_Toppings">
+      <End Role="Topping" EntitySet="Toppings" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pets_PetCategory" Association="bobsaxydogsModel.FK_Pets_PetCategory">
+      <End Role="PetCategory" EntitySet="PetCategories" />
+      <End Role="Pet" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_PetCategories" Association="bobsaxydogsModel.FK_SubCategory_PetCategories">
+      <End Role="PetCategory" EntitySet="PetCategories" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pets_Seller" Association="bobsaxydogsModel.FK_Pets_Seller">
+      <End Role="Seller" EntitySet="Sellers" />
+      <End Role="Pet" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pets_SubCategory" Association="bobsaxydogsModel.FK_Pets_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="Pet" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetViews_Pets" Association="bobsaxydogsModel.FK_PetViews_Pets">
+      <End Role="Pet" EntitySet="Pets" />
+      <End Role="PetView" EntitySet="PetViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaMessage_Seller" Association="bobsaxydogsModel.FK_QuotaMessage_Seller">
+      <End Role="Seller" EntitySet="Sellers" />
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotaReply_QuotaMessage" Association="bobsaxydogsModel.FK_QuotaReply_QuotaMessage">
+      <End Role="QuotaMessage" EntitySet="QuotaMessages" />
+      <End Role="QuotaReply" EntitySet="QuotaReplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seller_Users" Association="bobsaxydogsModel.FK_Seller_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Seller" EntitySet="Sellers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserClaims_dbo_Users_UserId" Association="bobsaxydogsModel.FK_dbo_UserClaims_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserClaim" EntitySet="UserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoles" Association="bobsaxydogsModel.UserRoles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="About1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Achieved" Type="Boolean" Nullable="false" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="bobsaxydogsModel.FK_Customer_Users" FromRole="Customer" ToRole="User" />
+    <NavigationProperty Name="Orders" Relationship="bobsaxydogsModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+    <NavigationProperty Name="QuotaMessages" Relationship="bobsaxydogsModel.FK_QuotaMessage_Customer" FromRole="Customer" ToRole="QuotaMessage" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Faq1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ItemOption">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ItemId" Type="Int32" />
+    <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_ItemOptions_Pets" FromRole="ItemOption" ToRole="Pet" />
+  </EntityType>
+  <EntityType Name="ItemSize">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ItemId" Type="Int32" />
+    <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_ItemSize_Pets" FromRole="ItemSize" ToRole="Pet" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="bobsaxydogsModel.FK_dbo_Logins_dbo_Users_UserId" FromRole="Login" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DeliveryAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AddtionalPhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PetId" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SIze" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ToppingId" Type="Int32" />
+    <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="ItemDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PickupTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="bobsaxydogsModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Order" ToRole="Pet" />
+    <NavigationProperty Name="Topping" Relationship="bobsaxydogsModel.FK_Orders_Toppings" FromRole="Order" ToRole="Topping" />
+  </EntityType>
+  <EntityType Name="PetCategory">
+    <Key>
+      <PropertyRef Name="PetCategoyID" />
+    </Key>
+    <Property Name="PetCategoyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pets" Relationship="bobsaxydogsModel.FK_Pets_PetCategory" FromRole="PetCategory" ToRole="Pet" />
+    <NavigationProperty Name="SubCategories" Relationship="bobsaxydogsModel.FK_SubCategory_PetCategories" FromRole="PetCategory" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Pet">
+    <Key>
+      <PropertyRef Name="PetID" />
+    </Key>
+    <Property Name="PetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+    <Property Name="SellerID" Type="Int32" Nullable="false" />
+    <Property Name="ImgLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PetCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="Datetime" Type="DateTime" Precision="3" />
+    <Property Name="ImgName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SmallPrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="MediumPrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="LargePrize" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ItemOptions" Relationship="bobsaxydogsModel.FK_ItemOptions_Pets" FromRole="Pet" ToRole="ItemOption" />
+    <NavigationProperty Name="ItemSizes" Relationship="bobsaxydogsModel.FK_ItemSize_Pets" FromRole="Pet" ToRole="ItemSize" />
+    <NavigationProperty Name="Orders" Relationship="bobsaxydogsModel.FK_Orders_Pets" FromRole="Pet" ToRole="Order" />
+    <NavigationProperty Name="PetCategory" Relationship="bobsaxydogsModel.FK_Pets_PetCategory" FromRole="Pet" ToRole="PetCategory" />
+    <NavigationProperty Name="Seller" Relationship="bobsaxydogsModel.FK_Pets_Seller" FromRole="Pet" ToRole="Seller" />
+    <NavigationProperty Name="SubCategory" Relationship="bobsaxydogsModel.FK_Pets_SubCategory" FromRole="Pet" ToRole="SubCategory" />
+    <NavigationProperty Name="PetView" Relationship="bobsaxydogsModel.FK_PetViews_Pets" FromRole="Pet" ToRole="PetView" />
+  </EntityType>
+  <EntityType Name="PetView">
+    <Key>
+      <PropertyRef Name="PetID" />
+    </Key>
+    <Property Name="PetID" Type="Int32" Nullable="false" />
+    <Property Name="NoOfViews" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pet" Relationship="bobsaxydogsModel.FK_PetViews_Pets" FromRole="PetView" ToRole="Pet" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Policy1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="QuotaMessage">
+    <Key>
+      <PropertyRef Name="QuotaID" />
+    </Key>
+    <Property Name="QuotaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SellerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Archieved" Type="Boolean" Nullable="false" />
+    <Property Name="petId" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="bobsaxydogsModel.FK_QuotaMessage_Customer" FromRole="QuotaMessage" ToRole="Customer" />
+    <NavigationProperty Name="Seller" Relationship="bobsaxydogsModel.FK_QuotaMessage_Seller" FromRole="QuotaMessage" ToRole="Seller" />
+    <NavigationProperty Name="QuotaReplies" Relationship="bobsaxydogsModel.FK_QuotaReply_QuotaMessage" FromRole="QuotaMessage" ToRole="QuotaReply" />
+  </EntityType>
+  <EntityType Name="QuotaReply">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QuotaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QuotaMessage" Relationship="bobsaxydogsModel.FK_QuotaReply_QuotaMessage" FromRole="QuotaReply" ToRole="QuotaMessage" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="bobsaxydogsModel.UserRoles" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerID" />
+    </Key>
+    <Property Name="SellerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ShowEmail" Type="Boolean" Nullable="false" />
+    <Property Name="AddressableEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pets" Relationship="bobsaxydogsModel.FK_Pets_Seller" FromRole="Seller" ToRole="Pet" />
+    <NavigationProperty Name="QuotaMessages" Relationship="bobsaxydogsModel.FK_QuotaMessage_Seller" FromRole="Seller" ToRole="QuotaMessage" />
+    <NavigationProperty Name="User" Relationship="bobsaxydogsModel.FK_Seller_Users" FromRole="Seller" ToRole="User" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <NavigationProperty Name="PetCategory" Relationship="bobsaxydogsModel.FK_SubCategory_PetCategories" FromRole="SubCategory" ToRole="PetCategory" />
+    <NavigationProperty Name="Pets" Relationship="bobsaxydogsModel.FK_Pets_SubCategory" FromRole="SubCategory" ToRole="Pet" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Topping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="bobsaxydogsModel.FK_Orders_Toppings" FromRole="Topping" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="UserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="bobsaxydogsModel.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="UserClaim" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="bobsaxydogsModel.FK_Customer_Users" FromRole="User" ToRole="Customer" />
+    <NavigationProperty Name="Logins" Relationship="bobsaxydogsModel.FK_dbo_Logins_dbo_Users_UserId" FromRole="User" ToRole="Login" />
+    <NavigationProperty Name="Sellers" Relationship="bobsaxydogsModel.FK_Seller_Users" FromRole="User" ToRole="Seller" />
+    <NavigationProperty Name="UserClaims" Relationship="bobsaxydogsModel.FK_dbo_UserClaims_dbo_Users_UserId" FromRole="User" ToRole="UserClaim" />
+    <NavigationProperty Name="Roles" Relationship="bobsaxydogsModel.UserRoles" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Customer_Users">
+    <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customers">
+    <End Type="bobsaxydogsModel.Customer" Role="Customer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaMessage_Customer">
+    <End Type="bobsaxydogsModel.Customer" Role="Customer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.QuotaMessage" Role="QuotaMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="QuotaMessage">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOptions_Pets">
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.ItemOption" Role="ItemOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="ItemOption">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemSize_Pets">
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.ItemSize" Role="ItemSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="ItemSize">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Logins_dbo_Users_UserId">
+    <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Pets">
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Toppings">
+    <End Type="bobsaxydogsModel.Topping" Role="Topping" Multiplicity="0..1" />
+    <End Type="bobsaxydogsModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topping">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ToppingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pets_PetCategory">
+    <End Type="bobsaxydogsModel.PetCategory" Role="PetCategory" Multiplicity="1" />
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetCategory">
+        <PropertyRef Name="PetCategoyID" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="PetCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_PetCategories">
+    <End Type="bobsaxydogsModel.PetCategory" Role="PetCategory" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetCategory">
+        <PropertyRef Name="PetCategoyID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pets_Seller">
+    <End Type="bobsaxydogsModel.Seller" Role="Seller" Multiplicity="1" />
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pets_SubCategory">
+    <End Type="bobsaxydogsModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetViews_Pets">
+    <End Type="bobsaxydogsModel.Pet" Role="Pet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.PetView" Role="PetView" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="PetID" />
+      </Principal>
+      <Dependent Role="PetView">
+        <PropertyRef Name="PetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaMessage_Seller">
+    <End Type="bobsaxydogsModel.Seller" Role="Seller" Multiplicity="1" />
+    <End Type="bobsaxydogsModel.QuotaMessage" Role="QuotaMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="QuotaMessage">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotaReply_QuotaMessage">
+    <End Type="bobsaxydogsModel.QuotaMessage" Role="QuotaMessage" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.QuotaReply" Role="QuotaReply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuotaMessage">
+        <PropertyRef Name="QuotaID" />
+      </Principal>
+      <Dependent Role="QuotaReply">
+        <PropertyRef Name="QuotaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seller_Users">
+    <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.Seller" Role="Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserClaims_dbo_Users_UserId">
+    <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="bobsaxydogsModel.UserClaim" Role="UserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoles">
+    <End Type="bobsaxydogsModel.Role" Role="Role" Multiplicity="*" />
+    <End Type="bobsaxydogsModel.User" Role="User" Multiplicity="*" />
+  </Association>
+</Schema>

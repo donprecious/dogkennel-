@@ -1,0 +1,189 @@
+﻿@using Microsoft.AspNet.Identity
+@using Models.ClassModel
+@model IEnumerable<bobbySaxyKennel.Models.ViewModels.Product>
+
+@{
+    ViewBag.Title = "Check Out and Confirmation";
+    var cost = 0.0;
+    var
+    subcost = 0.0;
+
+    var userId = User.Identity.GetUserId();
+
+}
+<div class="container" style="margin-bottom: 100px; margin-top: 100px;">
+    <div class="row">
+        <div class="col-sm-6">
+            @if (Model != null)
+            {
+                foreach (var i in Model)
+                {
+                    <h2>Your Order(s)</h2>
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <h5>Item - </h5>
+                                <p>@i.name</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <h5>Cost</h5>
+                                @{
+                                    cost += i.cost;
+                                }
+
+                                <p>AED @i.cost</p>
+                                <p>Quantity: @i.quantity</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <h5>Option Detail</h5>
+                                <p>
+                                    @if (i.itemOption != null)
+                                    {
+                                        foreach (var a in i.itemOption)
+                                        {
+                                            <span>
+                                                @a.name, AED @a.cost
+                                                @{
+                                                    subcost += a.cost;
+                                                }
+                                                <br />
+                                            </span>
+                                        }
+                                    }
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+                var totalCost = cost + subcost;
+                Session["totalCost"] = totalCost;
+
+                <div class="well">
+                    <h3>Total Cost : AED @totalCost</h3>
+                </div>
+            }
+            else
+            {
+                <h3>Opps no item in cart  </h3>
+                <a href="@Url.Action("Menu")">please order now</a>
+            }
+
+        </div> 
+        <div class="col-sm-6" style="margin-bottom: 100px">
+            @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+            {
+                <h3>Oh sorry you signed in as admin please signout and signin with a customer account</h3>
+            }
+            else
+            {
+                var customerId = new Customers().GetCustomerID(userId);
+                var customer = new Customers().GetCustomer(Convert.ToInt32(customerId));
+                <h2>Your Order Detail</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="hidden" id="customerId" value="@customerId" />
+                        <div class="form-group">
+                            <label class="control-label">Select Pickup date and Time</label>
+                            <input type="text" class="form-control" id="pickupdate" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"> Your Email</label>
+                            <input type="text" class="form-control" disabled="disabled" value="@customer.User.Email" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"> Your Name</label>
+                            <input type="text" class="form-control" disabled="disabled" value="@customer.User.FirstName  @customer.User.LastName" />
+                        </div>
+                      
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label"> Your Phone number</label>
+                            <input type="text" class="form-control" id="phonenumber" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"> Delivery Address</label>
+                            <textarea rows="4" class="form-control" id="deliveryAddress" ></textarea>
+                        </div>
+                      
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"> Additional Note</label>
+                        <textarea rows="4" class="form-control" id="addtionalNote" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="btnCompleteOrder"  class="btn btn-block btn-danger"> Complete Order </button>
+                    </div>
+                </div>
+             
+
+            }
+
+        </div>
+    </div>
+</div>
+
+@section css
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+}
+@section Scripts
+{ 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+        $("#pickupdate").flatpickr({
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            altInput: true,
+            altFormat: "F j, Y",
+            minDate: "today"
+        }); 
+
+        $("#btnCompleteOrder").click(function(event) {
+            event.preventDefault();
+            var data = {
+               
+                "customerId": $("#customerId").val(),
+                "deliveryAddress": $("#deliveryAddress").val(),
+                "addtionalPhoneNo": $("#phonenumber").val(),
+                "additionalNote": $("#addtionalNote").val(),
+                
+                "pickupTime": $("#pickupdate").val()
+            } 
+            if ($("#pickupdate").val() == undefined || $("#pickupdate").val() == "") {
+                Swal.fire({
+                    title: 'Sorry!',
+                    text: 'Please Select Pickup date and time',
+                    type: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            } else {
+                $.ajax("/Item/CheckOutCart",
+                    {
+                        type: "POST",
+                        data: data,
+                        beforeSend: () => { $(this).attr("disabled") },
+                        complete: () => $(this).removeAttr("disabled"), 
+                        success: (response) => {
+                            if (response.status == 200) {
+                                //show sweet alert of success 
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Do you want to continue',
+                                    type: 'success',
+                                    confirmButtonText: 'Ok'
+                                });
+                                //redirect after 4 sec to  
+                                location.href = "/Item/MyOrders";
+                            }
+                        }
+                    });
+            }
+
+        })
+    </script>
+}

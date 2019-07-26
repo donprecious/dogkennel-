@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "_MenuCart";
+    //Layout = "~/Views/Shared/_mobileLayout.cshtml";
+}
+<div id="semi-cart-container" style="display: block;">
+    <div id="sc-items-container" >
+        @*<div id="divLineItem1" class="sc-item-div site">
+            <div class="sc-item-name">
+                <div class="item_name" >Smoked Brisket Taco</div>
+                <div class="item_qty">
+                    <button class="black-button" style="height:2em;width:2em;margin-right:.5em" onclick="updateQuantityButton(-1, 'divLineItem1')">-</button>
+                    <input type="number" data-oldval="1" onchange="updateQuantity(1,this)" class="sc-item-qty" value="1">
+                    <button class="black-button" style="height:2em;width:2em;margin-left:.5em" onclick="updateQuantityButton(1, 'divLineItem1')">+</button>
+                </div>
+            </div>
+
+            <div class="sc-item-price">
+                <span>$3.80</span>
+
+                <img src="https://nolocdnv.azureedge.net/Content?ContentFile=button_receipt_cancel_item.png&amp;companyCode=JITA001&amp;designId=1" class="OrderCancelLineItem" onclick="deleteLineItem(1);" data-menuitemid="1432">
+            </div>
+
+            <div id="sc-item-mods" style="display:none">
+                <div>
+                    <span class="sc-item-mod-name">
+                        No                 Lettuce
+                    </span>
+                    <span class="sc-item-mod-qty">
+                    </span>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="divLineItem2" class="sc-item-div site">
+            <div class="sc-item-name">
+                <div class="item_name" onclick="show_sc_mods('divLineItem2')">PLATE #3 (2 Enchiladas)</div>
+                <div class="item_qty">
+                    <button class="black-button" style="height:2em;width:2em;margin-right:.5em" onclick="updateQuantityButton(-1, 'divLineItem2')">-</button>
+                    <input type="number" data-oldval="1" onchange="updateQuantity(2,this)" class="sc-item-qty" value="1">
+                    <button class="black-button" style="height:2em;width:2em;margin-left:.5em" onclick="updateQuantityButton(1, 'divLineItem2')">+</button>
+                </div>
+            </div>
+
+            <div class="sc-item-price">
+                <span>$10.35</span>
+
+                <img src="https://nolocdnv.azureedge.net/Content?ContentFile=button_receipt_cancel_item.png&amp;companyCode=JITA001&amp;designId=1" class="OrderCancelLineItem" onclick="deleteLineItem(2);" data-menuitemid="1121">
+            </div>
+
+            <div id="sc-item-mods" style="display:none">
+                <div>
+                    <span class="sc-item-mod-name">
+                        No                 Cheese Ench
+                    </span>
+                    <span class="sc-item-mod-qty">
+                    </span>
+                </div>
+                <div>
+                    <span class="sc-item-mod-name">
+                        No                 Monterey Cheese
+                    </span>
+                    <span class="sc-item-mod-qty">
+                    </span>
+                </div>
+                <div>
+                    <span class="sc-item-mod-name">
+                        No                 Red Sauce
+                    </span>
+                    <span class="sc-item-mod-qty">
+                    </span>
+                </div>
+                <div>
+                    <span class="sc-item-mod-name">
+                        Carnitas Ench
+                    </span>
+                    <span class="sc-item-mod-qty">
+                        (1)
+                    </span>
+                    <span class="sc-item-mod-price">(<span class="mod_price">$0.40</span> each)</span>
+                </div>
+                <div>
+                    <span class="sc-item-mod-name">
+                        Monterey Cheese
+                    </span>
+                    <span class="sc-item-mod-qty">
+                        (2)
+                    </span>
+                    <span class="sc-item-mod-price">(<span class="mod_price">$1.00</span> each)</span>
+                </div>
+                <div>
+                    <span class="sc-item-mod-name">
+                        Get it Loaded
+                    </span>
+                    <span class="sc-item-mod-qty">
+                        (1)
+                    </span>
+                    <span class="sc-item-mod-price">(<span class="mod_price">$1.00</span> each)</span>
+                </div>
+            </div>
+
+
+        </div>*@
+    </div>
+    <div id="sc-other-info">
+        @*<div id="sc-place">
+            <a class="black-button btn-medium" >
+                <span class="action-button-text">Start Over</span>
+            </a>
+        </div>*@
+        <div id="sc-total">
+            <span>Total</span><br>
+
+        AED<span id="sc-total-amount" class="sc-total-amount"></span>
+
+            <br>
+
+            @*<span>*Tax will be added at checkout</span><br>*@
+            <span id="sc-combo-final-price"></span>
+        </div>
+    </div>
+    <div id="sc-buttons">
+        <a href="#" onclick="showAllCategory()" id="sc-add-more" class="black-button sc-button">
+            <span class="action-button-text">Add More</span>
+        </a>
+        <a href="#" id="sc-checkout" onclick="gocheckout()" class="green-button sc-button">
+            <span class="action-button-text ">Checkout</span>
+        </a>
+    </div>
+</div>
