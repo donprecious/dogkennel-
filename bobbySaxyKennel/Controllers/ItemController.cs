@@ -163,7 +163,7 @@ namespace bobbySaxyKennel.Controllers
                         s += $" {a.name} , cost: {a.cost } \n > ";
                     }
                 }
-                save.Add(m.CustomerId, i.productId, m.DeliveryAddress, m.AddtionalPhoneNo, i.quantity, (double)i.cost, null,"", m.AdditionalNote, s, m.PickupTime); 
+                save.Add(m.CustomerId, i.productId, m.DeliveryAddress, m.AddtionalPhoneNo, i.quantity, (double)i.cost, null,"", m.AdditionalNote, s, m.PickupTime, m.Latitude, m.Logitude); 
               
             }
             Session["cart"] = null;

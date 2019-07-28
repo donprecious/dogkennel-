@@ -54,12 +54,13 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <p> <b>Pizza: </b> @Model.Product.Name  <br/>
-                            <b>Description:</b> @Model.Product.Description <br/>
-                            <b>Total: </b> AED @Model.TotalPrice.ToString("N") <br/>
-                            <b>Quantity</b> @Model.Quantity 
-                         </p>
-                
+                        <p>
+                            <b>Pizza: </b> @Model.Product.Name  <br />
+                            <b>Description:</b> @Model.Product.Description <br />
+                            <b>Total: </b> AED @Model.TotalPrice.ToString("N") <br />
+                            <b>Quantity</b> @Model.Quantity
+                        </p>
+
                         <p>@Model.DeliveryAddress</p>
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -69,17 +70,17 @@
 
                         @Html.HiddenFor(a => a.TotalPrice)
                         @Html.HiddenFor(a => a.Quantity)
-                       
-                        <label>Full Name</label>
+                             <label>Full Name</label>
                         <input type="text" size="32" placeholder="Full Name" disabled="disabled" value="@Model.Customer.User.FirstName  @Model.Customer.User.LastName" maxlength="50" style="max-width: 350px">
                         <label>Email</label>
-                        <input type="text" size="32" placeholder="Email Address" disabled="disabled" value="@Model.Customer.User.Email" maxlength="50" style="max-width: 350px">
+                        <input type="email" size="32" placeholder="Email Address" disabled="disabled" value="@Model.Customer.User.Email" maxlength="50" style="max-width: 350px">
                         <label>Phone Number</label>
                         <input type="text" size="32" name="@Html.NameFor(a => a.AddtionalPhoneNo)" placeholder="Phone Number" maxlength="50" value="@Model.Customer.User.PhoneNumber" style="max-width: 350px">
                         <label>Delivery Address</label>
                         <textarea size="32" placeholder="Delivery Address" name="@Html.NameFor(a => a.DeliveryAddress)" maxlength="50" style="max-width: 350px"></textarea>
                         <label>Additional Note</label>
                         <textarea size="32" placeholder="Delivery Address" name="@Html.NameFor(a => a.AdditionalNote)" maxlength="50" style="max-width: 350px"></textarea>
+                     
 
                         <div style="text-align: left; margin-bottom: 10px;">
                             <input id="btnExistingcustomer"

@@ -43,6 +43,7 @@ namespace bobbySaxyKennel.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
         public virtual DbSet<SubCategory> SubCategories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topping> Toppings { get; set; }
         public virtual DbSet<UserClaim> UserClaims { get; set; }
         public virtual DbSet<User> Users { get; set; }

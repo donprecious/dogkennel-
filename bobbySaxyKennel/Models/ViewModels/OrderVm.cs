@@ -18,6 +18,8 @@ namespace bobbySaxyKennel.Models.ViewModels
         public string SIze { get; set; }
         public int ToppingId { get; set; }
         public string AdditionalNote { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Logitude { get; set; }
         public Customer Customer { get; set; }
         public string ItemDetail { get; set; }
         public System.DateTime PickupTime { get; set; }

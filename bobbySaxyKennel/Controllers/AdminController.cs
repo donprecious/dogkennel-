@@ -629,5 +629,15 @@ namespace bobbySaxyKennel.Controllers
             var edit = new Models.ClassModel.About().Edit(m);
             return RedirectToAction("AboutPage");
         }
+
+        public ActionResult Deliver(DateTime? from=null)
+        {
+            var orders = new Models.ClassModel.Orders().List().Where(a=>a.Status == "Pending").ToList();
+            if (from != null)
+            {
+              orders =  orders.Where(a => a.DateTime >= from).ToList();
+            }
+            return View(orders);
+        }
     }
 }

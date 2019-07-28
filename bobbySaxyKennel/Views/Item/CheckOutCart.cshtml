@@ -83,10 +83,15 @@
                 <h2>Your Order Detail</h2>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="hidden" id="customerId" value="@customerId" />
+                        <input type="hidden" id="customerId" value="@customerId" /> 
+                      
                         <div class="form-group">
                             <label class="control-label">Select Pickup date and Time</label>
-                            <input type="text" class="form-control" id="pickupdate" />
+                            <input type="text" class="form-control" id="pickupdate"/>
+                        </div> 
+                        <div class="form-group">
+                            <label class="control-label">Pick Up Location</label>
+                            <input type="text"  placeholder="Pick Location" id="autocomplete"  class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label"> Your Email</label>
@@ -96,7 +101,10 @@
                             <label class="control-label"> Your Name</label>
                             <input type="text" class="form-control" disabled="disabled" value="@customer.User.FirstName  @customer.User.LastName" />
                         </div>
-                      
+                  
+                        <input type="hidden" id="txtLat" />
+                        <input type="hidden" id="txtLog" />
+
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -141,19 +149,21 @@
             altInput: true,
             altFormat: "F j, Y",
             minDate: "today"
-        }); 
+        });
 
-        $("#btnCompleteOrder").click(function(event) {
-            event.preventDefault();
+        $("#btnCompleteOrder").click(function (event) {
+            event.preventDefault(); 
+            // public decimal Latitude { get; set; }
+            //public decimal Logitude { get; set; }
             var data = {
-               
                 "customerId": $("#customerId").val(),
                 "deliveryAddress": $("#deliveryAddress").val(),
                 "addtionalPhoneNo": $("#phonenumber").val(),
                 "additionalNote": $("#addtionalNote").val(),
-                
+                "latitude": $("#txtLat").val(),
+                "Logitude": $("#txtLog").val(),
                 "pickupTime": $("#pickupdate").val()
-            } 
+            }
             if ($("#pickupdate").val() == undefined || $("#pickupdate").val() == "") {
                 Swal.fire({
                     title: 'Sorry!',
@@ -167,7 +177,7 @@
                         type: "POST",
                         data: data,
                         beforeSend: () => { $(this).attr("disabled") },
-                        complete: () => $(this).removeAttr("disabled"), 
+                        complete: () => $(this).removeAttr("disabled"),
                         success: (response) => {
                             if (response.status == 200) {
                                 //show sweet alert of success 
@@ -184,6 +194,34 @@
                     });
             }
 
-        })
+        });
+    </script> 
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTWW86SJ-y6HFw1-cYJTCvTBI9bW1x_uY&libraries=places"></script>
+    <script>
+        $(function () {
+            var placeSearch, autocomplete;
+            var mesg;
+            autocomplete = new google.maps.places.Autocomplete(document.getElementById(('autocomplete')), { types: ['geocode'] });
+            autocomplete.addListener('place_changed', getAddress);
+
+            function getAddress() {
+                var place = autocomplete.getPlace();
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+            
+                mesg = "Address1: " + address;
+                mesg += "\nLatitude: " + latitude;
+                mesg += "\nLongitude: " + longitude;
+
+                $("#txtLat").attr("value", latitude);
+                $("#txtLog").attr("value", longitude);
+                console.log("Hidden Field has this valus " + latitude, longitude);
+            }
+
+       
+        });
+
     </script>
 }
