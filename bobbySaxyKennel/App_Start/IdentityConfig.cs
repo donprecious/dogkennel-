@@ -55,7 +55,7 @@ namespace bobbySaxyKennel
             {
                 RequiredLength = 6,
                 
-                RequireDigit = true,
+             
              
             };
 

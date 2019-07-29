@@ -1331,6 +1331,7 @@
     <Content Include="Views\Item\Meal.cshtml" />
     <Content Include="Views\Shared\_Meal.cshtml" />
     <Content Include="Views\Shared\_MenuCart.cshtml" />
+    <Content Include="Views\Account\RegisterAsGuest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

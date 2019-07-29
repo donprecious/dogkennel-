@@ -45,7 +45,6 @@ namespace bobbySaxyKennel.Models.ClassModel
                         SmallPrize = Convert.ToDecimal(smallPrize),
                         MediumPrize = Convert.ToDecimal(mediumPrize),
                         LargePrize = Convert.ToDecimal(largePrize)
-                        
                     };
                     db.Pets.Add(pet);
                     db.SaveChanges();

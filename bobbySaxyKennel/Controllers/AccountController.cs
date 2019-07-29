@@ -80,7 +80,7 @@ namespace bobbySaxyKennel.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                 if(returnUrl == null || User.IsInRole("Admin"))
+                 if(returnUrl == null && User.IsInRole("Admin"))
                     {
                         return RedirectToAction("Index","Admin");
                     }
@@ -142,6 +142,60 @@ namespace bobbySaxyKennel.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        public ActionResult RegisterAsGuest(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+        
+            return PartialView();
+        }
+
+        //
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterAsGuest(RegisterViewModelGuest model, string returnUrl)
+        {
+            var userm = UserManager.FindByEmail(model.Email);
+            if (userm != null)
+            {
+                await SignInManager.SignInAsync(userm, isPersistent: false, rememberBrowser: false); 
+               // return Redirect()
+            return    RedirectToLocal(returnUrl);
+            }
+         
+            model.Password = model.Email;
+           
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, DateStamp = DateTime.UtcNow, PhoneNumber=model.PhoneNumber };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    using (var db = new BobSaxyDogsEntities()) {
+                        db.Customers.Add(new Customer { UserID = user.Id });
+                        db.SaveChanges();
+                    } 
+
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                   // return Redirect(returnUrl);
+               return     RedirectToLocal(returnUrl);
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return PartialView(model);
+        }
+
+
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -156,17 +210,18 @@ namespace bobbySaxyKennel.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, DateStamp = DateTime.UtcNow, PhoneNumber=model.PhoneNumber };
+                var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, DateStamp = DateTime.UtcNow, PhoneNumber = model.PhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    using (var db = new BobSaxyDogsEntities()) {
+                    using (var db = new BobSaxyDogsEntities())
+                    {
                         db.Customers.Add(new Customer { UserID = user.Id });
                         db.SaveChanges();
-                    } 
+                    }
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

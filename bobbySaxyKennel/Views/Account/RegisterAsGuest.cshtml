@@ -1,0 +1,78 @@
+﻿@model bobbySaxyKennel.Models.RegisterViewModelGuest
+
+<div class="wPanel noPadding" style="border-radius: 0px 0px 5px 5px; display: inline-block">
+
+    <div class="row" style="padding: 30px; ">
+        <div class="myForm">
+            <div class="form-center">
+                <div class="title">
+                    <h4>Sign up as Guest</h4>
+                </div>
+                <div class="form-content">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="text-center">
+                            <h3>
+                                Your Are Logged in already
+                            </h3>
+                            <a href="@Url.Action("SignOut", "Account")" class="btn btn-primary" title="Sign Outs"><i class="glyphicon glyphicon-log-out"> </i> &nbsp; Sign Out</a>
+
+                        </div>
+                    }
+                    else
+                    {
+                        using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholer = "First Name" })
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholer = "Last Name" })
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholer = "Email Address" })
+
+                            </div> 
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholer = "Phone Number" })
+
+                            </div>
+                        
+                          
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-hash">
+                                    Continue as guest
+                                </button>
+
+                            </div>
+                        
+                        }
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div> <br> <br>

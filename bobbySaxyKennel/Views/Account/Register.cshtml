@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12" style="margin-top: 100px; margin-bottom: 100px;">
-            <div class="title-top">CREATE AN ACCOUNT</div>
+            <div class="title-top">CREATE AN ACCOUNT</div> 
+     
             <div class="wPanel noPadding" style="border-radius: 0px 0px 5px 5px; display: inline-block">
 
                 <div class="row" style="padding: 30px; ">
@@ -17,7 +18,7 @@
                                     <h4>Create account</h4>
                                 </div>
                                 <div class="form-content">
-                                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { }))
+                                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl }))
                                     {  
                                         @Html.AntiForgeryToken()
 
