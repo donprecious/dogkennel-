@@ -4,65 +4,62 @@
     ViewBag.Title = "Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="reservation-section pt-120 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="reservation-details-area">
+                    <table class="table">
+                        <tr>
+                            <th>Order No</th>
+                            <th>Item</th>
+                            <th>Detail</th>
+                            <th>  @Html.DisplayNameFor(model => model.DeliveryAddress)   </th>
+                            <th>     @Html.DisplayNameFor(model => model.AddtionalPhoneNo) </th>
+                            <th>
+                                Additional Note
+                            </th>
+                            <td></td>
+                        </tr>
 
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td># @item.Id</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pet.Name)
+                                </td>
+                                <td>
+                                    Cost : NGN  @item.TotalPrice
+                                    Status: @item.Status<br />
+                                    Date Ordered: @item.DateTime
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeliveryAddress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AddtionalPhoneNo)
+                                </td>
 
-<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
-    <section>
-        <div class="title-top"><h2> My Orders</h2> </div>
-        <div class="wPanel " style="border-radius: 0px 0px 5px 5px; display: inline-block">
-          
-            <table class="table">
-                <tr>
-                    <th>Order No</th>
-                    <th>Item</th>
-                    <th>Detail</th>
-                    <th>  @Html.DisplayNameFor(model => model.DeliveryAddress)   </th>
-                    <th>     @Html.DisplayNameFor(model => model.AddtionalPhoneNo) </th>
-                    <th>
-                        Additional Note
-                    </th>
-                    <td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AdditionalNote)
+                                </td>
 
-                    </td>
-                </tr>
+                                @*<td>
+                                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                                        @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                                        @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                                    </td>*@
+                            </tr>
+                        }
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td># @item.Id</td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Pet.Name)
-                        </td>
-                        <td>
-                            Total Cost : AED  @item.TotalPrice  | Quantity: @item.Quantity<br />
-                            Size: @item.SIze <br />
-                            @item.Topping.Name <br />
-                            Status: @item.Status<br />
-                        Date Ordered: @item.DateTime
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DeliveryAddress)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AddtionalPhoneNo)
-                        </td>
+                    </table>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AdditionalNote)
-                        </td>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        @*<td>
-                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                        @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-                        @Html.ActionLink("Delete", "Delete", new {id = item.Id})
-                    </td>*@
-                    </tr>
-                }
+</section>
 
-            </table>
- 
-
-        </div> <br> <br>
-    </section>
-</div>
- 
+   

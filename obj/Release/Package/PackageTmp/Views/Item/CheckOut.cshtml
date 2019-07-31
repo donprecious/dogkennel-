@@ -3,8 +3,94 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-}
-<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
+}  
+
+<section class="reservation-section pt-120 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="reservation-details-area">
+                    <div class="thumb">
+                        <img src="@Model.Product.ImgLocation" class="img-responsive" alt="images">
+                    </div>
+                    <div class="content">
+                        <div class="content-block">
+                            <h3 class="car-name">@Model.Product.Name</h3>
+                            <span class="price">Start form @Model.Product.Amount per day</span>
+                            <p>@Model.Product.Description</p>
+                        </div>
+
+                        @using (Html.BeginForm(new { @class = "reservation-form" }))
+                        {
+                            <div class="content-block">
+                                <h3 class="title">Reservation information</h3> 
+                                
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(a => a.CustomerId) 
+                                @Html.HiddenFor(a => a.PetId)
+
+                                @Html.HiddenFor(a => a.TotalPrice)
+                                @Html.HiddenFor(a => a.Quantity) 
+                                @Html.HiddenFor(a => a.SIze)
+                                <div class="row">
+                                    <div class="col-lg-6 form-group">
+                                        <label class="control-label"> Full name</label>
+                                        <input type="text" placeholder="Full Name" disabled="disabled" value="@Model.Customer.User.FirstName  @Model.Customer.User.LastName">
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <label class="control-label">Email</label>
+
+                                        <input type="email" placeholder="Email Address" disabled="disabled" value="@Model.Customer.User.Email">
+                                    </div>
+                                
+                                    <div class="col-lg-6 form-group">
+                                        <label class="control-label"> Pickup location</label>
+
+                                        <textarea type="text" placeholder="Pick up Address" name="@Html.NameFor(a => a.PickUpLocation)"> </textarea> 
+                                        <label class="control-label"> Pickup date</label>
+
+                                        <input type="datetime" placeholder="Pick up Date" name="@Html.NameFor(a => a.PickUpDatetime)">
+                                    </div> 
+                               
+                                    <div class="col-lg-6 form-group">
+                                        <label class="control-label"> Drop off</label>
+
+                                        <textarea type="text" placeholder="Drop off  Address" name="@Html.NameFor(a => a.DropoffLocation)"> </textarea> 
+                                        <label class="control-label"> Drop off datetime</label>
+
+                                        <input type="datetime" placeholder="Drop Off Date" name="@Html.NameFor(a => a.DropOffDateTime)">
+                                    </div> 
+                            
+                                    <div class="col-lg-6 form-group">
+                                    
+                                            <label class="control-label"> Phone Number</label>
+
+                                            <input type="tel" placeholder="Phone" name="@Html.NameFor(a => a.AddtionalPhoneNo)" value="@Model.Customer.User.PhoneNumber">
+                                            <label class="control-label"> Additional Note</label>
+
+                                            <textarea type="text" placeholder="Additional Note" name="@Html.NameFor(a => a.AdditionalNote)"> </textarea>
+
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="reset" class="cmn-btn bg-black">Cancel</button>
+                                        <button type="submit" class="cmn-btn">Make Reservation</button>
+                                    </div>
+                               </div>
+                            </div>
+
+                          
+                        }
+
+                    </div>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+</section>
+
+
+@*<div class="row" id="container_inner" style="text-align: center; padding-top: 30px;">
     <div id="RegisterSelect" class="columns">
         <br>
         <section>
@@ -38,12 +124,10 @@
                     <p>Begin by clicking the Register button below.</p>
                     <div class="row" style="text-align: left; margin-bottom: 10px;">
                         <div class="large-37 med-large-39 medium-100 small-100 column">
-                            <input id="btnNewcustomer"
-                                   class="button primaryAddButton" type="button" style="font-size: 16px;" value="Register">
+                            <input id="btnNewcustomer" class="button primaryAddButton" type="button" style="font-size: 16px;" value="Register">
                         </div>
                         <div class="large-60 med-large-60 medium-100 small-100 column">
-                            <input id="btnFacebookRegister"
-                                   class="button primaryAddButton fbButton" type="button" style="font-size: 16px;"
+                            <input id="btnFacebookRegister" class="button primaryAddButton fbButton" type="button" style="font-size: 16px;"
                                    value="Register Using Facebook">
                         </div>
                     </div>
@@ -149,15 +233,31 @@
                         <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
-            </div>*@
+            </div>
                     }
 
                 </div>
             </div> <br> <br>
         </section>
     </div>
-</div>
+</div>*@
 
-    @Scripts.Render("~/bundles/jquery")
+@section Scripts
+{
+ 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script >
+    <script>
+        $("input[type=datetime]").flatpickr({
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d"
+        });
+    </script>
+}
+@section css
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+}
+@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
 
