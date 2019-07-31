@@ -50,7 +50,7 @@
                     <ul>
                         @foreach (var i in Model)
                         {
-                            <li >
+                            <li>
                                 <div class="o-food-image" style="background-image: url(@i.ImgLocation);"></div>
                                 <div class="color-def">
                                     <div class="mid-sec">
@@ -58,19 +58,17 @@
                                         @if (Request.Browser.IsMobileDevice)
                                         {
                                             <a class="food-button" href="@Url.Action("Meal", "Item")">Order Now <em class="fa fa-chevron-right" aria-hidden="true"></em></a>
-
                                         }
                                         else
                                         {
                                             <a class="food-button" href="@Url.Action("Menu", "Item")">Order Now <em class="fa fa-chevron-right" aria-hidden="true"></em></a>
-
                                         }
                                     </div>
                                     <div class="food-desc">
-                                        <p>@i.Amount</p>
+                                        <p>NGN @i.Amount</p>
                                         <p>@i.Description</p>
 
-                                    </div>
+                                    </div> 
                                 </div>
                             </li>
                         }
