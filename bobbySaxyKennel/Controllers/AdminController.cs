@@ -502,7 +502,11 @@ namespace bobbySaxyKennel.Controllers
             var set = new Orders().SetOrderStatus(id, status);
             return RedirectToAction("Orders");
         }
-
+        public ActionResult DeleteOrder(int id)
+        {
+            var del = new Orders().Delete(id);
+            return RedirectToAction("Orders");
+        }
         public ActionResult ReplyQuota(int id)
         {
           var m = new Models.ViewModels.ReplyQuotaVm();

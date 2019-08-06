@@ -155,9 +155,10 @@
                 if (hasOption == "True") {
                     var product = {};
                     product.productId = id;
-                    product.cost = cost;
+                   
                     product.name = name;
-                    product.quantity = 1;
+                    product.quantity = 1; 
+                    product.cost = cost * Number(product.quantity);
                     product.productItemId = products.length + 1;
                     currentProductItemId = products.length + 1;
                     product.itemOption = [];
@@ -188,9 +189,11 @@
                 } else {
                     var product = {};
                     product.productId = id;
-                    product.cost = cost;
+               
                     product.name = name;
                     product.quantity = 1;
+                    product.cost = cost * Number(product.quantity);
+
                     product.productItemId = products.length + 1;
                     product.itemOption = [];
                     product.itemSize = [];
@@ -224,6 +227,7 @@
             products.forEach(function(a) {
                 if (a.productItemId == id) {
                     a.quantity = value;
+                    a.cost = a.cost * Number(a.quantity);
                 }
 
                 console.log(products);

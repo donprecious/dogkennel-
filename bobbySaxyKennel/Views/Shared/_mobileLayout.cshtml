@@ -563,6 +563,7 @@
             products.forEach(function (a) {
                 if (a.productItemId == id) {
                     a.quantity = value;
+                    a.cost = a.cost * Number(a.quantity);
                 }
 
                 console.log(products);
