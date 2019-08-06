@@ -3,6 +3,8 @@
   @{
       var catgory = new Categories().List();
       var loca = new ToppingService().List();
+
+     
   }
     <div id="content" class="row pad15" style="text-align: center; display: block;">
         <div>
@@ -23,6 +25,7 @@
                                         <input id="sub_@a.Id" value="@a.Name"
                                                class="background_page_filter_button" onclick="showSubList(@i.PetCategoryID, @a.Id)" type="button">
                                     }
+                                    break;
                                 }
                                 <div class="c">
 

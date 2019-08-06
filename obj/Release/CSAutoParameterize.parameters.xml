@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="BobSaxyDogs-Web.config Connection String" description="BobSaxyDogs Connection String used in web.config by the application to access the database." defaultValue="Data Source=68.71.130.74,1533;Initial Catalog=khaleejt_pizzadb;User Id=khaleejt;Password=Pecious0.don1234;MultipleActiveResultSets=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\ProJects\\pizzaKennel\\bobbySaxyKennel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BobSaxyDogs']/@connectionString" />
-  </parameter>
-  <parameter name="BobSaxyDogsEntities-Web.config Connection String" description="BobSaxyDogsEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=68.71.130.74,1533;initial catalog=khaleejt_pizzadb;user id=khaleejt;password=Pecious0.don1234;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\ProJects\\pizzaKennel\\bobbySaxyKennel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BobSaxyDogsEntities']/@connectionString" />
-  </parameter>
-</parameters>

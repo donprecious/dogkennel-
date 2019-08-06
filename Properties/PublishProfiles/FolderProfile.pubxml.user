@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>G:\PizzaV1.5</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 16:43:40</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>02/22/2013 16:43:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="bin/bobbySaxyKennel.dll">
+      <publishTime>08/06/2019 13:22:37</publishTime>
+    </File>
+    <File Include="bin/bobbySaxyKennel.pdb">
+      <publishTime>08/06/2019 13:22:37</publishTime>
+    </File>
+    <File Include="bin/CloudinaryDotNet.dll">
+      <publishTime>05/22/2018 09:42:08</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/02/2015 17:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/02/2015 17:32:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>12/01/2016 00:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 19:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 19:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 23:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 19:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 19:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 23:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>04/04/2015 01:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>04/04/2015 01:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>04/04/2015 01:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>12/13/2016 11:10:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2015 21:16:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2015 21:16:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2015 21:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2015 21:16:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>02/13/2015 21:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>02/13/2015 21:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>02/13/2015 21:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>02/13/2015 21:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>02/13/2015 21:16:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/05/2012 19:08:46</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/22/2018 09:42:08</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 21:00:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 22:50:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 12:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 12:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 23:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 12:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 12:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 12:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 12:04:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>09/11/2013 01:28:38</publishTime>
+    </File>
+    <File Include="Content/admin.css">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="Content/croppie.css">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="css/sb-admin.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="css/site.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="Data/pizzaDb.bak">
+      <publishTime>08/06/2019 13:18:58</publishTime>
+    </File>
+    <File Include="Data/pizzaDb.sql">
+      <publishTime>08/06/2019 13:18:58</publishTime>
+    </File>
+    <File Include="Data/pizzaDb_table_only.sql">
+      <publishTime>08/06/2019 13:18:58</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/css/font-awesome.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/css/font-awesome.min.css">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/fonts/FontAwesome.otf">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/bordered-pulled.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/core.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/fixed-width.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/font-awesome.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/icons.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/larger.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/list.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/mixins.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/path.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/rotated-flipped.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/spinning.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/stacked.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/less/variables.less">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/font-awesome.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_core.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_fixed-width.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_icons.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_larger.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_list.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_mixins.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_path.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_spinning.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_stacked.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="font-awesome/scss/_variables.scss">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>08/06/2019 08:53:53</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>08/06/2019 08:53:40</publishTime>
+    </File>
+    <File Include="images/2_1.png">
+      <publishTime>08/06/2019 08:53:54</publishTime>
+    </File>
+    <File Include="images/2_11.jpg">
+      <publishTime>08/06/2019 08:53:54</publishTime>
+    </File>
+    <File Include="images/3_1.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/3_11.jpg">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/AjaxLoader/Close.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/AjaxLoader/ok.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/AjaxLoader/ringLoading1.gif">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/arrow.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/clock.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/dog-2.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/dog-3.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/dog-4.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/dropdown-arrow.html">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/facebook.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/Handle with care.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/heading-bg.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/marker.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/medium-dog.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/minus.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/myDogs/Bobby Dog.jpg">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/myDogs/BullDogs.jpg">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/myDogs/Dog.jpg">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/myDogs/Imported.jpg">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/myDogs/kennel Dog.jpg">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/myDogs/puppy.jpg">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/myDogs/Quite Puppy.jpg">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/pinterest.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/plus.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/profile-facebook.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/profile-twitter.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/search.html">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-adoption.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-advice.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-grooming.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-kennel.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-play.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/services-walking.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/Shape-Lightning.png">
+      <publishTime>08/06/2019 08:53:55</publishTime>
+    </File>
+    <File Include="images/telephone.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/testimonial-bg.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/twitter.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="images/view.png">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/carouFredSel.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/custom.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/ekkoLightbox.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/gmap3.min.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/jquery-ui.min.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/jquery.bxslider.min.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="js/jquery.stellar.min.js">
+      <publishTime>08/06/2019 08:53:56</publishTime>
+    </File>
+    <File Include="Models/Model1.edmx.diagram">
+      <publishTime>08/06/2019 08:53:41</publishTime>
+    </File>
+    <File Include="Models/Model1.edmx.sql">
+      <publishTime>08/06/2019 08:53:41</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>08/06/2019 08:54:13</publishTime>
+    </File>
+    <File Include="Pizza/about.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/checkout.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/contactus.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/customise.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/empty.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/faq.html">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Image/big-pizza.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/images/icon-menu.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000164.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000165.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000166.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000167.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000168.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000169.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000170.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/ItemsImages/Menu4/itm000171.jpg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/loader.gif">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/1.jpeg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/2.jpeg">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/3.jpeg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/4.jpeg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/5.jpeg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/deal000052-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/deal000052-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/deal000063-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/deal000063-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000020-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000020-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000044-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000044-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000046-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000046-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000059-en.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000059-un.jpg">
+      <publishTime>08/06/2019 08:53:45</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000061-en.jpg">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/Promos/Menu4/portf4000061-un.jpg">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/SharedImages/add_to_cart_btn.png">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/SharedImages/spin-down-w.png">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/images/SharedImages/spin-up-w.png">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/index.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/login.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/Scripts5894.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/Scripts9839.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/ThirdParty4dfa.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/Yum-PizzaHut-Americana-v2/ThemeScripts.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/Yum-PizzaHut-Americana-v2/ThemeScripts5894.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/MinifiedScripts/Yum-PizzaHut-Americana-v2/ThemeScripts9839.js">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/pizzas.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/privacy.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/register.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/register2.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/terms.html">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Pizza/Themes/jquery-2.2.3.min.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/CssFile.css">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/combobtn.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/combobtnhot.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-anim_basic_16x16.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_flat_0_aaaaaa_40x100.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_flat_75_ffffff_40x100.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_glass_55_fbf9ee_1x400.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_glass_65_ffffff_1x400.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_glass_75_dadada_1x400.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_glass_75_e6e6e6_1x400.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_glass_95_fef1ec_1x400.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-bg_highlight-soft_75_cccccc_1x100.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-icons_222222_256x240.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-icons_2e83ff_256x240.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-icons_454545_256x240.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-icons_888888_256x240.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/images/ui-icons_cd0a0a_256x240.html">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/lang_en.css">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/CSS/lang_un.css">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/expressway_rg-webfont.eot">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/expressway_rg-webfont.svg">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/expressway_rg-webfont.ttf">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/expressway_rg-webfont.woff">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/expressway_rg-webfontd41d.eot">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/font_en.css">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Fonts/font_un.css">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/404-error-page.jpg">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/active_full_pizza.png">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/active_left_pizza.png">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/active_no_full_pizza.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/active_right_pizza.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/appDownload.jpg">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/arrows_strloc_cornernav.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/background-new.jpg">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/bottom-bar-bg-hover.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/bottom-bar-bg.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-add-un.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-add.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-arrow-disabled.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-arrow.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-arrow3.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-bg.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button-disabled.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/button.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call-us-blk.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/call_button3.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/check.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/combobtn.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/counter-bg.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/counter-bg2.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/counter-down.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/counter-up.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/down_arrow.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/dropdown-arrow.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/faq-arrow-1.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/faq-arrow-2.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/fbbutton.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/filter_button.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/footer.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/img_trans.gif">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/included-sash.html">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/item_style_blocks.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/item_style_thumbs.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/item_style_thumbs_active.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/logo.PNG">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/mCSB_buttons.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/nomodcode.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/pagination.png">
+      <publishTime>08/06/2019 08:53:43</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/pizza-hut.png">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/pizzahut.PNG">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/pizza_Ar.png">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/radio-check.png">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/sliderArrow.png">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/small-button-repeat-black.gif">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/SocialButtons.png">
+      <publishTime>08/06/2019 08:53:42</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/Image/sprites.png">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/JS/GESPromotionbea6.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/JS/ItemsAvailabilityValidationf15d.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/JS/OrderTrackingOverride1bce.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/JS/OrderTrackingOverridebea6.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Pizza/Themes/Yum-PizzaHut-Americana-v2/JS/PizzaDiscount5059.js">
+      <publishTime>08/06/2019 08:53:44</publishTime>
+    </File>
+    <File Include="Scripts/AppScripts/CroppieModalCrop.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/AppScripts/fileUpload.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/AppScripts/PostForm.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/AppScripts/postWithModel.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/croppie.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>08/06/2019 08:53:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ConfirmEmail.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPassword.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/SendCode.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/VerifyCode.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AboutPage.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AddCategory.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AddLocation.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AddPet.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AddSeller.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/AddSubCategory.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Contacts.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/CustomerList.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/EditCategory.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/EditLocation.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/EditPet.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/EditSeller.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/EditSubCategory.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Faq.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Messages.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/MyMessages.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/MyreadMessages.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/MyUnreadMessages.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Orders.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Pets.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/PolicyPage.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/QuotaMessage.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/ReplyQuota.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/SellerPets.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/SellersList.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/SubCategoryList.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Super.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/Users.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Admin/_LocationList.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Faq.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Gallary.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Messages.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Pet.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Privacy.cshtml">
+      <publishTime>08/06/2019 08:53:47</publishTime>
+    </File>
+    <File Include="Views/Home/Terms.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Item/CheckOut.cshtml">
+      <publishTime>07/31/2019 17:08:30</publishTime>
+    </File>
+    <File Include="Views/Item/OrderComplete.cshtml">
+      <publishTime>07/31/2019 17:08:30</publishTime>
+    </File>
+    <File Include="Views/Item/Orders.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Item/_Item.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/Lockout.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_AdminLayout.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_CategoryList.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_ContactUs.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_home.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_ModalNotice.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_SendQuotaMessage.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_ShortMessage.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_ShortPets.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_SubCategoryList.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Users/Create.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Users/Delete.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Users/Details.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Users/Edit.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Users/Index.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>08/06/2019 08:53:48</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/06/2019 13:22:44</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

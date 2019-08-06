@@ -322,6 +322,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\croppie.css" />
     <Content Include="css\site.css" />
+    <Content Include="Data\pizzaDb.sql" />
+    <Content Include="Data\pizzaDb_table_only.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -539,8 +541,11 @@
     <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.ttf" />
     <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfont.woff" />
     <Content Include="Pizza\Themes\Yum-PizzaHut-Americana-v2\Fonts\expressway_rg-webfontd41d.eot" />
+    <Content Include="Data\pizzaDb.bak" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\khaleejtacos.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\khaleejtacos.com - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\croppie.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
