@@ -18,7 +18,8 @@ e.g accumwebhost, smarterasp.net, azure
 ### Installing
 
 First you need to setup the database 
-*obtain the project and open data folder you will find three files called pizzaDb.bak, pizzaDb.sql, pizzaDb_table_only.sql
+*obtain the project and open data folder you will find three files called 
+```pizzaDb.bak, pizzaDb.sql, pizzaDb_table_only.sql ```
 pizzaDb.bak is a database backup file you can just import on your database server, (its version dependant currently support sql server 2014 and above)
 pizzaDb.sql  is a database script file that contains script code in for recreating the entire database  
 pizzaDb_table_only  is a database script file that contains script code in for recreating thejust the table entire database   
