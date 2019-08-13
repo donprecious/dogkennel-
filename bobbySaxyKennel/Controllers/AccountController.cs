@@ -69,6 +69,7 @@ namespace bobbySaxyKennel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -83,6 +84,12 @@ namespace bobbySaxyKennel.Controllers
                  if(returnUrl == null && User.IsInRole("Admin"))
                     {
                         return RedirectToAction("Index","Admin");
+                    }
+
+                 if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                 {
+                     return RedirectToAction("Index", "Admin");
+
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:

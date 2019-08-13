@@ -62,7 +62,19 @@ namespace bobbySaxyKennel.Models.ClassModel
                 returnMessage = ex.Message;
                 return null;
             }
-        }                 
+        }
+
+        public User GetUser(string userId)
+        {
+            using (db = new BobSaxyDogsEntities())
+            {
+                db = new BobSaxyDogsEntities();
+                return db.Users.Find(userId);
+            }
+
+          
+           
+        }
         BobSaxyDogsEntities db;
     }
 }

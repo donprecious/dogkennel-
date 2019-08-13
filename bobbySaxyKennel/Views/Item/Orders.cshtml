@@ -1,13 +1,24 @@
-﻿@model IEnumerable<bobbySaxyKennel.Models.Order>
+﻿@using bobbySaxyKennel.Models.ClassModel
+@using Microsoft.AspNet.Identity
+@model IEnumerable<bobbySaxyKennel.Models.Order>
 
 @{
     ViewBag.Title = "Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var userId = User.Identity.GetUserId();
+    var user = new Users().GetUser(userId);
 }
 
 <div class="container">
 
-    <div class="row" style="text-align: center; padding-top: 100px;">
+    <div class="row" style="text-align: center; padding-top: 130px;">
+        <div class="col-md-12">
+            <h3>My Profile</h3>
+            <h4>Full Name</h4>
+            <span >@user.FirstName @user.LastName</span> 
+            <h4>Email Name</h4>
+            <span >@user.Email</span>
+        </div>
         <div class="col-md-12">
             <h2> My Orders</h2>
             <table class="table table-responsive table-hover table-striped" style="overflow: scroll">
@@ -31,11 +42,11 @@
                             @Html.DisplayFor(modelItem => item.Pet.Name)
                         </td>
                         <td>
-                            Total Cost : AED @item.TotalPrice | Quantity: @item.Quantity<br />
-                            Size: @item.SIze <br />
-                            @item.ItemDetail <br />
-                            Status: @item.Status<br />
-                            pickup date: @item.PickupTime <br />
+                            Total Cost : AED @item.TotalPrice | Quantity: @item.Quantity<br/>
+                            Size: @item.SIze <br/>
+                            @item.ItemDetail <br/>
+                            Status: @item.Status<br/>
+                            pickup date: @item.PickupTime <br/>
 
                             Date Ordered: @item.DateTime
                         </td>

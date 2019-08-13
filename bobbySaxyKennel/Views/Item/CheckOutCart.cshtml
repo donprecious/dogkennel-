@@ -8,7 +8,8 @@
     var
     subcost = 0.0;
 
-    var userId = User.Identity.GetUserId();
+    var userId = User.Identity.GetUserId(); 
+   
 
 }
 <div class="container" style="margin-bottom: 100px; margin-top: 100px;">
@@ -17,7 +18,7 @@
 
             @if (Model != null)
             {
-                <h2>Your Order(s)</h2>
+                <h2>My Order(s)</h2>
                 foreach (var i in Model)
                 {
 
@@ -32,7 +33,7 @@
                                 @{
                                     cost += i.cost /* * i.quantity*/;
                                 }
-
+                                
                                 <p>AED @i.cost </p>
                                 <p>Quantity: @i.quantity</p>
 
@@ -89,13 +90,13 @@
             {
                 var customerId = new Customers().GetCustomerID(userId);
                 var customer = new Customers().GetCustomer(Convert.ToInt32(customerId));
-                <h2>Your Order Detail</h2>
+                <h2>My Order Detail</h2>
                 <div class="row">
                     <div class="col-sm-6">
                         <input type="hidden" id="customerId" value="@customerId" />
                         <div class="form-group">
                             <label class="control-label">Select Pickup date and Time</label>
-                            <input type="text" class="form-control" id="pickupdate" />
+                            <input type="date" class="form-control" id="pickupdate" />
                         </div>
                         <div class="form-group">
                             <label class="control-label"> Your Email</label>
@@ -116,7 +117,8 @@
                             <label class="control-label"> Delivery Address</label>
                             <textarea rows="4" class="form-control" id="deliveryAddress" ></textarea>
                         </div>
-                      
+
+
                     </div>
                     <div class="form-group">
                         <label class="control-label"> Additional Note</label>
@@ -163,35 +165,36 @@
                 
                 "pickupTime": $("#pickupdate").val()
             } 
-            if ($("#pickupdate").val() == undefined || $("#pickupdate").val() == "") {
-                Swal.fire({
-                    title: 'Sorry!',
-                    text: 'Please Select Pickup date and time',
-                    type: 'error',
-                    confirmButtonText: 'Try Again'
-                });
-            } else {
-                $.ajax("/Item/CheckOutCart",
-                    {
-                        type: "POST",
-                        data: data,
-                        beforeSend: () => { $(this).attr("disabled") },
-                        complete: () => $(this).removeAttr("disabled"), 
-                        success: (response) => {
-                            if (response.status == 200) {
-                                //show sweet alert of success 
-                                Swal.fire({
-                                    title: 'Success!',
-                                    text: 'Do you want to continue',
-                                    type: 'success',
-                                    confirmButtonText: 'Ok'
-                                });
-                                //redirect after 4 sec to  
-                                location.href = "/Item/MyOrders";
-                            }
+            $.ajax("/Item/CheckOutCart",
+                {
+                    type: "POST",
+                    data: data,
+                    beforeSend: () => { $(this).attr("disabled") },
+                    complete: () => $(this).removeAttr("disabled"), 
+                    success: (response) => {
+                        if (response.status == 200) {
+                            //show sweet alert of success 
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Do you want to continue',
+                                type: 'success',
+                                confirmButtonText: 'Ok'
+                            });
+                            //redirect after 4 sec to  
+                            location.href = "/Item/MyOrders";
                         }
-                    });
-            }
+                    }
+                });
+            //if ($("#pickupdate").val() == undefined || $("#pickupdate").val() == "") {
+            //    Swal.fire({
+            //        title: 'Sorry!',
+            //        text: 'Please Select Pickup date and time',
+            //        type: 'error',
+            //        confirmButtonText: 'Try Again'
+            //    });
+            //} else {
+               
+            //}
 
         })
     </script>

@@ -343,6 +343,8 @@
     <Content Include="images\AjaxLoader\ringLoading1.gif" />
     <Content Include="images\Eclipse-1.7s-200px.gif" />
     <Content Include="images\Handle with care.png" />
+    <Content Include="images\Logo3.Png" />
+    <Content Include="images\logo2.png" />
     <Content Include="images\logo.PNG" />
     <Content Include="images\myDogs\Bobby Dog.jpg" />
     <Content Include="images\myDogs\puppy.jpg" />

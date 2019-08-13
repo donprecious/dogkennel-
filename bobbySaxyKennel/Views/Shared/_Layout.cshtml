@@ -1,4 +1,5 @@
-﻿@using bobbySaxyKennel.Models.ClassModel
+﻿@using bobbySaxyKennel.Models
+@using bobbySaxyKennel.Models.ClassModel
 @using Microsoft.AspNet.Identity
 @{
     var categories = new Categories().List().Take(4);
@@ -33,16 +34,12 @@
           type='text/css' media='all' />*@
     @*<script type='text/javascript'
         src='https://jimboystacos.com/wp-admin/load-scripts.php?c=gzip&amp;load%5B%5D=jquery-core,jquery-migrate&amp;ver=4.8.9'></script>*@
-    <script type='text/javascript' src='~/jimboy/wp-content/plugins/google-reviews-business/static/js/wpac-time.js'></script>
-    <!--[if IE]><script type='text/javascript' src='https://jimboystacos.com/wp-content/plugins/wordpress-popup/assets/js/vendor/fitie/fitie.js'></script> <![endif]-->
-    <script type='text/javascript' src='~/jimboy/wp-content/plugins/wp-accessibility/js/skiplinks.webkit.js'></script>
-    <!--[if lt IE 9]> <script type='text/javascript' src='https://jimboystacos.com/wp-content/themes/twentyseventeen/assets/js/html5.js'></script> <![endif]-->
     <script src="~/jimboy/wp-includes/js/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
     @*<link rel="stylesheet" id="twentyseventeen-fonts-css" href="https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&amp;subset=latin%2Clatin-ext" type="text/css" media="all">*@
     @*<link rel='https://api.w.org/' href='wp-json/index.html' />
         <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
         <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
-        <meta name="generator" content="WordPress 4.8.9" />
+        <meta name="generator" content="WordPress 4.8.9" />  
         <link rel="canonical" href="index.html" />
         <link rel='shortlink' href='index.html' />
         <link rel="alternate" type="application/json+oembed"
@@ -111,6 +108,9 @@
         a.nuti-aa {
             width: auto;
             padding: 10px;
+        } 
+        .main-logo img {
+            width: 70%; 
         }
     </style>
     <link href="~/css/site.css" rel="stylesheet" />
@@ -243,7 +243,16 @@
                         <div class="col-md-2"><a href="@Url.Action("About", "Home")">About</a></div>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div class="col-md-2"><a href="@Url.Action("MyOrders","Item")">My orders</a></div>
+                            if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                            {
+                             
+                                <div class="col-md-2"><a href="@Url.Action("Index","Admin")">Dashboard</a></div>
+                            }
+                            else
+                            {
+                                <div class="col-md-2"><a href="@Url.Action("MyOrders","Item")">My orders</a></div>
+                            }
+                       
 
                             <div class="col-md-2"><a href="@Url.Action("SignOut","Account")">Logout</a></div>
 
@@ -292,7 +301,16 @@
                                 <li><a href="@Url.Action("Contact","Home")">Contact us</a></li>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a href="@Url.Action("MyOrders","Item")">My Orders</a></li>
+                                    if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                                    {
+                                        <li><a href="@Url.Action("Index","Admin")">Dashboard</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("MyOrders","Item")">My Orders</a></li>
+
+                                    }
 
                                     <li><a href="@Url.Action("SignOut","Account")">Logout</a></li>
                                 }
@@ -329,10 +347,10 @@
                             </span>
                         </div>
                     </div>
-                    <div class="foot_right">
+                    @*<div class="foot_right">
                         <img src="~/jimboy/images/foot_trailer.png"
                              title="Jimboys The Original American Taco Since 1954" alt="Khaleej  Old Trailer" />
-                    </div>
+                    </div>*@
                 </div>
             </footer>
         </div>
