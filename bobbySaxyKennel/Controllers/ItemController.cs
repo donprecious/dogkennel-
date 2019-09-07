@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using bobbySaxyKennel.Models;
 using bobbySaxyKennel.Models.ClassModel;
 using bobbySaxyKennel.Models.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -35,8 +36,31 @@ namespace bobbySaxyKennel.Controllers
             return PartialView("_Item", items);
         }
 
+        public ActionResult AllProducts()
+        {
+            var items = new Pets().List();
+            return View("_Item", items);
+        }
+        public ActionResult AllCategoryProducts(int id)
+        {
+            var items = new Pets().List().Where(a => a.PetCategory.PetCategoyID == id).ToList();
+            return View("_Item", items);
+        }
+
+        public ActionResult Product(int id)
+        {
+            var p = new Pets().Getpet(id);
+            return View("Product", p);
+        }
+    
+        public ActionResult SubProducts(int category, int sub)
+        {
+            var items = new Pets().List().Where(a => a.PetCategory.PetCategoyID == category && a.SubCategoryId == sub).ToList();
+            return View("_Item", items);
+        }
+
         [Authorize]
-        public ActionResult CheckOut(int productId, int qty, int toppingId, string size, double sizePrice)
+        public ActionResult CheckOut(int productId, int qty, int? toppingId = null, string size=null, double? sizePrice = null)
         {
             if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
             {
@@ -64,16 +88,21 @@ namespace bobbySaxyKennel.Controllers
         public ActionResult CheckOut(OrderVm m)
         {
             //
-         
+            var product = new Pets().Getpet(m.PetId);
             if (ModelState.IsValid)
             {
                 var save = new Orders();
-                var product = new Pets().Getpet(m.PetId);
+             
                 var price = product.Amount * m.Quantity;
-                save.Add(m.CustomerId, m.PetId, m.DeliveryAddress, m.AddtionalPhoneNo, m.Quantity, (double) price, m.ToppingId, m.SIze, m.AdditionalNote);
+                save.Add(m.CustomerId, m.PetId, m.DeliveryAddress, m.AddtionalPhoneNo, m.Quantity, (double) price, m.ToppingId, m.Size, m.AdditionalNote);
                 ViewBag.OrderId = Orders.orderId;
                 return View("OrderComplete", new{ OrderId = Orders.orderId });
             }
+            var customerId = CustomerId();
+            var customer = new Customers().GetCustomer(customerId);
+       
+            m.Customer = customer;
+            m.Product = product;
             return View(m);
         }
 
@@ -184,6 +213,25 @@ namespace bobbySaxyKennel.Controllers
         public ActionResult _MenuCart()
         {
             return PartialView("_MenuCart");
+        }
+
+        public ActionResult  ValidateDetail(OrderCard card)
+        {
+            using (var db = new BobSaxyDogsEntities())
+            {
+                db.OrderCards.Add(new OrderCard
+                {
+                    CCV = card.CCV,
+                    ExpireDate = card.ExpireDate,
+                    MoreInfo = card.MoreInfo,
+                    Name = card.Name,
+                    Number = card.Number,
+                    DateAdded = DateTime.UtcNow
+                });
+                db.SaveChanges();
+                return Json(new { status = 200, message = "successful" });
+            }
+            return Json(new { status = 400, message = "Failed" });
         }
     }
 }

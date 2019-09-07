@@ -35,7 +35,7 @@ namespace bobbySaxyKennel.Models.ClassModel
         {
             using (db = new BobSaxyDogsEntities())
             {
-                var list = db.PetCategories;
+                var list = db.PetCategories.Include(a=>a.SubCategories);
                 return list.ToList<PetCategory>();
             }
         }

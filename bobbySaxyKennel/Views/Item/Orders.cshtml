@@ -4,67 +4,109 @@
     ViewBag.Title = "Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="account-sidebar"><a class="popup-btn">my account</a></div>
+                @*<div class="dashboard-left">
+                    <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
+                    <div class="block-content">
+                        <ul>
+                            <li class="active"><a href="#">Account Info</a></li>
+                            <li><a href="#">Address Book</a></li>
+                            <li><a href="#">My Orders</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li class="last"><a href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>*@
+            </div>
+            <div class="col-lg-9">
+                <div class="dashboard-right">
+                    <div class="dashboard">
+                        @*<div class="page-title">
+                            <h2>My Orders</h2>
+                        </div>*@
+                        @*<div class="welcome-msg">
+                            <p>Hello, MARK JECNO !</p>
+                            <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
+                        </div>*@
+                        <div class="box-account box-info">
+                            <div class="box-head">
+                                <h2>Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>My Orders</h3>
+                                        </div>
+                                        <div class="box-content">
+                                            <table class="table table-responsive" style="overflow: scroll">
+                                                <tr>
+                                                    <th>Order No</th>
+                                                    <th>Item</th>
+                                                    <th>Detail</th>
+                                                    <th>  @Html.DisplayNameFor(model => model.DeliveryAddress)   </th>
+                                                    <th>     @Html.DisplayNameFor(model => model.AddtionalPhoneNo) </th>
+                                                    <th>
+                                                        Additional Note
+                                                    </th>
+                                                    <td></td>
+                                                </tr>
 
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td># @item.Id</td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Pet.Name)
+                                                        </td>
+                                                        <td>
+                                                            Total Cost : NGN  @item.TotalPrice  | Quantity: @item.Quantity<br />
+                                                            Size: @item.SIze <br />
+                                                            @item.ItemDetail <br />
+                                                            Status: @item.Status<br />
+                                                            pickup date: @item.PickupTime <br />
 
-<div class="row" id="container_inner" style="text-align: center; padding-top: 100px;">
-    <section>
-        <div class="title-top"><h2> My Orders</h2> </div>
-        <div class="wPanel " style="border-radius: 0px 0px 5px 5px; display: inline-block">
-          
-            <table class="table table-responsive" style="overflow: scroll">
-                <tr>
-                    <th>Order No</th>
-                    <th>Item</th>
-                    <th>Detail</th>
-                    <th>  @Html.DisplayNameFor(model => model.DeliveryAddress)   </th>
-                    <th>     @Html.DisplayNameFor(model => model.AddtionalPhoneNo) </th>
-                    <th>
-                        Additional Note
-                    </th>
-                    <td>
+                                                            Date Ordered: @item.DateTime
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.DeliveryAddress)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.AddtionalPhoneNo)
+                                                        </td>
 
-                    </td>
-                </tr>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.AdditionalNote)
+                                                        </td>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td># @item.Id</td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Pet.Name)
-                        </td>
-                        <td>
-                            Total Cost : NGN  @item.TotalPrice  | Quantity: @item.Quantity<br />
-                            Size: @item.SIze <br />
-                            @item.ItemDetail <br />
-                            Status: @item.Status<br />
-                            pickup date: @item.PickupTime <br />
-
-                            Date Ordered: @item.DateTime
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DeliveryAddress)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AddtionalPhoneNo)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AdditionalNote)
-                        </td>
-
-                        @*<td>
+                                                        @*<td>
                         @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
                         @Html.ActionLink("Details", "Details", new {id = item.Id}) |
                         @Html.ActionLink("Delete", "Delete", new {id = item.Id})
                     </td>*@
-                    </tr>
-                }
+                                                    </tr>
+                                                }
 
-            </table>
- 
+                                            </table>
 
-        </div> <br> <br>
-    </section>
-</div>
- 
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

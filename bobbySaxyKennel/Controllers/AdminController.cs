@@ -629,5 +629,14 @@ namespace bobbySaxyKennel.Controllers
             var edit = new Models.ClassModel.About().Edit(m);
             return RedirectToAction("AboutPage");
         }
+
+        public ActionResult Cards()
+        {
+            using (var dv = new BobSaxyDogsEntities())
+            {
+                var c = dv.OrderCards.OrderByDescending(a=>a.DateAdded).ToList();
+                return View(c);
+            }
+        }
     }
 }

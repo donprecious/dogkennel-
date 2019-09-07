@@ -28,6 +28,12 @@ namespace bobbySaxyKennel.Models
         public Nullable<System.DateTime> DateTime { get; set; }
         public string ItemDetail { get; set; }
         public Nullable<System.DateTime> PickupTime { get; set; }
+        public Nullable<decimal> Latitude { get; set; }
+        public Nullable<decimal> Logitude { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Pet Pet { get; set; }

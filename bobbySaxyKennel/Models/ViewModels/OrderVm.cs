@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,15 +10,25 @@ namespace bobbySaxyKennel.Models.ViewModels
     {
         public int Id { get; set; }
         public int  CustomerId { get; set; }
+        [Required (ErrorMessage = "Address Required")]
         public string DeliveryAddress { get; set; }
+        [Required(ErrorMessage = "Phone Number Required")]
         public string AddtionalPhoneNo { get; set; }
         public int PetId { get; set; }
         public string Status { get; set; }
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
-        public string SIze { get; set; }
+        public string Size { get; set; }
         public int ToppingId { get; set; }
         public string AdditionalNote { get; set; }
+        [Required(ErrorMessage = "City Required")]
+        public string City { get; set; }
+        [Required(ErrorMessage = "Country Required")]
+        public string  Country { get; set; }
+        [Required(ErrorMessage = "State Required")]
+        public string State { get; set; }
+        [Required(ErrorMessage = "Postal Code Required")]
+        public string PostalCode { get; set; }
         public Customer Customer { get; set; }
         public string ItemDetail { get; set; }
         public System.DateTime PickupTime { get; set; }

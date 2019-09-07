@@ -1,4 +1,5 @@
 ﻿@using bobbySaxyKennel.Models.ClassModel
+@using Webnovel.Helpers
 @model System.Collections.Generic.List<bobbySaxyKennel.Models.Pet>
 @{
     var catgory = new Categories().List();
@@ -6,78 +7,135 @@
 
 
 }
-<div id="content" class="site-content">
-    <div class="no-wrap">
-     
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main" tabindex="-1">
-                <div class="our-story-img" style="background-image: url('/images/menu-head.jpg');">
-                    <div class="page-describer">
-                        <h1>Menu</h1>
-                        <p>View our Khaleej  Tacos tasty menu and order online.</p>
+
+<!-- breadcrumb start -->
+<section class="breadcrumb-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>COLLECTION</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                     
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-b-space ratio_square">
+    <div class="collection-wrapper">
+        <div class="collection-content">
+            <div class="page-main-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="top-banner-wrapper">
+                                @*<a href="#"><img src="#" class="img-fluid " alt=""></a>*@
+
+                            </div>
+                            <div class="collection-product-wrapper">
+                                <div class="product-top-filter">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="product-filter-content">
+                                                @*<div class="search-count">
+                                                    <h5>Showing Products 1-24 of 10 Result</h5>
+                                                </div>*@
+                                                <div class="collection-view">
+                                                    <ul>
+                                                        <li><i class="fa fa-list-ul list-layout-view"></i></li>
+                                                        <li><i class="fa fa-th grid-layout-view"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="collection-grid-view">
+                                                    <ul>
+                                                        <li><a href="javascript:void(0)" class="product-2-layout-view"><ul class="filter-select"><li></li><li></li></ul></a></li>
+                                                        <li><a href="javascript:void(0)" class="product-3-layout-view"><ul class="filter-select"><li></li><li></li><li></li></ul></a></li>
+                                                        <li><a href="javascript:void(0)" class="product-4-layout-view"><ul class="filter-select"><li></li><li></li><li></li><li></li></ul></a></li>
+                                                        <li><a href="javascript:void(0)" class="product-6-layout-view"><ul class="filter-select"><li></li><li></li><li></li><li></li><li></li><li></li></ul></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="product-page-per-view">
+                                                    @*<select>
+                                                        <option value="High to low">24 Products Par Page</option>
+                                                        <option value="Low to High">50 Products Par Page</option>
+                                                        <option value="Low to High">100 Products Par Page</option>
+                                                    </select>*@
+                                                </div>
+                                                <div class="product-page-filter">
+                                                    @*<select>
+                                                        <option value="High to low">Sorting items</option>
+                                                        <option value="Low to High">50 Products</option>
+                                                        <option value="Low to High">100 Products</option>
+                                                    </select>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-wrapper-grid list-view">
+                                    <div class="row">
+                                        @foreach (var i in Model  )
+                                        {
+                                            <div class="col-12">
+                                                <div class="product-box">
+                                                    <div class="img-block">
+                                                        <a href="@Url.Action("Product","Item", new{id = i.PetID})"><img src="@i.ImgLocation" class=" img-fluid bg-img" alt=""></a>
+                                                        @*<div class="cart-details">
+                                                            <button tabindex="0" class="addcart-box" title="Quick shop"><i class="ti-shopping-cart"></i></button>
+                                                            <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a>
+                                                            <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                            <a href="#" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                                        </div>*@
+                                                    </div>
+                                                    <div class="product-info">
+                                                        <div>
+                                                            <a href="@Url.Action("Product","Item", new{id = i.PetID})"><h6>@i.Name</h6></a>
+                                                            <p> @StringProcessor.SubString(i.Description, 0,30) @i.Description<span> </span></p>
+                                                            <h5>$@i.Amount.ToString("N")</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                   
+                                    </div>
+                                </div>
+                                @*<div class="product-pagination mb-0">
+                                    <div class="theme-paggination-block">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                                <nav aria-label="Page navigation">
+                                                    <ul class="pagination">
+                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span> <span class="sr-only">Previous</span></a></li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span> <span class="sr-only">Next</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                                <div class="product-search-count-bottom">
+                                                    <h5>Showing Products 1-24 of 10 Result</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="ourmenu-dl-links">
-                    <ul>
-                       @foreach (var i in catgory)
-                       {
-                           <li class="nuti-lnks">
-                               <a class="nuti-aa" href="javascript:showList(@i.PetCategoyID);" title="@i.Description">@i.Name</a>
-                           </li>
-                       }
-                        
-
-                    </ul>
-                </div> 
-                @*<div class="ourmenu-dl-links">
-                    <ul>
-                     
-                        @foreach (var i in Model)
-                        {
-                            foreach (var a in i.PetCategory.SubCategories)
-                            {
-                                <li class="nuti-lnks">
-                                    <a class="nuti-aa btn-xs" href="showSubList(@i.PetCategoryID, @a.Id)" title="@i.Description">@i.Name</a>
-                                </li>
-                            }
-                            break;
-                        }
-
-                    </ul>
-                </div>*@ 
-            
-                <div class="our-food-full">
-                    <ul>
-                        @foreach (var i in Model)
-                        {
-                            <li>
-                                <div class="o-food-image" style="background-image: url(@i.ImgLocation);"></div>
-                                <div class="color-def">
-                                    <div class="mid-sec">
-                                        <h2 class="spacer">@i.Name</h2>
-                                        @if (Request.Browser.IsMobileDevice)
-                                        {
-                                            <a class="food-button" href="@Url.Action("Meal", "Item")">Order Now <em class="fa fa-chevron-right" aria-hidden="true"></em></a>
-                                        }
-                                        else
-                                        {
-                                            <a class="food-button" href="@Url.Action("Menu", "Item")">Order Now <em class="fa fa-chevron-right" aria-hidden="true"></em></a>
-                                        }
-                                    </div>
-                                    <div class="food-desc">
-                                        <p>NGN @i.Amount</p>
-                                        <p>@i.Description</p>
-
-                                    </div> 
-                                </div>
-                            </li>
-                        }
-                      
-                       
-                    </ul>
-                </div>
-            </main>
+            </div>
         </div>
-        <div class="footer-sizer" style="clear: both; height: 63.3906px;"></div>
     </div>
-</div>
+</section>

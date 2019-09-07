@@ -1,0 +1,59 @@
+﻿@model IEnumerable<bobbySaxyKennel.Models.OrderCard>
+
+@{
+    ViewBag.Title = "Cards";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cards</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoreInfo)
+        </th>
+        <th>
+          Date Added
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoreInfo)
+        </td>
+        <td>
+            @item.DateAdded.Value.ToString("D")
+        </td>
+    </tr>
+}
+
+</table>

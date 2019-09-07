@@ -1,52 +1,1128 @@
-﻿
-<div id="content" class="site-content">
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
-         
-            <div class="home-size">
-                <div class="feat-content fade-in one">
-                    <ul class="slides">
-                        <li>
-                            <div class="feat-me"
-                                 style="background-image:url(../jimboy/wp-content/uploads/2017/05/example_01.jpg);">
+﻿<!-- home slider section start-->
+@using bobbySaxyKennel.Models.ClassModel
+@{
+    var categories = new Categories().List().Take(4); 
+    var products = new Pets().List().OrderByDescending(a=>a.DateCreated).Take(40);
+}
+
+<div class="slider-bg slider-bg-2 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 slider-part">
+                <div class="slide-1 home-slider">
+                    <div>
+                        <div class="home text-left p-left">
+                            <img src="~/html/assets/images/home-banner/7.jpg" class="bg-img " alt="">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="slider-contain">
+                                            <div>
+                                                <h5>sony bravia</h5>
+                                                <h1>LED TV</h1>
+                                                <h4>save up to 50%</h4>
+                                                <a href="#" class="btn btn-solid">shop now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        <li>
-                            <a class="p-link-post" href="taco-twosday/index.html">
-                                <div class="feat-me"
-                                     style="background-image:url(../jimboy/wp-content/uploads/2017/07/updated-promo.jpg);">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="home text-left p-left">
+                            <img src="~/html/assets/images/home-banner/8.jpg" class="bg-img " alt="">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="slider-contain">
+                                            <div>
+                                                <h5>nest</h5>
+                                                <h1>device</h1>
+                                                <h4>save up to 50%</h4>
+                                                <a href="#" class="btn btn-solid">shop now</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-link-post" href="folsom/index.html">
-                                <div class="feat-me"
-                                     style="background-image:url(../jimboy/wp-content/uploads/2019/03/Now-Open-Website-slider.jpg);">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="p-link-post" href="specials/index.html">
-                                <div class="feat-me"
-                                     style="background-image:url(../jimboy/wp-content/uploads/2019/07/brisket-2.jpg);">
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="c-nav">
-                        <a href="#" title="Previous" class="flex-prev">
-                            <em class="light_prev">&nbsp;</em>
-                        </a> <a href="#" title="Next"
-                                class="flex-next"><em class="light_next">&nbsp;</em></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-      
-        </main>
+        </div>
     </div>
 </div>
+<!-- home slider section end-->
+<!-- feature section start -->
+@*<section class="upper-part">
+    <div class="container">
+        <div class="row partition">
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="blog-box blog-pattern">
+                    <div class="blog-white feature-sec">
+                        <h2 class="title">our featured offers</h2>
+                        <div class="feature-block">
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured1.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>save 30% off</h5></a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured2.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>only $99</h5></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-block">
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured3.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>save 20%</h5></a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured4.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>2 day shipping</h5></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-block">
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured5.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>sale 60% off</h5></a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a href="#"><img class="mr-3  img-fluid" src="~/html/assets/images/featured/featured6.jpg" alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <a href="#"><h5>20% off toys</h5></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-12 order-lg-1 order-xl-0">
+                <div class="blog-box blog-pattern">
+                    <div class="blog-white review-sec">
+                        <h2 class="title">customer says</h2>
+                        <div class="slide-1">
+                            <div>
+                                <div class="review-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/testimonial/1.jpg" alt="Generic placeholder image">
+                                        <div class="icon"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
+                                        <div class="media-body">
+                                            <h6>mark jecno</h6>
+                                            <p>Long established fact that a reader will be distracted by the readable.Long established fact. </p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/testimonial/2.jpg" alt="Generic placeholder image">
+                                        <div class="icon"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
+                                        <div class="media-body">
+                                            <h6>lara oprt</h6>
+                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="review-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/testimonial/1.jpg" alt="Generic placeholder image">
+                                        <div class="icon"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
+                                        <div class="media-body">
+                                            <h6>mark jecno</h6>
+                                            <p>Long established fact that a reader will be distracted by the readable.Long established fact. </p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/testimonial/2.jpg" alt="Generic placeholder image">
+                                        <div class="icon"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
+                                        <div class="media-body">
+                                            <h6>lara oprt</h6>
+                                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="blog-box blog-pattern">
+                    <div class="blog-white product-sec">
+                        <h2 class="title">you may like</h2>
+                        <div class="slide-1">
+                            <div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>memory card</h5>
+                                                <p>965 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>watch</h5>
+                                                <p>265 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/3.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>printer</h5>
+                                                <p>653 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/4.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>books</h5>
+                                                <p>4965 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>memory card</h5>
+                                                <p>965 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>watch</h5>
+                                                <p>265 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/3.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>printer</h5>
+                                                <p>653 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-block">
+                                    <div class="media">
+                                        <img class="mr-3" src="~/html/assets/images/may-like/4.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <div>
+                                                <h5>books</h5>
+                                                <p>4965 products</p>
+                                            </div>
+                                            <a href="#" class="btn btn-solid btn-solid-sm">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- feature section end -->
+<!-- banner section start -->
+<section class="section-b-space banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="banner-content">
+                    <h6>summer sale</h6>
+                    <h2>are You getting your <span>weekly deals?</span></h2>
+                    <h4>always saving your money</h4>
+                    <div class="banner-btn">
+                        <h6>use your promo code  <span>save101</span> and getting your deal</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner section start -->
+<!-- tab section start -->
+<section class="section-b-space tab-layout1 ratio_square">
+        <div class="theme-tab">
+            <div class="drop-shadow">
+                <div class="left-shadow">
+                    <img src="~/html/assets/images/left.png" alt="" class=" img-fluid">
+                </div>
+                <div class="right-shadow">
+                    <img src="~/html/assets/images/right.png" alt="" class=" img-fluid">
+                </div>
+            </div>
+        <ul class="tabs">
+            @foreach (var i in categories)
+            {
+                <li >
+                    <a href="@Url.Action("AllCategoryProducts","Item", new{id=i.PetCategoyID})">@i.Name</a>
+                </li>
+            }
+          
+         
+        </ul>
+            <div class="tab-content-cls">
+                <div id="tab-1" class="tab-content active default">
+                    <div class="container">
+                        <div class="row border-row1">
+                            @foreach (var i in products)
+                            {
+                                <div class="col-lg-2 col-sm-4 col-6 p-0">
+                                    <div class="product-box">
+                                        <div class="img-block">
+                                            <a href="@Url.Action("Product","Item", new{id = i.PetID})"><img src="@i.ImgLocation" class=" img-fluid bg-img" alt=""></a>
+                                            <div class="cart-details">
+                                                <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                                @*<a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>*@
+                                            </div>
+                                            <div class="add-btn">
+                                                <a href="@Url.Action("Product","Item", new{id = i.PetID})" class="btn btn-outline" tabindex="0">Check out</a>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="@Url.Action("Product","Item", new{id = i.PetID})"><h6>@i.Name</h6></a>
+                                            <h5>$@i.Amount.ToString("N")</h5>
+                                        </div>
+                                        @*<div class="addtocart_box">
+                                            <div class="addtocart_detail">
+                                                <div>
+                                                    <div class="color">
+                                                        <h5>color</h5>
+                                                        <ul class="color-variant">
+                                                            <li class="light-purple active"></li>
+                                                            <li class="theme-blue"></li>
+                                                            <li class="theme-color"></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="size">
+                                                        <h5>size</h5>
+                                                        <ul class="size-box">
+                                                            <li class="active">xs</li>
+                                                            <li>s</li>
+                                                            <li>m</li>
+                                                            <li>l</li>
+                                                            <li>xl</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="addtocart_btn">
+                                                        <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="close-cart">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            }
 
 
 
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+        </div>
+    </section>
+<!-- tab section start -->
+<!-- Category section start -->
+<section class="category no-arrow">
+    <div class="container">
+        <div class="category-6">
+       
+                @foreach (var i in categories)
+                {
+                    <div>
+                        <div class="category-block">
+                            <img src="@i.imageUrl" width="34" alt="">
+                            <div class="category-content">
+                         
+                                <h5>@i.Name</h5>
+                                <a href="@Url.Action("AllCategoryProducts", "Item", new {id=i.PetCategoyID})" class="btn btn-solid btn-solid-sm">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                 
+                }
+           
+        
+        </div>
+    </div>
+</section>
+<!-- Category section end -->
+<!-- Category banner section start -->
+<section class="ratio_45">
+    <div class="container">
+        <div class="row partition-3">
+            <div class="col-md-4">
+                <a href="#">
+                    <div class="collection-banner p-left">
+                        <div class="img-part">
+                            <img src="~/html/assets/images/banner/1.jpg" class=" img-fluid bg-img" alt="">
+                        </div>
+                        <div class="contain-banner banner-3">
+                            <div>
+                                <div class="banner-deal">
+                                    <h6>save 10% off</h6>
+                                </div>
+                                <h3>leather bag</h3>
+                                <h6>shop now</h6>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#">
+                    <div class="collection-banner p-left">
+                        <div class="img-part">
+                            <img src="~/html/assets/images/banner/2.jpg" class=" img-fluid bg-img" alt="">
+                        </div>
+                        <div class="contain-banner banner-3">
+                            <div>
+                                <div class="banner-deal">
+                                    <h6>-50% off</h6>
+                                </div>
+                                <h3>sports shoes</h3>
+                                <h6>shop now</h6>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#">
+                    <div class="collection-banner p-left">
+                        <div class="img-part">
+                            <img src="~/html/assets/images/banner/3.jpg" class=" img-fluid bg-img" alt="">
+                        </div>
+                        <div class="contain-banner banner-3">
+                            <div>
+                                <div class="banner-deal">
+                                    <h6>free shipping</h6>
+                                </div>
+                                <h3>mac book</h3>
+                                <h6>shop now</h6>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category banner section end -->
+<!-- Product slider section start -->
+@*<section class="section-b-space slider-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 ratio_asos">
+                <div class="deal-box">
+                    <div>
+                        <h2 class="title">today's deal</h2>
+                        <div class="slide-1 border-0">
+                            <div>
+                                <div class="product">
+                                    <div>
+                                        <a href="#"><img src="~/html/assets/images/product/p-1.jpg" class=" img-fluid bg-img" alt=""></a>
+                                    </div>
+                                    <div>
+                                        <div class="timer">
+                                            <p id="demo"></p>
+                                        </div>
+                                        <a href="#"><p>Use Lorem Ipsum as their default model text,</p></a>
+                                        <h5>$63.00 <del>$70.55</del></h5>
+                                        <div class="add-btn">
+                                            <a href="javascript:void(0)" class="btn btn-outline" tabindex="0">buy now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="product">
+                                    <div>
+                                        <img src="~/html/assets/images/product/p-1.jpg" class=" img-fluid bg-img" alt="">
+                                    </div>
+                                    <div class="timer">
+                                        <p id="demo1"></p>
+                                    </div>
+                                    <a href="#"><p>Use Lorem Ipsum as their default model text,</p></a>
+                                    <h5>$63.00 <del>$70.55</del></h5>
+                                    <div class="add-btn">
+                                        <a href="javascript:void(0)" class="btn btn-outline" tabindex="0">buy now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 side-banner side-banner1 pr-0 d-none d-xl-block">
+                <a href="#"><img src="~/html/assets/images/side-banner.jpg" alt="" class=" img-fluid "></a>
+            </div>
+            <div class="col-xl-6 col-lg-7 pl-0 padding-cls ratio_square">
+                <div class="tab-head">
+                    <h2 class="title">last chance to buy</h2>
+                </div>
+                <div class="slider-3">
+                    <div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/31.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/1.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="lable-wrapper">
+                                    <span class="lable1">new</span>
+                                    <span class="lable2">sale</span>
+                                </div>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/29.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/27.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/25.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/23.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/21.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-block">
+                                <a href="#"><img src="~/html/assets/images/product/19.jpg" class=" img-fluid bg-img" alt=""></a>
+                                <div class="cart-details">
+                                    <button title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></button>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                    <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="javascript:void(0)" class="btn btn-outline addcart-box" tabindex="0">quick shop</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <a href="#"><h6>richard mcClintock</h6></a>
+                                <h5>$963.00</h5>
+                            </div>
+                            <div class="addtocart_box">
+                                <div class="addtocart_detail">
+                                    <div>
+                                        <div class="color">
+                                            <h5>color</h5>
+                                            <ul class="color-variant">
+                                                <li class="light-purple active"></li>
+                                                <li class="theme-blue"></li>
+                                                <li class="theme-color"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="size">
+                                            <h5>size</h5>
+                                            <ul class="size-box">
+                                                <li class="active">xs</li>
+                                                <li>s</li>
+                                                <li>m</li>
+                                                <li>l</li>
+                                                <li>xl</li>
+                                            </ul>
+                                        </div>
+                                        <div class="addtocart_btn">
+                                            <a href="javascript:void(0)" data-toggle="modal" class="closeCartbox" data-target="#addtocart" tabindex="0">add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-cart">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- Product slider section end -->
+<!-- banner section start -->
+<section class="section-b-space banner-sec landscape-layout ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-6 pr-0">
+                <a href="#">
+                    <div class="left-banner">
+                        <h2>5% off</h2>
+                        <img src="~/html/assets/images/banner/5.png" class=" img-fluid" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-7 col-12 pl-0 order-class">
+                <div class="center-banner">
+                    <div class="center">
+                        <a href="#"><img src="~/html/assets/images/banner/4.jpg" alt="" class=" img-fluid"></a>
+                    </div>
+                    <div class="contain-left">
+                        <div>
+                            <h4>today</h4>
+                            <h4><span>money savers</span></h4>
+                        </div>
+                    </div>
+                    <div class="contain-right">
+                        <div>
+                            <a href="#"><h6>Richard McClintock</h6></a>
+                            <h5>$963.00</h5>
+                            <h6><span>sale ending</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <a href="#">
+                    <div class="right-banner">
+                        <div>
+                            <h5>summer sale</h5>
+                            <h2>sale</h2>
+                            <h6>save 30% off</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner section end -->
+<!-- detail section start -->
+<section class="">
+    <div class="container">
+        <div class="row partition-3">
+            <div class="col-xl-4 col-md-6">
+                <div class="blog-box blog-pattern">
+                    <div class="blog-white contact">
+                        <h5>need help? contact us</h5>
+                        <h3>info@shopawesome.cf</h3>
+                        <div class="contact-form">
+                            <h5><span>contact us</span></h5>
+                            <form class="theme-form">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="your name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="number">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="message" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-solid btn-block">Send a Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-xl-4 col-md-12 order-cls">
+                <div class="blog-box blog-pattern blog">
+                    <div class="blog-white">
+                        <h2 class="title">success story</h2>
+                        <div class="slide-1">
+                            <div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/4.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/5.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/6.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/1.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/2.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <a href="#"><img src="~/html/assets/images/blog/multi-category/3.jpg" class=" img-fluid mr-3" alt=""></a>
+                                    <div class="media-body blog-info blog-vertical">
+                                        <div>
+                                            <a href="#"><h5>25 july 2018</h5></a>
+                                            <h6>by: admin, 0 comment</h6>
+                                            <p>Sometimes on purpose ected humour. dummy text.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="col-xl-6 col-md-6">
+                <div class="blog-box blog-pattern">
+                    <div class="blog-white app-white">
+                        <h5>download the <span>Shopawesome app</span></h5>
+                        <div class="app-buttons">
+                            <a href="#"><img src="~/html/assets/images/app/app-storw.png" class=" img-fluid" alt=""></a>
+                            <a href="#"><img src="~/html/assets/images/app/play-store.png" class=" img-fluid" alt=""></a>
+                        </div>
+                        <img src="~/html/assets/images/app/1.png" class=" img-fluid mobile1" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- detail section end -->
+<!-- logo section start -->
+<section class=" section-b-space logo">
+    <div class="container">
+        <h2 class="title">trusted brand</h2>
+        <div class="logo-4 border-logo">
+            <div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/1.png" class=" img-fluid" alt="">
+                </div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/2.png" class=" img-fluid" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/3.png" class=" img-fluid" alt="">
+                </div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/4.png" class=" img-fluid" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/5.png" class=" img-fluid" alt="">
+                </div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/6.png" class=" img-fluid" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/7.png" class=" img-fluid" alt="">
+                </div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/8.png" class=" img-fluid" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/2.png" class=" img-fluid" alt="">
+                </div>
+                <div class="logo-img">
+                    <img src="~/html/assets/images/logo/3.png" class=" img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- logo section end -->
+<!-- footer section start -->
+<!-- footer section end -->
 @*<div id="homePage" style="display: block">
         <!-- start deal ----->
         <div class="row" id="homeDeals">
